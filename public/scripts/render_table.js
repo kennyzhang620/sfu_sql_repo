@@ -158,8 +158,9 @@ function updateDB(ind) {
 }
 
 function insertAsStr(dataEntry, ind) {
-	var out = `
+    var out = `
             <tr>
+                <td><input type="checkbox" id="${dataEntry.id}_rm" value=""></td>
                 <td><input type="number" id="${dataEntry.id}_lat" value="${dataEntry.latitude}" oninput="updateDB(${ind})"\></td>
                 <td><input type="number" id="${dataEntry.id}_long" value="${dataEntry.longitude}" oninput="updateDB(${ind})"\></td>
                 <td><input type="text" id="${dataEntry.id}_rs" value="${dataEntry.research_site}" oninput="updateDB(${ind})"\></td>
@@ -187,6 +188,7 @@ function generateCell(tb, dataEntries, start, end) { // in packs of 10 each.
         var base = `
         <table>
             <tr>
+                <td>Mark for Deletion</td>
                 <td>Latitude (AutoFill capable)</td>
                 <td>Longitude (AutoFill capable)</td>
                 <td>Research Sites</td>
