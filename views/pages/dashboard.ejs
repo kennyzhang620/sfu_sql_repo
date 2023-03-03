@@ -50,6 +50,42 @@
             </tr>
         </table>
     </div>
-    <script src="scripts/render_images.js"></script>
+
+    <div class="add_entry">
+        <div id="description" style="font-weight:600; padding: 10px;">Add New Database Entry</div>
+        <table>
+            <tr>
+                <td>Latitude (AutoFill capable)</td>
+                <td>Longitude (AutoFill capable)</td>
+                <td>Research Sites</td>
+                <td>Project</td>
+                <td>Principle Investigator</td>
+                <td>Co-PIs</td>
+                <td>Collaborators (not funders)</td>
+                <td>Research Keywords (AutoFill capable)</td>
+                <td>Funding Period</td>
+                <td>Funder</td>
+                <td>Image URL</td>
+            </tr>
+            <tr>
+                <td><input type="number" id="add_lat" value="" oninput="updateDB(0)"></td>
+                <td><input type="number" id="add_long" value="" oninput="updateDB(0)"></td>
+                <td><input type="text" id="add_rs" value="" oninput="updateDB(0)"></td>
+                <td><input type="text" id="add_proj" value="" oninput="updateDB(0)"></td>
+                <td><input type="text" id="add_pi" value="" oninput="updateDB(0)"></td>
+                <td><input type="text" id="add_cpi" value="" oninput="updateDB(0)"></td>
+                <td><input type="text" id="add_collabs" value="" oninput="updateDB(0)"></td>
+                <td><input type="text" id="add_kw" value="" oninput="updateDB(0)"></td>
+                <td><input type="number" id="add_fperiod" value="" oninput="updateDB(0)"></td>
+                <td><input type="text" id="add_fund" value="" oninput="updateDB(0)"></td>
+                <td><input type="text" id="add_url" value="" oninput="updateDB(0)"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="options">
+        <div id="selector"><input type="image" style="width: 60px; height: 60px;" src="icons/add_plant.png"></div>
+        <div id="selector"><input type="image" style="width: 60px; height: 60px;" src="icons/upload_file.png" onclick="sendUpdates()"></div>
+    </div>
+    <script src="scripts/render_table.js"></script>
 </body>
 </html>

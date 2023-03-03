@@ -54,7 +54,7 @@ app.get("/users/dashboard", (req, res) => {
         res.redirect("/users/login");
 });
 
-app.post('/view_db/:search/:index'), async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
+app.post('/view_db/:search/:index', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
     let searchP = req.params.search
     let ind = req.params.index
     let auth_key = req.body.auth_key // a hybrid GET/POST system. POST for key, URLEncoding for search params/index
@@ -90,6 +90,40 @@ app.post('/view_db/:search/:index'), async (req, res) => { // example: /view_db/
     }
     else {
         res.json("error")
+    }
+});
+
+app.post('/add_entry/', async (req, res) => {
+
+    console.log("Reading...");
+    let lat = req.body.latitude;
+    let long = req.body.longitude;
+    let Proj = req.body.project;
+    let Research_S = req.body.research_sites
+    let PI = req.body.pi_main
+    let coPIs = req.body.co_pi
+    let collab = req.body.collabs
+    let funders = req.body.funders 
+    let keywords = req.body.keywords
+    let fundyear = req.body.year;
+    let auth_key = req.body.auth_key
+    let url = req.body.url
+
+    if (auth_key == "93y7y33") {
+        const sqlStatement = `INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (${lat},${long},'${Research_S}','${Proj}', '${PI}', '${coPIs}', '${collab}', '${keywords}', ${fundyear}, '${funders}', '${url}');`;
+
+        console.log("===>", sqlStatement)
+        const client = await pool.connect();
+        const result = await client.query(sqlStatement);
+        const data = { results: result.rows };
+
+        console.log(data)
+        client.release();
+
+        res.json("Success!");
+    }
+    else {
+        res.error(403);
     }
 });
 

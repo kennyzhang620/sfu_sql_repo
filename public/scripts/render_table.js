@@ -1,6 +1,8 @@
 var dataBaseArray = null;
 var tableView = document.getElementsByClassName("main_editor")
+var addView = document.getElementsByClassName("add_entry")
 var storedData = null;
+var updateList = [false, false, false, false, false, false, false, false, false, false, false]
 
 function print(objectD) {
     console.log(objectD)
@@ -150,28 +152,33 @@ function clearCells() {
 }
 
 
-function insertAsStr(dataEntry) {
+function updateDB(ind) {
+    updateList[ind] = true;
+    console.log(updateList);
+}
+
+function insertAsStr(dataEntry, ind) {
 	var out = `
             <tr>
-                <td>${dataEntry.latitude}</td>
-                <td>${dataEntry.longitude}</td>
-                <td>${dataEntry.research_site}</td>
-                <td>${dataEntry.project}</td>
-                <td>${dataEntry.pi}</td>
-                <td>${dataEntry.co_pi}</td>
-                <td>${dataEntry.collabs}</td>
-                <td>${dataEntry.keywords}</td>
-                <td>${dataEntry.fperiod}</td>
-                <td>${dataEntry.funder}</td>
-                <td>${dataEntry.url}</td>
+                <td><input type="number" id="${dataEntry.id}_lat" value="${dataEntry.latitude}" oninput="updateDB(${ind})"\></td>
+                <td><input type="number" id="${dataEntry.id}_long" value="${dataEntry.longitude}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" id="${dataEntry.id}_rs" value="${dataEntry.research_site}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" id="${dataEntry.id}_proj" value="${dataEntry.project}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" id="${dataEntry.id}_pi" value="${dataEntry.pi}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" id="${dataEntry.id}_cpi" value="${dataEntry.co_pi}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" id="${dataEntry.id}_collabs" value="${dataEntry.collabs}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" id="${dataEntry.id}_kw" value="${dataEntry.keywords}" oninput="updateDB(${ind})"\></td>
+                <td><input type="number" id="${dataEntry.id}_fperiod" value="${dataEntry.fperiod}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" id="${dataEntry.id}_fund" value="${dataEntry.funder}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" id="${dataEntry.id}_url" value="${dataEntry.url}" oninput="updateDB(${ind})"\></td>
             </tr>
 	`
 	return out;
 	
 }
-function generateCell(dataEntries, start, end) { // in packs of 10 each.
+function generateCell(tb, dataEntries, start, end) { // in packs of 10 each.
 
-    var inner = tableView
+    var inner = tb
 
     if (inner != null) {
 
@@ -194,7 +201,7 @@ function generateCell(dataEntries, start, end) { // in packs of 10 each.
             </tr>`
 		var insert = ""
 		for (var i =start;i<end;i++) {
-			insert += insertAsStr(dataEntries[i])
+			insert += insertAsStr(dataEntries[i], i)
 		}
 		
 		var endEl = `</table>`
@@ -208,7 +215,7 @@ function generateCell(dataEntries, start, end) { // in packs of 10 each.
 
 function getDB() {
     var txtFile = new XMLHttpRequest();
-    txtFile.open("GET", "/plantscanner-api/get-images");
+    txtFile.open("GET", "/test_case?key=testkey1928");
 
     txtFile.onload = function (e) {
         if (txtFile.readyState === 4) {
@@ -223,13 +230,9 @@ function getDB() {
                     if (parsedD != null && parsedD.results != null && parsedD.results.length > 0) {
                         clearCells();
 
-                        for (var i = 0; i < parsedD.results.length; i++) {
-
-                            // if (a and B and C filters are true):
-
-                            generateCell(parsedD.results[i].image64, parsedD.results[i].id)
-                            //    console.log(parsedD.results[i].image_data)
-                        }
+                        console.log("rest: ", parsedD.results);
+                        generateCell(tableView, parsedD.results, 0,parsedD.results.length)
+ 
                     }
                 }
 
@@ -326,7 +329,70 @@ function encodeImageFileAsURL(fileN) {
     }
 }
 
+function sendPacket(url, data_main) {
+    var txtFile = new XMLHttpRequest();
+    txtFile.open("POST", url);
 
+    txtFile.setRequestHeader("Accept", "application/json");
+    txtFile.setRequestHeader("Content-Type", "application/json");
+
+    txtFile.onload = function (e) {
+        if (txtFile.readyState === 4) {
+            if (txtFile.status === 200) {
+                var csvData = txtFile.responseText;
+                console.log(csvData, "<<<<");
+                console.log(csvData)
+
+            }
+            else {
+                console.log("--->>>", txtFile.statusText);
+            }
+        }
+    };
+
+    txtFile.onerror = function (e) {
+        console.error(txtFile.statusText);
+    };
+
+    txtFile.send(JSON.stringify(data_main));
+}
+
+function sendUpdates() {
+    /**
+
+    let lat = req.body.latitude;
+    let long = req.body.longitude;
+    let Proj = req.body.project;
+    let Research_S = req.body.research_sites
+    let PI = req.body.pi_main
+    let coPIs = req.body.co_pi
+    let collab = req.body.collabs
+    let funders = req.body.funders
+    let keywords = req.body.keywords
+    let fundyear = req.body.year;
+    let auth_key = req.body.auth_key
+    let url = req.body.url
+
+*/
+    const newEntry = {
+        "latitude": document.getElementById("add_lat").value,
+        "longitude": document.getElementById("add_long").value,
+        "project": document.getElementById("add_proj").value,
+        "research_sites": document.getElementById("add_rs").value,
+        "pi_main": document.getElementById("add_pi").value,
+        "co_pi": document.getElementById("add_cpi").value,
+        "collabs": document.getElementById("add_collabs").value,
+        "keywords": document.getElementById("add_kw").value,
+        "funders": document.getElementById("add_fund").value,
+        "year": document.getElementById("add_fperiod").value,
+        "url": document.getElementById("add_url").value,
+        "auth_key": "93y7y33"
+    }
+
+    console.log(newEntry)
+    sendPacket('/add_entry', newEntry)
+
+}
 
 function dropHandler(ev) {
     console.log('File(s) dropped');
@@ -364,6 +430,13 @@ function manualHandler(ev1) {
     input.click();
 }
 
-clearCells();
-generateCell([],0,0)
+window.addEventListener("beforeunload", function (e) {
+    var confirmationMessage = 'It looks like you have been editing something. '
+        + 'If you leave before saving, your changes will be lost.';
 
+    (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+    return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+});
+
+clearCells();
+getDB()
