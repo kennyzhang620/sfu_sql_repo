@@ -4,6 +4,7 @@ var addView = document.getElementsByClassName("add_entry")
 var storedData = null;
 var updateList = [false, false, false, false, false, false, false, false, false, false, false]
 
+var updateDetected = false;
 function print(objectD) {
     console.log(objectD)
 }
@@ -155,23 +156,91 @@ function clearCells() {
 function updateDB(ind) {
     updateList[ind] = true;
     console.log(updateList);
+
+	var items = document.getElementsByName(`${ind}_field`)
+	var nlat = items[0]
+	
+
+    if (!updateDetected) {
+        updateDetected = true;
+    }
+
+}
+
+function deleteDB(uid, lat, long) {
+
+    console.log("UID: ", uid)
+    const newEntry = {
+        "latitude": lat,
+        "longitude": long,
+        "uid": uid,
+        "auth_key": "93y7y33"
+    }
+
+    sendPacket('/delete_entry', newEntry);
+}
+
+function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, fund, url) {
+    const newEntry = {
+        "uid": uid,
+        "latitude": lat,
+        "longitude": long,
+        "project": proj,
+        "research_sites": rs,
+        "pi_main": pi,
+        "co_pi": cpi,
+        "collabs": collabs,
+        "keywords": kw,
+        "funders": fund,
+        "year": fperiod,
+        "url": url,
+        "auth_key": "93y7y33"
+    }
+
+    sendPacket('/update_entry/', newEntry);
+}
+
+function runUpdates() {
+    for (var i = 0; i < updateList.length; i++) {
+        if (i != updateList.length - 1 && updateList[i]) {
+            const items = document.getElementsByName(`${i}_field`);
+
+            if (items[0].checked) {
+                const val = confirm("Database entries detected that are marked for deletion. Press OK to confirm deletion.")
+
+                if (val) {
+                    deleteDB(items[0].id.replace(/\D/g, ''), items[1].value, items[2].value)
+                }
+
+
+            }
+            else {
+                updateDBEntry(items[0].id.replace(/\D/g, ''), items[1].value, items[2].value, items[3].value, items[4].value, items[5].value, items[6].value, items[7].value, items[8].value, items[9].value, items[10].value, items[11].value);
+            }
+        }
+        else if (i == updateList.length - 1 && updateList[i]) {
+            pushNewEntry();
+        }
+    }
+
+  //  top.location.reload()
 }
 
 function insertAsStr(dataEntry, ind) {
     var out = `
             <tr>
-                <td><input type="checkbox" id="${dataEntry.id}_rm" value=""></td>
-                <td><input type="number" id="${dataEntry.id}_lat" value="${dataEntry.latitude}" oninput="updateDB(${ind})"\></td>
-                <td><input type="number" id="${dataEntry.id}_long" value="${dataEntry.longitude}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" id="${dataEntry.id}_rs" value="${dataEntry.research_site}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" id="${dataEntry.id}_proj" value="${dataEntry.project}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" id="${dataEntry.id}_pi" value="${dataEntry.pi}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" id="${dataEntry.id}_cpi" value="${dataEntry.co_pi}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" id="${dataEntry.id}_collabs" value="${dataEntry.collabs}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" id="${dataEntry.id}_kw" value="${dataEntry.keywords}" oninput="updateDB(${ind})"\></td>
-                <td><input type="number" id="${dataEntry.id}_fperiod" value="${dataEntry.fperiod}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" id="${dataEntry.id}_fund" value="${dataEntry.funder}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" id="${dataEntry.id}_url" value="${dataEntry.url}" oninput="updateDB(${ind})"\></td>
+                <td><input type="checkbox" name="${ind}_field" id="${dataEntry.id}_rm" value="" oninput="updateDB(${ind})"></td>
+                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_lat" value="${dataEntry.latitude}" oninput="updateDB(${ind})"\></td>
+                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_long" value="${dataEntry.longitude}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_rs" value="${dataEntry.research_site}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_proj" value="${dataEntry.project}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_pi" value="${dataEntry.pi}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_cpi" value="${dataEntry.co_pi}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_collabs" value="${dataEntry.collabs}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" name="${ind}_field" d="${dataEntry.id}_kw" value="${dataEntry.keywords}" oninput="updateDB(${ind})"\></td>
+                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_fperiod" value="${dataEntry.fperiod}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_fund" value="${dataEntry.funder}" oninput="updateDB(${ind})"\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_url" value="${dataEntry.url}" oninput="updateDB(${ind})"\></td>
             </tr>
 	`
 	return out;
@@ -263,46 +332,6 @@ function HideOverlay() {
     uoverlay.style.display = "none";
 }
 
-function sendEncoded(base64) {
-    var txtFile = new XMLHttpRequest();
-    txtFile.open("POST", "/plantscanner-api/image64");
-
-    txtFile.setRequestHeader("Accept", "application/json");
-    txtFile.setRequestHeader("Content-Type", "application/json");
-
-    let image_encoded = `{
-     "image_data": "${base64}"
-    }`;
-    txtFile.onload = function (e) {
-        if (txtFile.readyState === 4) {
-            if (txtFile.status === 200) {
-                var csvData = txtFile.responseText;
-                console.log(csvData, "<<<<");
-                if (csvData != '-1') {
-                    console.log(csvData, "Response");
-                    display_r.style = "border: 3px solid green;"
-                    window.location.replace(`/plantscanner-api/get-image?id=${csvData}`);
-                }
-                else {
-                    display_r.style = "border: 3px dashed red;"
-                  //  alert("Error scanning image. Please ensure that the image you are using is a plant.");
-                }
-
-            }
-            else {
-                console.log("--->>>", txtFile.statusText);
-                display_r.style = "border: 3px dashed red;"
-            }
-        }
-    };
-
-    txtFile.onerror = function (e) {
-        console.error(txtFile.statusText);
-    };
-
-    txtFile.send(image_encoded);
-}
-
 function encodeImageFileAsURL(fileN) {
 
     display_rm.style.display = 'inline-block';
@@ -359,6 +388,30 @@ function sendPacket(url, data_main) {
     txtFile.send(JSON.stringify(data_main));
 }
 
+function enforceEntry(lat, long, proj, fundperiod) {
+    return (!isNaN(lat) && !isNaN(long) && proj != "" && !isNaN(fundperiod))
+}
+function pushNewEntry() {
+    const newEntry = {
+        "latitude": document.getElementById("add_lat").value,
+        "longitude": document.getElementById("add_long").value,
+        "project": document.getElementById("add_proj").value,
+        "research_sites": document.getElementById("add_rs").value,
+        "pi_main": document.getElementById("add_pi").value,
+        "co_pi": document.getElementById("add_cpi").value,
+        "collabs": document.getElementById("add_collabs").value,
+        "keywords": document.getElementById("add_kw").value,
+        "funders": document.getElementById("add_fund").value,
+        "year": document.getElementById("add_fperiod").value,
+        "url": document.getElementById("add_url").value,
+        "auth_key": "93y7y33"
+    }
+
+    console.log("ETR", enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.fundperiod))
+    if (enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.fundperiod))
+        sendPacket('/add_entry', newEntry);
+}
+
 function sendUpdates() {
     /**
 
@@ -376,24 +429,9 @@ function sendUpdates() {
     let url = req.body.url
 
 */
-    const newEntry = {
-        "latitude": document.getElementById("add_lat").value,
-        "longitude": document.getElementById("add_long").value,
-        "project": document.getElementById("add_proj").value,
-        "research_sites": document.getElementById("add_rs").value,
-        "pi_main": document.getElementById("add_pi").value,
-        "co_pi": document.getElementById("add_cpi").value,
-        "collabs": document.getElementById("add_collabs").value,
-        "keywords": document.getElementById("add_kw").value,
-        "funders": document.getElementById("add_fund").value,
-        "year": document.getElementById("add_fperiod").value,
-        "url": document.getElementById("add_url").value,
-        "auth_key": "93y7y33"
-    }
 
-    console.log(newEntry)
-    sendPacket('/add_entry', newEntry)
-
+    updateDetected = false;
+    runUpdates();
 }
 
 function dropHandler(ev) {
@@ -433,11 +471,13 @@ function manualHandler(ev1) {
 }
 
 window.addEventListener("beforeunload", function (e) {
-    var confirmationMessage = 'It looks like you have been editing something. '
-        + 'If you leave before saving, your changes will be lost.';
+    if (updateDetected) {
+        var confirmationMessage = 'It looks like you have been editing something. '
+            + 'If you leave before saving, your changes will be lost.';
 
-    (e || window.event).returnValue = confirmationMessage; //Gecko + IE
-    return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+        (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+        return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+    }
 });
 
 clearCells();

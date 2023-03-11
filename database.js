@@ -1,3 +1,4 @@
+// psad database connector
 const { Pool } = require('pg');
 
 var status = 0; // 0 - Success 1 - Failure
