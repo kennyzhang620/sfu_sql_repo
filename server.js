@@ -24,6 +24,7 @@ app.use(express.json());
  */
 app.get("/",(req,res)=>{
     //res.send("Hello");
+	console.log("Loading db");
     res.render("pages/dashboard")
 
 });
@@ -36,7 +37,7 @@ app.get("/users/login", (req,res)=>{
     console.log('testing login')
     res.render("pages/login");
 });
-b
+
 app.get("/users/dashboard", (req, res) => {
 
     if (req.user != null)
