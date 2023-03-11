@@ -8,7 +8,7 @@ const devConnectionString = "postgres://test_dev:kotoba@localhost/image_test"; /
 
 console.log('sfsfd')
 const pool = new Pool({
-    connectionString: isProduction ? 'postgres://muljkzqt:Prb5uIqbvV6lUWUnC3PcccaXtReC48bu@mahmud.db.elephantsql.com/muljkzqt' : devConnectionString,
+    connectionString: isProduction ? process.env.DB_KEY : devConnectionString,
      
 });
 
