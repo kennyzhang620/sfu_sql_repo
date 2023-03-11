@@ -36,7 +36,7 @@ app.get("/users/login", (req,res)=>{
     console.log('testing login')
     res.render("pages/login");
 });
-
+b
 app.get("/users/dashboard", (req, res) => {
 
     if (req.user != null)
