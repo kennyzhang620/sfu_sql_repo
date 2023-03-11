@@ -219,6 +219,7 @@ function runUpdates() {
             }
         }
         else if (i == updateList.length - 1 && updateList[i]) {
+			console.log("Update1");
             pushNewEntry();
         }
     }
