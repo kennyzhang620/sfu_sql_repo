@@ -408,7 +408,7 @@ function pushNewEntry() {
         "auth_key": "93y7y33"
     }
 
-    console.log("ETR", enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.fundperiod))
+    console.log("ETR", newEntry.latitude, newEntry.longitude, enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.fundperiod))
     if (enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.fundperiod))
         sendPacket('/add_entry', newEntry);
 }
