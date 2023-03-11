@@ -224,7 +224,7 @@ function runUpdates() {
         }
     }
 
-  //  top.location.reload()
+    top.location.reload()
 }
 
 function insertAsStr(dataEntry, ind) {
