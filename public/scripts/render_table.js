@@ -221,10 +221,11 @@ function runUpdates() {
         else if (i == updateList.length - 1 && updateList[i]) {
 			console.log("Update1");
             pushNewEntry();
+			
         }
     }
 
-    top.location.reload()
+  //  top.location.reload()
 }
 
 function insertAsStr(dataEntry, ind) {
