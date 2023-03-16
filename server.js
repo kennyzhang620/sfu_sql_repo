@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
 const { pool } = require("./dbConfig");
-//const bcrypt = require("bcrypt");
-//const session = require("express-session");
+const bcrypt = require("bcrypt");
+const sessions = require("express-session");
+const cookieParser = require("cookie-parser");
 //const flash = require("express-flash");
 //const passport = require("passport");
 const cors = require("cors") //cross-origin resource sharing
@@ -27,29 +28,33 @@ app.set('view engine', 'ejs');
 //app.use(express.json()); 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cookieParser());
+
+const oneDay = 1000 * 60 * 60 * 24;
+var session;
+
+app.use(
+    sessions({
+        //what this does this a key we
+        //want to keep secret and it's just going to encrypt all of our 
+        //information we store in the session the next variable
+        secret: 'secret',
 
 
-//app.use(
-//    session({
-//        //what this does this a key we
-//        //want to keep secret and it's just going to encrypt all of our 
-//        //information we store in the session the next variable
-//        secret: 'secret',
+        //is should we it's saying should we save our session variables if nothing has
+        //changed if none of our informations change which we don't want to do that's what I say well that's what I'm saying is false
+        resave: false,
 
-
-//        //is should we it's saying should we save our session variables if nothing has
-//        //changed if none of our informations change which we don't want to do that's what I say well that's what I'm saying is false
-//        resave: false,
-
-//        //then finally save initialized that's also has to be false 
-//        //because we want to save session details if there's been no value placed
-//        //in the session which is false
-//        saveUninitialized: false
+        cookie: { maxAge: oneDay },
+        //then finally save initialized that's also has to be false 
+        //because we want to save session details if there's been no value placed
+        //in the session which is false
+        saveUninitialized: false
 
 
 
-//    })
-//);
+    })
+);
 
 //app.use(passport.initialize());
 
@@ -59,52 +64,48 @@ app.use(express.json());
 //app.use(flash());
 
 
-//app.get("/users/register", (req, res) => {
-//    res.render("pages/register");
-//});
+app.get("/users/register", (req, res) => {
+    res.render("pages/register");
+});
 
-//app.get("/users/login", (req, res) => {
-//    console.log('testing login')
-//    res.render("pages/login");
-//});
+app.get("/users/login", (req, res) => {
+    console.log('testing login')
+    res.render("pages/login");
+});
 
-//app.get("/users/dashboard", (req, res) => {
+app.get("/users/dashboard", (req, res) => {
 
-//    if (req.user != null)
-//        res.render("pages/Image_Display_Grid", { user: req.user.name });
-//    else
-//        res.redirect("/users/login");
-//});
+    if (req.user != null)
+        res.render("pages/Image_Display_Grid", { user: req.user.name });
+    else
+        res.redirect("/users/login");
+});
 
-//app.get("/users/logout", (req, res) => {
-//    req.logout(req.user, err => {
-//        if (err) return next(err);
-//        req.flash("success_msg", "You have logged out");
-//        res.redirect("/users/login");
-//    });
+app.get("/users/logout", (req, res) => {
+    req.logout(req.user, err => {
+        if (err) return next(err);
+        req.flash("success_msg", "You have logged out");
+        res.redirect("/users/login");
+    });
 
-//});
+});
 
-
-
-//app.post("/users/login", passport.authenticate("local", {
-//    successRedirect: "/users/dashboard",
-//    failureRedirect: "/users/login",
-//    failureFlash: true
-//})
-//);
 
 
 app.get("/",(req,res)=>{
     //res.send("Hello");
 	console.log("Loading db");
     
-
-    if (req.user != null)
-        res.render("pages/dashboard", { user: req.user.name });
+    session = req.session;
+    if (session.userid)
+        res.render("pages/dashboard");
     else
         res.redirect("/login");
 
+});
+
+app.get('/err', (req, res) => {
+    res.render("pages/err")
 });
 
 async function send_ack(surl, token) {
@@ -112,6 +113,26 @@ async function send_ack(surl, token) {
     // getting img and converting to base64 - will need to replace with request to img database
     const ta = 'https://cas.sfu.ca/cas/serviceValidate' + '?service=' + surl + '&ticket=' + token;
     return await axios.get(ta);
+}
+
+async function send_auth(em) {
+
+    const base64img = [image64];
+    var results = null;
+
+    // arguments to send to api
+    const data = ({
+
+        email: em
+    })
+
+    await axios.post('https://api.plant.id/v2/health_assessment', data).then(apiRes => {
+        results = (apiRes.data);
+    }).catch(error => {
+        console.error('Error: ', error)
+    })
+
+    return results;
 }
 
 app.get("/login?", async (req, res) => {
@@ -131,25 +152,37 @@ app.get("/login?", async (req, res) => {
     else {
         console.log("--->", curr_url, tid);
         //const res = send_ack(curr_url, tid);
-        var res = await send_ack(curr_url, tid);
+        var resp = await send_ack(curr_url, tid);
         console.log("rsults: ", res.status, res.data);
 
-        if (res.status == 200) {
+        if (resp.status == 200) {
             const parser = new XMLParser();
-            let jObj = parser.parse(res.data);
+            let jObj = parser.parse(resp.data);
 
-            console.log("authUser: ", jObj);
+            let name = jObj['cas:serviceResponse']['cas:authenticationSuccess']
+            if (name != null) {
+                console.log("authUser: ", name['cas:user']);
 
-            passport.authenticate("local", {
-                successRedirect: "/users/dashboard",
-                failureRedirect: "/users/login",
-                failureFlash: true
-            })
+                session = req.session;
+                session.userid = name['cas:user'];
+                console.log(req.session)
+
+                res.redirect("/db");
+            }
+            else {
+                res.redirect("/err");
+            }
         }
     }
 
 });
 
+app.get("/db", (req, res) => {
+    //res.send("Hello");
+    console.log("Loading db");
+    res.render("pages/dashboard")
+
+});
 
 app.get("/db2", (req, res) => {
     //res.send("Hello");
