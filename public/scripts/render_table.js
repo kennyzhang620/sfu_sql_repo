@@ -201,31 +201,48 @@ function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, 
 }
 
 function runUpdates() {
+
+    var allow = true;
     for (var i = 0; i < updateList.length; i++) {
         if (i != updateList.length - 1 && updateList[i]) {
             const items = document.getElementsByName(`${i}_field`);
 
             if (items[0].checked) {
-                const val = confirm("Database entries detected that are marked for deletion. Press OK to confirm deletion.")
-
-                if (val) {
-                    deleteDB(items[0].id.replace(/\D/g, ''), items[1].value, items[2].value)
-                }
-
-
+                allow = false;
             }
-            else {
-                updateDBEntry(items[0].id.replace(/\D/g, ''), items[1].value, items[2].value, items[3].value, items[4].value, items[5].value, items[6].value, items[7].value, items[8].value, items[9].value, items[10].value, items[11].value);
-            }
-        }
-        else if (i == updateList.length - 1 && updateList[i]) {
-			console.log("Update1");
-            pushNewEntry();
-			
         }
     }
 
-  //  top.location.reload()
+    if (!allow) {
+        const val = confirm("Database entries detected that are marked for deletion. Press OK to confirm deletion.")
+
+        if (val) {
+            allow = true;
+        }
+    }
+
+    if (allow) {
+
+        for (var i = 0; i < updateList.length; i++) {
+            if (i != updateList.length - 1 && updateList[i]) {
+                const items = document.getElementsByName(`${i}_field`);
+
+                if (items[0].checked) {
+                    deleteDB(items[0].id.replace(/\D/g, ''), items[1].value, items[2].value);
+                }
+                else {
+                    updateDBEntry(items[0].id.replace(/\D/g, ''), items[1].value, items[2].value, items[3].value, items[4].value, items[5].value, items[6].value, items[7].value, items[8].value, items[9].value, items[10].value, items[11].value);
+                }
+            }
+            else if (i == updateList.length - 1 && updateList[i]) {
+                console.log("Update1");
+                pushNewEntry();
+
+            }
+        }
+
+        top.location.reload()
+    }
 }
 
 function insertAsStr(dataEntry, ind) {
@@ -362,9 +379,9 @@ function encodeImageFileAsURL(fileN) {
     }
 }
 
-function sendPacket(url, data_main) {
+function sendPacket(url, data_main, async = true) {
     var txtFile = new XMLHttpRequest();
-    txtFile.open("POST", url);
+    txtFile.open("POST", url, async);
 
     txtFile.setRequestHeader("Accept", "application/json");
     txtFile.setRequestHeader("Content-Type", "application/json");

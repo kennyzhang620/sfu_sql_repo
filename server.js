@@ -1,11 +1,19 @@
 const express = require("express");
 const app = express();
 const { pool } = require("./dbConfig");
+//const bcrypt = require("bcrypt");
+//const session = require("express-session");
+//const flash = require("express-flash");
+//const passport = require("passport");
 const cors = require("cors") //cross-origin resource sharing
 const axios = require('axios')
 const url = require('url')
 
-//const bodyParser = require('body-parser');
+//const initializePassport = require("./passportConfig");
+
+//initializePassport(passport);
+
+const bodyParser = require('body-parser');
 const path = require('path')
 
 
@@ -16,15 +24,149 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 //app.use(express.json()); 
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json());    
+app.use(express.json());
 
-/*CREATE TABLE SFU_Research(latitude FLOAT, longitude FLOAT, research_site VARCHAR(120),
- * project VARCHAR(120), pi VARCHAR (120), co_pi VARCHAR(120), collabs VARCHAR(120), keywords VARCHAR(120),
- * fperiod INTEGER, funder VARCHAR(120), url VARCHAR(12800), PRIMARY KEY(latitude, longitude));
- */
+
+//app.use(
+//    session({
+//        //what this does this a key we
+//        //want to keep secret and it's just going to encrypt all of our 
+//        //information we store in the session the next variable
+//        secret: 'secret',
+
+
+//        //is should we it's saying should we save our session variables if nothing has
+//        //changed if none of our informations change which we don't want to do that's what I say well that's what I'm saying is false
+//        resave: false,
+
+//        //then finally save initialized that's also has to be false 
+//        //because we want to save session details if there's been no value placed
+//        //in the session which is false
+//        saveUninitialized: false
+
+
+
+//    })
+//);
+
+//app.use(passport.initialize());
+
+//app.use(passport.session());
+
+
+//app.use(flash());
+
+
+//app.get("/users/register", (req, res) => {
+//    res.render("pages/register");
+//});
+
+//app.get("/users/login", (req, res) => {
+//    console.log('testing login')
+//    res.render("pages/login");
+//});
+
+//app.get("/users/dashboard", (req, res) => {
+
+//    if (req.user != null)
+//        res.render("pages/Image_Display_Grid", { user: req.user.name });
+//    else
+//        res.redirect("/users/login");
+//});
+
+//app.get("/users/logout", (req, res) => {
+//    req.logout(req.user, err => {
+//        if (err) return next(err);
+//        req.flash("success_msg", "You have logged out");
+//        res.redirect("/users/login");
+//    });
+
+//});
+
+//app.post("/users/register", async (req, res) => {
+//    let name = req.body.name;
+//    let email = req.body.email;
+//    let password = req.body.password;
+//    let password2 = req.body.password2;
+
+//    console.log(name, email, password, password2);
+
+//    // console.log({ name, email, password, password2 });
+
+//    let errors = [];
+
+//    if (!name || !email || !password || !password2) {
+//        errors.push({ message: "Please enter all fields" });
+//    }
+
+//    if (password.length < 6) {
+//        errors.push({ message: "Password should be at least 6 characters" });
+//    }
+
+//    if (password != password2) {
+//        errors.push({ message: "Passwords do not match" });
+//    }
+
+//    if (errors.length > 0) {
+//        res.render("pages/register", { errors });
+//    }
+
+//    else {
+//        //form validation has passed
+//        let hashedPassword = await bcrypt.hash(password, 10);
+//        console.log(hashedPassword);
+
+//        pool.query(`SELECT * FROM users WHERE email=$1`, [email], (err, results) => {
+//            if (err) {
+//                throw err;
+//            }
+
+//            console.log(results.rows);
+
+//            if (results.rows.length > 0) {
+//                errors.push({ message: "Email already registered" });
+//                res.render("pages/register", { errors });
+//            }
+//            else {
+//                pool.query(`INSERT INTO users (name,email,password)
+//                VALUES ($1,$2,$3)
+//                RETURNING id, password`,
+//                    [name, email, hashedPassword],
+//                    (err, results) => {
+//                        if (err) {
+//                            throw err;
+//                        }
+//                        console.log(results.rows);
+//                        req.flash("success_msg", "You are now registered! Please log in");
+//                        res.redirect("/users/login");
+//                    })
+//            }
+//        });
+
+//    }
+//});
+
+//app.post("/users/login", passport.authenticate("local", {
+//    successRedirect: "/users/dashboard",
+//    failureRedirect: "/users/login",
+//    failureFlash: true
+//})
+//);
+
+app.get("/cas_test", (req, res) => {
+
+});
+
 app.get("/",(req,res)=>{
     //res.send("Hello");
 	console.log("Loading db");
+    res.render("pages/dashboard")
+
+});
+
+app.get("/db2", (req, res) => {
+    //res.send("Hello");
+    console.log("Loading db");
     res.render("pages/dashboard")
 
 });

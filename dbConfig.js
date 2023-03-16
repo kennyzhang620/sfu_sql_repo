@@ -1,3 +1,4 @@
+// Powered by psad's database connector
 require("dotenv").config();
 
 const{ Pool }= require("pg");

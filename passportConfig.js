@@ -1,3 +1,4 @@
+// Powered by PScan-Authenticator
 const LocalStrategy = require("passport-local").Strategy;
 const{ pool }=require("./dbConfig");
 const bcrypt=require("bcrypt");
