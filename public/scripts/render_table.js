@@ -1,8 +1,12 @@
 var dataBaseArray = null;
 var tableView = document.getElementsByClassName("main_editor")
 var addView = document.getElementsByClassName("add_entry")
+var searchBar = document.getElementById('search_bar')
+var searchIndex = document.getElementById("counter_id")
 var storedData = null;
 var updateList = [false, false, false, false, false, false, false, false, false, false, false]
+var currIndex = 0;
+
 
 var updateDetected = false;
 function print(objectD) {
@@ -193,8 +197,7 @@ function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, 
         "keywords": kw,
         "funders": fund,
         "year": fperiod,
-        "url": url,
-        "auth_key": "93y7y33"
+        "url": url
     }
 
     sendPacket('/update_entry/', newEntry);
@@ -227,12 +230,18 @@ function runUpdates() {
             if (i != updateList.length - 1 && updateList[i]) {
                 const items = document.getElementsByName(`${i}_field`);
 
-                if (items[0].checked) {
-                    deleteDB(items[0].id.replace(/\D/g, ''), items[1].value, items[2].value);
+                if (items.length == 12) {
+                    if (items[0].checked) {
+                        deleteDB(items[0].id.replace(/\D/g, ''), items[1].value, items[2].value);
+                    }
+                    else {
+                        updateDBEntry(items[0].id.replace(/\D/g, ''), items[1].value, items[2].value, items[3].value, items[4].value, items[5].value, items[6].value, items[7].value, items[8].value, items[9].value, items[10].value, items[11].value);
+                    }
                 }
                 else {
-                    updateDBEntry(items[0].id.replace(/\D/g, ''), items[1].value, items[2].value, items[3].value, items[4].value, items[5].value, items[6].value, items[7].value, items[8].value, items[9].value, items[10].value, items[11].value);
+                    updateDBEntry(items[0].id.replace(/\D/g, ''), items[0].value, items[1].value, items[2].value, items[3].value, items[4].value, items[5].value, items[6].value, items[7].value, items[8].value, items[9].value, items[10].value);
                 }
+                
             }
             else if (i == updateList.length - 1 && updateList[i]) {
                 console.log("Update1");
@@ -245,38 +254,54 @@ function runUpdates() {
     }
 }
 
-function insertAsStr(dataEntry, ind) {
+function insertAsStr(dataEntry, ind, security_level) {
+    var chkbx = `<td><input type="checkbox" name="${ind}_field" id="${dataEntry.id}_rm" value="" oninput="updateDB(${ind})"></td>`
+    var readOnly = ""
+    if (security_level < 3)
+        readOnly = "readonly"
+    
+	if (security_level < 4)
+		chkbx = "";
     var out = `
-            <tr>
-                <td><input type="checkbox" name="${ind}_field" id="${dataEntry.id}_rm" value="" oninput="updateDB(${ind})"></td>
-                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_lat" value="${dataEntry.latitude}" oninput="updateDB(${ind})"\></td>
-                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_long" value="${dataEntry.longitude}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_rs" value="${dataEntry.research_site}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_proj" value="${dataEntry.project}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_pi" value="${dataEntry.pi}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_cpi" value="${dataEntry.co_pi}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_collabs" value="${dataEntry.collabs}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" name="${ind}_field" d="${dataEntry.id}_kw" value="${dataEntry.keywords}" oninput="updateDB(${ind})"\></td>
-                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_fperiod" value="${dataEntry.fperiod}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_fund" value="${dataEntry.funder}" oninput="updateDB(${ind})"\></td>
-                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_url" value="${dataEntry.url}" oninput="updateDB(${ind})"\></td>
+            <tr>` + chkbx + 
+                `
+                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_lat" value="${dataEntry.latitude}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_long" value="${dataEntry.longitude}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_rs" value="${dataEntry.research_site}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_proj" value="${dataEntry.project}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_pi" value="${dataEntry.pi}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_cpi" value="${dataEntry.co_pi}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_collabs" value="${dataEntry.collabs}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="text" name="${ind}_field" d="${dataEntry.id}_kw" value="${dataEntry.keywords}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_fperiod" value="${dataEntry.fperiod}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_fund" value="${dataEntry.funder}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_url" value="${dataEntry.url}" oninput="updateDB(${ind})" ${readOnly}\></td>
             </tr>
 	`
 	return out;
 	
 }
-function generateCell(tb, dataEntries, start, end) { // in packs of 10 each.
+function generateCell(tb, dataEntries, start, end, security_level) { // in packs of 10 each.
 
     var inner = tb
 
     if (inner != null) {
 
         var container = inner[0];
-
+		
+		var deleteM = `<td>Mark for Deletion</td>`
+		
+		if (security_level < 4)
+			deleteM = "";
+		
+        if (security_level < 2) {
+            document.getElementById('entry_add').style.display = 'none';
+            document.getElementById('submit_updates').style.display = 'none';
+        }
         var base = `
         <table>
-            <tr>
-                <td>Mark for Deletion</td>
+            <tr>` + deleteM + 
+				`
                 <td>Latitude (AutoFill capable)</td>
                 <td>Longitude (AutoFill capable)</td>
                 <td>Research Sites</td>
@@ -291,7 +316,7 @@ function generateCell(tb, dataEntries, start, end) { // in packs of 10 each.
             </tr>`
 		var insert = ""
 		for (var i =start;i<end;i++) {
-			insert += insertAsStr(dataEntries[i], i)
+			insert += insertAsStr(dataEntries[i], i, security_level)
 		}
 		
 		var endEl = `</table>`
@@ -303,9 +328,17 @@ function generateCell(tb, dataEntries, start, end) { // in packs of 10 each.
     
 }
 
-function getDB() {
+function getDB(searchparams, ind) {
+
+    var inURL = ""
+    if (searchparams != "")
+        inURL = `/view_db/${searchparams}/${ind}`
+    else {
+        inURL = `/view_db/${ind}`
+    }
+    
     var txtFile = new XMLHttpRequest();
-    txtFile.open("GET", "/test_case?key=testkey1928");
+    txtFile.open("GET", inURL);
 
     txtFile.onload = function (e) {
         if (txtFile.readyState === 4) {
@@ -321,11 +354,11 @@ function getDB() {
                         clearCells();
 
                         console.log("rest: ", parsedD.results);
-                        generateCell(tableView, parsedD.results, 0,parsedD.results.length)
+                        generateCell(tableView, parsedD.results, 0,parsedD.results.length, parsedD.p_level)
  
                     }
                 }
-
+                 
 
             }
             else {
@@ -379,7 +412,7 @@ function encodeImageFileAsURL(fileN) {
     }
 }
 
-function sendPacket(url, data_main, async = true) {
+function sendPacket(url, data_main, async = false) {
     var txtFile = new XMLHttpRequest();
     txtFile.open("POST", url, async);
 
@@ -408,7 +441,7 @@ function sendPacket(url, data_main, async = true) {
 }
 
 function enforceEntry(lat, long, proj, fundperiod) {
-    return (!isNaN(lat) && !isNaN(long) && proj != "" && !isNaN(fundperiod))
+    return (lat != "" && long != "" && fundperiod != "" && !isNaN(lat) && !isNaN(long) && proj != "" && !isNaN(fundperiod))
 }
 function pushNewEntry() {
     const newEntry = {
@@ -423,11 +456,26 @@ function pushNewEntry() {
         "funders": document.getElementById("add_fund").value,
         "year": document.getElementById("add_fperiod").value,
         "url": document.getElementById("add_url").value,
-        "auth_key": "93y7y33"
     }
 
     if (enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year))
         sendPacket('/add_entry', newEntry);
+    else {
+        var lat = "Latitude"; var long = "Longitude"; var proj = "Project"; var y = "Year";
+        if (!isNaN(newEntry.latitude) && newEntry.latitude != "")
+            lat = ""
+        
+        if (!isNaN(newEntry.longitude) && newEntry.longitude != "")
+            long = ""
+
+        if (newEntry.project != "")
+            proj = ""
+
+        if (!isNaN(newEntry.year) && newEntry.year != "")
+            y = ""
+        
+        alert(`One or more of the following fields are blank: ${lat} ${long} ${proj} ${y}`)
+    }
 }
 
 function sendUpdates() {
@@ -498,5 +546,22 @@ window.addEventListener("beforeunload", function (e) {
     }
 });
 
-clearCells();
-getDB()
+function movePtr(val) {
+    if (currIndex + val >= 0)
+        currIndex += val;
+
+    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
+
+    searchDB();
+}
+
+function searchDB() {
+    reloadDB(searchBar.value, currIndex); 
+}
+
+function reloadDB(squery) {
+    clearCells();
+    getDB(squery, currIndex)
+}
+
+reloadDB('');

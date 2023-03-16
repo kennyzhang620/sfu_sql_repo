@@ -1,21 +1,14 @@
 const express = require("express");
 const app = express();
 const { pool } = require("./dbConfig");
-const bcrypt = require("bcrypt");
+//const bcrypt = require("bcrypt");
 const sessions = require("express-session");
 const cookieParser = require("cookie-parser");
-//const flash = require("express-flash");
-//const passport = require("passport");
 const cors = require("cors") //cross-origin resource sharing
 const axios = require('axios')
 const url = require('url')
 
 const { XMLParser, XMLBuilder, XMLValidator } = require("fast-xml-parser");
-
-//const initializePassport = require("./passportConfig");
-
-//initializePassport(passport);
-
 const bodyParser = require('body-parser');
 const path = require('path')
 
@@ -25,12 +18,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 
 app.set('view engine', 'ejs');
-//app.use(express.json()); 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 
-const oneDay = 1000 * 60 * 60 * 24;
+const halfHr = 1000 * 60 * 30;
 var session;
 
 app.use(
@@ -38,14 +30,14 @@ app.use(
         //what this does this a key we
         //want to keep secret and it's just going to encrypt all of our 
         //information we store in the session the next variable
-        secret: 'secret',
+        secret: 'C42BEC36BE9790621F6A234AABA0A3D19CEB3300914272AD914C8CFC281CCBF5',
 
 
         //is should we it's saying should we save our session variables if nothing has
         //changed if none of our informations change which we don't want to do that's what I say well that's what I'm saying is false
         resave: false,
 
-        cookie: { maxAge: oneDay },
+        cookie: { maxAge: halfHr},
         //then finally save initialized that's also has to be false 
         //because we want to save session details if there's been no value placed
         //in the session which is false
@@ -98,7 +90,7 @@ app.get("/",(req,res)=>{
     
     session = req.session;
     if (session.userid)
-        res.render("pages/dashboard");
+        res.render("pages/dashboard", { sfu_id: session.userid, db_type: getPermissionType(session.permission_level) });
     else
         res.redirect("/login");
 
@@ -108,6 +100,17 @@ app.get('/err', (req, res) => {
     res.render("pages/err")
 });
 
+function getPermissionType(n) {
+    if (n == 1)
+        return "Viewer"
+    if (n == 2)
+        return "Appender"
+    if (n == 3)
+        return "Editor"
+    if (n == 4)
+        return "Manager"
+}
+
 async function send_ack(surl, token) {
 
     // getting img and converting to base64 - will need to replace with request to img database
@@ -115,24 +118,26 @@ async function send_ack(surl, token) {
     return await axios.get(ta);
 }
 
-async function send_auth(em) {
+async function verify_allowed(sfuid) {
+    try {
+        const sqlStatement = `SELECT * FROM SFU_Allowed WHERE username = '${sfuid}'`;
 
-    const base64img = [image64];
-    var results = null;
+        console.log("===>", sqlStatement)
+        const client = await pool.connect();
+        const result = await client.query(sqlStatement);
+        const data = { results: result.rows };
 
-    // arguments to send to api
-    const data = ({
+        console.log("userdata:", data)
+        client.release();
 
-        email: em
-    })
-
-    await axios.post('https://api.plant.id/v2/health_assessment', data).then(apiRes => {
-        results = (apiRes.data);
-    }).catch(error => {
-        console.error('Error: ', error)
-    })
-
-    return results;
+        if (data.results.length > 0) {
+            return data.results[0].permission_level;
+        }
+    }
+    catch (err) {
+        
+    }
+    return 0;
 }
 
 app.get("/login?", async (req, res) => {
@@ -151,7 +156,6 @@ app.get("/login?", async (req, res) => {
     }
     else {
         console.log("--->", curr_url, tid);
-        //const res = send_ack(curr_url, tid);
         var resp = await send_ack(curr_url, tid);
         console.log("rsults: ", res.status, res.data);
 
@@ -163,11 +167,19 @@ app.get("/login?", async (req, res) => {
             if (name != null) {
                 console.log("authUser: ", name['cas:user']);
 
-                session = req.session;
-                session.userid = name['cas:user'];
-                console.log(req.session)
+                var getPermissionLevel = await verify_allowed(name['cas:user'])
 
-                res.redirect("/db");
+                if (getPermissionLevel > 0) {
+                    session = req.session;
+                    session.userid = name['cas:user'];
+                    session.permission_level = getPermissionLevel;
+                    console.log(req.session)
+
+                    res.redirect("/db");
+                }
+                else {
+                    res.redirect("/err");
+                }
             }
             else {
                 res.redirect("/err");
@@ -180,54 +192,43 @@ app.get("/login?", async (req, res) => {
 app.get("/db", (req, res) => {
     //res.send("Hello");
     console.log("Loading db");
-    res.render("pages/dashboard")
+
+    session = req.session;
+    if (session.userid && session.permission_level > 0)
+        res.render("pages/dashboard", { sfu_id: session.userid, db_type: getPermissionType(session.permission_level) });
+    else
+        res.redirect("/login");
 
 });
 
 app.get("/db2", (req, res) => {
     //res.send("Hello");
     console.log("Loading db");
-    res.render("pages/dashboard")
-
-});
-
-app.get("/users/register", (req,res)=>{
-    res.render("pages/register");
-});
-
-app.get("/users/login", (req,res)=>{
-    console.log('testing login')
-    res.render("pages/login");
-});
-
-app.get("/users/dashboard", (req, res) => {
-
-    if (req.user != null)
-        res.render("pages/Image_Display_Grid", { user: req.user.name });
+    session = req.session;
+    if (session.userid && session.permission_level > 0)
+        res.render("pages/dashboard", { sfu_id: session.userid, db_type: getPermissionType(session.permission_level) });
     else
-        res.redirect("/users/login");
+        res.redirect("/login");
+
 });
 
-app.post('/view_db/:search/:index', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
-    let searchP = req.params.search
+app.get('/view_db/:index', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
     let ind = req.params.index
-    let auth_key = req.body.auth_key // a hybrid GET/POST system. POST for key, URLEncoding for search params/index
 
-    if (auth_key == "93y7y33" && query.index != null) {
-        const start = query.index * 10
+    session = req.session;
+    if (session.userid && session.permission_level > 0) {
+        const start = ind * 10
         const end = start + 10
 
-        // latitude	longitude	research_site	project	pi	co_pi	collabs	keywords	fperiod	funder	url
-        const sqlStatement = `SELECT * FROM SFU_Research WHERE id >= ${start} AND id <= ${end} AND
-        (project LIKE '${searchP}' OR research_site LIKE '${searchP}' OR pi LIKE '${searchP}' OR co_pi LIKE '${searchP}' or collabs LIKE '${searchP}' or keywords LIKE '${searchP}' or funder LIKE '${searchP}' or url LIKE '${searchP}') 
-        LIMIT 10;`;
+        console.log("Range: ", start, end)
+        const sqlStatement = `SELECT * FROM SFU_Research LIMIT 10 OFFSET ${start};`;
 
         try {
             var commandstoDB = sqlStatement
 
             const client = await pool.connect();
             const result = await client.query(commandstoDB);
-            const data = { results: result.rows };
+            const data = { results: result.rows, p_level: session.permission_level };
 
             console.log(data)
             //  console.log(data.results[0].is_healthy)
@@ -243,7 +244,47 @@ app.post('/view_db/:search/:index', async (req, res) => { // example: /view_db/S
         }
     }
     else {
-        res.json("error")
+        res.status(403);
+    }
+});
+
+app.get('/view_db/:search/:index', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
+    let searchP = req.params.search
+    let ind = req.params.index
+
+    session = req.session;
+    if (session.userid && session.permission_level > 0) {
+        const start = ind * 10
+        const end = start + 10
+
+        console.log("Range: ", start, end)
+        // latitude	longitude	research_site	project	pi	co_pi	collabs	keywords	fperiod	funder	url
+        const sqlStatement = `SELECT * FROM SFU_Research WHERE
+        (project LIKE '${searchP}' OR research_site LIKE '${searchP}' OR pi LIKE '${searchP}' OR co_pi LIKE '${searchP}' or collabs LIKE '${searchP}' or keywords LIKE '${searchP}' or funder LIKE '${searchP}' or url LIKE '${searchP}') 
+        LIMIT 10 OFFSET ${start};`;
+
+        try {
+            var commandstoDB = sqlStatement
+
+            const client = await pool.connect();
+            const result = await client.query(commandstoDB);
+            const data = { results: result.rows, p_level: session.permission_level  };
+
+            console.log(data)
+            //  console.log(data.results[0].is_healthy)
+            // res.render("pages/Information", data);
+            res.json(data);
+            status = 0;
+            client.release();
+        }
+        catch (error) {
+            console.log('X->', error);
+            status = -2;
+            res.json("None.")
+        }
+    }
+    else {
+        res.status(403);
     } 
 });
  
@@ -263,7 +304,8 @@ app.post('/add_entry/', async (req, res) => {
     let auth_key = req.body.auth_key
     let url = req.body.url
 
-    if (auth_key == "93y7y33") {
+    session = req.session;
+    if (session.userid && session.permission_level >= 2) {
         const sqlStatement = `INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (${lat},${long},'${Research_S}','${Proj}', '${PI}', '${coPIs}', '${collab}', '${keywords}', ${fundyear}, '${funders}', '${url}');`;
 
         console.log("===>", sqlStatement)
@@ -277,7 +319,7 @@ app.post('/add_entry/', async (req, res) => {
         res.json("Success!");
     }
     else {
-        res.error(403);
+        res.status(403);
     }
 });
 
@@ -299,7 +341,8 @@ app.post('/update_entry/', async (req, res) => {
     let auth_key = req.body.auth_key
     let url = req.body.url
 
-    if (auth_key == "93y7y33") {
+    session = req.session;
+    if (session.userid && session.permission_level >= 3) {
         const sqlStatement = `UPDATE SFU_Research SET latitude = ${lat}, longitude = ${long}, research_site = '${Research_S}', project = '${Proj}', pi = '${PI}', co_pi = '${coPIs}', collabs = '${collab}', keywords = '${keywords}', fperiod = ${fundyear}, funder = '${funders}', url = '${url}' WHERE id = ${uid};`;
 
 
@@ -314,7 +357,7 @@ app.post('/update_entry/', async (req, res) => {
         res.json("Success!");
     } 
     else {
-        res.error(403);
+        res.status(403);
     }
 });
 
@@ -326,7 +369,8 @@ app.post('/delete_entry/', async (req, res) => {
     let long = req.body.longitude;
     let auth_key = req.body.auth_key;
 
-    if (auth_key == "93y7y33") {
+    session = req.session;
+    if (session.userid && session.permission_level >= 4) {
 
         const sqlStatement = `DELETE FROM SFU_Research WHERE id = '${uid}' AND latitude = ${lat} AND longitude = ${long};`;
 
@@ -338,9 +382,15 @@ app.post('/delete_entry/', async (req, res) => {
         res.json("Success!");
     }
     else {
-        res.error(403);
+        res.status(403);
     }
 });
+
+
+app.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('https://cas.sfu.ca/cas/logout');
+})
 
 app.post('/view_db/?', async (req, res) => { // A stricter search. pass in a post request with query requirements and (10*N, 10*N + 10) range of entries.
     /*
@@ -366,7 +416,7 @@ req.body.data = {
     let auth_key = req.body.auth_key
 
     var url_parts = url.parse(req.url, true);
-    var query = url_parts.query;
+    var query = url_parts.query; 
 
     if (auth_key == "93y7y33" && query.index != null) {
         const start = query.index * 10
@@ -377,18 +427,18 @@ LIMIT 10;`;
     }
 });
 
-app.get('/test_case?', async (req, res) => {
+app.get('/view_db_all', async (req, res) => {
+ 
 
-        var url_parts = url.parse(req.url, true);
-        var query = url_parts.query;
+    session = req.session;
+    if (session.userid && session.permission_level >= 0) {
 
-    if (query != null && query.key == "testkey1928") {
         try {
             var commandstoDB = `SELECT * from SFU_Research;`;
 
             const client = await pool.connect();
             const result = await client.query(commandstoDB);
-            const data = { results: result.rows };
+            const data = { results: result.rows, p_level: session.permission_level };
 
             console.log(data)
             //  console.log(data.results[0].is_healthy)
