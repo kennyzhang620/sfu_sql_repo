@@ -9,6 +9,8 @@ const cors = require("cors") //cross-origin resource sharing
 const axios = require('axios')
 const url = require('url')
 
+const { XMLParser, XMLBuilder, XMLValidator } = require("fast-xml-parser");
+
 //const initializePassport = require("./passportConfig");
 
 //initializePassport(passport);
@@ -83,68 +85,7 @@ app.use(express.json());
 
 //});
 
-//app.post("/users/register", async (req, res) => {
-//    let name = req.body.name;
-//    let email = req.body.email;
-//    let password = req.body.password;
-//    let password2 = req.body.password2;
 
-//    console.log(name, email, password, password2);
-
-//    // console.log({ name, email, password, password2 });
-
-//    let errors = [];
-
-//    if (!name || !email || !password || !password2) {
-//        errors.push({ message: "Please enter all fields" });
-//    }
-
-//    if (password.length < 6) {
-//        errors.push({ message: "Password should be at least 6 characters" });
-//    }
-
-//    if (password != password2) {
-//        errors.push({ message: "Passwords do not match" });
-//    }
-
-//    if (errors.length > 0) {
-//        res.render("pages/register", { errors });
-//    }
-
-//    else {
-//        //form validation has passed
-//        let hashedPassword = await bcrypt.hash(password, 10);
-//        console.log(hashedPassword);
-
-//        pool.query(`SELECT * FROM users WHERE email=$1`, [email], (err, results) => {
-//            if (err) {
-//                throw err;
-//            }
-
-//            console.log(results.rows);
-
-//            if (results.rows.length > 0) {
-//                errors.push({ message: "Email already registered" });
-//                res.render("pages/register", { errors });
-//            }
-//            else {
-//                pool.query(`INSERT INTO users (name,email,password)
-//                VALUES ($1,$2,$3)
-//                RETURNING id, password`,
-//                    [name, email, hashedPassword],
-//                    (err, results) => {
-//                        if (err) {
-//                            throw err;
-//                        }
-//                        console.log(results.rows);
-//                        req.flash("success_msg", "You are now registered! Please log in");
-//                        res.redirect("/users/login");
-//                    })
-//            }
-//        });
-
-//    }
-//});
 
 //app.post("/users/login", passport.authenticate("local", {
 //    successRedirect: "/users/dashboard",
@@ -153,16 +94,62 @@ app.use(express.json());
 //})
 //);
 
-app.get("/cas_test", (req, res) => {
-
-});
 
 app.get("/",(req,res)=>{
     //res.send("Hello");
 	console.log("Loading db");
-    res.render("pages/dashboard")
+    
+
+    if (req.user != null)
+        res.render("pages/dashboard", { user: req.user.name });
+    else
+        res.redirect("/login");
 
 });
+
+async function send_ack(surl, token) {
+
+    // getting img and converting to base64 - will need to replace with request to img database
+    const ta = 'https://cas.sfu.ca/cas/serviceValidate' + '?service=' + surl + '&ticket=' + token;
+    return await axios.get(ta);
+}
+
+app.get("/login?", async (req, res) => {
+
+    console.log("testing cas auth");
+    const curr_url = req.protocol + '://' + req.get('host') + '/login'
+    const cas_url = 'https://cas.sfu.ca/cas/login?service=' + curr_url;
+    
+    var url_parts = url.parse(req.url, true);
+    var query = url_parts.query;
+
+    const tid = query.ticket
+
+    if (tid == null) {
+        res.redirect(cas_url)
+    }
+    else {
+        console.log("--->", curr_url, tid);
+        //const res = send_ack(curr_url, tid);
+        var res = await send_ack(curr_url, tid);
+        console.log("rsults: ", res.status, res.data);
+
+        if (res.status == 200) {
+            const parser = new XMLParser();
+            let jObj = parser.parse(res.data);
+
+            console.log("authUser: ", jObj);
+
+            passport.authenticate("local", {
+                successRedirect: "/users/dashboard",
+                failureRedirect: "/users/login",
+                failureFlash: true
+            })
+        }
+    }
+
+});
+
 
 app.get("/db2", (req, res) => {
     //res.send("Hello");
