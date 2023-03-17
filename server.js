@@ -90,7 +90,7 @@ app.get("/",(req,res)=>{
     
     session = req.session;
     if (session.userid)
-        res.render("pages/dashboard", { sfu_id: session.userid, db_type: getPermissionType(session.permission_level) });
+        res.redirect("/db");
     else
         res.redirect("/login");
 
@@ -195,7 +195,7 @@ app.get("/db", (req, res) => {
 
     session = req.session;
     if (session.userid && session.permission_level > 0)
-        res.render("pages/dashboard", { sfu_id: session.userid, db_type: getPermissionType(session.permission_level) });
+        res.render("pages/database_research", { sfu_id: session.userid, db_type: getPermissionType(session.permission_level) });
     else
         res.redirect("/login");
 
@@ -203,10 +203,10 @@ app.get("/db", (req, res) => {
 
 app.get("/db2", (req, res) => {
     //res.send("Hello");
-    console.log("Loading db");
+    console.log("Loading db2");
     session = req.session;
     if (session.userid && session.permission_level > 0)
-        res.render("pages/dashboard", { sfu_id: session.userid, db_type: getPermissionType(session.permission_level) });
+        res.render("pages/database_pubs", { sfu_id: session.userid, db_type: getPermissionType(session.permission_level) });
     else
         res.redirect("/login");
 
@@ -323,6 +323,40 @@ app.post('/add_entry/', async (req, res) => {
     }
 });
 
+app.post('/add_entry_2/', async (req, res) => {
+
+    console.log("Reading...");
+    let lat = req.body.latitude;
+    let long = req.body.longitude;
+    let Pub = req.body.pub_title;
+    let Institution = req.body.institution
+    let authors = req.body.authors
+    let co_auth = req.body.co_authors
+    let collab = req.body.collabs
+    let title = req.body.title
+    let region = req.body.region
+    let year = req.body.year;
+    let auth_key = req.body.auth_key
+    let references = req.body.references
+
+    session = req.session;
+    if (session.userid && session.permission_level >= 2) {
+        const sqlStatement = `INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (${lat},${long},'${Research_S}','${Proj}', '${PI}', '${coPIs}', '${collab}', '${keywords}', ${fundyear}, '${funders}', '${url}');`;
+
+        console.log("===>", sqlStatement)
+        const client = await pool.connect();
+        const result = await client.query(sqlStatement);
+        const data = { results: result.rows };
+
+        console.log(data)
+        client.release();
+
+        res.json("Success!");
+    }
+    else {
+        res.status(403);
+    }
+});
 
 app.post('/update_entry/', async (req, res) => {
 
