@@ -30,7 +30,7 @@ app.use(
         //what this does this a key we
         //want to keep secret and it's just going to encrypt all of our 
         //information we store in the session the next variable
-        secret: 'C42BEC36BE9790621F6A234AABA0A3D19CEB3300914272AD914C8CFC281CCBF5',
+        secret: process.env.SECRET,
 
 
         //is should we it's saying should we save our session variables if nothing has
