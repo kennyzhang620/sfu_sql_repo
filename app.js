@@ -106,7 +106,7 @@ async function verify_allowed(sfuid) {
 app.get("/sfu-research-db/login?", async (req, res) => {
 
     console.log("testing cas auth");
-    const curr_url = req.protocol + '://' + req.get('host') + '/login'
+    const curr_url = req.protocol + '://' + req.get('host') + '/sfu-research-db/login'
     const cas_url = 'https://cas.sfu.ca/cas/login?service=' + curr_url;
     
     var url_parts = url.parse(req.url, true);
@@ -138,14 +138,14 @@ app.get("/sfu-research-db/login?", async (req, res) => {
                     session.permission_level = getPermissionLevel;
                     console.log(req.session)
 
-                    res.redirect("/db");
+                    res.redirect("/sfu-research-db/db");
                 }
                 else {
-                    res.redirect("/err");
+                    res.redirect("/sfu-research-db/err");
                 }
             }
             else {
-                res.redirect("/err");
+                res.redirect("/sfu-research-db/err");
             }
         }
     }
@@ -160,7 +160,7 @@ app.get("/sfu-research-db/db", (req, res) => {
     if (session.userid && session.permission_level > 0)
         res.render("pages/database_research", { sfu_id: session.userid, db_type: getPermissionType(session.permission_level) });
     else
-        res.redirect("/login");
+        res.redirect("/sfu-research-db/login");
 
 });
 
@@ -171,7 +171,7 @@ app.get("/sfu-research-db/db2", (req, res) => {
     if (session.userid && session.permission_level > 0)
         res.render("pages/database_pubs", { sfu_id: session.userid, db_type: getPermissionType(session.permission_level) });
     else
-        res.redirect("/login");
+        res.redirect("/sfu-research-db/login");
 
 });
 
