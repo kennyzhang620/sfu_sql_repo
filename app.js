@@ -99,6 +99,7 @@ async function send_ack(surl, token) {
 }
 
 async function verify_allowed(sfuid) {
+	console.log(">>>==>" + process.env.DB_KEY);
     try {
         const sqlStatement = `SELECT * FROM SFU_Allowed WHERE username = '${sfuid}'`;
 
