@@ -12,7 +12,6 @@ const { XMLParser, XMLBuilder, XMLValidator } = require("fast-xml-parser");
 const bodyParser = require('body-parser');
 const path = require('path')
 
-
 const PORT = process.env.PORT || 5010;
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
@@ -48,55 +47,19 @@ app.use(
     })
 );
 
-//app.use(passport.initialize());
-
-//app.use(passport.session());
-
-
-//app.use(flash());
-
-
-app.get("/users/register", (req, res) => {
-    res.render("pages/register");
-});
-
-app.get("/users/login", (req, res) => {
-    console.log('testing login')
-    res.render("pages/login");
-});
-
-app.get("/users/dashboard", (req, res) => {
-
-    if (req.user != null)
-        res.render("pages/Image_Display_Grid", { user: req.user.name });
-    else
-        res.redirect("/users/login");
-});
-
-app.get("/users/logout", (req, res) => {
-    req.logout(req.user, err => {
-        if (err) return next(err);
-        req.flash("success_msg", "You have logged out");
-        res.redirect("/users/login");
-    });
-
-});
-
-
-
-app.get("/",(req,res)=>{
+app.get("/sfu-research-db/",(req,res)=>{
     //res.send("Hello");
 	console.log("Loading db");
     
     session = req.session;
     if (session.userid)
-        res.redirect("/db");
+        res.redirect("/sfu-research-db/db");
     else
-        res.redirect("/login");
+        res.redirect("/sfu-research-db/login");
 
 });
 
-app.get('/err', (req, res) => {
+app.get('/sfu-research-db/err', (req, res) => {
     res.render("pages/err")
 });
 
@@ -140,7 +103,7 @@ async function verify_allowed(sfuid) {
     return 0;
 }
 
-app.get("/login?", async (req, res) => {
+app.get("/sfu-research-db/login?", async (req, res) => {
 
     console.log("testing cas auth");
     const curr_url = req.protocol + '://' + req.get('host') + '/login'
@@ -189,7 +152,7 @@ app.get("/login?", async (req, res) => {
 
 });
 
-app.get("/db", (req, res) => {
+app.get("/sfu-research-db/db", (req, res) => {
     //res.send("Hello");
     console.log("Loading db");
 
@@ -201,7 +164,7 @@ app.get("/db", (req, res) => {
 
 });
 
-app.get("/db2", (req, res) => {
+app.get("/sfu-research-db/db2", (req, res) => {
     //res.send("Hello");
     console.log("Loading db2");
     session = req.session;
@@ -212,7 +175,7 @@ app.get("/db2", (req, res) => {
 
 });
 
-app.get('/view_db/:index', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
+app.get('/sfu-research-db/view_db/:index', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
     let ind = req.params.index
 
     session = req.session;
@@ -248,7 +211,7 @@ app.get('/view_db/:index', async (req, res) => { // example: /view_db/SFU/0 // s
     }
 });
 
-app.get('/view_db/:search/:index', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
+app.get('/sfu-research-db/view_db/:search/:index', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
     let searchP = req.params.search
     let ind = req.params.index
 
@@ -288,7 +251,7 @@ app.get('/view_db/:search/:index', async (req, res) => { // example: /view_db/SF
     } 
 });
  
-app.post('/add_entry/', async (req, res) => {
+app.post('/sfu-research-db/add_entry/', async (req, res) => {
 
     console.log("Reading...");
     let lat = req.body.latitude;
@@ -323,7 +286,7 @@ app.post('/add_entry/', async (req, res) => {
     }
 });
 
-app.post('/add_entry_2/', async (req, res) => {
+app.post('/sfu-research-db/add_entry_2/', async (req, res) => {
 
     console.log("Reading...");
     let lat = req.body.latitude;
@@ -358,7 +321,7 @@ app.post('/add_entry_2/', async (req, res) => {
     }
 });
 
-app.post('/update_entry/', async (req, res) => {
+app.post('/sfu-research-db/update_entry/', async (req, res) => {
 
     console.log("Reading...");
     let uid = req.body.uid;
@@ -395,7 +358,7 @@ app.post('/update_entry/', async (req, res) => {
     }
 });
 
-app.post('/delete_entry/', async (req, res) => {
+app.post('/sfu-research-db/delete_entry/', async (req, res) => {
 
     console.log("Deleting..."); // all of the contents must match up with db contents. this prevents accidental deletion from packet loss.
     let uid = req.body.uid
@@ -421,12 +384,12 @@ app.post('/delete_entry/', async (req, res) => {
 });
 
 
-app.get('/logout', (req, res) => {
+app.get('/sfu-research-db/logout', (req, res) => {
     req.session.destroy();
     res.redirect('https://cas.sfu.ca/cas/logout');
 })
 
-app.post('/view_db/?', async (req, res) => { // A stricter search. pass in a post request with query requirements and (10*N, 10*N + 10) range of entries.
+app.post('/sfu-research-db/view_db/?', async (req, res) => { // A stricter search. pass in a post request with query requirements and (10*N, 10*N + 10) range of entries.
     /*
 req.body.data = {
          Project: “data1”,
@@ -461,7 +424,7 @@ LIMIT 10;`;
     }
 });
 
-app.get('/view_db_all', async (req, res) => {
+app.get('/sfu-research-db/view_db_all', async (req, res) => {
  
 
     session = req.session;
