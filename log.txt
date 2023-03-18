@@ -1,0 +1,144 @@
+Server running on port 5010
+Error: secret option required for sessions
+    at session (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express-session\index.js:200:12)
+    at Layer.handle [as handle_request] (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\index.js:280:10)
+    at cookieParser (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\cookie-parser\index.js:57:14)
+    at Layer.handle [as handle_request] (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\index.js:286:9
+Error: secret option required for sessions
+    at session (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express-session\index.js:200:12)
+    at Layer.handle [as handle_request] (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\index.js:280:10)
+    at cookieParser (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\cookie-parser\index.js:57:14)
+    at Layer.handle [as handle_request] (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\index.js:286:9
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2653091-FvX1CtjUptlLkPGSksHtBVYflTs-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T00:04:17.653Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2649998-3uHPHYUeEQkHM9QOv2zqMdQGlyQ-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T00:06:33.771Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Loading db
+Loading db
+Loading db
+Loading db
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '26',
+      latitude: 3,
+      longitude: -4,
+      research_site: '',
+      project: '  nnnnn',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 8,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}

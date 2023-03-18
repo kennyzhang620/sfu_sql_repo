@@ -181,7 +181,7 @@ function deleteDB(uid, lat, long) {
         "auth_key": "93y7y33"
     }
 
-    sendPacket('/delete_entry', newEntry);
+    sendPacket('/sfu-research-db/delete_entry', newEntry);
 }
 
 function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, fund, url) {
@@ -200,7 +200,7 @@ function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, 
         "url": url
     }
 
-    sendPacket('/update_entry/', newEntry);
+    sendPacket('/sfu-research-db/update_entry/', newEntry);
 }
 
 function runUpdates() {
@@ -332,9 +332,9 @@ function getDB(searchparams, ind) {
 
     var inURL = ""
     if (searchparams != "")
-        inURL = `/view_db/${searchparams}/${ind}`
+        inURL = `/sfu-research-db/view_db/${searchparams}/${ind}`
     else {
-        inURL = `/view_db/${ind}`
+        inURL = `/sfu-research-db/view_db/${ind}`
     }
     
     var txtFile = new XMLHttpRequest();
@@ -459,7 +459,7 @@ function pushNewEntry() {
     }
 
     if (enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year))
-        sendPacket('/add_entry', newEntry);
+        sendPacket('/sfu-research-db/add_entry', newEntry);
     else {
         var lat = "Latitude"; var long = "Longitude"; var proj = "Project"; var y = "Year";
         if (!isNaN(newEntry.latitude) && newEntry.latitude != "")
