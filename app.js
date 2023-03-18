@@ -115,7 +115,7 @@ async function verify_allowed(sfuid) {
         }
     }
     catch (err) {
-        
+        console.log("Error: =>", err);
     }
     return 0;
 }
