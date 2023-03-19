@@ -3912,3 +3912,8 @@ Range:  0 10
   p_level: 4
 }
 Server running on port 5010
+Server running on port 5010
+C:\Users\kenny\source\repos\sfu_sql_reposfu-research-db/
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
