@@ -235,7 +235,7 @@ function runUpdates() {
     if (!enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year)) {
         allow = false;
 
-        var lat = "Latitude"; var long = "Longitude"; var proj = "Project"; var y = "Year";
+        var lat = "Latitude"; var long = "Longitude"; var proj = "Project"; var y = "Funding Period";
         if (!isNaN(newEntry.latitude) && newEntry.latitude != "")
             lat = ""
 
