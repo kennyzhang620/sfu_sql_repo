@@ -142,3 +142,3772 @@ Range:  0 10
   ],
   p_level: 4
 }
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2714527-dL4pgkMq56B7EQGvCT0KpQIMpLE-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+Error: => TypeError: Cannot read properties of undefined (reading 'connect')
+    at verify_allowed (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:106:22)
+    at C:\Users\kenny\source\repos\sfu_sql_repo\app.js:162:48
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2714728--wTyFt5FN7-ay5U-6Up-azlCW-Q-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+Error: => TypeError: Cannot read properties of undefined (reading 'connect')
+    at verify_allowed (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:106:22)
+    at C:\Users\kenny\source\repos\sfu_sql_repo\app.js:162:48
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-63208-9Bod0liuf-Wh3lN9vfoXAvVnp4E-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+undefined
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T01:26:13.558Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2654207-QrqiMH21j8ZWqRTAvy--8iFFx4Y-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+undefined
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T01:27:49.255Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-63264-uQLH97TEQAqJxjA1MFQaDKVJ-Ws-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+{
+  adapter: <ref *1> Connection {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: undefined,
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _socket: undefined,
+    _protocol: Protocol {
+      _events: [Object: null prototype] {},
+      _eventsCount: 0,
+      _maxListeners: undefined,
+      readable: true,
+      writable: true,
+      _config: [ConnectionConfig],
+      _connection: [Circular *1],
+      _callback: null,
+      _fatalError: null,
+      _quitSequence: null,
+      _handshake: false,
+      _handshaked: false,
+      _ended: false,
+      _destroyed: false,
+      _queue: [],
+      _handshakeInitializationPacket: null,
+      _parser: [Parser],
+      [Symbol(kCapture)]: false
+    },
+    _connectCalled: false,
+    state: 'disconnected',
+    threadId: null,
+    [Symbol(kCapture)]: false
+  }
+}
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T01:29:58.662Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-64520-RIsNGZJQgF2POtYbvO9lKeZAFrY-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+{
+  adapter: <ref *1> Connection {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: undefined,
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _socket: undefined,
+    _protocol: Protocol {
+      _events: [Object: null prototype] {},
+      _eventsCount: 0,
+      _maxListeners: undefined,
+      readable: true,
+      writable: true,
+      _config: [ConnectionConfig],
+      _connection: [Circular *1],
+      _callback: null,
+      _fatalError: null,
+      _quitSequence: null,
+      _handshake: false,
+      _handshaked: false,
+      _ended: false,
+      _destroyed: false,
+      _queue: [],
+      _handshakeInitializationPacket: null,
+      _parser: [Parser],
+      [Symbol(kCapture)]: false
+    },
+    _connectCalled: false,
+    state: 'disconnected',
+    threadId: null,
+    [Symbol(kCapture)]: false
+  }
+}
+Error: => TypeError: sqlconnector.connect is not a function
+    at verify_allowed (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:108:22)
+    at C:\Users\kenny\source\repos\sfu_sql_repo\app.js:159:48
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+Server running on port 5010
+Loading db
+testing cas auth
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2655514-2FMI8zoyNE2vlRxX-5uAR-m1qcQ-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+{
+  adapter: <ref *1> Connection {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: undefined,
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _socket: undefined,
+    _protocol: Protocol {
+      _events: [Object: null prototype] {},
+      _eventsCount: 0,
+      _maxListeners: undefined,
+      readable: true,
+      writable: true,
+      _config: [ConnectionConfig],
+      _connection: [Circular *1],
+      _callback: null,
+      _fatalError: null,
+      _quitSequence: null,
+      _handshake: false,
+      _handshaked: false,
+      _ended: false,
+      _destroyed: false,
+      _queue: [],
+      _handshakeInitializationPacket: null,
+      _parser: [Parser],
+      [Symbol(kCapture)]: false
+    },
+    _connectCalled: false,
+    state: 'disconnected',
+    threadId: null,
+    [Symbol(kCapture)]: false
+  }
+}
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+Connected!
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T03:14:24.775Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2716180--TTUprnKv2jS-ZYWVn6W7GB2at4-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+<ref *1> Connection {
+  _events: [Object: null prototype] {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  config: ConnectionConfig {
+    host: 'educdv.ca',
+    port: 3306,
+    localAddress: undefined,
+    socketPath: undefined,
+    user: 'educdv23_main',
+    password: 'exCtM5+VNRTV',
+    database: undefined,
+    connectTimeout: 10000,
+    insecureAuth: false,
+    supportBigNumbers: false,
+    bigNumberStrings: false,
+    dateStrings: false,
+    debug: undefined,
+    trace: true,
+    stringifyObjects: false,
+    timezone: 'local',
+    flags: '',
+    queryFormat: undefined,
+    pool: undefined,
+    ssl: false,
+    localInfile: true,
+    multipleStatements: false,
+    typeCast: true,
+    maxPacketSize: 0,
+    charsetNumber: 33,
+    clientFlags: 455631
+  },
+  _socket: undefined,
+  _protocol: Protocol {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    readable: true,
+    writable: true,
+    _config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: undefined,
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _connection: [Circular *1],
+    _callback: null,
+    _fatalError: null,
+    _quitSequence: null,
+    _handshake: false,
+    _handshaked: false,
+    _ended: false,
+    _destroyed: false,
+    _queue: [],
+    _handshakeInitializationPacket: null,
+    _parser: Parser {
+      _supportBigNumbers: false,
+      _buffer: <Buffer >,
+      _nextBuffers: [BufferList],
+      _longPacketBuffers: [BufferList],
+      _offset: 0,
+      _packetEnd: null,
+      _packetHeader: null,
+      _packetOffset: null,
+      _onError: [Function: bound handleParserError],
+      _onPacket: [Function: bound ],
+      _nextPacketNumber: 0,
+      _encoding: 'utf-8',
+      _paused: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  _connectCalled: false,
+  state: 'disconnected',
+  threadId: null,
+  [Symbol(kCapture)]: false
+}
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+Connected!
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T03:19:07.305Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2652516-LSaXJxjcPl3niCLOB804ZeuE5cM-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+<ref *1> Connection {
+  _events: [Object: null prototype] {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  config: ConnectionConfig {
+    host: 'educdv.ca',
+    port: 3306,
+    localAddress: undefined,
+    socketPath: undefined,
+    user: 'educdv23_main',
+    password: 'exCtM5+VNRTV',
+    database: undefined,
+    connectTimeout: 10000,
+    insecureAuth: false,
+    supportBigNumbers: false,
+    bigNumberStrings: false,
+    dateStrings: false,
+    debug: undefined,
+    trace: true,
+    stringifyObjects: false,
+    timezone: 'local',
+    flags: '',
+    queryFormat: undefined,
+    pool: undefined,
+    ssl: false,
+    localInfile: true,
+    multipleStatements: false,
+    typeCast: true,
+    maxPacketSize: 0,
+    charsetNumber: 33,
+    clientFlags: 455631
+  },
+  _socket: undefined,
+  _protocol: Protocol {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    readable: true,
+    writable: true,
+    _config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: undefined,
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _connection: [Circular *1],
+    _callback: null,
+    _fatalError: null,
+    _quitSequence: null,
+    _handshake: false,
+    _handshaked: false,
+    _ended: false,
+    _destroyed: false,
+    _queue: [],
+    _handshakeInitializationPacket: null,
+    _parser: Parser {
+      _supportBigNumbers: false,
+      _buffer: <Buffer >,
+      _nextBuffers: [BufferList],
+      _longPacketBuffers: [BufferList],
+      _offset: 0,
+      _packetEnd: null,
+      _packetHeader: null,
+      _packetOffset: null,
+      _onError: [Function: bound handleParserError],
+      _onPacket: [Function: bound ],
+      _nextPacketNumber: 0,
+      _encoding: 'utf-8',
+      _paused: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  _connectCalled: false,
+  state: 'disconnected',
+  threadId: null,
+  [Symbol(kCapture)]: false
+}
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+Connected!
+ERR2: Error: ER_NO_DB_ERROR: No database selected
+    at Query.Sequence._packetToError (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:527:28)
+    at addChunk (node:internal/streams/readable:315:12)
+    --------------------
+    at Protocol._enqueue (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Connection.query (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Connection.js:198:25)
+    at Handshake.<anonymous> (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:112:26)
+    at Handshake.<anonymous> (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Connection.js:526:10)
+    at Handshake._callback (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Connection.js:488:16)
+    at Handshake.Sequence.end (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\sequences\Sequence.js:83:24)
+    at Handshake.Sequence.OkPacket (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\sequences\Sequence.js:92:8)
+    at Protocol._parsePacket (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Parser.js:43:10) {
+  code: 'ER_NO_DB_ERROR',
+  errno: 1046,
+  sqlMessage: 'No database selected',
+  sqlState: '3D000',
+  index: 0,
+  sql: "SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'"
+}
+Res:  undefined
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T03:21:05.290Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-64629-0InvEGFCY0na-R5ccm-ts7uF3yE-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+<ref *1> Connection {
+  _events: [Object: null prototype] {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  config: ConnectionConfig {
+    host: 'educdv.ca',
+    port: 3306,
+    localAddress: undefined,
+    socketPath: undefined,
+    user: 'educdv23_main',
+    password: 'exCtM5+VNRTV',
+    database: 'educdv23_sfu_research_pictorial',
+    connectTimeout: 10000,
+    insecureAuth: false,
+    supportBigNumbers: false,
+    bigNumberStrings: false,
+    dateStrings: false,
+    debug: undefined,
+    trace: true,
+    stringifyObjects: false,
+    timezone: 'local',
+    flags: '',
+    queryFormat: undefined,
+    pool: undefined,
+    ssl: false,
+    localInfile: true,
+    multipleStatements: false,
+    typeCast: true,
+    maxPacketSize: 0,
+    charsetNumber: 33,
+    clientFlags: 455631
+  },
+  _socket: undefined,
+  _protocol: Protocol {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    readable: true,
+    writable: true,
+    _config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: 'educdv23_sfu_research_pictorial',
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _connection: [Circular *1],
+    _callback: null,
+    _fatalError: null,
+    _quitSequence: null,
+    _handshake: false,
+    _handshaked: false,
+    _ended: false,
+    _destroyed: false,
+    _queue: [],
+    _handshakeInitializationPacket: null,
+    _parser: Parser {
+      _supportBigNumbers: false,
+      _buffer: <Buffer >,
+      _nextBuffers: [BufferList],
+      _longPacketBuffers: [BufferList],
+      _offset: 0,
+      _packetEnd: null,
+      _packetHeader: null,
+      _packetOffset: null,
+      _onError: [Function: bound handleParserError],
+      _onPacket: [Function: bound ],
+      _nextPacketNumber: 0,
+      _encoding: 'utf-8',
+      _paused: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  _connectCalled: false,
+  state: 'disconnected',
+  threadId: null,
+  [Symbol(kCapture)]: false
+}
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+Connected!
+Res:  [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T03:22:59.121Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-64697-bpZyvvUFIqayhO0vMPidIVulWD4-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+<ref *1> Connection {
+  _events: [Object: null prototype] {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  config: ConnectionConfig {
+    host: 'educdv.ca',
+    port: 3306,
+    localAddress: undefined,
+    socketPath: undefined,
+    user: 'educdv23_main',
+    password: 'exCtM5+VNRTV',
+    database: 'educdv23_sfu_research_pictorial',
+    connectTimeout: 10000,
+    insecureAuth: false,
+    supportBigNumbers: false,
+    bigNumberStrings: false,
+    dateStrings: false,
+    debug: undefined,
+    trace: true,
+    stringifyObjects: false,
+    timezone: 'local',
+    flags: '',
+    queryFormat: undefined,
+    pool: undefined,
+    ssl: false,
+    localInfile: true,
+    multipleStatements: false,
+    typeCast: true,
+    maxPacketSize: 0,
+    charsetNumber: 33,
+    clientFlags: 455631
+  },
+  _socket: undefined,
+  _protocol: Protocol {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    readable: true,
+    writable: true,
+    _config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: 'educdv23_sfu_research_pictorial',
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _connection: [Circular *1],
+    _callback: null,
+    _fatalError: null,
+    _quitSequence: null,
+    _handshake: false,
+    _handshaked: false,
+    _ended: false,
+    _destroyed: false,
+    _queue: [],
+    _handshakeInitializationPacket: null,
+    _parser: Parser {
+      _supportBigNumbers: false,
+      _buffer: <Buffer >,
+      _nextBuffers: [BufferList],
+      _longPacketBuffers: [BufferList],
+      _offset: 0,
+      _packetEnd: null,
+      _packetHeader: null,
+      _packetOffset: null,
+      _onError: [Function: bound handleParserError],
+      _onPacket: [Function: bound ],
+      _nextPacketNumber: 0,
+      _encoding: 'utf-8',
+      _paused: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  _connectCalled: false,
+  state: 'disconnected',
+  threadId: null,
+  [Symbol(kCapture)]: false
+}
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+Connected!
+Res:  RowDataPacket { username: 'ktzhang', permission_level: 4 }
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T03:29:08.453Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2716312-ZJD4p-oBQSI5B1ClVjnoHvGF-vM-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+<ref *1> Connection {
+  _events: [Object: null prototype] {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  config: ConnectionConfig {
+    host: 'educdv.ca',
+    port: 3306,
+    localAddress: undefined,
+    socketPath: undefined,
+    user: 'educdv23_main',
+    password: 'exCtM5+VNRTV',
+    database: 'educdv23_sfu_research_pictorial',
+    connectTimeout: 10000,
+    insecureAuth: false,
+    supportBigNumbers: false,
+    bigNumberStrings: false,
+    dateStrings: false,
+    debug: undefined,
+    trace: true,
+    stringifyObjects: false,
+    timezone: 'local',
+    flags: '',
+    queryFormat: undefined,
+    pool: undefined,
+    ssl: false,
+    localInfile: true,
+    multipleStatements: false,
+    typeCast: true,
+    maxPacketSize: 0,
+    charsetNumber: 33,
+    clientFlags: 455631
+  },
+  _socket: undefined,
+  _protocol: Protocol {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    readable: true,
+    writable: true,
+    _config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: 'educdv23_sfu_research_pictorial',
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _connection: [Circular *1],
+    _callback: null,
+    _fatalError: null,
+    _quitSequence: null,
+    _handshake: false,
+    _handshaked: false,
+    _ended: false,
+    _destroyed: false,
+    _queue: [],
+    _handshakeInitializationPacket: null,
+    _parser: Parser {
+      _supportBigNumbers: false,
+      _buffer: <Buffer >,
+      _nextBuffers: [BufferList],
+      _longPacketBuffers: [BufferList],
+      _offset: 0,
+      _packetEnd: null,
+      _packetHeader: null,
+      _packetOffset: null,
+      _onError: [Function: bound handleParserError],
+      _onPacket: [Function: bound ],
+      _nextPacketNumber: 0,
+      _encoding: 'utf-8',
+      _paused: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  _connectCalled: false,
+  state: 'disconnected',
+  threadId: null,
+  [Symbol(kCapture)]: false
+}
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+Connected!
+Res:  4
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T03:29:46.106Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2652686-PWGuRrhIf-WIbjbwSAM7IsRl44U-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+<ref *1> Connection {
+  _events: [Object: null prototype] {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  config: ConnectionConfig {
+    host: 'educdv.ca',
+    port: 3306,
+    localAddress: undefined,
+    socketPath: undefined,
+    user: 'educdv23_main',
+    password: 'exCtM5+VNRTV',
+    database: 'educdv23_sfu_research_pictorial',
+    connectTimeout: 10000,
+    insecureAuth: false,
+    supportBigNumbers: false,
+    bigNumberStrings: false,
+    dateStrings: false,
+    debug: undefined,
+    trace: true,
+    stringifyObjects: false,
+    timezone: 'local',
+    flags: '',
+    queryFormat: undefined,
+    pool: undefined,
+    ssl: false,
+    localInfile: true,
+    multipleStatements: false,
+    typeCast: true,
+    maxPacketSize: 0,
+    charsetNumber: 33,
+    clientFlags: 455631
+  },
+  _socket: undefined,
+  _protocol: Protocol {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    readable: true,
+    writable: true,
+    _config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: 'educdv23_sfu_research_pictorial',
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _connection: [Circular *1],
+    _callback: null,
+    _fatalError: null,
+    _quitSequence: null,
+    _handshake: false,
+    _handshaked: false,
+    _ended: false,
+    _destroyed: false,
+    _queue: [],
+    _handshakeInitializationPacket: null,
+    _parser: Parser {
+      _supportBigNumbers: false,
+      _buffer: <Buffer >,
+      _nextBuffers: [BufferList],
+      _longPacketBuffers: [BufferList],
+      _offset: 0,
+      _packetEnd: null,
+      _packetHeader: null,
+      _packetOffset: null,
+      _onError: [Function: bound handleParserError],
+      _onPacket: [Function: bound ],
+      _nextPacketNumber: 0,
+      _encoding: 'utf-8',
+      _paused: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  _connectCalled: false,
+  state: 'disconnected',
+  threadId: null,
+  [Symbol(kCapture)]: false
+}
+Error: => ReferenceError: sqlStatement is not defined
+    at querySQL (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:109:45)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async verify_allowed (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:123:25)
+    at async C:\Users\kenny\source\repos\sfu_sql_repo\app.js:173:42
+Connected!
+Server running on port 5010
+Loading db
+testing cas auth
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-64764-U6on4JaZIVGgKZZJGn6EZN3YF84-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+<ref *1> Connection {
+  _events: [Object: null prototype] {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  config: ConnectionConfig {
+    host: 'educdv.ca',
+    port: 3306,
+    localAddress: undefined,
+    socketPath: undefined,
+    user: 'educdv23_main',
+    password: 'exCtM5+VNRTV',
+    database: 'educdv23_sfu_research_pictorial',
+    connectTimeout: 10000,
+    insecureAuth: false,
+    supportBigNumbers: false,
+    bigNumberStrings: false,
+    dateStrings: false,
+    debug: undefined,
+    trace: true,
+    stringifyObjects: false,
+    timezone: 'local',
+    flags: '',
+    queryFormat: undefined,
+    pool: undefined,
+    ssl: false,
+    localInfile: true,
+    multipleStatements: false,
+    typeCast: true,
+    maxPacketSize: 0,
+    charsetNumber: 33,
+    clientFlags: 455631
+  },
+  _socket: undefined,
+  _protocol: Protocol {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    readable: true,
+    writable: true,
+    _config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: 'educdv23_sfu_research_pictorial',
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _connection: [Circular *1],
+    _callback: null,
+    _fatalError: null,
+    _quitSequence: null,
+    _handshake: false,
+    _handshaked: false,
+    _ended: false,
+    _destroyed: false,
+    _queue: [],
+    _handshakeInitializationPacket: null,
+    _parser: Parser {
+      _supportBigNumbers: false,
+      _buffer: <Buffer >,
+      _nextBuffers: [BufferList],
+      _longPacketBuffers: [BufferList],
+      _offset: 0,
+      _packetEnd: null,
+      _packetHeader: null,
+      _packetOffset: null,
+      _onError: [Function: bound handleParserError],
+      _onPacket: [Function: bound ],
+      _nextPacketNumber: 0,
+      _encoding: 'utf-8',
+      _paused: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  _connectCalled: false,
+  state: 'disconnected',
+  threadId: null,
+  [Symbol(kCapture)]: false
+}
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+Connected!
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T03:34:52.979Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-64777-aIEANC4uzxrh1Fr5DuYbW7xS--E-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+<ref *1> Connection {
+  _events: [Object: null prototype] {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  config: ConnectionConfig {
+    host: 'educdv.ca',
+    port: 3306,
+    localAddress: undefined,
+    socketPath: undefined,
+    user: 'educdv23_main',
+    password: 'exCtM5+VNRTV',
+    database: 'educdv23_sfu_research_pictorial',
+    connectTimeout: 10000,
+    insecureAuth: false,
+    supportBigNumbers: false,
+    bigNumberStrings: false,
+    dateStrings: false,
+    debug: undefined,
+    trace: true,
+    stringifyObjects: false,
+    timezone: 'local',
+    flags: '',
+    queryFormat: undefined,
+    pool: undefined,
+    ssl: false,
+    localInfile: true,
+    multipleStatements: false,
+    typeCast: true,
+    maxPacketSize: 0,
+    charsetNumber: 33,
+    clientFlags: 455631
+  },
+  _socket: undefined,
+  _protocol: Protocol {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    readable: true,
+    writable: true,
+    _config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: 'educdv23_sfu_research_pictorial',
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _connection: [Circular *1],
+    _callback: null,
+    _fatalError: null,
+    _quitSequence: null,
+    _handshake: false,
+    _handshaked: false,
+    _ended: false,
+    _destroyed: false,
+    _queue: [],
+    _handshakeInitializationPacket: null,
+    _parser: Parser {
+      _supportBigNumbers: false,
+      _buffer: <Buffer >,
+      _nextBuffers: [BufferList],
+      _longPacketBuffers: [BufferList],
+      _offset: 0,
+      _packetEnd: null,
+      _packetHeader: null,
+      _packetOffset: null,
+      _onError: [Function: bound handleParserError],
+      _onPacket: [Function: bound ],
+      _nextPacketNumber: 0,
+      _encoding: 'utf-8',
+      _paused: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  _connectCalled: false,
+  state: 'disconnected',
+  threadId: null,
+  [Symbol(kCapture)]: false
+}
+RES:  <ref *1> Query {
+  _events: [Object: null prototype] {
+    error: [Function (anonymous)],
+    packet: [Function (anonymous)],
+    timeout: [Function (anonymous)],
+    end: [Function (anonymous)]
+  },
+  _eventsCount: 4,
+  _maxListeners: undefined,
+  _callback: [Function (anonymous)],
+  _callSite: Error
+      at Protocol._enqueue (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+      at Connection.query (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Connection.js:198:25)
+      at querySQL (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:109:39)
+      at processTicksAndRejections (node:internal/process/task_queues:96:5)
+      at async verify_allowed (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:123:25)
+      at async C:\Users\kenny\source\repos\sfu_sql_repo\app.js:173:42,
+  _ended: false,
+  _timeout: undefined,
+  _timer: Timer { _object: [Circular *1], _timeout: null },
+  sql: "SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'",
+  values: undefined,
+  typeCast: true,
+  nestTables: false,
+  _resultSet: null,
+  _results: [],
+  _fields: [],
+  _index: 0,
+  _loadError: null,
+  _connection: <ref *2> Connection {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: 'educdv23_sfu_research_pictorial',
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _socket: Socket {
+      connecting: true,
+      _hadError: false,
+      _parent: null,
+      _host: 'educdv.ca',
+      _readableState: [ReadableState],
+      _events: [Object: null prototype],
+      _eventsCount: 5,
+      _maxListeners: undefined,
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: null,
+      _server: null,
+      timeout: 10000,
+      [Symbol(async_id_symbol)]: 76,
+      [Symbol(kHandle)]: [TCP],
+      [Symbol(lastWriteQueueSize)]: 0,
+      [Symbol(timeout)]: Timeout {
+        _idleTimeout: 10000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 2204,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        [Symbol(refed)]: false,
+        [Symbol(kHasPrimitive)]: false,
+        [Symbol(asyncId)]: 79,
+        [Symbol(triggerId)]: 0
+      },
+      [Symbol(kBuffer)]: null,
+      [Symbol(kBufferCb)]: null,
+      [Symbol(kBufferGen)]: null,
+      [Symbol(kCapture)]: false,
+      [Symbol(kSetNoDelay)]: false,
+      [Symbol(kSetKeepAlive)]: false,
+      [Symbol(kSetKeepAliveInitialDelay)]: 0,
+      [Symbol(kBytesRead)]: 0,
+      [Symbol(kBytesWritten)]: 0
+    },
+    _protocol: Protocol {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      readable: true,
+      writable: true,
+      _config: [ConnectionConfig],
+      _connection: [Circular *2],
+      _callback: null,
+      _fatalError: null,
+      _quitSequence: null,
+      _handshake: true,
+      _handshaked: false,
+      _ended: false,
+      _destroyed: false,
+      _queue: [Array],
+      _handshakeInitializationPacket: null,
+      _parser: [Parser],
+      [Symbol(kCapture)]: false
+    },
+    _connectCalled: true,
+    state: 'disconnected',
+    threadId: null,
+    [Symbol(kCapture)]: false
+  },
+  [Symbol(kCapture)]: false
+}
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T03:35:37.481Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Connected!
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2652742--RpQm-zYSINtysTuL2VMUFBXZWQ-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+<ref *1> Connection {
+  _events: [Object: null prototype] {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  config: ConnectionConfig {
+    host: 'educdv.ca',
+    port: 3306,
+    localAddress: undefined,
+    socketPath: undefined,
+    user: 'educdv23_main',
+    password: 'exCtM5+VNRTV',
+    database: 'educdv23_sfu_research_pictorial',
+    connectTimeout: 10000,
+    insecureAuth: false,
+    supportBigNumbers: false,
+    bigNumberStrings: false,
+    dateStrings: false,
+    debug: undefined,
+    trace: true,
+    stringifyObjects: false,
+    timezone: 'local',
+    flags: '',
+    queryFormat: undefined,
+    pool: undefined,
+    ssl: false,
+    localInfile: true,
+    multipleStatements: false,
+    typeCast: true,
+    maxPacketSize: 0,
+    charsetNumber: 33,
+    clientFlags: 455631
+  },
+  _socket: undefined,
+  _protocol: Protocol {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    readable: true,
+    writable: true,
+    _config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: 'educdv23_sfu_research_pictorial',
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _connection: [Circular *1],
+    _callback: null,
+    _fatalError: null,
+    _quitSequence: null,
+    _handshake: false,
+    _handshaked: false,
+    _ended: false,
+    _destroyed: false,
+    _queue: [],
+    _handshakeInitializationPacket: null,
+    _parser: Parser {
+      _supportBigNumbers: false,
+      _buffer: <Buffer >,
+      _nextBuffers: [BufferList],
+      _longPacketBuffers: [BufferList],
+      _offset: 0,
+      _packetEnd: null,
+      _packetHeader: null,
+      _packetOffset: null,
+      _onError: [Function: bound handleParserError],
+      _onPacket: [Function: bound ],
+      _nextPacketNumber: 0,
+      _encoding: 'utf-8',
+      _paused: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  _connectCalled: false,
+  state: 'disconnected',
+  threadId: null,
+  [Symbol(kCapture)]: false
+}
+RES:  undefined
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+Connected!
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T03:38:17.831Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2656114-zLjWslozfZKRuPIjzjQwx68ZaE4-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+<ref *1> Connection {
+  _events: [Object: null prototype] {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  config: ConnectionConfig {
+    host: 'educdv.ca',
+    port: 3306,
+    localAddress: undefined,
+    socketPath: undefined,
+    user: 'educdv23_main',
+    password: 'exCtM5+VNRTV',
+    database: 'educdv23_sfu_research_pictorial',
+    connectTimeout: 10000,
+    insecureAuth: false,
+    supportBigNumbers: false,
+    bigNumberStrings: false,
+    dateStrings: false,
+    debug: undefined,
+    trace: true,
+    stringifyObjects: false,
+    timezone: 'local',
+    flags: '',
+    queryFormat: undefined,
+    pool: undefined,
+    ssl: false,
+    localInfile: true,
+    multipleStatements: false,
+    typeCast: true,
+    maxPacketSize: 0,
+    charsetNumber: 33,
+    clientFlags: 455631
+  },
+  _socket: undefined,
+  _protocol: Protocol {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    readable: true,
+    writable: true,
+    _config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: 'educdv23_sfu_research_pictorial',
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _connection: [Circular *1],
+    _callback: null,
+    _fatalError: null,
+    _quitSequence: null,
+    _handshake: false,
+    _handshaked: false,
+    _ended: false,
+    _destroyed: false,
+    _queue: [],
+    _handshakeInitializationPacket: null,
+    _parser: Parser {
+      _supportBigNumbers: false,
+      _buffer: <Buffer >,
+      _nextBuffers: [BufferList],
+      _longPacketBuffers: [BufferList],
+      _offset: 0,
+      _packetEnd: null,
+      _packetHeader: null,
+      _packetOffset: null,
+      _onError: [Function: bound handleParserError],
+      _onPacket: [Function: bound ],
+      _nextPacketNumber: 0,
+      _encoding: 'utf-8',
+      _paused: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  _connectCalled: false,
+  state: 'disconnected',
+  threadId: null,
+  [Symbol(kCapture)]: false
+}
+RES:  <ref *1> Query {
+  _events: [Object: null prototype] {
+    error: [Function (anonymous)],
+    packet: [Function (anonymous)],
+    timeout: [Function (anonymous)],
+    end: [Function (anonymous)]
+  },
+  _eventsCount: 4,
+  _maxListeners: undefined,
+  _callback: undefined,
+  _callSite: Error
+      at Protocol._enqueue (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+      at Connection.query (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Connection.js:198:25)
+      at querySQL (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:104:39)
+      at processTicksAndRejections (node:internal/process/task_queues:96:5)
+      at async verify_allowed (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:115:25)
+      at async C:\Users\kenny\source\repos\sfu_sql_repo\app.js:165:42,
+  _ended: false,
+  _timeout: undefined,
+  _timer: Timer { _object: [Circular *1], _timeout: null },
+  sql: "SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'",
+  values: undefined,
+  typeCast: true,
+  nestTables: false,
+  _resultSet: null,
+  _results: [],
+  _fields: [],
+  _index: 0,
+  _loadError: null,
+  _connection: <ref *2> Connection {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: 'educdv23_sfu_research_pictorial',
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _socket: Socket {
+      connecting: true,
+      _hadError: false,
+      _parent: null,
+      _host: 'educdv.ca',
+      _readableState: [ReadableState],
+      _events: [Object: null prototype],
+      _eventsCount: 5,
+      _maxListeners: undefined,
+      _writableState: [WritableState],
+      allowHalfOpen: false,
+      _sockname: null,
+      _pendingData: null,
+      _pendingEncoding: '',
+      server: null,
+      _server: null,
+      timeout: 10000,
+      [Symbol(async_id_symbol)]: 76,
+      [Symbol(kHandle)]: [TCP],
+      [Symbol(lastWriteQueueSize)]: 0,
+      [Symbol(timeout)]: Timeout {
+        _idleTimeout: 10000,
+        _idlePrev: [TimersList],
+        _idleNext: [TimersList],
+        _idleStart: 8272,
+        _onTimeout: [Function: bound ],
+        _timerArgs: undefined,
+        _repeat: null,
+        _destroyed: false,
+        [Symbol(refed)]: false,
+        [Symbol(kHasPrimitive)]: false,
+        [Symbol(asyncId)]: 79,
+        [Symbol(triggerId)]: 0
+      },
+      [Symbol(kBuffer)]: null,
+      [Symbol(kBufferCb)]: null,
+      [Symbol(kBufferGen)]: null,
+      [Symbol(kCapture)]: false,
+      [Symbol(kSetNoDelay)]: false,
+      [Symbol(kSetKeepAlive)]: false,
+      [Symbol(kSetKeepAliveInitialDelay)]: 0,
+      [Symbol(kBytesRead)]: 0,
+      [Symbol(kBytesWritten)]: 0
+    },
+    _protocol: Protocol {
+      _events: [Object: null prototype],
+      _eventsCount: 7,
+      _maxListeners: undefined,
+      readable: true,
+      writable: true,
+      _config: [ConnectionConfig],
+      _connection: [Circular *2],
+      _callback: null,
+      _fatalError: null,
+      _quitSequence: null,
+      _handshake: true,
+      _handshaked: false,
+      _ended: false,
+      _destroyed: false,
+      _queue: [Array],
+      _handshakeInitializationPacket: null,
+      _parser: [Parser],
+      [Symbol(kCapture)]: false
+    },
+    _connectCalled: true,
+    state: 'disconnected',
+    threadId: null,
+    [Symbol(kCapture)]: false
+  },
+  [Symbol(kCapture)]: false
+}
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T04:02:08.259Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2717134-PWry3CUXeSVtLUgOCSY1uleN-5M-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+<ref *1> Connection {
+  _events: [Object: null prototype] {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  config: ConnectionConfig {
+    host: 'educdv.ca',
+    port: 3306,
+    localAddress: undefined,
+    socketPath: undefined,
+    user: 'educdv23_main',
+    password: 'exCtM5+VNRTV',
+    database: 'educdv23_sfu_research_pictorial',
+    connectTimeout: 10000,
+    insecureAuth: false,
+    supportBigNumbers: false,
+    bigNumberStrings: false,
+    dateStrings: false,
+    debug: undefined,
+    trace: true,
+    stringifyObjects: false,
+    timezone: 'local',
+    flags: '',
+    queryFormat: undefined,
+    pool: undefined,
+    ssl: false,
+    localInfile: true,
+    multipleStatements: false,
+    typeCast: true,
+    maxPacketSize: 0,
+    charsetNumber: 33,
+    clientFlags: 455631
+  },
+  _socket: undefined,
+  _protocol: Protocol {
+    _events: [Object: null prototype] {},
+    _eventsCount: 0,
+    _maxListeners: undefined,
+    readable: true,
+    writable: true,
+    _config: ConnectionConfig {
+      host: 'educdv.ca',
+      port: 3306,
+      localAddress: undefined,
+      socketPath: undefined,
+      user: 'educdv23_main',
+      password: 'exCtM5+VNRTV',
+      database: 'educdv23_sfu_research_pictorial',
+      connectTimeout: 10000,
+      insecureAuth: false,
+      supportBigNumbers: false,
+      bigNumberStrings: false,
+      dateStrings: false,
+      debug: undefined,
+      trace: true,
+      stringifyObjects: false,
+      timezone: 'local',
+      flags: '',
+      queryFormat: undefined,
+      pool: undefined,
+      ssl: false,
+      localInfile: true,
+      multipleStatements: false,
+      typeCast: true,
+      maxPacketSize: 0,
+      charsetNumber: 33,
+      clientFlags: 455631
+    },
+    _connection: [Circular *1],
+    _callback: null,
+    _fatalError: null,
+    _quitSequence: null,
+    _handshake: false,
+    _handshaked: false,
+    _ended: false,
+    _destroyed: false,
+    _queue: [],
+    _handshakeInitializationPacket: null,
+    _parser: Parser {
+      _supportBigNumbers: false,
+      _buffer: <Buffer >,
+      _nextBuffers: [BufferList],
+      _longPacketBuffers: [BufferList],
+      _offset: 0,
+      _packetEnd: null,
+      _packetHeader: null,
+      _packetOffset: null,
+      _onError: [Function: bound handleParserError],
+      _onPacket: [Function: bound ],
+      _nextPacketNumber: 0,
+      _encoding: 'utf-8',
+      _paused: false
+    },
+    [Symbol(kCapture)]: false
+  },
+  _connectCalled: false,
+  state: 'disconnected',
+  threadId: null,
+  query: [Function: bound query],
+  connect: [Function: bound connect],
+  end: [Function: bound end],
+  [Symbol(kCapture)]: false
+}
+RES:  [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T04:37:03.280Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2653483-HaLwcSAoQSLKwWphSml50l8pDQI-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+RES:  [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T04:37:29.494Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2653556-n3i4bIELpadgxnuIbuYwz4kC7pc-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+Error: => TypeError: sqlconnector.connect is not a function
+    at querySQL (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:103:39)
+    at verify_allowed (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:112:31)
+    at C:\Users\kenny\source\repos\sfu_sql_repo\app.js:162:48
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2656605-nBdU9LDjnwApasLbyc-l-8G1BWs-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+RES:  [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+===> SELECT * FROM SFU_Allowed WHERE username = 'ktzhang'
+userdata: { results: [ { username: 'ktzhang', permission_level: 4 } ] }
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T04:44:24.126Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2656642-DtnV0OW-XG9kzFZOuIqm6jq8ELU-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+}
+Error: => ReferenceError: client is not defined
+    at verify_allowed (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:116:9)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async C:\Users\kenny\source\repos\sfu_sql_repo\app.js:157:42
+Server running on port 5010
+Loading db
+testing cas auth
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-65712-dH-vyymfHyirqdnrrkJyzDuj7GQ-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T04:47:15.643Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    {
+      id: '27',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'll',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -2,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '15',
+      latitude: 8,
+      longitude: 0,
+      research_site: 'bb',
+      project: 'bbbb',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '25',
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'ihjhj',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '21',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    },
+    {
+      id: '23',
+      latitude: 2,
+      longitude: -2,
+      research_site: '',
+      project: 'V',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: 'ggfffffff',
+      fperiod: -1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2717300-NRbfbF3KE0Gk-Jbplb889FRVu1E-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T04:52:08.071Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+ERR! Error: Pool is closed.
+    at Pool.getConnection (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Pool.js:25:15)
+    at node:internal/util:360:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (node:internal/util:346:12)
+    at querySQL (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:103:39)
+    at C:\Users\kenny\source\repos\sfu_sql_repo\app.js:214:34
+    at Layer.handle [as handle_request] (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\layer.js:95:5) {
+  code: 'POOL_CLOSED'
+}
+ERR! Error: Pool is closed.
+    at Pool.getConnection (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Pool.js:25:15)
+    at node:internal/util:360:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (node:internal/util:346:12)
+    at Pool.query (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Pool.js:202:8)
+    at node:internal/util:360:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (node:internal/util:346:12)
+    at querySQL (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:104:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    --------------------
+    at Pool.query (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Pool.js:199:23)
+    at node:internal/util:360:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (node:internal/util:346:12)
+    at querySQL (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:104:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async C:\Users\kenny\source\repos\sfu_sql_repo\app.js:214:28 {
+  code: 'POOL_CLOSED'
+}
+{ results: undefined, p_level: 4 }
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2656700-uhf3sNRHf0YTZETO4zvNjAaSws8-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T04:52:34.466Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{ results: [], p_level: 4 }
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2653717-3eu-muxsBshJahSqm-cQct0MBeo-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T04:55:52.448Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{ results: [], p_level: 4 }
+Reading...
+===> INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (2,2,'','bh', '', '', '', '', 3, '', '');
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 1,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '',
+    protocol41: true,
+    changedRows: 0
+  }
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Reading...
+===> INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (-1,2,'','bjh', '', '', '', '', 3, '', '');
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 2,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '',
+    protocol41: true,
+    changedRows: 0
+  }
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: -1,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Deleting...
+Reading...
+===> UPDATE SFU_Research SET latitude = 2, longitude = 2, research_site = '', project = 'bjh', pi = '', co_pi = '', collabs = '', keywords = '', fperiod = 3, funder = '', url = '' WHERE id = 2;
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 0,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '(Rows matched: 1  Changed: 1  Warnings: 0',
+    protocol41: true,
+    changedRows: 1
+  }
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Loading db
+Range:  0 10
+Loading db
+Range:  0 10
+Loading db
+testing cas auth
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2653786-r0he7WafNxF8SeNn5MYYSu85hGw-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+Server running on port 5010
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2653786-r0he7WafNxF8SeNn5MYYSu85hGw-ssoapp1
+rsults:  [Function: status] undefined
+Loading db
+testing cas auth
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2653799-kyuY0SAzjwAj3CL97KK01FrZUsQ-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T05:02:38.271Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Range:  10 20
+{ results: [], p_level: 4 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Range:  10 20
+{ results: [], p_level: 4 }
+Range:  20 30
+{ results: [], p_level: 4 }
+Range:  10 20
+{ results: [], p_level: 4 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Loading db
+testing cas auth
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2656819-MWwGEaDkcy9-p0i20V8292t5UZA-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+Server running on port 5010
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2656819-MWwGEaDkcy9-p0i20V8292t5UZA-ssoapp1
+rsults:  [Function: status] undefined
+Server running on port 5010
+Loading db
+testing cas auth
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2656833-XkA9DV0m4eVedtVqa38VRM87Tg8-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T05:04:52.204Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Loading db
+testing cas auth
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2717443-dxMxc-v-fUKR6FBr7HVAXG76b9A-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-19T05:05:03.545Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}

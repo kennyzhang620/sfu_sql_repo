@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const { pool } = require("./dbConfig");
+const sqlconnector = require("./dbConfigMSQL")
 //const bcrypt = require("bcrypt");
 const sessions = require("express-session");
 const cookieParser = require("cookie-parser");
@@ -98,21 +99,23 @@ async function send_ack(surl, token) {
     return await axios.get(ta);
 }
 
+async function querySQL(sql) {
+    const result = await sqlconnector.query(sql).catch(err => { console.log("ERR!", err) })
+    return result;
+}
+
 async function verify_allowed(sfuid) {
     try {
         const sqlStatement = `SELECT * FROM SFU_Allowed WHERE username = '${sfuid}'`;
-
-        console.log("===>", sqlStatement)
-        const client = await pool.connect();
-        const result = await client.query(sqlStatement);
-        const data = { results: result.rows };
+        const results = await querySQL(sqlStatement);
+        const data = { results: results};
 
         console.log("userdata:", data)
-        client.release();
 
         if (data.results.length > 0) {
             return data.results[0].permission_level;
         }
+
     }
     catch (err) {
         console.log("Error: =>", err);
@@ -206,16 +209,14 @@ app.get('/sfu-research-db/view_db/:index', async (req, res) => { // example: /vi
         try {
             var commandstoDB = sqlStatement
 
-            const client = await pool.connect();
-            const result = await client.query(commandstoDB);
-            const data = { results: result.rows, p_level: session.permission_level };
+            const result = await querySQL(sqlStatement)
+            const data = { results: result, p_level: session.permission_level };
 
             console.log(data)
             //  console.log(data.results[0].is_healthy)
             // res.render("pages/Information", data);
             res.json(data);
             status = 0;
-            client.release();
         }
         catch (error) {
             console.log('X->', error);
@@ -246,16 +247,14 @@ app.get('/sfu-research-db/view_db/:search/:index', async (req, res) => { // exam
         try {
             var commandstoDB = sqlStatement
 
-            const client = await pool.connect();
-            const result = await client.query(commandstoDB);
-            const data = { results: result.rows, p_level: session.permission_level  };
+            const result = await querySQL(sqlStatement)
+            const data = { results: result, p_level: session.permission_level  };
 
             console.log(data)
             //  console.log(data.results[0].is_healthy)
             // res.render("pages/Information", data);
             res.json(data);
             status = 0;
-            client.release();
         }
         catch (error) {
             console.log('X->', error);
@@ -289,13 +288,10 @@ app.post('/sfu-research-db/add_entry/', async (req, res) => {
         const sqlStatement = `INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (${lat},${long},'${Research_S}','${Proj}', '${PI}', '${coPIs}', '${collab}', '${keywords}', ${fundyear}, '${funders}', '${url}');`;
 
         console.log("===>", sqlStatement)
-        const client = await pool.connect();
-        const result = await client.query(sqlStatement);
-        const data = { results: result.rows };
+        const result = await querySQL(sqlStatement)
+        const data = { results: result };
 
         console.log(data)
-        client.release();
-
         res.json("Success!");
     }
     else {
@@ -361,12 +357,10 @@ app.post('/sfu-research-db/update_entry/', async (req, res) => {
 
 
         console.log("===>", sqlStatement)
-        const client = await pool.connect();
-        const result = await client.query(sqlStatement);
-        const data = { results: result.rows };
+        const result = await querySQL(sqlStatement)
+        const data = { results: result };
          
         console.log(data)
-        client.release();
 
         res.json("Success!");
     } 
@@ -388,11 +382,9 @@ app.post('/sfu-research-db/delete_entry/', async (req, res) => {
 
         const sqlStatement = `DELETE FROM SFU_Research WHERE id = '${uid}' AND latitude = ${lat} AND longitude = ${long};`;
 
-        const client = await pool.connect();
-        const result = await client.query(sqlStatement);
-        const data = { results: result.rows };
+        const result = await querySQL(sqlStatement);
+        const data = { results: result };
     
-        client.release();
         res.json("Success!");
     }
     else {
@@ -450,16 +442,14 @@ app.get('/sfu-research-db/view_db_all', async (req, res) => {
         try {
             var commandstoDB = `SELECT * from SFU_Research;`;
 
-            const client = await pool.connect();
-            const result = await client.query(commandstoDB);
-            const data = { results: result.rows, p_level: session.permission_level };
+            const result = await querySQL(sqlStatement)
+            const data = { results: result, p_level: session.permission_level };
 
             console.log(data)
             //  console.log(data.results[0].is_healthy)
             // res.render("pages/Information", data);
             res.json(data);
             status = 0;
-            client.release();
         }
         catch (error) {
             console.log('X->', error);
