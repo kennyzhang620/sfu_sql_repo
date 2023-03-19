@@ -216,6 +216,7 @@ function runUpdates() {
         }
     }
 
+    
     if (!allow) {
         const val = confirm("Database entries detected that are marked for deletion. Press OK to confirm deletion.")
 
@@ -223,6 +224,33 @@ function runUpdates() {
             allow = true;
         }
     }
+
+    const newEntry = {
+        "latitude": document.getElementById("add_lat").value,
+        "longitude": document.getElementById("add_long").value,
+        "project": document.getElementById("add_proj").value,
+        "year": document.getElementById("add_fperiod").value,
+    }
+
+    if (!enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year)) {
+        allow = false;
+
+        var lat = "Latitude"; var long = "Longitude"; var proj = "Project"; var y = "Year";
+        if (!isNaN(newEntry.latitude) && newEntry.latitude != "")
+            lat = ""
+
+        if (!isNaN(newEntry.longitude) && newEntry.longitude != "")
+            long = ""
+
+        if (newEntry.project != "")
+            proj = ""
+
+        if (!isNaN(newEntry.year) && newEntry.year != "")
+            y = ""
+
+        alert(`One or more of the following fields are blank: ${lat} ${long} ${proj} ${y}`)
+    }
+
 
     if (allow) {
 
@@ -460,22 +488,6 @@ function pushNewEntry() {
 
     if (enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year))
         sendPacket('/sfu-research-db/add_entry', newEntry);
-    else {
-        var lat = "Latitude"; var long = "Longitude"; var proj = "Project"; var y = "Year";
-        if (!isNaN(newEntry.latitude) && newEntry.latitude != "")
-            lat = ""
-        
-        if (!isNaN(newEntry.longitude) && newEntry.longitude != "")
-            long = ""
-
-        if (newEntry.project != "")
-            proj = ""
-
-        if (!isNaN(newEntry.year) && newEntry.year != "")
-            y = ""
-        
-        alert(`One or more of the following fields are blank: ${lat} ${long} ${proj} ${y}`)
-    }
 }
 
 function sendUpdates() {
