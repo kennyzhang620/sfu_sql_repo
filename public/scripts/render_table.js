@@ -232,7 +232,7 @@ function runUpdates() {
         "year": document.getElementById("add_fperiod").value,
     }
 
-    if (!enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year)) {
+    if (updateList[updateList.length - 1] && !enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year)) {
         allow = false;
 
         var lat = "Latitude"; var long = "Longitude"; var proj = "Project"; var y = "Funding Period";
