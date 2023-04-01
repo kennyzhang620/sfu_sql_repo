@@ -3918,3 +3918,2133 @@ Server running on port 5010
 Server running on port 5010
 Server running on port 5010
 Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-43813-u2VVFQR4fR6DhOk3xmZ6vbDw0dg-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+ERR! Error: ER_HOST_NOT_PRIVILEGED: Host 'd142-058-215-202.wireless.sfu.ca' is not allowed to connect to this MySQL server
+    at Sequence._packetToError (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Handshake.ErrorPacket (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/sequences/Handshake.js:123:18)
+    at Protocol._parsePacket (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at addChunk (node:internal/streams/readable:324:12)
+    --------------------
+    at Protocol._enqueue (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at PoolConnection.connect (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Connection.js:116:18)
+    at Pool.getConnection (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Pool.js:48:16)
+    at node:internal/util:375:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (node:internal/util:361:12)
+    at Pool.query (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Pool.js:202:8)
+    at node:internal/util:375:7
+    at new Promise (<anonymous>) {
+  code: 'ER_HOST_NOT_PRIVILEGED',
+  errno: 1130,
+  sqlMessage: "Host 'd142-058-215-202.wireless.sfu.ca' is not allowed to connect to this MySQL server",
+  sqlState: undefined,
+  fatal: true
+}
+userdata: { results: undefined }
+Error: => TypeError: Cannot read properties of undefined (reading 'length')
+    at verify_allowed (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/app.js:115:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/app.js:153:42
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-43817-K8Lv4VjOrukugLVg-XNwUZjVP9c-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+ERR! Error: ER_HOST_NOT_PRIVILEGED: Host 'd142-058-215-202.wireless.sfu.ca' is not allowed to connect to this MySQL server
+    at Sequence._packetToError (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Handshake.ErrorPacket (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/sequences/Handshake.js:123:18)
+    at Protocol._parsePacket (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at addChunk (node:internal/streams/readable:324:12)
+    --------------------
+    at Protocol._enqueue (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at PoolConnection.connect (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Connection.js:116:18)
+    at Pool.getConnection (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Pool.js:48:16)
+    at node:internal/util:375:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (node:internal/util:361:12)
+    at Pool.query (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Pool.js:202:8)
+    at node:internal/util:375:7
+    at new Promise (<anonymous>) {
+  code: 'ER_HOST_NOT_PRIVILEGED',
+  errno: 1130,
+  sqlMessage: "Host 'd142-058-215-202.wireless.sfu.ca' is not allowed to connect to this MySQL server",
+  sqlState: undefined,
+  fatal: true
+}
+userdata: { results: undefined }
+Error: => TypeError: Cannot read properties of undefined (reading 'length')
+    at verify_allowed (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/app.js:115:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/app.js:153:42
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-43858-o6rClaoZce12efT5pEUozuzr2e8-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+ERR! Error: ER_HOST_NOT_PRIVILEGED: Host 'd142-058-215-202.wireless.sfu.ca' is not allowed to connect to this MySQL server
+    at Sequence._packetToError (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Handshake.ErrorPacket (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/sequences/Handshake.js:123:18)
+    at Protocol._parsePacket (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at addChunk (node:internal/streams/readable:324:12)
+    --------------------
+    at Protocol._enqueue (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at PoolConnection.connect (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Connection.js:116:18)
+    at Pool.getConnection (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Pool.js:48:16)
+    at node:internal/util:375:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (node:internal/util:361:12)
+    at Pool.query (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Pool.js:202:8)
+    at node:internal/util:375:7
+    at new Promise (<anonymous>) {
+  code: 'ER_HOST_NOT_PRIVILEGED',
+  errno: 1130,
+  sqlMessage: "Host 'd142-058-215-202.wireless.sfu.ca' is not allowed to connect to this MySQL server",
+  sqlState: undefined,
+  fatal: true
+}
+userdata: { results: undefined }
+Error: => TypeError: Cannot read properties of undefined (reading 'length')
+    at verify_allowed (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/app.js:115:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/app.js:153:42
+Server running on port 5010
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2811109-CBGc79t1ERMfqkkoBBHoZAfCiJg-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-25T00:03:15.932Z,
+    originalMaxAge: 1799999,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: '',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: '',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Loading db2
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2872923-HwNIIzsVbUs89N7mA04bvBulii4-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-03-25T00:34:56.500Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: '',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: '',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Loading db2
+Loading db2
+Loading db2
+Loading db2
+Loading db2
+Server running on port 5010
+Server running on port 5010
+Loading db2
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2980357-Sz9agm7WaWf9e4C1k0G4-8uz3N8-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+ERR! Error: ER_HOST_NOT_PRIVILEGED: Host 'd142-058-214-124.wireless.sfu.ca' is not allowed to connect to this MySQL server
+    at Sequence._packetToError (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Handshake.ErrorPacket (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/sequences/Handshake.js:123:18)
+    at Protocol._parsePacket (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at addChunk (node:internal/streams/readable:324:12)
+    --------------------
+    at Protocol._enqueue (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:144:48)
+    at Protocol.handshake (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/protocol/Protocol.js:51:23)
+    at PoolConnection.connect (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Connection.js:116:18)
+    at Pool.getConnection (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Pool.js:48:16)
+    at node:internal/util:375:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (node:internal/util:361:12)
+    at Pool.query (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/node_modules/mysql/lib/Pool.js:202:8)
+    at node:internal/util:375:7
+    at new Promise (<anonymous>) {
+  code: 'ER_HOST_NOT_PRIVILEGED',
+  errno: 1130,
+  sqlMessage: "Host 'd142-058-214-124.wireless.sfu.ca' is not allowed to connect to this MySQL server",
+  sqlState: undefined,
+  fatal: true
+}
+userdata: { results: undefined }
+Error: => TypeError: Cannot read properties of undefined (reading 'length')
+    at verify_allowed (/Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/app.js:115:26)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /Users/kennyzhang/Desktop/qpoc/sfu_sql_repo/app.js:153:42
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-3044595-2oNVJq2ojdzN0DtWXSjd2BTU0mM-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-04-01T01:53:06.838Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: '',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: '',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Loading db2
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2980876--ZuqEiiLYlhXmI26sBlPOrqGS88-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 4 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-04-01T02:05:45.017Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: '',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: '',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: '',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: '',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 4
+}
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2980952-UNOFlQL6CiRxHGP7kxyQak9U9S0-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 3 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-04-01T02:09:53.097Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: '',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: '',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Reading...
+===> INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (4,-4,'','rgfggffgfgfgfgf', '', '', '', '', 5, '', '');
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 7,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '',
+    protocol41: true,
+    changedRows: 0
+  }
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: '',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: '',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: '',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: '',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Reading...
+===> UPDATE SFU_Research SET latitude = -1, longitude = 3, research_site = 'fdfdf', project = ' ,ml', pi = '', co_pi = '', collabs = '', keywords = '', fperiod = 3, funder = '', url = '' WHERE id = 3;
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 0,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '(Rows matched: 1  Changed: 1  Warnings: 0',
+    protocol41: true,
+    changedRows: 1
+  }
+}
+Reading...
+===> UPDATE SFU_Research SET latitude = 2, longitude = 2, research_site = 'fdfd', project = 'bjh', pi = '', co_pi = '', collabs = '', keywords = '', fperiod = 3, funder = '', url = '' WHERE id = 2;
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 0,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '(Rows matched: 1  Changed: 1  Warnings: 0',
+    protocol41: true,
+    changedRows: 1
+  }
+}
+Reading...
+===> UPDATE SFU_Research SET latitude = 1, longitude = -1, research_site = 'fdffd', project = '0', pi = '', co_pi = '', collabs = '', keywords = '', fperiod = 1, funder = '', url = '' WHERE id = 5;
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 0,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '(Rows matched: 1  Changed: 1  Warnings: 0',
+    protocol41: true,
+    changedRows: 1
+  }
+}
+Reading...
+===> UPDATE SFU_Research SET latitude = 4, longitude = -4, research_site = 'fdfdf', project = 'rgfggffgfgfgfgf', pi = '', co_pi = '', collabs = '', keywords = '', fperiod = 5, funder = '', url = '' WHERE id = 7;
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 0,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '(Rows matched: 1  Changed: 1  Warnings: 0',
+    protocol41: true,
+    changedRows: 1
+  }
+}
+Reading...
+===> INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (2,-3,'','fddfdfdf', 'fdfdfdfdf', '', '', '', -3, '', '');
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 8,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '',
+    protocol41: true,
+    changedRows: 0
+  }
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Server running on port 5010
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-2981032-OXf8nR67rTHBUF8Yx9u0U8uYRWs-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 3 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-04-01T02:14:28.123Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  10 20
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Server running on port 5010
+Loading db2
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-3045064-PUE9s1kQQ-OyupttM-becFUg2BA-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 3 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-04-01T02:25:23.990Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}

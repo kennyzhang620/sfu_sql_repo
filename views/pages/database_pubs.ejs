@@ -15,15 +15,13 @@
             <tr>
                 <td>Latitude (AutoFill capable)</td>
                 <td>Longitude (AutoFill capable)</td>
-                <td>Research Sites</td>
-                <td>Project</td>
-                <td>Principle Investigator</td>
-                <td>Co-PIs</td>
-                <td>Collaborators (not funders)</td>
-                <td>Research Keywords (AutoFill capable)</td>
-                <td>Funding Period</td>
-                <td>Funder</td>
-                <td>Image URL</td>
+                <td>Publication Title</td>
+                <td>Author</td>
+                <td>Co-Author</td>
+                <td>Institution</td>
+                <td>Region</td>
+                <td>Year</td>
+                <td>Reference</td>
             </tr>
             <tr>
                 <td><input id="1" type="text" /></td>
@@ -32,23 +30,18 @@
                 <td><input id="1" type="text" /></td>
                 <td><input id="1" type="text" /></td>
                 <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
-            </tr>
-            <tr>
-                <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
-                <td><input id="1" type="text" /></td>
+                <td>
+                    <select name="region_sel" id="add_region">
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Middle East">Middle East</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
+                </td>
+                <td><input id="1" type="number" value="2012" /></td>
                 <td><input id="1" type="text" /></td>
             </tr>
         </table>
@@ -65,28 +58,35 @@
                 <tr>
                     <td>Latitude (AutoFill capable)</td>
                     <td>Longitude (AutoFill capable)</td>
-                    <td>Research Sites</td>
-                    <td>Project</td>
-                    <td>Principle Investigator</td>
-                    <td>Co-PIs</td>
-                    <td>Collaborators (not funders)</td>
-                    <td>Research Keywords (AutoFill capable)</td>
-                    <td>Funding Period</td>
-                    <td>Funder</td>
-                    <td>Image URL</td>
+                    <td>Publication Title</td>
+                    <td>Author</td>
+                    <td>Co-Author</td>
+                    <td>Institution</td>
+                    <td>Region</td>
+                    <td>Year</td>
+                    <td>Reference</td>
                 </tr>
                 <tr>
-                    <td><input type="number" id="add_lat" value="" oninput="updateDB(10)"></td>
-                    <td><input type="number" id="add_long" value="" oninput="updateDB(10)"></td>
-                    <td><input type="text" id="add_rs" value="" oninput="updateDB(10)"></td>
-                    <td><input type="text" id="add_proj" value="" oninput="updateDB(10)"></td>
-                    <td><input type="text" id="add_pi" value="" oninput="updateDB(10)"></td>
-                    <td><input type="text" id="add_cpi" value="" oninput="updateDB(10)"></td>
-                    <td><input type="text" id="add_collabs" value="" oninput="updateDB(10)"></td>
-                    <td><input type="text" id="add_kw" value="" oninput="updateDB(10)"></td>
-                    <td><input type="number" id="add_fperiod" value="" oninput="updateDB(10)"></td>
-                    <td><input type="text" id="add_fund" value="" oninput="updateDB(10)"></td>
-                    <td><input type="text" id="add_url" value="" oninput="updateDB(10)"></td>
+                    <td><input type="number" id="add_lat" value="" oninput="updateDB(updateList.length - 1)"></td>
+                    <td><input type="number" id="add_long" value="" oninput="updateDB(updateList.length - 1)"></td>
+                    <td><input type="text" id="add_proj" value="" oninput="updateDB(updateList.length - 1)"></td>
+                    <td><input type="text" id="add_auth" value="" oninput="updateDB(updateList.length - 1)"></td>
+                    <td><input type="text" id="add_cauth" value="" oninput="updateDB(updateList.length - 1)"></td>
+                    <td><input type="text" id="add_inst" value="" oninput="updateDB(updateList.length - 1)"></td>
+                    <td>
+                        <select name="region_sel" id="add_region">
+                            <option value="North America">North America</option>
+                            <option value="South America">South America</option>
+                            <option value="Europe">Europe</option>
+                            <option value="Asia">Asia</option>
+                            <option value="Middle East">Middle East</option>
+                            <option value="Africa">Africa</option>
+                            <option value="Oceania">Oceania</option>
+                        </select>
+
+                    </td>
+                    <td><input type="number" id="add_yr" value="" oninput="updateDB(updateList.length - 1)"></td>
+                    <td><input type="text" id="add_ref" value="" oninput="updateDB(updateList.length - 1)"></td>
                 </tr>
             </table>
         </div>
@@ -98,6 +98,6 @@
             <input type="image" style="width: 60px; height: 60px;" src="/sfu-research-db/icons/logout.png" onclick="window.location.replace('/sfu-research-db/logout')">
         </div>
     </div>
-    <script src="/sfu-research-db/scripts/render_table.js"></script>
+    <!--<script src="/sfu-research-db/scripts/render_table.js"></script>-->
 </body>
 </html>
