@@ -52,111 +52,6 @@ function modifyfilters() {
     filterDisplay();
 }
 
-function subStrCheck(results, substr) {
-    var query = substr;
-    return results.common_name.toLowerCase().includes(query) || results.latin_name.toLowerCase().includes(query) || results.plant_description.toLowerCase().includes(query)
-        || (results.disease_name != null && results.disease_name.toLowerCase().includes(query));
-}
-function filterDisplay() {
-    if (storedData != null) {
-        if (storedData != null && storedData.results != null && storedData.results.length > 0) {
-            clearCells();
-
-            var results = storedData.results;
-            for (var i = 0; i < results.length; i++) {
-                var allow = true
-
-                var query = searchbar.value.toLowerCase();
-                if (subStrCheck(results[i], query)) {
-                    if (filterList[0] != "Any") {
-                        console.log(results[i], filterList[1]);
-                        if (filterList[0] == 'healthy' && (results[i].is_healthy == null || results[i].is_healthy != true)) {
-                            allow = false;
-                        }
-                        else if (filterList[0] == "unhealthy" && (results[i].is_healthy != null && results[i].is_healthy == true)) {
-                            allow = false;
-                        }
-                    }
-
-                    if (filterList[1] != "Any") {
-                        if (filterList[1] == "Edible" && (results[i].is_edible == null || results[i].is_edible != true)) {
-                            allow = false;
-                        }
-                        else if (filterList[1] == "Inedible" && (results[i].is_edible != null || results[i].is_edible == true)) {
-                            allow = false;
-                        }
-                    }
-
-                    if (filterList[2] != "Any") {
-                        if (filterList[2] == "Cutting" && (results[i].division == null || results[i].division != true)) {
-                            allow = false;
-                        }
-                        if (filterList[2] == "Division" && (results[i].division == null || results[i].division != true)) {
-                            allow = false;
-                        }
-                        else if (filterList[2] == "Grafting" && (results[i].grafting == null || results[i].grafting != true)) {
-                            allow = false;
-                        }
-                        else if (filterList[2] == "Seeds" && (results[i].seeds == null || results[i].seeds != true)) {
-                            allow = false;
-                        }
-                        else if (filterList[2] == "Spores" && (results[i].spores == null || results[i].spores != true)) {
-                            allow = false;
-                        }
-                        else if (filterList[2] == "Suckers" && (results[i].suckers == null || results[i].suckers != true)) {
-                            allow = false;
-                        }
-
-                    }
-                    if (filterList[3] != "Any") {
-                        if (filterList[3] == "Food") {
-                            if (!subStrCheck(results[i], "food") && !subStrCheck(results[i], "vegetable") && !subStrCheck(results[i], "fruit") && !subStrCheck(results[i], "berry") && !subStrCheck(results[i], "berries") && !subStrCheck(results[i], "edible"))
-                                allow = false;
-                        }
-                        else {
-                            if (!subStrCheck(results[i], filterList[3].toLowerCase()))
-                                allow = false;
-                        }
-                    }
-
-                    //    console.log(parsedD.results[i].image_data)
-                }
-                else {
-                    allow = false;
-                }
-
-                if (allow)
-                    generateCell(results[i].image64, results[i].id);
-            }
-        }
-    }
-}
-
-function displayFilters() {
-    if (filters.style.display == "none" || filters.style.display == "") {
-        filters.style.display = "block";
-    }
-    else {
-        filters.style.display = "none";
-    }
-}
-
-function clearCells() {
-    var inner = tableView
-
-    if (inner != null) {
-        var container = inner[0];
-
-        while (container.firstChild) {
-            container.removeChild(container.firstChild);
-        }
-
-    }
-	
-	console.log("cleared/");
-}
-
-
 function updateDB(ind) {
     updateList[ind] = true;
     console.log(updateList);
@@ -181,26 +76,24 @@ function deleteDB(uid, lat, long) {
         "auth_key": "93y7y33"
     }
 
-    sendPacket('/sfu-research-db/delete_entry', newEntry);
+    sendPacket('/sfu-research-db/delete_entry_2', newEntry);
 }
 
-function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, fund, url) {
+function updateDBEntry(uid, lat, long, proj, authors, coauth, inst, region, year, ref) {
     const newEntry = {
-        "uid": uid,
+		"uid": uid,
         "latitude": lat,
         "longitude": long,
         "project": proj,
-        "research_sites": rs,
-        "pi_main": pi,
-        "co_pi": cpi,
-        "collabs": collabs,
-        "keywords": kw,
-        "funders": fund,
-        "year": fperiod,
-        "url": url
+        "authors": authors,
+        "co_authors": coauth,
+        "institution": inst,
+        "region": region,
+        "year": year,
+        "ref": ref,
     }
-
-    sendPacket('/sfu-research-db/update_entry/', newEntry);
+	
+    sendPacket('/sfu-research-db/update_entry_2/', newEntry);
 }
 
 function runUpdates() {
@@ -229,7 +122,7 @@ function runUpdates() {
         "latitude": document.getElementById("add_lat").value,
         "longitude": document.getElementById("add_long").value,
         "project": document.getElementById("add_proj").value,
-        "year": document.getElementById("add_fperiod").value,
+        "year": document.getElementById("add_yr").value,
     }
 
     if (updateList[updateList.length - 1] && !enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year)) {
@@ -364,9 +257,9 @@ function getDB(searchparams, ind) {
 
     var inURL = ""
     if (searchparams != "")
-        inURL = `/sfu-research-db/view_db/${searchparams}/${ind}`
+        inURL = `/sfu-research-db/view_db_2/${searchparams}/${ind}`
     else {
-        inURL = `/sfu-research-db/view_db/${ind}`
+        inURL = `/sfu-research-db/view_db_2/${ind}`
     }
     
     var txtFile = new XMLHttpRequest();
@@ -489,7 +382,7 @@ function pushNewEntry() {
     }
 
     if (enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year))
-        sendPacket('/sfu-research-db/add_entry', newEntry);
+        sendPacket('/sfu-research-db/add_entry_2', newEntry);
 }
 
 function sendUpdates() {

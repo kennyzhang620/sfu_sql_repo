@@ -266,6 +266,79 @@ app.get('/sfu-research-db/view_db/:search/:index', async (req, res) => { // exam
         res.status(403);
     } 
 });
+
+app.get('/sfu-research-db/view_db_2/:index', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
+    let ind = req.params.index
+
+    session = req.session;
+    if (session.userid && session.permission_level > 0) {
+        const start = ind * 10
+        const end = start + 10
+
+        console.log("Range: ", start, end)
+        const sqlStatement = `SELECT * FROM SFU_Plot LIMIT 10 OFFSET ${start};`;
+
+        try {
+            var commandstoDB = sqlStatement
+
+            const result = await querySQL(sqlStatement)
+            const data = { results: result, p_level: session.permission_level };
+
+            console.log(data)
+            //  console.log(data.results[0].is_healthy)
+            // res.render("pages/Information", data);
+            res.json(data);
+            status = 0;
+        }
+        catch (error) {
+            console.log('X->', error);
+            status = -2;
+            res.json("None.")
+        }
+    }
+    else {
+        res.status(403);
+    }
+});
+
+app.get('/sfu-research-db/view_db_2/:search/:index', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
+    let searchP = req.params.search
+    let ind = req.params.index
+
+    session = req.session;
+    if (session.userid && session.permission_level > 0) {
+        const start = ind * 10
+        const end = start + 10
+
+        console.log("Range: ", start, end)
+        // latitude	longitude	research_site	project	pi	co_pi	collabs	keywords	fperiod	funder	url
+
+        const sqlStatement = `SELECT * FROM SFU_Plot WHERE
+        (publication_title LIKE '${searchP}' OR author LIKE '${searchP}' OR co_author LIKE '${searchP}' OR institution LIKE '${searchP}' or region LIKE '${searchP}' or keywords LIKE '${searchP}' or reference LIKE '${searchP}') 
+        LIMIT 10 OFFSET ${start};`;
+
+        try {
+            var commandstoDB = sqlStatement
+
+            const result = await querySQL(sqlStatement)
+            const data = { results: result, p_level: session.permission_level };
+
+            console.log(data)
+            //  console.log(data.results[0].is_healthy)
+            // res.render("pages/Information", data);
+            res.json(data);
+            status = 0;
+        }
+        catch (error) {
+            console.log('X->', error);
+            status = -2;
+            res.json("None.")
+        }
+    }
+    else {
+        res.status(403);
+    }
+});
  
 app.post('/sfu-research-db/add_entry/', async (req, res) => {
 
