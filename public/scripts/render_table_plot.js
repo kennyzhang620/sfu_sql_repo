@@ -4,7 +4,7 @@ var addView = document.getElementsByClassName("add_entry")
 var searchBar = document.getElementById('search_bar')
 var searchIndex = document.getElementById("counter_id")
 var storedData = null;
-var updateList = [false, false, false, false, false, false, false, false, false, false, false]
+var updateList = [false, false, false, false, false, false, false, false, false, false]
 var currIndex = 0;
 
 
@@ -128,7 +128,7 @@ function runUpdates() {
     if (updateList[updateList.length - 1] && !enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year)) {
         allow = false;
 
-        var lat = "Latitude"; var long = "Longitude"; var proj = "Project"; var y = "Funding Period";
+        var lat = "Latitude"; var long = "Longitude"; var proj = "Project"; var y = "Year";
         if (!isNaN(newEntry.latitude) && newEntry.latitude != "")
             lat = ""
 
@@ -151,16 +151,16 @@ function runUpdates() {
             if (i != updateList.length - 1 && updateList[i]) {
                 const items = document.getElementsByName(`${i}_field`);
 
-                if (items.length == 12) {
+                if (items.length == 10) {
                     if (items[0].checked) {
                         deleteDB(items[0].id.replace(/\D/g, ''), items[1].value, items[2].value);
                     }
                     else {
-                        updateDBEntry(items[0].id.replace(/\D/g, ''), items[1].value, items[2].value, items[3].value, items[4].value, items[5].value, items[6].value, items[7].value, items[8].value, items[9].value, items[10].value, items[11].value);
+                        updateDBEntry(items[0].id.replace(/\D/g, ''), items[1].value, items[2].value, items[3].value, items[4].value, items[5].value, items[6].value, items[7].value, items[8].value, items[9].value);
                     }
                 }
                 else {
-                    updateDBEntry(items[0].id.replace(/\D/g, ''), items[0].value, items[1].value, items[2].value, items[3].value, items[4].value, items[5].value, items[6].value, items[7].value, items[8].value, items[9].value, items[10].value);
+                    updateDBEntry(items[0].id.replace(/\D/g, ''), items[0].value, items[1].value, items[2].value, items[3].value, items[4].value, items[5].value, items[6].value, items[7].value, items[8].value);
                 }
                 
             }
@@ -188,11 +188,11 @@ function insertAsStr(dataEntry, ind, security_level) {
                 `
                 <td><input type="number" name="${ind}_field" id="${dataEntry.id}_lat" value="${dataEntry.latitude}" oninput="updateDB(${ind})" ${readOnly}\></td>
                 <td><input type="number" name="${ind}_field" id="${dataEntry.id}_long" value="${dataEntry.longitude}" oninput="updateDB(${ind})" ${readOnly}\></td>
-                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_proj" value="${dataEntry.project}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_proj" value="${dataEntry.publication_title}" oninput="updateDB(${ind})" ${readOnly}\></td>
                 <td><input type="text" name="${ind}_field" id="${dataEntry.id}_auth" value="${dataEntry.author}" oninput="updateDB(${ind})" ${readOnly}\></td>
-                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_cauth" value="${dataEntry.co_authors}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_cauth" value="${dataEntry.co_author}" oninput="updateDB(${ind})" ${readOnly}\></td>
                 <td><input type="text" name="${ind}_field" id="${dataEntry.id}_inst" value="${dataEntry.institution}" oninput="updateDB(${ind})" ${readOnly}\></td>
-                <td><select name="${ind}_field" id="${dataEntry.id}_fund" value="${dataEntry.region}" oninput="updateDB(${ind})" ${readOnly}>
+                <td><select name="${ind}_field" id="${dataEntry.id}_region" value="${dataEntry.region}" oninput="updateDB(${ind})" ${readOnly}>
                             <option value="North America">North America</option>
                             <option value="South America">South America</option>
                             <option value="Europe">Europe</option>
@@ -202,12 +202,45 @@ function insertAsStr(dataEntry, ind, security_level) {
                             <option value="Oceania">Oceania</option>
                         </select></td>
                 <td><input type="number" name="${ind}_field" id="${dataEntry.id}_year" value="${dataEntry.year}" oninput="updateDB(${ind})" ${readOnly}\></td>
-                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_ref" value="${dataEntry.ref}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_ref" value="${dataEntry.reference}" oninput="updateDB(${ind})" ${readOnly}\></td>
             </tr>
 	`
 	return out;
 	
 }
+
+function numeric_not_empty(num) {
+    return (num != "" && !isNaN(num))
+}
+
+function indicate(id, func_ptr) {
+    var element = document.getElementById(id);
+
+    if (func_ptr(element.value)) {
+        element.style.backgroundColor = "white"
+    }
+    else {
+        element.style.backgroundColor = "red"
+    }
+
+}
+
+
+function clearCells() {
+    var inner = tableView
+
+    if (inner != null) {
+        var container = inner[0];
+
+        while (container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+
+    }
+
+    console.log("cleared/");
+}
+
 function generateCell(tb, dataEntries, start, end, security_level) { // in packs of 10 each.
 
     var inner = tb
@@ -249,6 +282,13 @@ function generateCell(tb, dataEntries, start, end, security_level) { // in packs
         var newNode = document.createRange().createContextualFragment(base+insert+endEl);
         container.appendChild(newNode);
 
+
+        for (var i = start; i < end; i++) {
+            var element = document.getElementById(`${dataEntries[i].id}_region`);
+            if (element != null) {
+                element.value = dataEntries[i].region
+            }
+        }
     }
     
 }

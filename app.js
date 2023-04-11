@@ -375,30 +375,60 @@ app.post('/sfu-research-db/add_entry/', async (req, res) => {
 app.post('/sfu-research-db/add_entry_2/', async (req, res) => {
 
     console.log("Reading...");
+
     let lat = req.body.latitude;
     let long = req.body.longitude;
-    let Pub = req.body.pub_title;
-    let Institution = req.body.institution
+    let proj = req.body.project;
     let authors = req.body.authors
     let co_auth = req.body.co_authors
-    let collab = req.body.collabs
-    let title = req.body.title
+    let institution = req.body.institution
     let region = req.body.region
     let year = req.body.year;
-    let auth_key = req.body.auth_key
-    let references = req.body.references
+    let references = req.body.ref
 
     session = req.session;
     if (session.userid && session.permission_level >= 2) {
-        const sqlStatement = `INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (${lat},${long},'${Research_S}','${Proj}', '${PI}', '${coPIs}', '${collab}', '${keywords}', ${fundyear}, '${funders}', '${url}');`;
+        //CREATE TABLE SFU_Plot (id SERIAL, latitude FLOAT, longitude FLOAT, publication_title VARCHAR(100), author VARCHAR(100), co_author VARCHAR(100), institution VARCHAR(100), region VARCHAR(30),  year INTEGER, reference VARCHAR(100), PRIMARY KEY(id));
+
+        const sqlStatement = `INSERT INTO SFU_Plot (latitude, longitude, publication_title, author, co_author, institution, region, year, reference) VALUES (${lat},${long},'${proj}','${authors}', '${co_auth}', '${institution}', '${region}', ${year}, '${references}');`;
 
         console.log("===>", sqlStatement)
-        const client = await pool.connect();
-        const result = await client.query(sqlStatement);
-        const data = { results: result.rows };
+        const result = await querySQL(sqlStatement)
+        const data = { results: result };
 
         console.log(data)
-        client.release();
+        res.json("Success!");
+    }
+    else {
+        res.status(403);
+    }
+});
+
+app.post('/sfu-research-db/update_entry_2/', async (req, res) => {
+
+    console.log("Reading...");
+
+    let uid = req.body.uid;
+    let lat = req.body.latitude;
+    let long = req.body.longitude;
+    let proj = req.body.project;
+    let authors = req.body.authors
+    let co_auth = req.body.co_authors
+    let institution = req.body.institution
+    let region = req.body.region
+    let year = req.body.year;
+    let references = req.body.ref
+
+    session = req.session;
+    if (session.userid && session.permission_level >= 3) {
+        const sqlStatement = `UPDATE SFU_Plot SET latitude = ${lat}, longitude = ${long}, publication_title = '${proj}', author = '${authors}', co_author = '${co_auth}', institution = '${institution}', region = '${region}', year = ${year}, reference = '${references}' WHERE id = ${uid};`;
+
+
+        console.log("===>", sqlStatement)
+        const result = await querySQL(sqlStatement)
+        const data = { results: result };
+
+        console.log(data)
 
         res.json("Success!");
     }
@@ -465,6 +495,28 @@ app.post('/sfu-research-db/delete_entry/', async (req, res) => {
     }
 });
 
+app.post('/sfu-research-db/delete_entry_2/', async (req, res) => {
+
+    console.log("Deleting..."); // all of the contents must match up with db contents. this prevents accidental deletion from packet loss.
+    let uid = req.body.uid
+    let lat = req.body.latitude;
+    let long = req.body.longitude;
+    let auth_key = req.body.auth_key;
+
+    session = req.session;
+    if (session.userid && session.permission_level >= 4) {
+
+        const sqlStatement = `DELETE FROM SFU_Plot WHERE id = '${uid}' AND latitude = ${lat} AND longitude = ${long};`;
+
+        const result = await querySQL(sqlStatement);
+        const data = { results: result };
+
+        res.json("Success!");
+    }
+    else {
+        res.status(403);
+    }
+});
 
 app.get('/sfu-research-db/logout', (req, res) => {
     req.session.destroy();

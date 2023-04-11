@@ -56,20 +56,20 @@
 
             <table>
                 <tr>
-                    <td>Latitude (AutoFill capable)</td>
-                    <td>Longitude (AutoFill capable)</td>
-                    <td>Publication Title</td>
+                    <td>Latitude (Required)</td>
+                    <td>Longitude (Required)</td>
+                    <td>Publication Title (Required)</td>
                     <td>Author</td>
                     <td>Co-Author</td>
                     <td>Institution</td>
                     <td>Region</td>
-                    <td>Year</td>
+                    <td>Year (Required)</td>
                     <td>Reference</td>
                 </tr>
                 <tr>
-                    <td><input type="number" id="add_lat" value="" oninput="updateDB(updateList.length - 1)"></td>
-                    <td><input type="number" id="add_long" value="" oninput="updateDB(updateList.length - 1)"></td>
-                    <td><input type="text" id="add_proj" value="" oninput="updateDB(updateList.length - 1)"></td>
+                    <td><input type="number" id="add_lat" value="" oninput="updateDB(updateList.length - 1)" onclick='indicate("add_lat", numeric_not_empty)' onkeyup='indicate("add_lat", numeric_not_empty)'></td>
+                    <td><input type="number" id="add_long" value="" oninput="updateDB(updateList.length - 1)"onclick='indicate("add_long", numeric_not_empty)' onkeyup='indicate("add_long", numeric_not_empty)'></td>
+                    <td><input type="text" id="add_proj" value="" oninput="updateDB(updateList.length - 1)" onclick='indicate("add_proj", numeric_not_empty)' onkeyup='indicate("add_proj", numeric_not_empty)'></td>
                     <td><input type="text" id="add_auth" value="" oninput="updateDB(updateList.length - 1)"></td>
                     <td><input type="text" id="add_cauth" value="" oninput="updateDB(updateList.length - 1)"></td>
                     <td><input type="text" id="add_inst" value="" oninput="updateDB(updateList.length - 1)"></td>
@@ -85,7 +85,7 @@
                         </select>
 
                     </td>
-                    <td><input type="number" id="add_yr" value="" oninput="updateDB(updateList.length - 1)"></td>
+                    <td><input type="number" id="add_yr" value="" oninput="updateDB(updateList.length - 1)" onclick='indicate("add_yr", numeric_not_empty)' onkeyup='indicate("add_yr", numeric_not_empty)'></td>
                     <td><input type="text" id="add_ref" value="" oninput="updateDB(updateList.length - 1)"></td>
                 </tr>
             </table>
@@ -98,6 +98,6 @@
             <input type="image" style="width: 60px; height: 60px;" src="/sfu-research-db/icons/logout.png" onclick="window.location.replace('/sfu-research-db/logout')">
         </div>
     </div>
-    <!--<script src="/sfu-research-db/scripts/render_table.js"></script>-->
+    <script src="/sfu-research-db/scripts/render_table_plot.js"></script>
 </body>
 </html>
