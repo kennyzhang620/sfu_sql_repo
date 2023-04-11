@@ -4,7 +4,7 @@ var addView = document.getElementsByClassName("add_entry")
 var searchBar = document.getElementById('search_bar')
 var searchIndex = document.getElementById("counter_id")
 var storedData = null;
-var updateList = [false, false, false, false, false, false, false, false, false, false]
+var updateList = [false, false, false, false, false, false, false, false, false, false,false]
 var currIndex = 0;
 
 
@@ -99,22 +99,28 @@ function updateDBEntry(uid, lat, long, proj, authors, coauth, inst, region, year
 function runUpdates() {
 
     var allow = true;
+    var del = false;
     for (var i = 0; i < updateList.length; i++) {
         if (i != updateList.length - 1 && updateList[i]) {
             const items = document.getElementsByName(`${i}_field`);
 
+            if (items.length == 10)
+                allow = (indicate(items[1].id, numeric_not_empty) && indicate(items[2].id, numeric_not_empty) && indicate(items[3].id, not_empty) && indicate(items[8].id, numeric_not_empty))
+            else
+                allow = (indicate(items[0].id, numeric_not_empty) && indicate(items[1].id, numeric_not_empty) && indicate(items[2].id, not_empty) && indicate(items[7].id, numeric_not_empty))
+
             if (items[0].checked) {
-                allow = false;
+                del = true;
             }
         }
     }
 
-    
-    if (!allow) {
+
+    if (del) {
         const val = confirm("Database entries detected that are marked for deletion. Press OK to confirm deletion.")
 
-        if (val) {
-            allow = true;
+        if (!val || !allow) {
+            allow = false;
         }
     }
 
@@ -125,25 +131,34 @@ function runUpdates() {
         "year": document.getElementById("add_yr").value,
     }
 
-    if (updateList[updateList.length - 1] && !enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year)) {
-        allow = false;
+    if (updateList[updateList.length - 1]) {
 
-        var lat = "Latitude"; var long = "Longitude"; var proj = "Project"; var y = "Year";
-        if (!isNaN(newEntry.latitude) && newEntry.latitude != "")
-            lat = ""
+        indicate("add_lat", numeric_not_empty)
+        indicate("add_long", numeric_not_empty)
+        indicate("add_proj", numeric_not_empty)
+        indicate("add_yr", numeric_not_empty)
 
-        if (!isNaN(newEntry.longitude) && newEntry.longitude != "")
-            long = ""
+        if (!enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year)) {
+            allow = false;
 
-        if (newEntry.project != "")
-            proj = ""
+            var lat = "Latitude"; var long = "Longitude"; var proj = "Project"; var y = "Year";
+            if (!isNaN(newEntry.latitude) && newEntry.latitude != "")
+                lat = ""
 
-        if (!isNaN(newEntry.year) && newEntry.year != "")
-            y = ""
+            if (!isNaN(newEntry.longitude) && newEntry.longitude != "")
+                long = ""
 
-        alert(`One or more of the following fields are blank: ${lat} ${long} ${proj} ${y}`)
+            if (newEntry.project != "")
+                proj = ""
+
+            if (!isNaN(newEntry.year) && newEntry.year != "")
+                y = ""
+
+            alert(`One or more of the following fields are blank: ${lat} ${long} ${proj} ${y}`)
+        }
     }
 
+    console.log(allow)
 
     if (allow) {
 
@@ -213,14 +228,20 @@ function numeric_not_empty(num) {
     return (num != "" && !isNaN(num))
 }
 
+function not_empty(num) {
+    return (num != "")
+}
+
 function indicate(id, func_ptr) {
     var element = document.getElementById(id);
 
     if (func_ptr(element.value)) {
         element.style.backgroundColor = "white"
+        return true;
     }
     else {
         element.style.backgroundColor = "red"
+        return false;
     }
 
 }
@@ -494,12 +515,32 @@ window.addEventListener("beforeunload", function (e) {
 });
 
 function movePtr(val) {
-    if (currIndex + val >= 0)
-        currIndex += val;
 
-    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
+    var mod = false;
+    for (var i = 0; i < updateList.length - 1; i++) {
+        if (!mod)
+            mod = updateList[i]
+    }
 
-    searchDB();
+    if (mod) {
+        if (confirm("Unsaved changed detected. Continue anyway?")) {
+            if (currIndex + val >= 0)
+                currIndex += val;
+
+            searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
+
+            searchDB();
+        }
+    }
+    else {
+        if (currIndex + val >= 0)
+            currIndex += val;
+
+        searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
+
+        searchDB();
+    }
+    
 }
 
 function searchDB() {
@@ -509,6 +550,9 @@ function searchDB() {
 function reloadDB(squery) {
     clearCells();
     getDB(squery, currIndex)
+    for (var i = 0; i < updateList.length - 1; i++) {
+        updateList[i] = false;
+    }
 }
 
 reloadDB('');

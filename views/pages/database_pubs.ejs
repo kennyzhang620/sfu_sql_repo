@@ -67,14 +67,14 @@
                     <td>Reference</td>
                 </tr>
                 <tr>
-                    <td><input type="number" id="add_lat" value="" oninput="updateDB(updateList.length - 1)" onclick='indicate("add_lat", numeric_not_empty)' onkeyup='indicate("add_lat", numeric_not_empty)'></td>
-                    <td><input type="number" id="add_long" value="" oninput="updateDB(updateList.length - 1)"onclick='indicate("add_long", numeric_not_empty)' onkeyup='indicate("add_long", numeric_not_empty)'></td>
-                    <td><input type="text" id="add_proj" value="" oninput="updateDB(updateList.length - 1)" onclick='indicate("add_proj", numeric_not_empty)' onkeyup='indicate("add_proj", numeric_not_empty)'></td>
-                    <td><input type="text" id="add_auth" value="" oninput="updateDB(updateList.length - 1)"></td>
-                    <td><input type="text" id="add_cauth" value="" oninput="updateDB(updateList.length - 1)"></td>
-                    <td><input type="text" id="add_inst" value="" oninput="updateDB(updateList.length - 1)"></td>
+                    <td><input type="number" name="add_entry" id="add_lat" value="" oninput="updateDB(updateList.length - 1)" onclick='indicate("add_lat", numeric_not_empty)' onkeyup='indicate("add_lat", numeric_not_empty)'></td>
+                    <td><input type="number" name="add_entry" id="add_long" value="" oninput="updateDB(updateList.length - 1)"onclick='indicate("add_long", numeric_not_empty)' onkeyup='indicate("add_long", numeric_not_empty)'></td>
+                    <td><input type="text" name="add_entry" id="add_proj" value="" oninput="updateDB(updateList.length - 1)" onclick='indicate("add_proj", numeric_not_empty)' onkeyup='indicate("add_proj", numeric_not_empty)'></td>
+                    <td><input type="text" name="add_entry" id="add_auth" value="" oninput="updateDB(updateList.length - 1)"></td>
+                    <td><input type="text" name="add_entry"id="add_cauth" value="" oninput="updateDB(updateList.length - 1)"></td>
+                    <td><input type="text" name="add_entry" id="add_inst" value="" oninput="updateDB(updateList.length - 1)"></td>
                     <td>
-                        <select name="region_sel" id="add_region">
+                        <select name="add_entry" id="add_region">
                             <option value="North America">North America</option>
                             <option value="South America">South America</option>
                             <option value="Europe">Europe</option>
@@ -85,8 +85,8 @@
                         </select>
 
                     </td>
-                    <td><input type="number" id="add_yr" value="" oninput="updateDB(updateList.length - 1)" onclick='indicate("add_yr", numeric_not_empty)' onkeyup='indicate("add_yr", numeric_not_empty)'></td>
-                    <td><input type="text" id="add_ref" value="" oninput="updateDB(updateList.length - 1)"></td>
+                    <td><input type="number" name="add_entry" id="add_yr" value="" oninput="updateDB(updateList.length - 1)" onclick='indicate("add_yr", numeric_not_empty)' onkeyup='indicate("add_yr", numeric_not_empty)'></td>
+                    <td><input type="text" name="add_entry" id="add_ref" value="" oninput="updateDB(updateList.length - 1)"></td>
                 </tr>
             </table>
         </div>

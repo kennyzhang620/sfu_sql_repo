@@ -7321,3 +7321,2412 @@ Range:  0 10
   p_level: 3
 }
 Server running on port 5010
+Server running on port 5010
+Loading db2
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-3194046-Wee9KKWAyU56NLnIWPwSN2yS-dU-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 3 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-04-11T01:28:38.672Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-80900-TmrxMcn6RjxueDSoZFntXcB0tCA-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 3 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-04-11T03:03:50.704Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-3259022-mzlBVloKyb-JNBKlx7Db-LSujG0-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 3 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-04-11T03:51:54.942Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    }
+  ],
+  p_level: 3
+}
+Reading...
+===> INSERT INTO SFU_Plot (latitude, longitude, publication_title, author, co_author, institution, region, year, reference) VALUES (122,1,'1','', '', '', 'North America', 1, '');
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 2,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '',
+    protocol41: true,
+    changedRows: 0
+  }
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  10 20
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Reading...
+===> UPDATE SFU_Plot SET latitude = 122, longitude = , publication_title = '1', author = '', co_author = '', institution = '', region = 'North America', year = 1, reference = '' WHERE id = 2;
+ERR! Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' publication_title = '1', author = '', co_author = '', institution = '', region ' at line 1
+    at Query.Sequence._packetToError (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:527:28)
+    at addChunk (node:internal/streams/readable:315:12)
+    --------------------
+    at Pool.query (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\mysql\lib\Pool.js:199:23)
+    at node:internal/util:360:7
+    at new Promise (<anonymous>)
+    at Pool.<anonymous> (node:internal/util:346:12)
+    at querySQL (C:\Users\kenny\source\repos\sfu_sql_repo\app.js:103:39)
+    at C:\Users\kenny\source\repos\sfu_sql_repo\app.js:428:30
+    at Layer.handle [as handle_request] (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\kenny\source\repos\sfu_sql_repo\node_modules\express\lib\router\layer.js:95:5) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' publication_title = '1', author = '', co_author = '', institution = '', region ' at line 1",
+  sqlState: '42000',
+  index: 0,
+  sql: "UPDATE SFU_Plot SET latitude = 122, longitude = , publication_title = '1', author = '', co_author = '', institution = '', region = 'North America', year = 1, reference = '' WHERE id = 2;"
+}
+{ results: undefined }
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+testing cas auth
+Loading db2
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-82629-ZBm6fKLSOmrI4m8V4vNJ92UIxBw-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 3 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-04-11T04:45:47.002Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-84846-ifbZUFGa2qF590lD5FzKte8oGxo-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 3 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-04-11T07:01:34.638Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Reading...
+===> UPDATE SFU_Plot SET latitude = 122, longitude = 1, publication_title = '1hghgh', author = '', co_author = '', institution = '', region = 'North America', year = 1, reference = '' WHERE id = 2;
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 0,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '(Rows matched: 1  Changed: 1  Warnings: 0',
+    protocol41: true,
+    changedRows: 1
+  }
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: '1hghgh',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Reading...
+===> UPDATE SFU_Plot SET latitude = 122, longitude = 1, publication_title = 'gfgfg', author = '', co_author = '', institution = '', region = 'North America', year = 1, reference = '' WHERE id = 2;
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 0,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '(Rows matched: 1  Changed: 1  Warnings: 0',
+    protocol41: true,
+    changedRows: 1
+  }
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 1,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Reading...
+===> UPDATE SFU_Plot SET latitude = 122, longitude = 1, publication_title = 'gfgfg', author = '', co_author = '', institution = '', region = 'North America', year = 5, reference = '' WHERE id = 2;
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 0,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '(Rows matched: 1  Changed: 1  Warnings: 0',
+    protocol41: true,
+    changedRows: 1
+  }
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 5,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  10 20
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 5,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 5,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+testing cas auth
+testing cas auth
+---> http://localhost:5010/sfu-research-db/login ST-3262736-7lmOD-OAHQ009iH-BeY9hGrHuB0-ssoapp1
+rsults:  [Function: status] undefined
+authUser:  ktzhang
+userdata: {
+  results: [ RowDataPacket { username: 'ktzhang', permission_level: 3 } ]
+}
+Session {
+  cookie: {
+    path: '/',
+    _expires: 2023-04-11T07:48:01.602Z,
+    originalMaxAge: 1800000,
+    httpOnly: true
+  },
+  userid: 'ktzhang',
+  permission_level: 3
+}
+Loading db
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 3,
+      latitude: -1,
+      longitude: 3,
+      research_site: 'fdfdf',
+      project: ' ,ml',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 2,
+      longitude: 2,
+      research_site: 'fdfd',
+      project: 'bjh',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 3,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 4,
+      latitude: -4,
+      longitude: 2,
+      research_site: '',
+      project: ',m;',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 2,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 5,
+      latitude: 1,
+      longitude: -1,
+      research_site: 'fdffd',
+      project: '0',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 1,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 6,
+      latitude: 2,
+      longitude: -2,
+      research_site: 'rff',
+      project: 'fff',
+      pi: 'dgg',
+      co_pi: 'gff',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 7,
+      latitude: 4,
+      longitude: -4,
+      research_site: 'fdfdf',
+      project: 'rgfggffgfgfgfgf',
+      pi: '',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: 5,
+      funder: '',
+      url: ''
+    },
+    RowDataPacket {
+      id: 8,
+      latitude: 2,
+      longitude: -3,
+      research_site: '',
+      project: 'fddfdfdf',
+      pi: 'fdfdfdfdf',
+      co_pi: '',
+      collabs: '',
+      keywords: '',
+      fperiod: -3,
+      funder: '',
+      url: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 5,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 122,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 5,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Reading...
+===> UPDATE SFU_Plot SET latitude = 124, longitude = 1, publication_title = 'gfgfg', author = '', co_author = '', institution = '', region = 'North America', year = 5, reference = '' WHERE id = 2;
+{
+  results: OkPacket {
+    fieldCount: 0,
+    affectedRows: 1,
+    insertId: 0,
+    serverStatus: 2,
+    warningCount: 0,
+    message: '(Rows matched: 1  Changed: 1  Warnings: 0',
+    protocol41: true,
+    changedRows: 1
+  }
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 124,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 5,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  10 20
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 124,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 5,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 124,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 5,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  10 20
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 124,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 5,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 124,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 5,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 124,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 5,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Loading db2
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 124,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 5,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
+Range:  10 20
+{ results: [], p_level: 3 }
+Range:  0 10
+{
+  results: [
+    RowDataPacket {
+      id: 1,
+      latitude: 3,
+      longitude: 3,
+      publication_title: 'vtfyftd',
+      author: 'bj',
+      co_author: 'bj',
+      institution: 'vh',
+      region: 'Oceania',
+      year: 5,
+      reference: 'jjbjbj'
+    },
+    RowDataPacket {
+      id: 2,
+      latitude: 124,
+      longitude: 1,
+      publication_title: 'gfgfg',
+      author: '',
+      co_author: '',
+      institution: '',
+      region: 'North America',
+      year: 5,
+      reference: ''
+    }
+  ],
+  p_level: 3
+}
