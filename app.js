@@ -5,9 +5,11 @@ const sqlconnector = require("./dbConfigMSQL")
 //const bcrypt = require("bcrypt");
 const sessions = require("express-session");
 const cookieParser = require("cookie-parser");
+const csvParser = require("csvtojson");
 const cors = require("cors") //cross-origin resource sharing
 const axios = require('axios')
 const url = require('url')
+const multer  = require('multer');
 
 const { XMLParser, XMLBuilder, XMLValidator } = require("fast-xml-parser");
 const bodyParser = require('body-parser');
@@ -73,7 +75,7 @@ app.get("/sfu-research-db/",(req,res)=>{
     if (session.userid)
         res.redirect("/sfu-research-db/db");
     else
-        res.redirect("/sfu-research-db/login");
+        res.redirect("/sfu-research-db/login?url=sfu-research-db/db");
 
 });
 
@@ -126,12 +128,15 @@ async function verify_allowed(sfuid) {
 app.get("/sfu-research-db/login?", async (req, res) => {
 
     console.log("testing cas auth");
-    const curr_url = req.protocol + '://' + req.get('host') + '/sfu-research-db/login'
-    const cas_url = 'https://cas.sfu.ca/cas/login?service=' + curr_url;
-    
+	
     var url_parts = url.parse(req.url, true);
     var query = url_parts.query;
-
+	
+	const redir_url = query.url
+    const curr_url = req.protocol + '://' + req.get('host') + '/sfu-research-db/login?url=' + redir_url 
+    const cas_url = 'https://cas.sfu.ca/cas/login?service=' + curr_url;
+    
+    
     const tid = query.ticket
 
     if (tid == null) {
@@ -158,7 +163,7 @@ app.get("/sfu-research-db/login?", async (req, res) => {
                     session.permission_level = getPermissionLevel;
                     console.log(req.session)
 
-                    res.redirect("/sfu-research-db/db");
+                    res.redirect("/" + redir_url);
                 }
                 else {
                     res.redirect("/sfu-research-db/err");
@@ -180,7 +185,7 @@ app.get("/sfu-research-db/db", (req, res) => {
     if (session.userid && session.permission_level > 0)
         res.render("pages/database_research", { sfu_id: session.userid, db_type: getPermissionType(session.permission_level) });
     else
-        res.redirect("/sfu-research-db/login");
+        res.redirect("/sfu-research-db/login?url=sfu-research-db/db");
 
 });
 
@@ -191,7 +196,7 @@ app.get("/sfu-research-db/db2", (req, res) => {
     if (session.userid && session.permission_level > 0)
         res.render("pages/database_pubs", { sfu_id: session.userid, db_type: getPermissionType(session.permission_level) });
     else
-        res.redirect("/sfu-research-db/login");
+        res.redirect("/sfu-research-db/login?url=sfu-research-db/db2");
 
 });
 
@@ -267,6 +272,35 @@ app.get('/sfu-research-db/view_db/:search/:index', async (req, res) => { // exam
     } 
 });
 
+
+app.get('/sfu-research-db-public/view_db/:index', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
+    let ind = req.params.index
+        const start = ind * 10
+        const end = start + 10
+
+        console.log("Range: ", start, end)
+        const sqlStatement = `SELECT * FROM SFU_Research LIMIT 10 OFFSET ${start};`;
+
+        try {
+            var commandstoDB = sqlStatement
+
+            const result = await querySQL(sqlStatement)
+            const data = { results: result, p_level: 0 };
+
+            console.log(data)
+            //  console.log(data.results[0].is_healthy)
+            // res.render("pages/Information", data);
+            res.json(data);
+            status = 0;
+        }
+        catch (error) {
+            console.log('X->', error);
+            status = -2;
+            res.json("None.")
+        }
+    
+});
+
 app.get('/sfu-research-db/view_db_2/:index', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
     let ind = req.params.index
 
@@ -339,7 +373,102 @@ app.get('/sfu-research-db/view_db_2/:search/:index', async (req, res) => { // ex
         res.status(403);
     }
 });
- 
+
+app.get('/sfu-research-public/view_db_2/:index', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring "SFU" that matches any field and return the first 10 entries.
+    let ind = req.params.index
+
+        const start = ind * 10
+        const end = start + 10
+
+        console.log("Range: ", start, end)
+        const sqlStatement = `SELECT * FROM SFU_Plot LIMIT 10 OFFSET ${start};`;
+
+        try {
+            var commandstoDB = sqlStatement
+
+            const result = await querySQL(sqlStatement)
+            const data = { results: result, p_level:0 };
+
+            console.log(data)
+            //  console.log(data.results[0].is_healthy)
+            // res.render("pages/Information", data);
+            res.json(data);
+            status = 0;
+        }
+        catch (error) {
+            console.log('X->', error);
+            status = -2;
+            res.json("None.")
+        }
+    
+});
+
+async function insertDatabase2_CSV(parsedD) {
+	var statusInd = 0;
+	for (var i=0;i<parsedD.length;i++) {
+				try {
+					var proj = parsedD[i]["Publication title"].substring(0, 127) ?? "";
+					var authors = parsedD[i]["Faculty of Education Author(s)"]?.trim() ?? "";
+					        var co_auth = parsedD[i]["Co-author(s)"]?.trim() ?? ""
+					        var institution = parsedD[i].Institution.trim() ?? "";
+					        var lat = parseFloat(parsedD[i].Latitude.trim() ?? "");
+					        var long = parseFloat(parsedD[i].Longitude.trim() ?? "");
+					        var references = parsedD[i].References.trim() ?? "";
+					        var region = parsedD[i].Region.trim()??""
+					        var year = parseInt(parsedD[i].Year.trim() ?? "");
+				
+		        const sqlStatement = `INSERT INTO SFU_Plot (latitude, longitude, publication_title, author, co_author, institution, region, year, reference) VALUES (${lat},${long},'${proj}','${authors}', '${co_auth}', '${institution}', '${region}', ${year}, '${references}');`;
+
+		  //      console.log("===>", sqlStatement)
+		        const result = await querySQL(sqlStatement)
+		        const data = { results: result };
+
+		       // console.log(data)
+				statusInd++
+				}
+				catch (err) {
+				//	console.log(">>>>>", err)
+					statusInd--;
+				}
+		        
+	}
+	
+	return statusInd;
+}
+
+var upload = multer();
+app.post('/sfu-research-db/append_all/db2',upload.single('csv_data'), async function (req, res, next) {
+          // req.file is the `uploadCsv` file 
+          // req.body will hold the text fields, if there were any 
+	
+	console.log("Incoming transfer...")
+	let file = req.body
+	session = req.session;
+	if (session.userid && session.permission_level >= 2) { // minimum lvl 4
+      //  console.log(req.file);
+        // the buffer here containes your file data in a byte array 
+        var csvf=req.file.buffer.toString('utf8');
+		
+		const result_r = await csvParser().fromString(csvf);
+		console.log("RES: ", result_r[0]);
+		
+		const cur_res = await insertDatabase2_CSV(result_r)
+		
+		if (cur_res > 0) {
+			console.log("Successful appends: ", cur_res)
+			res.status(200)
+		}
+		else {
+			console.log("Appending failed.")
+			res.status(404);
+		}
+	}		  
+	else {
+		res.status(403);
+	}	  
+});
+
+
 app.post('/sfu-research-db/add_entry/', async (req, res) => {
 
     console.log("Reading...");

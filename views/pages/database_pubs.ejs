@@ -7,7 +7,7 @@
     <title></title>
 </head>
 <body>
-    <div id="description" style="font-weight:600; padding: 10px;">Database Management System</div>
+    <div id="description" style="font-weight:600; padding: 10px;">Database Management System (Publications)</div>
     <div id="description" style="font-weight:600; padding: 10px; float:right;"><%= sfu_id %> in Production as <%= db_type %>.</div>
     <input type="text" id="search_bar" placeholder="Search a record" style="width: 99.5%;" oninput="searchDB()" />
     <div class="main_editor" style="width: 100%; overflow: scroll;">
@@ -69,7 +69,7 @@
                 <tr>
                     <td><input type="number" name="add_entry" id="add_lat" value="" oninput="updateDB(updateList.length - 1)" onclick='indicate("add_lat", numeric_not_empty)' onkeyup='indicate("add_lat", numeric_not_empty)'></td>
                     <td><input type="number" name="add_entry" id="add_long" value="" oninput="updateDB(updateList.length - 1)"onclick='indicate("add_long", numeric_not_empty)' onkeyup='indicate("add_long", numeric_not_empty)'></td>
-                    <td><input type="text" name="add_entry" id="add_proj" value="" oninput="updateDB(updateList.length - 1)" onclick='indicate("add_proj", numeric_not_empty)' onkeyup='indicate("add_proj", numeric_not_empty)'></td>
+                    <td><input type="text" name="add_entry" id="add_proj" value="" oninput="updateDB(updateList.length - 1)" onclick='indicate("add_proj", not_empty)' onkeyup='indicate("add_proj", not_empty)'></td>
                     <td><input type="text" name="add_entry" id="add_auth" value="" oninput="updateDB(updateList.length - 1)"></td>
                     <td><input type="text" name="add_entry"id="add_cauth" value="" oninput="updateDB(updateList.length - 1)"></td>
                     <td><input type="text" name="add_entry" id="add_inst" value="" oninput="updateDB(updateList.length - 1)"></td>
@@ -94,6 +94,8 @@
     <div class="options">
         <!--<div id="selector"><input type="image" style="width: 60px; height: 60px;" src="icons/add_plant.png"></div>-->
         <div id="selector">
+            <input type="image" style="width: 60px; height: 60px;" src="/sfu-research-db/icons/delete_all.png" id="submit_updates" onclick="sendUpdates()">
+            <input type="image" style="width: 60px; height: 60px;" src="/sfu-research-db/icons/add_csv.png" id="csv_upload" onclick="manualHandler(event)">
             <input type="image" style="width: 60px; height: 60px;" src="/sfu-research-db/icons/upload_file.png" id="submit_updates" onclick="sendUpdates()">
             <input type="image" style="width: 60px; height: 60px;" src="/sfu-research-db/icons/logout.png" onclick="window.location.replace('/sfu-research-db/logout')">
         </div>

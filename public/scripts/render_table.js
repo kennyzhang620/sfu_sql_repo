@@ -13,132 +13,26 @@ function print(objectD) {
     console.log(objectD)
 }
 
-
-function animationState() {
-    console.log("CLICKED!", cBtn.style.animationPlayState);
-    cBtn.style.display = "block";
-    uBtn.style.display = "block";
-
-    if (cBtn.style.animationDirection == "reverse" || cBtn.style.animationPlayState == "") {
-        cBtn.style.animationDirection = "normal";
-        uBtn.style.animationDirection = "normal";
-        cBtn.style.animationPlayState = "running";
-        uBtn.style.animationPlayState = "running";
-
-        hoverBtn.style.filter = "opacity(0.4) drop-shadow(0 0 0 green)";
-        console.log("XX");
-    }
-    else if (cBtn.style.animationPlayState == "paused") {
-        cBtn.style.animationDirection = "reverse";
-        uBtn.style.animationDirection = "reverse";
-        cBtn.style.animationPlayState = "running";
-        uBtn.style.animationPlayState = "running";
-
-        hoverBtn.style.filter = "initial";
-        console.log("XX2");
-    }
-
-    uBtn.style.animationName = "topout";
-    cBtn.style.animationName = "pullout";
+function numeric_not_empty(num) {
+    return (num != "" && !isNaN(num))
 }
 
-function modifyfilters() {
-    filterList[0] = hs.value;
-    filterList[1] = ed.value;
-    filterList[2] = pp.value;
-    filterList[3] = ptype.value;
-
-    console.log(filterList);
-    filterDisplay();
+function not_empty(num) {
+    return (num != "")
 }
 
-function subStrCheck(results, substr) {
-    var query = substr;
-    return results.common_name.toLowerCase().includes(query) || results.latin_name.toLowerCase().includes(query) || results.plant_description.toLowerCase().includes(query)
-        || (results.disease_name != null && results.disease_name.toLowerCase().includes(query));
-}
-function filterDisplay() {
-    if (storedData != null) {
-        if (storedData != null && storedData.results != null && storedData.results.length > 0) {
-            clearCells();
+function indicate(id, func_ptr) {
+    var element = document.getElementById(id);
 
-            var results = storedData.results;
-            for (var i = 0; i < results.length; i++) {
-                var allow = true
-
-                var query = searchbar.value.toLowerCase();
-                if (subStrCheck(results[i], query)) {
-                    if (filterList[0] != "Any") {
-                        console.log(results[i], filterList[1]);
-                        if (filterList[0] == 'healthy' && (results[i].is_healthy == null || results[i].is_healthy != true)) {
-                            allow = false;
-                        }
-                        else if (filterList[0] == "unhealthy" && (results[i].is_healthy != null && results[i].is_healthy == true)) {
-                            allow = false;
-                        }
-                    }
-
-                    if (filterList[1] != "Any") {
-                        if (filterList[1] == "Edible" && (results[i].is_edible == null || results[i].is_edible != true)) {
-                            allow = false;
-                        }
-                        else if (filterList[1] == "Inedible" && (results[i].is_edible != null || results[i].is_edible == true)) {
-                            allow = false;
-                        }
-                    }
-
-                    if (filterList[2] != "Any") {
-                        if (filterList[2] == "Cutting" && (results[i].division == null || results[i].division != true)) {
-                            allow = false;
-                        }
-                        if (filterList[2] == "Division" && (results[i].division == null || results[i].division != true)) {
-                            allow = false;
-                        }
-                        else if (filterList[2] == "Grafting" && (results[i].grafting == null || results[i].grafting != true)) {
-                            allow = false;
-                        }
-                        else if (filterList[2] == "Seeds" && (results[i].seeds == null || results[i].seeds != true)) {
-                            allow = false;
-                        }
-                        else if (filterList[2] == "Spores" && (results[i].spores == null || results[i].spores != true)) {
-                            allow = false;
-                        }
-                        else if (filterList[2] == "Suckers" && (results[i].suckers == null || results[i].suckers != true)) {
-                            allow = false;
-                        }
-
-                    }
-                    if (filterList[3] != "Any") {
-                        if (filterList[3] == "Food") {
-                            if (!subStrCheck(results[i], "food") && !subStrCheck(results[i], "vegetable") && !subStrCheck(results[i], "fruit") && !subStrCheck(results[i], "berry") && !subStrCheck(results[i], "berries") && !subStrCheck(results[i], "edible"))
-                                allow = false;
-                        }
-                        else {
-                            if (!subStrCheck(results[i], filterList[3].toLowerCase()))
-                                allow = false;
-                        }
-                    }
-
-                    //    console.log(parsedD.results[i].image_data)
-                }
-                else {
-                    allow = false;
-                }
-
-                if (allow)
-                    generateCell(results[i].image64, results[i].id);
-            }
-        }
-    }
-}
-
-function displayFilters() {
-    if (filters.style.display == "none" || filters.style.display == "") {
-        filters.style.display = "block";
+    if (func_ptr(element.value)) {
+        element.style.backgroundColor = "white"
+        return true;
     }
     else {
-        filters.style.display = "none";
+        element.style.backgroundColor = "red"
+        return false;
     }
+
 }
 
 function clearCells() {
@@ -206,22 +100,28 @@ function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, 
 function runUpdates() {
 
     var allow = true;
+    var del = false;
     for (var i = 0; i < updateList.length; i++) {
         if (i != updateList.length - 1 && updateList[i]) {
             const items = document.getElementsByName(`${i}_field`);
 
+            if (items.length == 12)
+                allow = (indicate(items[1].id, numeric_not_empty) && indicate(items[2].id, numeric_not_empty) && indicate(items[4].id, not_empty) && indicate(items[9].id, numeric_not_empty))
+            else
+                allow = (indicate(items[0].id, numeric_not_empty) && indicate(items[1].id, numeric_not_empty) && indicate(items[3].id, not_empty) && indicate(items[8].id, numeric_not_empty))
+
             if (items[0].checked) {
-                allow = false;
+                del = true;
             }
         }
     }
 
     
-    if (!allow) {
+    if (del) {
         const val = confirm("Database entries detected that are marked for deletion. Press OK to confirm deletion.")
 
-        if (val) {
-            allow = true;
+        if (!val || !allow) {
+            allow = false;
         }
     }
 
@@ -232,23 +132,31 @@ function runUpdates() {
         "year": document.getElementById("add_fperiod").value,
     }
 
-    if (updateList[updateList.length - 1] && !enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year)) {
-        allow = false;
+    if (updateList[updateList.length - 1]) {
+		
+        indicate("add_lat", numeric_not_empty)
+        indicate("add_long", numeric_not_empty)
+        indicate("add_proj", not_empty)
+        indicate("add_fperiod", numeric_not_empty)
+		
+		 if (!enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year)) {
+        	 allow = false;
 
-        var lat = "Latitude"; var long = "Longitude"; var proj = "Project"; var y = "Funding Period";
-        if (!isNaN(newEntry.latitude) && newEntry.latitude != "")
-            lat = ""
+        	 var lat = "Latitude"; var long = "Longitude"; var proj = "Project"; var y = "Funding Period";
+        	 if (!isNaN(newEntry.latitude) && newEntry.latitude != "")
+            	 lat = ""
 
-        if (!isNaN(newEntry.longitude) && newEntry.longitude != "")
-            long = ""
+        		 if (!isNaN(newEntry.longitude) && newEntry.longitude != "")
+            		 long = ""
 
-        if (newEntry.project != "")
-            proj = ""
+        	     if (newEntry.project != "")
+           			 proj = ""
 
-        if (!isNaN(newEntry.year) && newEntry.year != "")
-            y = ""
+             if (!isNaN(newEntry.year) && newEntry.year != "")
+                 y = ""
 
-        alert(`One or more of the following fields are blank: ${lat} ${long} ${proj} ${y}`)
+        	 alert(`One or more of the following fields are blank: ${lat} ${long} ${proj} ${y}`)
+		}
     }
 
 
@@ -293,15 +201,15 @@ function insertAsStr(dataEntry, ind, security_level) {
     var out = `
             <tr>` + chkbx + 
                 `
-                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_lat" value="${dataEntry.latitude}" oninput="updateDB(${ind})" ${readOnly}\></td>
-                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_long" value="${dataEntry.longitude}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_lat" value="${dataEntry.latitude}" oninput="updateDB(${ind})" onclick='indicate("${dataEntry.id}_lat", numeric_not_empty)' onkeyup='indicate("${dataEntry.id}_lat", numeric_not_empty)' ${readOnly}\></td>
+                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_long" value="${dataEntry.longitude}" oninput="updateDB(${ind})" onclick='indicate("${dataEntry.id}_long", numeric_not_empty)' onkeyup='indicate("${dataEntry.id}_long", numeric_not_empty)' ${readOnly}\></td>
                 <td><input type="text" name="${ind}_field" id="${dataEntry.id}_rs" value="${dataEntry.research_site}" oninput="updateDB(${ind})" ${readOnly}\></td>
-                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_proj" value="${dataEntry.project}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_proj" value="${dataEntry.project}" oninput="updateDB(${ind})" onclick='indicate("${dataEntry.id}_proj", not_empty)' onkeyup='indicate("${dataEntry.id}_proj", not_empty)' ${readOnly}\></td>
                 <td><input type="text" name="${ind}_field" id="${dataEntry.id}_pi" value="${dataEntry.pi}" oninput="updateDB(${ind})" ${readOnly}\></td>
                 <td><input type="text" name="${ind}_field" id="${dataEntry.id}_cpi" value="${dataEntry.co_pi}" oninput="updateDB(${ind})" ${readOnly}\></td>
                 <td><input type="text" name="${ind}_field" id="${dataEntry.id}_collabs" value="${dataEntry.collabs}" oninput="updateDB(${ind})" ${readOnly}\></td>
                 <td><input type="text" name="${ind}_field" d="${dataEntry.id}_kw" value="${dataEntry.keywords}" oninput="updateDB(${ind})" ${readOnly}\></td>
-                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_fperiod" value="${dataEntry.fperiod}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_fperiod" value="${dataEntry.fperiod}" oninput="updateDB(${ind})" onclick='indicate("${dataEntry.id}_fperiod", numeric_not_empty)' onkeyup='indicate("${dataEntry.id}_fperiod", numeric_not_empty)' ${readOnly}\></td>
                 <td><input type="text" name="${ind}_field" id="${dataEntry.id}_fund" value="${dataEntry.funder}" oninput="updateDB(${ind})" ${readOnly}\></td>
                 <td><input type="text" name="${ind}_field" id="${dataEntry.id}_url" value="${dataEntry.url}" oninput="updateDB(${ind})" ${readOnly}\></td>
             </tr>
@@ -330,15 +238,15 @@ function generateCell(tb, dataEntries, start, end, security_level) { // in packs
         <table>
             <tr>` + deleteM + 
 				`
-                <td>Latitude (AutoFill capable)</td>
-                <td>Longitude (AutoFill capable)</td>
+                <td>Latitude (Required)</td>
+                <td>Longitude (Required)</td>
                 <td>Research Sites</td>
-                <td>Project</td>
+                <td>Project (Required)</td>
                 <td>Principle Investigator</td>
                 <td>Co-PIs</td>
                 <td>Collaborators (not funders)</td>
-                <td>Research Keywords (AutoFill capable)</td>
-                <td>Funding Period</td>
+                <td>Research Keywords </td>
+                <td>Funding Period (Required)</td>
                 <td>Funder</td>
                 <td>Image URL</td>
             </tr>`
@@ -559,12 +467,31 @@ window.addEventListener("beforeunload", function (e) {
 });
 
 function movePtr(val) {
-    if (currIndex + val >= 0)
-        currIndex += val;
 
-    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
+    var mod = false;
+    for (var i = 0; i < updateList.length - 1; i++) {
+        if (!mod)
+            mod = updateList[i]
+    }
 
-    searchDB();
+    if (mod && (currIndex + val >= 0)) {
+        if (confirm("Unsaved changed detected. Continue anyway?")) {
+            currIndex += val;
+
+            searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
+
+            searchDB();
+        }
+    }
+    else if (!mod){
+        if (currIndex + val >= 0)
+            currIndex += val;
+
+        searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
+
+        searchDB();
+    }
+    
 }
 
 function searchDB() {
@@ -574,6 +501,9 @@ function searchDB() {
 function reloadDB(squery) {
     clearCells();
     getDB(squery, currIndex)
+    for (var i = 0; i < updateList.length - 1; i++) {
+        updateList[i] = false;
+    }
 }
 
 reloadDB('');

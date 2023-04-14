@@ -6,50 +6,14 @@ var searchIndex = document.getElementById("counter_id")
 var storedData = null;
 var updateList = [false, false, false, false, false, false, false, false, false, false,false]
 var currIndex = 0;
+var input = document.createElement('input');
+input.type = 'file';
+input.accept = ".csv";
 
 
 var updateDetected = false;
 function print(objectD) {
     console.log(objectD)
-}
-
-
-function animationState() {
-    console.log("CLICKED!", cBtn.style.animationPlayState);
-    cBtn.style.display = "block";
-    uBtn.style.display = "block";
-
-    if (cBtn.style.animationDirection == "reverse" || cBtn.style.animationPlayState == "") {
-        cBtn.style.animationDirection = "normal";
-        uBtn.style.animationDirection = "normal";
-        cBtn.style.animationPlayState = "running";
-        uBtn.style.animationPlayState = "running";
-
-        hoverBtn.style.filter = "opacity(0.4) drop-shadow(0 0 0 green)";
-        console.log("XX");
-    }
-    else if (cBtn.style.animationPlayState == "paused") {
-        cBtn.style.animationDirection = "reverse";
-        uBtn.style.animationDirection = "reverse";
-        cBtn.style.animationPlayState = "running";
-        uBtn.style.animationPlayState = "running";
-
-        hoverBtn.style.filter = "initial";
-        console.log("XX2");
-    }
-
-    uBtn.style.animationName = "topout";
-    cBtn.style.animationName = "pullout";
-}
-
-function modifyfilters() {
-    filterList[0] = hs.value;
-    filterList[1] = ed.value;
-    filterList[2] = pp.value;
-    filterList[3] = ptype.value;
-
-    console.log(filterList);
-    filterDisplay();
 }
 
 function updateDB(ind) {
@@ -135,7 +99,7 @@ function runUpdates() {
 
         indicate("add_lat", numeric_not_empty)
         indicate("add_long", numeric_not_empty)
-        indicate("add_proj", numeric_not_empty)
+        indicate("add_proj", not_empty)
         indicate("add_yr", numeric_not_empty)
 
         if (!enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year)) {
@@ -201,9 +165,9 @@ function insertAsStr(dataEntry, ind, security_level) {
     var out = `
             <tr>` + chkbx + 
                 `
-                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_lat" value="${dataEntry.latitude}" oninput="updateDB(${ind})" ${readOnly}\></td>
-                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_long" value="${dataEntry.longitude}" oninput="updateDB(${ind})" ${readOnly}\></td>
-                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_proj" value="${dataEntry.publication_title}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_lat" value="${dataEntry.latitude}" oninput="updateDB(${ind})" onclick='indicate("${dataEntry.id}_lat", numeric_not_empty)' onkeyup='indicate("${dataEntry.id}_lat", numeric_not_empty)' ${readOnly}\></td>
+                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_long" value="${dataEntry.longitude}" oninput="updateDB(${ind})" onclick='indicate("${dataEntry.id}_long", numeric_not_empty)' onkeyup='indicate("${dataEntry.id}_long", numeric_not_empty)' ${readOnly}\></td>
+                <td><input type="text" name="${ind}_field" id="${dataEntry.id}_proj" value="${dataEntry.publication_title}" oninput="updateDB(${ind})" onclick='indicate("${dataEntry.id}_proj", not_empty)' onkeyup='indicate("${dataEntry.id}_proj", not_empty)' ${readOnly}\></td>
                 <td><input type="text" name="${ind}_field" id="${dataEntry.id}_auth" value="${dataEntry.author}" oninput="updateDB(${ind})" ${readOnly}\></td>
                 <td><input type="text" name="${ind}_field" id="${dataEntry.id}_cauth" value="${dataEntry.co_author}" oninput="updateDB(${ind})" ${readOnly}\></td>
                 <td><input type="text" name="${ind}_field" id="${dataEntry.id}_inst" value="${dataEntry.institution}" oninput="updateDB(${ind})" ${readOnly}\></td>
@@ -216,7 +180,7 @@ function insertAsStr(dataEntry, ind, security_level) {
                             <option value="Africa">Africa</option>
                             <option value="Oceania">Oceania</option>
                         </select></td>
-                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_year" value="${dataEntry.year}" oninput="updateDB(${ind})" ${readOnly}\></td>
+                <td><input type="number" name="${ind}_field" id="${dataEntry.id}_year" value="${dataEntry.year}" oninput="updateDB(${ind})"  onclick='indicate("${dataEntry.id}_year", numeric_not_empty)' onkeyup='indicate("${dataEntry.id}_year", numeric_not_empty)'  ${readOnly}\></td>
                 <td><input type="text" name="${ind}_field" id="${dataEntry.id}_ref" value="${dataEntry.reference}" oninput="updateDB(${ind})" ${readOnly}\></td>
             </tr>
 	`
@@ -283,14 +247,14 @@ function generateCell(tb, dataEntries, start, end, security_level) { // in packs
         <table>
             <tr>` + deleteM + 
 				`
-                <td>Latitude (AutoFill capable)</td>
-                    <td>Longitude (AutoFill capable)</td>
-                    <td>Publication Title</td>
+                <td>Latitude (Required)</td>
+                    <td>Longitude (Required)</td>
+                    <td>Publication Title (Required)</td>
                     <td>Author</td>
                     <td>Co-Author</td>
                     <td>Institution</td>
                     <td>Region</td>
-                    <td>Year</td>
+                    <td>Year (Required)</td>
                     <td>Reference</td>
             </tr>`
 		var insert = ""
@@ -426,6 +390,32 @@ function sendPacket(url, data_main, async = false) {
     txtFile.send(JSON.stringify(data_main));
 }
 
+function sendFile(filePtr, addr) {
+	let sender = new XMLHttpRequest();
+	let fdata = new FormData();
+	fdata.append("csv_data", filePtr);
+	sender.open("POST", addr)
+	
+	console.log("FD: ", fdata)
+    sender.onload = function (e) {
+        if (sender.readyState === 4) {
+            if (sender.status === 200) {
+                var csvData = txtFile.responseText;
+                console.log(csvData, "<<<<");
+                console.log(csvData)
+
+            }
+            else {
+                console.log("--->>>", sender.statusText);
+            }
+        }
+    };
+	
+    sender.onerror = function (e) {
+        console.error(txtFile.statusText);
+    };
+	sender.send(fdata);
+}
 function enforceEntry(lat, long, proj, fundperiod) {
     return (lat != "" && long != "" && fundperiod != "" && !isNaN(lat) && !isNaN(long) && proj != "" && !isNaN(fundperiod))
 }
@@ -504,6 +494,16 @@ function manualHandler(ev1) {
     input.click();
 }
 
+input.onchange = e => {
+
+    // getting a hold of the file reference
+    var file = e.target.files[0];
+
+    console.log("Sending...")
+    sendFile(file, '/sfu-research-db/append_all/db2')
+	
+}
+
 window.addEventListener("beforeunload", function (e) {
     if (updateDetected) {
         var confirmationMessage = 'It looks like you have been editing something. '
@@ -522,17 +522,16 @@ function movePtr(val) {
             mod = updateList[i]
     }
 
-    if (mod) {
+    if (mod && (currIndex + val >= 0)) {
         if (confirm("Unsaved changed detected. Continue anyway?")) {
-            if (currIndex + val >= 0)
-                currIndex += val;
+            currIndex += val;
 
             searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
 
             searchDB();
         }
     }
-    else {
+    else if (!mod){
         if (currIndex + val >= 0)
             currIndex += val;
 
