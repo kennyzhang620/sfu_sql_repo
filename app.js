@@ -38,7 +38,9 @@ console.log = function () {
 }
 console.error = console.log;
 
-
+app.use(cors({
+    origin: '*' // change to webapp later
+}));
 
 
 const halfHr = 1000 * 60 * 30;
@@ -394,6 +396,7 @@ app.get('/sfu-research-db/public/view_db_2/:start/:end', async (req, res) => { /
             //  console.log(data.results[0].is_healthy)
             // res.render('pages/Information', data);
             res.json(data);
+            res.hea
             status = 0;
         }
         catch (error) {
