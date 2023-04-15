@@ -6,6 +6,7 @@ var searchIndex = document.getElementById("counter_id")
 var storedData = null;
 var updateList = [false, false, false, false, false, false, false, false, false, false,false]
 var currIndex = 0;
+var storedInd = -1;
 var input = document.createElement('input');
 input.type = 'file';
 input.accept = ".csv";
@@ -325,6 +326,43 @@ function getDB(searchparams, ind) {
 
 }
 
+function deleteAll() {
+	
+	if (confirm("Are you sure you want to clear all visible entries?")) {
+	var idsDelete = []
+	
+    for (var i = 0; i < updateList.length - 1; i++) {
+	const items = document.getElementsByName(`${i}_field`);
+		if (items != null && items[i] != null)
+			idsDelete.push(items[0].id.replace(/\D/g, ''))
+	}
+	
+	
+	const deletePacket = {
+		ids: idsDelete
+	}
+	
+	sendPacket('/sfu-research-db/delete_entry_2_bulk/', deletePacket, true)
+	
+	top.location.reload()
+	}
+}
+
+function consoleSQL() {
+	var input = prompt("Enter an SQL command. (Note: Only INSERT, DELETE, UPDATE are supported for security reasons. All must refer to SFU_Plot and have WHERE. Any other command will be blocked from executing.)")
+
+	if (input.length > 0) {
+	const commands = {
+		commands: input,
+		database: 'SFU_Plot'
+	}
+	
+	sendPacket('/sfu-research-db/command_db/', commands, true)
+	
+	top.location.reload()
+}
+}
+
 function LoadUploadPanel() {
     uoverlay.style.display = "block";
     animationState();
@@ -332,34 +370,6 @@ function LoadUploadPanel() {
 
 function HideOverlay() {
     uoverlay.style.display = "none";
-}
-
-function encodeImageFileAsURL(fileN) {
-
-    display_rm.style.display = 'inline-block';
-
-    var filesSelected = fileN;
-    if (filesSelected != null) {
-        var fileToLoad = filesSelected;
-
-        var fileReader = new FileReader();
-
-        fileReader.onload = function (fileLoadedEvent) {
-            var srcData = fileLoadedEvent.target.result; // <--- data: base64
-
-            console.log("Converted Base64 version is: ");
-            console.log(srcData);
-
-            display_r.src = srcData;
-
-            display_r.style = "border: 3px solid grey;"
-            sendEncoded(srcData);
-        }
-        fileReader.readAsDataURL(fileToLoad);
-    }
-    else {
-        console.error("Not correct file!");
-    }
 }
 
 function sendPacket(url, data_main, async = false) {
@@ -501,7 +511,7 @@ input.onchange = e => {
 
     console.log("Sending...")
     sendFile(file, '/sfu-research-db/append_all/db2')
-	
+	top.location.reload()
 }
 
 window.addEventListener("beforeunload", function (e) {
@@ -543,6 +553,22 @@ function movePtr(val) {
 }
 
 function searchDB() {
+	if (searchBar.value != "") {
+		if (storedInd == -1) {
+		storedInd = currIndex
+		currIndex = 0;
+		}
+	}
+	else {
+		if (storedInd != -1) {
+			currIndex = storedInd
+			storedInd = -1;
+		}
+	}
+
+    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
+	
+		
     reloadDB(searchBar.value, currIndex); 
 }
 
