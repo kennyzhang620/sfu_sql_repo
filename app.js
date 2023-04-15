@@ -377,7 +377,7 @@ app.get('/sfu-research-db/view_db_2/:search/:index', async (req, res) => { // ex
     }
 });
 
-app.get('/sfu-research-public/view_db_2/:start/:end', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring 'SFU' that matches any field and return the first 10 entries.
+app.get('/sfu-research-db/public/view_db_2/:start/:end', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring 'SFU' that matches any field and return the first 10 entries.
     let start = req.params.start
     let end = req.params.end
 
