@@ -732,7 +732,7 @@ app.post('/sfu-research-db/command_db/', async (req, res) => {
         res.status(403);
     }
 
-    res.json('Success!');
+    res.json('Success! ' + data.results);
 });
 
 
