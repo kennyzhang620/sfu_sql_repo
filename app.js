@@ -28,7 +28,7 @@ app.use(cookieParser());
 
 var fs = require('fs');
 var util = require('util');
-var logFile = fs.createWriteStream('log.txt', { flags: 'a' });
+var logFile = fs.createWriteStream('log.txt', { flags: 'w' });
   // Or 'w' to truncate the file every time the process starts.
 var logStdout = process.stdout;
 
