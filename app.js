@@ -521,7 +521,7 @@ app.post('/sfu-research-db/add_entry_2/', async (req, res) => {
     session = req.session;
     if (session.userid && session.permission_level >= 2) {
         //CREATE TABLE SFU_Plot (id SERIAL, latitude FLOAT, longitude FLOAT, publication_title VARCHAR(100), author VARCHAR(100), co_author VARCHAR(100), institution VARCHAR(100), region VARCHAR(30),  year INTEGER, reference VARCHAR(100), PRIMARY KEY(id));
-
+        // ALTER TABLE SFU_Plot ADD PRIMARY KEY (latitude, longitude, publication_title, region, year);
         const sqlStatement = `INSERT INTO SFU_Plot (latitude, longitude, publication_title, author, co_author, institution, region, year, reference) VALUES (${lat},${long},'${proj}','${authors}', '${co_auth}', '${institution}', '${region}', ${year}, '${references}');`;
 
         console.log('===>', sqlStatement)
@@ -722,7 +722,7 @@ app.post('/sfu-research-db/command_db/', async (req, res) => {
             const result = await querySQL(sqlStatement);
             const data = { results: result };
 
-            console.log("Success!>>")
+            console.log("Success!>>", result)
         }
         else {
             res.status(403);
