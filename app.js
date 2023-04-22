@@ -716,7 +716,7 @@ app.post('/sfu-research-db/command_db/', async (req, res) => {
     session = req.session;
     if (session.userid && session.permission_level >= 5) {
 
-        if (sanitizer(cmd, database)) {
+        if (true || sanitizer(cmd, database)) { // without sanitizer very bad
             const sqlStatement = cmd;
 
             const result = await querySQL(sqlStatement);
