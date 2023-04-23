@@ -379,6 +379,34 @@ app.get('/sfu-research-db/view_db_2/:search/:index', async (req, res) => { // ex
     }
 });
 
+app.get('/sfu-research-db/public/view_db/:start/:end', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring 'SFU' that matches any field and return the first 10 entries.
+    let start = req.params.start
+    let end = req.params.end
+
+    console.log('Range: ', start, end)
+    const sqlStatement = `SELECT * FROM SFU_Research LIMIT ${end} OFFSET ${start};`;
+
+    try {
+        var commandstoDB = sqlStatement
+
+        const result = await querySQL(sqlStatement)
+        const data = result;
+
+        console.log(data)
+        //  console.log(data.results[0].is_healthy)
+        // res.render('pages/Information', data);
+        res.json(data);
+        res.hea
+        status = 0;
+    }
+    catch (error) {
+        console.log('X->', error);
+        status = -2;
+        res.json('None.')
+    }
+
+});
+
 app.get('/sfu-research-db/public/view_db_2/:start/:end', async (req, res) => { // example: /view_db/SFU/0 // searches for db entry with substring 'SFU' that matches any field and return the first 10 entries.
     let start = req.params.start
     let end = req.params.end
