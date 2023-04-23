@@ -52,49 +52,10 @@ int main() {
             }
             
             ptrln++;
-
-            if (start) {
-                if (rvqueue.size() >= 5) {
-                    char* element = rvqueue.front();
-
-                    if (element != nullptr) {
-                        delete[] element;
-                    }
-
-                    rvqueue.pop_front();
-
-                    int len = s.length();
-                    char* newStr = new char[len + 1];
-                    memset(newStr, 0, len + 1);
-                    memcpy(newStr, s.c_str(), len + 1);
-
-                    rvqueue.push_back(newStr);
-                }
-                else {
-                    int len = s.length();
-                    char* newStr = new char[len + 1];
-                    memset(newStr, 0, len + 1);
-                    memcpy(newStr, s.c_str(), len + 1);
-
-                    rvqueue.push_back(newStr);
-                }
-            }
         }
 
         active = false;
 
-        while (!rvqueue.empty()) {
-            char* element = rvqueue.front();
-
-            std::cout << element << '\n';
-            if (element != nullptr) {
-                delete[] element;
-            }
-
-            rvqueue.pop_front();
-
-            start = false;
-        }
     }
 
 
