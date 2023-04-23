@@ -18,8 +18,10 @@
 int main() {
 
     time_t prevtime = 0;
+    int currline = 0;
     const char* filename = "log.txt";
     bool active = false;
+    bool start = true;
 
     while (1) {
         struct stat result;
@@ -40,35 +42,42 @@ int main() {
 
         std::list<char*> rvqueue;
 
-
+        int ptrln = 0;
         while (fs && active)
         {
-
             std::getline(fs, s); // read each line into a string 
-
-            if (rvqueue.size() >= 5) {
-                char* element = rvqueue.front();
-
-                if (element != nullptr) {
-                    delete[] element;
-                }
-
-                rvqueue.pop_front();
-
-                int len = s.length();
-                char* newStr = new char[len + 1];
-                memset(newStr, 0, len + 1);
-                memcpy(newStr, s.c_str(), len + 1);
-
-                rvqueue.push_back(newStr);
+            if (currline <= ptrln) {
+                currline++;
+                std::cout << s << '\n';
             }
-            else {
-                int len = s.length();
-                char* newStr = new char[len + 1];
-                memset(newStr, 0, len + 1);
-                memcpy(newStr, s.c_str(), len + 1);
+            
+            ptrln++;
 
-                rvqueue.push_back(newStr);
+            if (start) {
+                if (rvqueue.size() >= 5) {
+                    char* element = rvqueue.front();
+
+                    if (element != nullptr) {
+                        delete[] element;
+                    }
+
+                    rvqueue.pop_front();
+
+                    int len = s.length();
+                    char* newStr = new char[len + 1];
+                    memset(newStr, 0, len + 1);
+                    memcpy(newStr, s.c_str(), len + 1);
+
+                    rvqueue.push_back(newStr);
+                }
+                else {
+                    int len = s.length();
+                    char* newStr = new char[len + 1];
+                    memset(newStr, 0, len + 1);
+                    memcpy(newStr, s.c_str(), len + 1);
+
+                    rvqueue.push_back(newStr);
+                }
             }
         }
 
@@ -83,6 +92,8 @@ int main() {
             }
 
             rvqueue.pop_front();
+
+            start = false;
         }
     }
 
