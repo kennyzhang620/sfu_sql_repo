@@ -6,7 +6,7 @@ var searchIndex = document.getElementById("counter_id")
 var storedData = null;
 var updateList = [false, false, false, false, false, false, false, false, false, false, false]
 var currIndex = 0;
-
+var storedInd = -1;
 var input = document.createElement('input');
 input.type = 'file';
 input.accept = ".csv";
@@ -573,7 +573,23 @@ function movePtr(val) {
 }
 
 function searchDB() {
-    reloadDB(searchBar.value, currIndex); 
+    if (searchBar.value != "") {
+        if (storedInd == -1) {
+            storedInd = currIndex
+            currIndex = 0;
+        }
+    }
+    else {
+        if (storedInd != -1) {
+            currIndex = storedInd
+            storedInd = -1;
+        }
+    }
+
+    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
+
+
+    reloadDB(searchBar.value, currIndex);
 }
 
 function reloadDB(squery) {
