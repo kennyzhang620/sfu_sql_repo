@@ -46,7 +46,7 @@ var session;
 
 app.use(function(request, response, next) {
 
-    if (!request.secure) {
+    if (req.headers['x-forwarded-proto'] !== 'https') {
        return response.redirect("https://" + request.headers.host + request.url);
     }
 
