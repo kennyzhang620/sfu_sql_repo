@@ -443,7 +443,7 @@ async function insertDatabase1_CSV(parsedD) {
             var Proj = parsedD[i].Project.replace(/'/g, "''")?.trim() ?? "";
             var PI = parsedD[i].PI.replace(/'/g, "''")?.trim() ?? "";
             var coPIs = parsedD[i]["Co-PI(s)"].replace(/'/g, "''")?.trim() ?? "";
-            var collab = parsedD[i]["Collaborators\n(not funders)"].replace(/'/g, "''")?.trim() ?? "";
+            var collab = parsedD[i]["Collaborators\r\n(not funders)"].replace(/'/g, "''")?.trim() ?? "";
             var funders = parsedD[i].Funder.replace(/'/g, "''")?.trim() ?? "";
             var fundyear = parseInt(parsedD[i]["Funding period"].trim() ?? "");
             var keywords = parsedD[i]["Research keywords"].replace(/'/g, "''")?.trim() ?? "";
