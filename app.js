@@ -454,7 +454,7 @@ async function insertDatabase1_CSV(parsedD) {
 
             const sqlStatement = `INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (${lat},${long},'${Research_S}','${Proj}', '${PI}', '${coPIs}', '${collab}', '${keywords}', ${fundyear}, '${funders}', '${url}');`;
 
-            //      console.log('===>', sqlStatement)
+                  console.log('===>', sqlStatement)
             const result = await querySQL(sqlStatement)
             const data = { results: result };
 
