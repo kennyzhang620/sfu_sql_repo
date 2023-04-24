@@ -461,7 +461,7 @@ async function insertDatabase1_CSV(parsedD) {
             statusInd++
         }
         catch (err) {
-            //	console.log('>>>>>', err)
+           	console.log('>>>>>', err)
             statusInd--;
         }
 
