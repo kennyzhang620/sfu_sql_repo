@@ -437,6 +437,7 @@ app.get('/sfu-research-db/public/view_db_2/:start/:end', async (req, res) => { /
 
 async function insertDatabase1_CSV(parsedD) {
     var statusInd = 0;
+    console.log("DD ", parsedD[0])
     for (var i = 0; i < parsedD.length; i++) {
         try {
             var Proj = parsedD[i].Project.replace(/'/g, "''")?.trim() ?? "";
