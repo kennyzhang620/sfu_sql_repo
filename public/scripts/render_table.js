@@ -7,6 +7,10 @@ var storedData = null;
 var updateList = [false, false, false, false, false, false, false, false, false, false, false]
 var currIndex = 0;
 
+var input = document.createElement('input');
+input.type = 'file';
+input.accept = ".csv";
+
 
 var updateDetected = false;
 function print(objectD) {
@@ -348,6 +352,43 @@ function encodeImageFileAsURL(fileN) {
     }
 }
 
+function deleteAll() {
+
+    if (confirm("Are you sure you want to clear all visible entries?")) {
+        var idsDelete = []
+
+        for (var i = 0; i < updateList.length - 1; i++) {
+            const items = document.getElementsByName(`${i}_field`);
+            if (items != null && items[i] != null)
+                idsDelete.push(items[0].id.replace(/\D/g, ''))
+        }
+
+
+        const deletePacket = {
+            ids: idsDelete
+        }
+
+        sendPacket('/sfu-research-db/delete_entry_1_bulk/', deletePacket, true)
+
+        top.location.reload()
+    }
+}
+
+function consoleSQL() {
+    var input = prompt("Enter an SQL command. (Note: Only INSERT, DELETE, UPDATE are supported for security reasons. All must refer to SFU_Research and have WHERE. Any other command will be blocked from executing.)")
+
+    if (input.length > 0) {
+        const commands = {
+            commands: input,
+            database: 'SFU_Research'
+        }
+
+        sendPacket('/sfu-research-db/command_db/', commands, true)
+
+        top.location.reload()
+    }
+}
+
 function sendPacket(url, data_main, async = false) {
     var txtFile = new XMLHttpRequest();
     txtFile.open("POST", url, async);
@@ -374,6 +415,33 @@ function sendPacket(url, data_main, async = false) {
     };
 
     txtFile.send(JSON.stringify(data_main));
+}
+
+function sendFile(filePtr, addr) {
+    let sender = new XMLHttpRequest();
+    let fdata = new FormData();
+    fdata.append("csv_data", filePtr);
+    sender.open("POST", addr)
+
+    console.log("FD: ", fdata)
+    sender.onload = function (e) {
+        if (sender.readyState === 4) {
+            if (sender.status === 200) {
+                var csvData = txtFile.responseText;
+                console.log(csvData, "<<<<");
+                console.log(csvData)
+
+            }
+            else {
+                console.log("--->>>", sender.statusText);
+            }
+        }
+    };
+
+    sender.onerror = function (e) {
+        console.error(txtFile.statusText);
+    };
+    sender.send(fdata);
 }
 
 function enforceEntry(lat, long, proj, fundperiod) {
@@ -454,6 +522,16 @@ function dragOverHandler(ev) {
 
 function manualHandler(ev1) {
     input.click();
+}
+
+input.onchange = e => {
+
+    // getting a hold of the file reference
+    var file = e.target.files[0];
+
+    console.log("Sending...")
+    sendFile(file, '/sfu-research-db/append_all/db2')
+    top.location.reload()
 }
 
 window.addEventListener("beforeunload", function (e) {

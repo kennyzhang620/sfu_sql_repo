@@ -435,6 +435,41 @@ app.get('/sfu-research-db/public/view_db_2/:start/:end', async (req, res) => { /
     
 });
 
+async function insertDatabase1_CSV(parsedD) {
+    var statusInd = 0;
+    for (var i = 0; i < parsedD.length; i++) {
+        try {
+            var Proj = parsedD[i].Project?.trim() ?? "";
+            var PI = parsedD[i].PI?.trim() ?? "";
+            var coPIs = parsedD[i]["Co-PI(s)"]?.trim() ?? "";
+            var collab = parsedD[i]["Collaborators\n(not funders)"]?.trim() ?? "";
+            var funders = parsedD[i].Funder?.trim() ?? "";
+            var fundyear = parseInt(parsedD[i]["Funding period"]?.trim() ?? "");
+            var keywords = parsedD[i]["Research keywords"]?.trim() ?? "";
+            var Research_S = parsedD[i]["Research Sites"]?.trim() ?? "";
+            var lat = parseFloat(parsedD[i].latitude.trim() ?? "");
+            var long = parseFloat(parsedD[i].longitude.trim() ?? "");
+            var url = parsedD[i].Image_URL;
+
+            const sqlStatement = `INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (${lat},${long},'${Research_S}','${Proj}', '${PI}', '${coPIs}', '${collab}', '${keywords}', ${fundyear}, '${funders}', '${url}');`;
+
+            //      console.log('===>', sqlStatement)
+            const result = await querySQL(sqlStatement)
+            const data = { results: result };
+
+            // console.log(data)
+            statusInd++
+        }
+        catch (err) {
+            //	console.log('>>>>>', err)
+            statusInd--;
+        }
+
+    }
+
+    return statusInd;
+}
+
 async function insertDatabase2_CSV(parsedD) {
 	var statusInd = 0;
 	for (var i=0;i<parsedD.length;i++) {
@@ -469,6 +504,38 @@ async function insertDatabase2_CSV(parsedD) {
 }
 
 var upload = multer();
+
+app.post('/sfu-research-db/append_all/db1', upload.single('csv_data'), async function (req, res, next) {
+    // req.file is the `uploadCsv` file 
+    // req.body will hold the text fields, if there were any 
+
+    console.log('Incoming transfer...')
+    let file = req.body
+    session = req.session;
+    if (session.userid && session.permission_level >= 4) { // minimum lvl 4
+        //  console.log(req.file);
+        // the buffer here containes your file data in a byte array 
+        var csvf = req.file.buffer.toString('utf8');
+
+        const result_r = await csvParser().fromString(csvf);
+        console.log('RES: ', result_r[0]);
+
+        const cur_res = await insertDatabase1_CSV(result_r)
+
+        if (cur_res > 0) {
+            console.log('Successful appends: ', cur_res)
+            res.status(200)
+        }
+        else {
+            console.log('Appending failed.')
+            res.status(404);
+        }
+    }
+    else {
+        res.status(403);
+    }
+});
+
 app.post('/sfu-research-db/append_all/db2',upload.single('csv_data'), async function (req, res, next) {
           // req.file is the `uploadCsv` file 
           // req.body will hold the text fields, if there were any 
@@ -476,7 +543,7 @@ app.post('/sfu-research-db/append_all/db2',upload.single('csv_data'), async func
 	console.log('Incoming transfer...')
 	let file = req.body
 	session = req.session;
-	if (session.userid && session.permission_level >= 2) { // minimum lvl 4
+	if (session.userid && session.permission_level >= 4) { // minimum lvl 4
       //  console.log(req.file);
         // the buffer here containes your file data in a byte array 
         var csvf = req.file.buffer.toString('utf8');
@@ -678,6 +745,31 @@ app.post('/sfu-research-db/delete_entry_2/', async (req, res) => {
     }
 });
 
+app.post('/sfu-research-db/delete_entry_1_bulk/', async (req, res) => {
+
+    console.log('Deleting bulk...'); // all of the contents must match up with db contents. this prevents accidental deletion from packet loss.
+    let uids = req.body.ids
+
+    console.log('uidss', uids)
+    session = req.session;
+    if (session.userid && session.permission_level >= 4 && uids != null) {
+
+        for (var i = 0; i < uids.length; i++) {
+            const uid = uids[i];
+            const sqlStatement = `DELETE FROM SFU_Research WHERE id = ${uid}`;
+
+            const result = await querySQL(sqlStatement);
+            const data = { results: result };
+            console.log("Deleted: ", uid)
+        }
+    }
+    else {
+        res.status(403);
+    }
+
+    res.json('Success!');
+});
+
 app.post('/sfu-research-db/delete_entry_2_bulk/', async (req, res) => {
 
     console.log('Deleting bulk...'); // all of the contents must match up with db contents. this prevents accidental deletion from packet loss.
@@ -744,7 +836,7 @@ app.post('/sfu-research-db/command_db/', async (req, res) => {
     session = req.session;
     if (session.userid && session.permission_level >= 5) {
 
-        if (true || sanitizer(cmd, database)) { // without sanitizer very bad
+        if (sanitizer(cmd, database)) { // without sanitizer very bad
             const sqlStatement = cmd;
 
             const result = await querySQL(sqlStatement);

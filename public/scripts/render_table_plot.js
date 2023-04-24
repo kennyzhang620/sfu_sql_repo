@@ -426,6 +426,7 @@ function sendFile(filePtr, addr) {
     };
 	sender.send(fdata);
 }
+
 function enforceEntry(lat, long, proj, fundperiod) {
     return (lat != "" && long != "" && fundperiod != "" && !isNaN(lat) && !isNaN(long) && proj != "" && !isNaN(fundperiod))
 }
