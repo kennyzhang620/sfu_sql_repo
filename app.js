@@ -549,7 +549,7 @@ async function insertDatabase2_CSV(parsedD) {
 					var year = parseInt(parsedD[i].Year.trim() ?? '');
 					var hC = hashCode(JSON.stringify(parsedD[i]));
 				
-		        const sqlStatement = `INSERT INTO SFU_Plot (latitude, longitude, publication_title, author, co_author, institution, region, year, reference, locator) VALUES (${lat},${long}, '${proj}','${authors}', '${co_auth}', '${institution}', '${region}', ${year}, '${references}', '${hC}'});`;
+		        const sqlStatement = `INSERT INTO SFU_Plot (latitude, longitude, publication_title, author, co_author, institution, region, year, reference, locator) VALUES (${lat},${long}, '${proj}','${authors}', '${co_auth}', '${institution}', '${region}', ${year}, '${references}', '${hC}');`;
 
 		  //      console.log('===>', sqlStatement)
 		        const result = await querySQL(sqlStatement)
