@@ -549,7 +549,7 @@ function getSize() {
 
     var inURL = `/sfu-research-db/view_db/count/-101`
     var txtFile = new XMLHttpRequest();
-    txtFile.open("GET", inURL);
+    txtFile.open("GET", inURL, true);
 
     txtFile.onload = function (e) {
         if (txtFile.readyState === 4) {
@@ -557,8 +557,15 @@ function getSize() {
                 var csvData = txtFile.responseText;
 
                 if (csvData != null) {
-                    currSize = JSON.parse(csvData);
+                    currSize = JSON.parse(csvData).results;
+					
+					if (currSize.length)
+						currSize = currSize[0]['COUNT(*)']
+						
 					console.log("+++++>", currSize)
+						
+				    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
+						
                 }
                  
 
@@ -589,7 +596,7 @@ function movePtr(val) {
         if (confirm("Unsaved changed detected. Continue anyway?")) {
             currIndex += val;
 
-            searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
+            searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
 
             searchDB();
         }
@@ -598,7 +605,7 @@ function movePtr(val) {
         if (currIndex + val >= 0)
             currIndex += val;
 
-        searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
+        searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
 
         searchDB();
     }
@@ -619,7 +626,7 @@ function searchDB() {
         }
     }
 
-    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / `;
+    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
 
 
     reloadDB(searchBar.value, currIndex);
