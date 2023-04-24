@@ -36,6 +36,16 @@ console.log = function () {
 }
 console.error = console.log;
 
+function hashCode(str) {
+    let hash = 0;
+    for (let i = 0, len = str.length; i < len; i++) {
+        let chr = str.charCodeAt(i);
+        hash = (hash << 5) - hash + chr;
+        hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
+}
+
 app.use(cors({
     origin: '*' // change to webapp later
 }));
@@ -503,8 +513,9 @@ async function insertDatabase1_CSV(parsedD) {
             var lat = parseFloat(parsedD[i].latitude.trim() ?? "");
             var long = parseFloat(parsedD[i].longitude.trim() ?? "");
             var url = parsedD[i].Image_URL.replace(/'/g, "''").trim() ?? '';
+			var hC = hashCode(JSON.stringify(parsedD[i]));
 
-            const sqlStatement = `INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (${lat},${long},'${Research_S}','${Proj}', '${PI}', '${coPIs}', '${collab}', '${keywords}', ${fundyear}, '${funders}', '${url}');`;
+            const sqlStatement = `INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url, locator) VALUES (${lat},${long},'${Research_S}','${Proj}', '${PI}', '${coPIs}', '${collab}', '${keywords}', ${fundyear}, '${funders}', '${url}', '${hC}');`;
 
                   console.log('===>', sqlStatement)
             const result = await querySQL(sqlStatement)
@@ -536,8 +547,9 @@ async function insertDatabase2_CSV(parsedD) {
                     var references = parsedD[i].References.replace(/'/g, "''").trim() ?? '';
                     var region = parsedD[i].Region.replace(/'/g, "''").trim()??''
 					var year = parseInt(parsedD[i].Year.trim() ?? '');
+					var hC = hashCode(JSON.stringify(parsedD[i]));
 				
-		        const sqlStatement = `INSERT INTO SFU_Plot (latitude, longitude, publication_title, author, co_author, institution, region, year, reference) VALUES (${lat},${long}, '${proj}','${authors}', '${co_auth}', '${institution}', '${region}', ${year}, '${references}');`;
+		        const sqlStatement = `INSERT INTO SFU_Plot (latitude, longitude, publication_title, author, co_author, institution, region, year, reference, locator) VALUES (${lat},${long}, '${proj}','${authors}', '${co_auth}', '${institution}', '${region}', ${year}, '${references}', '${hC}'});`;
 
 		  //      console.log('===>', sqlStatement)
 		        const result = await querySQL(sqlStatement)
@@ -635,10 +647,11 @@ app.post('/sfu-research-db/add_entry/', async (req, res) => {
     let fundyear = req.body.year;
     let auth_key = req.body.auth_key
     let url = req.body.url
-
+    var hC = hashCode(JSON.stringify(req.body));
+	
     session = req.session;
     if (session.userid && session.permission_level >= 2) {
-        const sqlStatement = `INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (${lat},${long},'${Research_S}','${Proj}', '${PI}', '${coPIs}', '${collab}', '${keywords}', ${fundyear}, '${funders}', '${url}');`;
+        const sqlStatement = `INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url, locator) VALUES (${lat},${long},'${Research_S}','${Proj}', '${PI}', '${coPIs}', '${collab}', '${keywords}', ${fundyear}, '${funders}', '${url}', '${hC}');`;
 
         console.log('===>', sqlStatement)
         const result = await querySQL(sqlStatement)
@@ -665,12 +678,13 @@ app.post('/sfu-research-db/add_entry_2/', async (req, res) => {
     let region = req.body.region
     let year = req.body.year;
     let references = req.body.ref
+	var hC = hashCode(JSON.stringify(req.body));
 
     session = req.session;
     if (session.userid && session.permission_level >= 2) {
         //CREATE TABLE SFU_Plot (id SERIAL, latitude FLOAT, longitude FLOAT, publication_title VARCHAR(225), author VARCHAR(100), co_author VARCHAR(100), institution VARCHAR(100), region VARCHAR(30),  year INTEGER, reference VARCHAR(100), PRIMARY KEY(id));
         // ALTER TABLE SFU_Plot ADD PRIMARY KEY (latitude, longitude, publication_title, region, year);
-        const sqlStatement = `INSERT INTO SFU_Plot (latitude, longitude, publication_title, author, co_author, institution, region, year, reference) VALUES (${lat},${long},'${proj}','${authors}', '${co_auth}', '${institution}', '${region}', ${year}, '${references}');`;
+        const sqlStatement = `INSERT INTO SFU_Plot (latitude, longitude, publication_title, author, co_author, institution, region, year, reference, locator) VALUES (${lat},${long},'${proj}','${authors}', '${co_auth}', '${institution}', '${region}', ${year}, '${references}', '${hC}');`;
 
         console.log('===>', sqlStatement)
         const result = await querySQL(sqlStatement)
