@@ -439,17 +439,17 @@ async function insertDatabase1_CSV(parsedD) {
     var statusInd = 0;
     for (var i = 0; i < parsedD.length; i++) {
         try {
-            var Proj = parsedD[i].Project?.trim() ?? "";
-            var PI = parsedD[i].PI?.trim() ?? "";
-            var coPIs = parsedD[i]["Co-PI(s)"]?.trim() ?? "";
-            var collab = parsedD[i]["Collaborators\n(not funders)"]?.trim() ?? "";
-            var funders = parsedD[i].Funder?.trim() ?? "";
-            var fundyear = parseInt(parsedD[i]["Funding period"]?.trim() ?? "");
-            var keywords = parsedD[i]["Research keywords"]?.trim() ?? "";
-            var Research_S = parsedD[i]["Research Sites"]?.trim() ?? "";
-            var lat = parseFloat(parsedD[i].latitude.trim() ?? "");
-            var long = parseFloat(parsedD[i].longitude.trim() ?? "");
-            var url = parsedD[i].Image_URL;
+            var Proj = parsedD[i].Project.replace(/'/g, "''")?.trim() ?? "";
+            var PI = parsedD[i].PI.replace(/'/g, "''")?.trim() ?? "";
+            var coPIs = parsedD[i]["Co-PI(s)"].replace(/'/g, "''")?.trim() ?? "";
+            var collab = parsedD[i]["Collaborators\n(not funders)"].replace(/'/g, "''")?.trim() ?? "";
+            var funders = parsedD[i].Funder.replace(/'/g, "''")?.trim() ?? "";
+            var fundyear = parseInt(parsedD[i]["Funding period"].replace(/'/g, "''")?.trim() ?? "");
+            var keywords = parsedD[i]["Research keywords"].replace(/'/g, "''")?.trim() ?? "";
+            var Research_S = parsedD[i]["Research Sites"].replace(/'/g, "''")?.trim() ?? "";
+            var lat = parseFloat(parsedD[i].latitude.replace(/'/g, "''").trim() ?? "");
+            var long = parseFloat(parsedD[i].longitude.replace(/'/g, "''").trim() ?? "");
+            var url = parsedD[i].Image_URL.replace(/'/g, "''").trim() ?? '';
 
             const sqlStatement = `INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url) VALUES (${lat},${long},'${Research_S}','${Proj}', '${PI}', '${coPIs}', '${collab}', '${keywords}', ${fundyear}, '${funders}', '${url}');`;
 
