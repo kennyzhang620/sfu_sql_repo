@@ -530,7 +530,7 @@ input.onchange = e => {
     var file = e.target.files[0];
 
     console.log("Sending...")
-    sendFile(file, '/sfu-research-db/append_all/db2')
+    sendFile(file, '/sfu-research-db/append_all/db1')
     top.location.reload()
 }
 
