@@ -528,7 +528,7 @@ window.addEventListener("beforeunload", function (e) {
 
 function getSize() {
 
-    var inURL = `/sfu-research-db/view_db/count/-101`
+    var inURL = `/sfu-research-db/view_db_2/count/-101`
     var txtFile = new XMLHttpRequest();
     txtFile.open("GET", inURL, true);
 
