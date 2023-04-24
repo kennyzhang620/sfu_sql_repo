@@ -24,8 +24,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 
-
-
 var fs = require('fs');
 var util = require('util');
 var logFile = fs.createWriteStream('log.txt', { flags: 'a' });
@@ -46,6 +44,14 @@ app.use(cors({
 const halfHr = 1000 * 60 * 30;
 var session;
 
+app.use(function(request, response, next) {
+
+    if (!request.secure) {
+       return response.redirect("https://" + request.headers.host + request.url);
+    }
+
+    next();
+})
 app.use(
     sessions({
         //what this does this a key we

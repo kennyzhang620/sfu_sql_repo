@@ -537,8 +537,8 @@ function movePtr(val) {
         if (confirm("Unsaved changed detected. Continue anyway?")) {
             currIndex += val;
 
-            searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
-
+		    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
+          
             searchDB();
         }
     }
@@ -546,8 +546,8 @@ function movePtr(val) {
         if (currIndex + val >= 0)
             currIndex += val;
 
-        searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
-
+	    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
+        
         searchDB();
     }
     
@@ -567,8 +567,8 @@ function searchDB() {
 		}
 	}
 
-    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10}`;
-	
+    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
+    
 		
     reloadDB(searchBar.value, currIndex); 
 }
