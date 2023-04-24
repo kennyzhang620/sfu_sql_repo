@@ -24,16 +24,7 @@ int main() {
     bool start = true;
 
     while (1) {
-        struct stat result;
-        if (stat(filename, &result) == 0)
-        {
-            auto mod_time = result.st_mtime;
-
-            if (mod_time - prevtime > 0) {
-                prevtime = mod_time;
-                active = true;
-            }
-        }
+        active = true;
 
         std::fstream fs;
 
