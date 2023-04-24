@@ -77,13 +77,13 @@ var tiles = L.tileLayer(lightStyle, {}).addTo(map);
 map.attributionControl.addAttribution("<a href=\"https://www.jawg.io\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org\" target=\"_blank\">&copy; OpenStreetMap</a>&nbsp;contributors");
 
 if (USE_SERVER_DATA) {
-	txtFile.open("GET", "https://quincyw12.github.io/research-collaboration-map1/vis_data.csv", false);
+	txtFile.open("GET", "https://educdv.ca/sfu-research-db/public/view_db/0/100", false);
 	txtFile.onload = function (e) {
 		if (txtFile.readyState === 4) {
 			if (txtFile.status === 200) {
 				var csvData = txtFile.responseText;
 
-				rawParsedD = $.csv.toObjects(csvData);
+				rawParsedD = JSON.parse(csvData);
 
 				//parsedD = rawRarsedD.sort((a,b) => 0.5 - Math.random);
 				parsedD = shuffle(rawParsedD);
@@ -373,8 +373,8 @@ function generateCell(res, max_size) {
 			//console.log("res1: ", res[i].Project)
 			var filler = `<div id="filler" style="width: 100px; height: 100px;"></div>`;
 
-			var imageD = res[i].Image_URL;
-			const rgbV = colours[strToColour(res[i].Project) % colours.length];
+			var imageD = res[i].url;
+			const rgbV = colours[strToColour(res[i].project) % colours.length];
 
 			var html = `<div class="img_header">
 							<div id="circle_base" style="text-align: center;">
@@ -382,10 +382,10 @@ function generateCell(res, max_size) {
 							</div>
                             <input type="image" id="image_${i}" style="width: 100%; height: 100%;" src="${imageD}" onerror="loadDefault('image_${i}')"/>
 							<div class="text_content">
-                                <div id="title_header" style="padding:6px; width: 90%;">${res[i].Project}</div>
-                                <div id="organization_bdy" style="padding:6px; width: 90%;">${res[i].Funder} - ${res[i]["Funding period"]}</div>
-                                <div id="organization_bdy" style="padding:6px; width: 90%;">${res[i].PI} (PI) - ${res[i]["Research Sites"]}</div>
-								<div id="organization_bdy" style="padding:6px; width: 90%;">${res[i]["Co-PI(s)"]} (Co-PI) - ${res[i]["Research Sites"]}</div>
+                                <div id="title_header" style="padding:6px; width: 90%;">${res[i].project}</div>
+                                <div id="organization_bdy" style="padding:6px; width: 90%;">${res[i].funder} - ${res[i].fperiod}</div>
+                                <div id="organization_bdy" style="padding:6px; width: 90%;">${res[i].pi} (PI) - ${res[i].research_site}</div>
+								<div id="organization_bdy" style="padding:6px; width: 90%;">${res[i].co_pi} (Co-PI) - ${res[i].research_site}</div>
                             </div>
                         </div>`;
             // console.log(html);
@@ -416,16 +416,16 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 
 	for (var i = 0; i < parsedD.length; i++) {
 
-		var Project = parsedD[i].Project?.trim() ?? "";
-		var PIs = parsedD[i].PI?.trim() ?? "";
-		var CoPIs = parsedD[i]["Co-PI(s)"]?.trim() ?? "";
-		var Collabs = parsedD[i]["Collaborators\n(not funders)"]?.trim() ?? "";
-		var Funder = parsedD[i].Funder?.trim() ?? "";
-		var TimePeriod = parsedD[i]["Funding period"]?.trim() ?? "";
-		var keywords = parsedD[i]["Research keywords"]?.trim() ?? "";
-		var site = parsedD[i]["Research Sites"]?.trim() ?? "";
-		var coordsLat = parsedD[i].latitude.trim() ?? "";
-		var coordsLong = parsedD[i].longitude.trim() ?? "";
+		var Project = parsedD[i].project?.trim() ?? "";
+		var PIs = parsedD[i].pi?.trim() ?? "";
+		var CoPIs = parsedD[i].co_pi?.trim() ?? "";
+		var Collabs = parsedD[i].collabs?.trim() ?? "";
+		var Funder = parsedD[i].funder?.trim() ?? "";
+		var TimePeriod = parsedD[i].fperiod;
+		var keywords = parsedD[i].keywords?.trim() ?? "";
+		var site = parsedD[i].research_site?.trim() ?? "";
+		var coordsLat = parsedD[i].latitude;
+		var coordsLong = parsedD[i].longitude;
 
 
 		if (Project.toLowerCase().includes(projectName?.toLowerCase()) &&
@@ -434,7 +434,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 			CoPIs.toLowerCase().includes(copiNames?.toLowerCase()) &&
 			Collabs.toLowerCase().includes(collabNames?.toLowerCase()) &&
 			Funder.toLowerCase().includes(funderName?.toLowerCase()) &&
-			TimePeriod.toLowerCase().includes(timePeriod?.toLowerCase()) &&
+			TimePeriod.toString().toLowerCase().includes(timePeriod?.toLowerCase()) &&
 			keywords.toLowerCase().includes(keywordList?.toLowerCase())) {
 
 			var colourV = strToColour(Project);

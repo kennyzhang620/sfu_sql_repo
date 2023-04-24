@@ -245,6 +245,28 @@ app.get('/sfu-research-db/view_db/:search/:index', async (req, res) => { // exam
 
     session = req.session;
     if (session.userid && session.permission_level > 0) {
+		if (ind == -101) {
+	        try {
+				
+				const sqlStatement = `SELECT COUNT(*) FROM SFU_Research;`
+	            var commandstoDB = sqlStatement
+
+	            const result = await querySQL(sqlStatement)
+	            const data = { results: result, p_level: session.permission_level };
+
+	            console.log(data)
+	            //  console.log(data.results[0].is_healthy)
+	            // res.render('pages/Information', data);
+	            res.json(data);
+	            status = 0;
+	        }
+	        catch (error) {
+	            console.log('X->', error);
+	            status = -2;
+	            res.json('None.')
+	        }
+		}
+		else {
         const start = ind * 10
         const end = start + 10
 
@@ -271,6 +293,7 @@ app.get('/sfu-research-db/view_db/:search/:index', async (req, res) => { // exam
             status = -2;
             res.json('None.')
         }
+		}
     }
     else {
         res.status(403);
@@ -346,6 +369,28 @@ app.get('/sfu-research-db/view_db_2/:search/:index', async (req, res) => { // ex
 
     session = req.session;
     if (session.userid && session.permission_level > 0) {
+		if (ind == -101) {
+	        try {
+				
+				const sqlStatement = `SELECT COUNT(*) FROM SFU_Plot;`
+	            var commandstoDB = sqlStatement
+
+	            const result = await querySQL(sqlStatement)
+	            const data = { results: result, p_level: session.permission_level };
+
+	            console.log(data)
+	            //  console.log(data.results[0].is_healthy)
+	            // res.render('pages/Information', data);
+	            res.json(data);
+	            status = 0;
+	        }
+	        catch (error) {
+	            console.log('X->', error);
+	            status = -2;
+	            res.json('None.')
+	        }
+		}
+		else {
         const start = ind * 10
         const end = start + 10
 
@@ -373,6 +418,7 @@ app.get('/sfu-research-db/view_db_2/:search/:index', async (req, res) => { // ex
             status = -2;
             res.json('None.')
         }
+		}
     }
     else {
         res.status(403);
@@ -396,7 +442,7 @@ app.get('/sfu-research-db/public/view_db/:start/:end', async (req, res) => { // 
         //  console.log(data.results[0].is_healthy)
         // res.render('pages/Information', data);
         res.json(data);
-        res.hea
+
         status = 0;
     }
     catch (error) {
@@ -424,7 +470,7 @@ app.get('/sfu-research-db/public/view_db_2/:start/:end', async (req, res) => { /
             //  console.log(data.results[0].is_healthy)
             // res.render('pages/Information', data);
             res.json(data);
-            res.hea
+
             status = 0;
         }
         catch (error) {
