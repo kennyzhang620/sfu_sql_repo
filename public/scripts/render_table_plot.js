@@ -4,6 +4,7 @@ var addView = document.getElementsByClassName("add_entry")
 var searchBar = document.getElementById('search_bar')
 var searchIndex = document.getElementById("counter_id")
 var storedData = null;
+var currSize = 0;
 var updateList = [false, false, false, false, false, false, false, false, false, false,false]
 var currIndex = 0;
 var storedInd = -1;
@@ -525,6 +526,45 @@ window.addEventListener("beforeunload", function (e) {
     }
 });
 
+function getSize() {
+
+    var inURL = `/sfu-research-db/view_db/count/-101`
+    var txtFile = new XMLHttpRequest();
+    txtFile.open("GET", inURL, true);
+
+    txtFile.onload = function (e) {
+        if (txtFile.readyState === 4) {
+            if (txtFile.status === 200) {
+                var csvData = txtFile.responseText;
+
+                if (csvData != null) {
+                    currSize = JSON.parse(csvData).results;
+					
+					if (currSize.length)
+						currSize = currSize[0]['COUNT(*)']
+						
+					console.log("+++++>", currSize)
+						
+				    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
+						
+                }
+                 
+
+            }
+            else {
+                console.error(txtFile.statusText);
+            }
+        }
+    };
+
+    txtFile.onerror = function (e) {
+        console.error(txtFile.statusText);
+    };
+
+    txtFile.send();
+
+}
+
 function movePtr(val) {
 
     var mod = false;
@@ -582,3 +622,4 @@ function reloadDB(squery) {
 }
 
 reloadDB('');
+getSize();
