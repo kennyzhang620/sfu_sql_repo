@@ -51,7 +51,7 @@ app.use(cors({
 }));
 
 
-const halfHr = 1000 * 60 * 30;
+const halfHr = 60 * 30;
 var session;
 
 app.use(function(request, response, next) {
