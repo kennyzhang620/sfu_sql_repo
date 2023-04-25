@@ -513,7 +513,7 @@ async function insertDatabase1_CSV(parsedD) {
             var lat = parseFloat(parsedD[i].latitude.trim() ?? "");
             var long = parseFloat(parsedD[i].longitude.trim() ?? "");
             var url = parsedD[i].Image_URL.replace(/'/g, "''").trim() ?? '';
-			var hC = hashCode(JSON.stringify(parsedD[i]));
+			var hC = hashCode(JSON.stringify(Proj+PI+coPIs+collab+funders+fundyear+keywords+Research_S+lat+long+url));
 
             const sqlStatement = `INSERT INTO SFU_Research (latitude, longitude, research_site, project, pi, co_pi, collabs, keywords, fperiod, funder, url, locator) VALUES (${lat},${long},'${Research_S}','${Proj}', '${PI}', '${coPIs}', '${collab}', '${keywords}', ${fundyear}, '${funders}', '${url}', '${hC}');`;
 
@@ -547,7 +547,7 @@ async function insertDatabase2_CSV(parsedD) {
                     var references = parsedD[i].References.replace(/'/g, "''").trim() ?? '';
                     var region = parsedD[i].Region.replace(/'/g, "''").trim()??''
 					var year = parseInt(parsedD[i].Year.trim() ?? '');
-					var hC = hashCode(JSON.stringify(parsedD[i]));
+					var hC = hashCode(JSON.stringify(proj+authors+co_auth+institution+lat+long+references+region+year));
 				
 		        const sqlStatement = `INSERT INTO SFU_Plot (latitude, longitude, publication_title, author, co_author, institution, region, year, reference, locator) VALUES (${lat},${long}, '${proj}','${authors}', '${co_auth}', '${institution}', '${region}', ${year}, '${references}', '${hC}');`;
 
@@ -647,7 +647,7 @@ app.post('/sfu-research-db/add_entry/', async (req, res) => {
     let fundyear = req.body.year;
     let auth_key = req.body.auth_key
     let url = req.body.url.replace(/'/g, "''")
-    var hC = hashCode(JSON.stringify(req.body));
+    var hC = hashCode(JSON.stringify(Proj+PI+coPIs+collab+funders+fundyear+keywords+Research_S+lat+long+url));
 	
     session = req.session;
     if (session.userid && session.permission_level >= 2) {
@@ -678,7 +678,7 @@ app.post('/sfu-research-db/add_entry_2/', async (req, res) => {
     let region = req.body.region.replace(/'/g, "''")
     let year = req.body.year;
     let references = req.body.ref.replace(/'/g, "''")
-	var hC = hashCode(JSON.stringify(req.body));
+	var hC = hashCode(JSON.stringify(proj+authors+co_auth+institution+lat+long+references+region+year));
 
     session = req.session;
     if (session.userid && session.permission_level >= 2) {
@@ -712,10 +712,11 @@ app.post('/sfu-research-db/update_entry_2/', async (req, res) => {
     let region = req.body.region.replace(/'/g, "''")
     let year = req.body.year;
     let references = req.body.ref.replace(/'/g, "''")
+	var hC = hashCode(JSON.stringify(proj+authors+co_auth+institution+lat+long+references+region+year));
 
     session = req.session;
     if (session.userid && session.permission_level >= 3) {
-        const sqlStatement = `UPDATE SFU_Plot SET latitude = ${lat}, longitude = ${long}, publication_title = '${proj}', author = '${authors}', co_author = '${co_auth}', institution = '${institution}', region = '${region}', year = ${year}, reference = '${references}' WHERE id = ${uid};`;
+        const sqlStatement = `UPDATE SFU_Plot SET locator = '${hC}', latitude = ${lat}, longitude = ${long}, publication_title = '${proj}', author = '${authors}', co_author = '${co_auth}', institution = '${institution}', region = '${region}', year = ${year}, reference = '${references}' WHERE id = ${uid};`;
 
 
         console.log('===>', sqlStatement)
@@ -745,12 +746,12 @@ app.post('/sfu-research-db/update_entry/', async (req, res) => {
     let funders = req.body.funders.replace(/'/g, "''")
     let keywords = req.body.keywords.replace(/'/g, "''")
     let fundyear = req.body.year;
-    let auth_key = req.body.auth_key
+    let hC = hashCode(JSON.stringify(Proj+PI+coPIs+collab+funders+fundyear+keywords+Research_S+lat+long+url));
     let url = req.body.url.replace(/'/g, "''")
 
     session = req.session;
     if (session.userid && session.permission_level >= 3) {
-        const sqlStatement = `UPDATE SFU_Research SET latitude = ${lat}, longitude = ${long}, research_site = '${Research_S}', project = '${Proj}', pi = '${PI}', co_pi = '${coPIs}', collabs = '${collab}', keywords = '${keywords}', fperiod = ${fundyear}, funder = '${funders}', url = '${url}' WHERE id = ${uid};`;
+        const sqlStatement = `UPDATE SFU_Research SET locator = '${hC}', latitude = ${lat}, longitude = ${long}, research_site = '${Research_S}', project = '${Proj}', pi = '${PI}', co_pi = '${coPIs}', collabs = '${collab}', keywords = '${keywords}', fperiod = ${fundyear}, funder = '${funders}', url = '${url}' WHERE id = ${uid};`;
 
 
         console.log('===>', sqlStatement)
