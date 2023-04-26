@@ -253,3 +253,32 @@ body {
     height: 90vh;
     z-index: 0;
 }
+
+.ui-draggable, .ui-droppable {
+    background-position: top;
+}
+
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border-style: outset;
+}
+
+li.ui-menu-item {
+    overflow-wrap: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+/* IE 6 doesn't support max-height
+         * we use height instead, but this forces the menu to always be this tall
+         */
+* html .ui-autocomplete {
+    height: 100px;
+}
