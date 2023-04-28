@@ -416,7 +416,7 @@ function generateCell(res, max_size) {
 }
 
 function movePtr(val) {
-    if (dbLevel + val >= 0)
+    if (dbLevel + val >= 0) {
 		if (val > 0 && parsedD.length >= 1000)
         	dbLevel += val;
 		else if (val < 0)
@@ -426,6 +426,7 @@ function movePtr(val) {
 		loadSection();
 		filter(inputBars[0].value, inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value);
 		updatepos();
+	}
 }
 
 function filter(projectName, researchNames, piNames, copiNames, collabNames, funderName, timePeriod, keywordList) {
