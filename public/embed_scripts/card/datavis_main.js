@@ -422,15 +422,22 @@ function movePtr(val) {
 	console.log("DB: ", dbLevel, val)
     if (dbLevel + val >= 0) {
 		console.log("wtf", parsedD.length );
-		if (val > 0 && parsedD.length >= 1000)
+		if (val > 0 && parsedD.length >= 1000) {
         	dbLevel += val;
-		else if (val < 0)
+			
+			loadSection();
+			colours = generateColours(parsedD.length);
+			filter(inputBars[0].value, inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value);
+			updatepos();
+		}
+		else if (val < 0) {
 			dbLevel += val;
-		
-		loadSection();
-		colours = generateColours(parsedD.length);
-		filter(inputBars[0].value, inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value);
-		updatepos();
+			
+			loadSection();
+			colours = generateColours(parsedD.length);
+			filter(inputBars[0].value, inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value);
+			updatepos();
+		}
 	}
 }
 
