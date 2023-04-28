@@ -41,6 +41,10 @@ function init_main() {
                     </div>
                     <div id="main_slider" style="padding:8px;"><div id="slider-range"></div></div>
                 </div>
+                <div id="section_entries" style="padding: 1px;">PLOT ENTRIES</div>
+                <div id="selector_entry" style="padding:8px;">
+        			<button onclick="movePtr(-1)">Previous</button><index id="counter_id" class="counters" style="padding: 6px; font-size:18px;">0 - 1000</index><button onclick="movePtr(1)">Next</button>
+                </div>
             </div>
         </div>
 			`;
