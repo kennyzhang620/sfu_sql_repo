@@ -215,7 +215,6 @@ body {
 .Settings_Pane {
     width: 200px;
     height: 80px;
-    display: none;
     background-color: transparent;
     position: relative;
     top: 0px;
