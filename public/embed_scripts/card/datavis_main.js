@@ -422,7 +422,10 @@ function generateCell(res, max_size) {
 function newSection() {
 	
 	for (var i=0;i<indexCounter.length;i++) {
-		indexCounter[i].innerHTML = `${dbLevel*1000} - ${(dbLevel + 1) * 1000}`
+		if (parsedD.length >= 1000)
+			indexCounter[i].innerHTML = `${dbLevel*1000} - ${(dbLevel + 1) * 1000}`
+		else
+			indexCounter[i].innerHTML = `${dbLevel*1000} - ${parsedD.length}`
 	}
 	
 	loadSection();
