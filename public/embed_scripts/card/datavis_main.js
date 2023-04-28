@@ -34,6 +34,7 @@ var infoPanel = document.getElementById("items_main");
 var metadataWin = document.getElementsByClassName('data_header');
 var metadataWinID = document.getElementById("data_header");
 var image_panel = document.getElementById("image_display");
+var indexCounter = document.getElementsByClassName('counters')
 
 var inputBars = document.getElementsByClassName("filter_input");
 var FiltersActive = false;
@@ -418,6 +419,18 @@ function generateCell(res, max_size) {
 
 }
 
+function newSection() {
+	
+	for (var i=0;i<indexCounter.length;i++) {
+		indexCounter[i].innerHTML = `${dbLevel*1000} - ${(dbLevel + 1) * 1000}`
+	}
+	
+	loadSection();
+	colours = generateColours(parsedD.length);
+	filter(inputBars[0].value, inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value);
+	updatepos();
+}
+
 function movePtr(val) {
 	console.log("DB: ", dbLevel, val)
     if (dbLevel + val >= 0) {
@@ -425,18 +438,12 @@ function movePtr(val) {
 		if (val > 0 && parsedD.length >= 1000) {
         	dbLevel += val;
 			
-			loadSection();
-			colours = generateColours(parsedD.length);
-			filter(inputBars[0].value, inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value);
-			updatepos();
+			newSection();
 		}
 		else if (val < 0) {
 			dbLevel += val;
 			
-			loadSection();
-			colours = generateColours(parsedD.length);
-			filter(inputBars[0].value, inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value);
-			updatepos();
+			newSection();
 		}
 	}
 }

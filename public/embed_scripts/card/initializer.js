@@ -28,7 +28,7 @@ function init_main() {
                 </div>
                 <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;" hidden />
 				<div class="navigator" style="float:right; padding: 6px;">
-        			<button onclick="movePtr(-1)">Previous</button><index id="counter_id" style="padding: 6px;">0 - 10 / 65</index><button onclick="movePtr(1)">Next</button>
+        			<button onclick="movePtr(-1)">Previous</button><index id="counter_id" class="counters" style="padding: 6px;">0 - 10 / 65</index><button onclick="movePtr(1)">Next</button>
     			</div>
 			</div>
         </div>
@@ -75,7 +75,7 @@ function init_main() {
                                         </div>
                                         <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" hidden />
 										<div class="navigator" style="padding: 6px;">
-        									<button onclick="movePtr(-1)">Previous</button><index id="counter_id" style="padding: 6px;">0 - 10 / 65</index><button onclick="movePtr(1)">Next</button>
+        									<button onclick="movePtr(-1)">Previous</button><index id="counter_id" class="counters" style="padding: 6px;">0 - 10 / 65</index><button onclick="movePtr(1)">Next</button>
     									</div>
                                     </div>
                                 </div>
