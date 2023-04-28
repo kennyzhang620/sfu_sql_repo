@@ -466,7 +466,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 				//	console.log("Sposss: ", sP.getBoundingClientRect())
 				//	console.log("XX: ", image_panel.scrollTop);
 
-				image_panel.scrollTop += sP.getBoundingClientRect().y - 55;//68;
+				image_panel.scrollTop += sP.getBoundingClientRect().y - 70;//68;
 
 				//	console.log("Eposss: ", sP.getBoundingClientRect())
 				//	console.log("XX2: ", image_panel.scrollTop);
