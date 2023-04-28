@@ -42,33 +42,6 @@ function init_main() {
                             </div>
 
                             <section class="data_header" id="data_header">
-
-                                <header id="rname" style="font-size:large; text-align:center;">Storied lives: An impact study of COVID-19 on seniors and their community support services</header>
-                                <div id="pi_section" style="text-align:center;">
-                                    <div id="PI_field" style="padding:3px;">
-                                        <div class="research_details">Alf Coles (University of Bristol) and Kate Le Roux (University of Cape Town, SA)</div>
-                                    </div>
-                                    <div id="Co_PI_field" style="padding:3px;">
-                                        <div class="research_details">Nathalie Sinclair, Elizabeth de Freitas, Armando Solares, Oi-Lam Ng, Sally Wai-yan Wan, Tracy Hellwell, Julian Brown, Mark Boylan, Elaine Simmt, Stephanie La France</div>
-                                    </div>
-                                </div>
-
-                                <div id="collab_field" style="padding:3px;">
-                                    <div class="research_details">Sandy Banks (SFU)</div>
-                                </div>
-
-                                <div id="fund_section" style="text-align:center;">
-                                    <div id="funder_main" style="padding:2px; display:inline-block; width:43%;">
-                                        <div class="research_details">Funder</div>
-                                    </div>
-                                    <div id="funder_period" style="padding: 2px;display:inline-block; width: 43%;">
-                                        <div class="research_details">Period</div>
-                                    </div>
-                                </div>
-
-                                <div id="poi_keywords" style="padding: 3px; display: block;">
-                                    <div class="research_details">Keywords</div>
-                                </div>
                             </section>
                         </div>
                     </div>
@@ -86,18 +59,18 @@ function init_main() {
                                     <div class="f_header">
                                         Filter Options
 
-                                        <input type="text" class="filter_input" id="filter_search" placeholder="Project Name" style="width:93%;padding:5px;text-align:left;" hidden />
-                                        <input type="text" class="filter_input" id="filter_site" placeholder="Research Sites" style="width: 93%; padding: 5px; text-align: left;" />
+                                        <input type="text" class="filter_input" id="filter_search" placeholder="Project Name" hidden />
+                                        <input type="text" class="filter_input" id="filter_site" placeholder="Research Sites" />
                                         <div class="pi_section">
-                                            <input type="text" class="filter_input" id="filter_pi_main" maxlength="140" placeholder="Principle Investigator" style="width: 94%; padding: 5px; text-align: left;" />
-                                            <input type="text" class="filter_input" id="filter_pi_sub" placeholder="Co-PIs" style="width: 93%; padding: 5px; text-align: left;" />
+                                            <input type="text" class="filter_input" id="filter_pi_main" maxlength="140" placeholder="Principle Investigator" />
+                                            <input type="text" class="filter_input" id="filter_pi_sub" placeholder="Co-PIs" />
                                         </div>
-                                        <input type="text" class="filter_input" id="filter_colabs" placeholder="Collaborators" style="width: 93%; padding: 5px; text-align: left;" hidden />
+                                        <input type="text" class="filter_input" id="filter_colabs" placeholder="Collaborators" hidden />
                                         <div class="fund_section">
-                                            <input type="text" class="filter_input" id="filter_fun_main" placeholder="Funder" style="width: 93%; padding: 5px; text-align: left;" />
-                                            <input type="text" class="filter_input" id="filter_fun_time" placeholder="Period" style="width: 93%; padding: 5px; text-align: left;" />
+                                            <input type="text" class="filter_input" id="filter_fun_main" placeholder="Funder" />
+                                            <input type="text" class="filter_input" id="filter_fun_time" placeholder="Period" />
                                         </div>
-                                        <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" style="width: 93%; padding: 5px; text-align: left;" hidden />
+                                        <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" hidden />
                                     </div>
                                 </div>
                             </div>
