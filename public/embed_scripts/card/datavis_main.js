@@ -153,6 +153,11 @@ function generateColours(maxList) {
 	return colours;
 }
 
+function clearFields() {
+	for (var i = 0; i < inputBars.length; i++) {
+		inputBars[i].value = "";	
+	}
+}
 
 function init() {
 	for (var i = 0; i < inputBars.length; i++) {
