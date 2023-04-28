@@ -386,7 +386,7 @@ function consoleSQL() {
 
         sendPacket('/sfu-research-db/command_db/', commands, true)
 
-        top.location.reload()
+       // top.location.reload()
     }
 }
 

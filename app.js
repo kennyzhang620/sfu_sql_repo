@@ -914,10 +914,12 @@ app.post('/sfu-research-db/command_db/', async (req, res) => {
 			res.redirect(result);
         }
         else {
+			res.json("Query failed.");
             res.status(403);
         }
     }
     else {
+		res.json("Insufficient permissions.");
         res.status(403);
     }
 
