@@ -58,7 +58,7 @@ function init_main() {
                         <section id="options_meta" style="width:106%; display:flex; z-index:1000;">
 
                             <div class="map_container" id="filters_pc">
-                                <div class="Filters_Pane">
+                                <div class="Filters_Pane" style="width:160%;">
                                     <div class="f_header">
                                         <div id="header_ft">Filter Options</div> 
 										<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Clear Fields</div></a>
