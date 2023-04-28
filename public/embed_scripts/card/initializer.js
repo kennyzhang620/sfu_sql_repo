@@ -57,8 +57,8 @@ function init_main() {
                             <div class="map_container" id="filters_pc">
                                 <div class="Filters_Pane">
                                     <div class="f_header">
-                                        Filter Options
-
+                                        <div id="header_ft">Filter Options</div> 
+										<div id="clear_fields">Clear Fields</div>
                                         <input type="text" class="filter_input" id="filter_search" placeholder="Project Name" hidden />
                                         <input type="text" class="filter_input" id="filter_site" placeholder="Research Sites" />
                                         <div class="pi_section">
