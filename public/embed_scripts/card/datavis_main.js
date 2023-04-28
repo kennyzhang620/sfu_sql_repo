@@ -416,6 +416,7 @@ function generateCell(res, max_size) {
 }
 
 function movePtr(val) {
+	console.log("DB: ", dbLevel, val)
     if (dbLevel + val >= 0) {
 		if (val > 0 && parsedD.length >= 1000)
         	dbLevel += val;
