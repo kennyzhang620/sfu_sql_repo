@@ -116,7 +116,7 @@ var tiles = L.tileLayer(lightStyle, {}).addTo(map);
 map.attributionControl.addAttribution("<a href=\"https://www.jawg.io\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org\" target=\"_blank\">&copy; OpenStreetMap</a>&nbsp;contributors")
 
 if (USE_SERVER_DATA) {
-    txtFile.open("GET", "https://educdv.ca/sfu-research-db/public/view_db_2/0/200", false);
+    txtFile.open("GET", "https://educdv.ca/sfu-research-db/public/view_db_2/0/1000", false);
     txtFile.onload = function (e) {
         if (txtFile.readyState === 4) {
             if (txtFile.status === 200) {
