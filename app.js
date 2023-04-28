@@ -872,7 +872,7 @@ function sanitizer(commands, db) {
 
     console.log("Check1")
     
-    if (!commands.includes(db))
+    if (!commands.includes(db) || !commands.includes('SFU_Allowed'))
         return false
 
     console.log("Check1");
@@ -881,7 +881,7 @@ function sanitizer(commands, db) {
     if (check.length > length)
         return false;
 
-    if (!check.includes('where'))
+    if (check.includes('delete') && !check.includes('where'))
         return false;
 
     console.log("Check1");
