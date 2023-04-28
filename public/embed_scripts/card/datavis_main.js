@@ -511,8 +511,8 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	console.log("added #markers:", count);
 }
 
-init();
 loadSection();
+init();
 filter("", "", "", "", "", "", "", "");
 updatepos();
 
