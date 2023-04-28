@@ -387,7 +387,7 @@ function sendPacket(url, data_main, async = false, callback = null) {
                 console.log(csvData, "<<<<");
                 console.log(csvData)
 				
-				if (callback !- null) {
+				if (callback != null) {
 					callback(csvData)
 				}
 
