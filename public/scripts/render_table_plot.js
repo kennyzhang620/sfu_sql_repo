@@ -577,21 +577,21 @@ function movePtr(val) {
             mod = updateList[i]
     }
 
-    if (mod && (currIndex + val >= 0)) {
+    if (mod && (currIndex + val >= 0) && (currIndex + val < currSize)) {
         if (confirm("Unsaved changed detected. Continue anyway?")) {
             currIndex += val;
 
-		    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
-          
+            searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
+
             searchDB();
         }
     }
     else if (!mod){
-        if (currIndex + val >= 0)
+        if (currIndex + val >= 0 && currIndex + val < currSize)
             currIndex += val;
 
-	    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
-        
+        searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
+
         searchDB();
     }
     

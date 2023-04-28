@@ -20,6 +20,7 @@ var curr_limit = max_res_size;
 
 var prevMarker = 0;
 var currLabel = null;
+var dbLevel = 0;
 
 //var searchbar = document.getElementById("search");
 var homebutton = document.getElementById("homebtn");
@@ -76,34 +77,40 @@ var mapSize = document.getElementById("map");
 var tiles = L.tileLayer(lightStyle, {}).addTo(map);
 map.attributionControl.addAttribution("<a href=\"https://www.jawg.io\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org\" target=\"_blank\">&copy; OpenStreetMap</a>&nbsp;contributors");
 
-if (USE_SERVER_DATA) {
-	txtFile.open("GET", "https://educdv.ca/sfu-research-db/public/view_db/0/1000", false);
-	txtFile.onload = function (e) {
-		if (txtFile.readyState === 4) {
-			if (txtFile.status === 200) {
-				var csvData = txtFile.responseText;
 
-				rawParsedD = JSON.parse(csvData);
+function loadSection() {
+	const lower = dbLevel*1000
+	const upper = (dbLevel+1)*1000
+	if (USE_SERVER_DATA) {
+		txtFile.open("GET", `https://educdv.ca/sfu-research-db/public/view_db/${lower}/${upper}`, false);
+		txtFile.onload = function (e) {
+			if (txtFile.readyState === 4) {
+				if (txtFile.status === 200) {
+					var csvData = txtFile.responseText;
 
-				//parsedD = rawRarsedD.sort((a,b) => 0.5 - Math.random);
-				parsedD = shuffle(rawParsedD);
+					rawParsedD = JSON.parse(csvData);
 
-				console.log("CSV Obtained successfully.");
-			} else {
-				console.error(txtFile.statusText);
+					//parsedD = rawRarsedD.sort((a,b) => 0.5 - Math.random);
+					parsedD = shuffle(rawParsedD);
+
+					console.log("CSV Obtained successfully.");
+				} else {
+					console.error(txtFile.statusText);
+				}
 			}
-		}
-	};
-	txtFile.onerror = function (e) {
-		console.error(txtFile.statusText);
-	};
+		};
+		txtFile.onerror = function (e) {
+			console.error(txtFile.statusText);
+		};
 
-	txtFile.send();
+		txtFile.send();
+	}
+	else {
+		csvData = document.getElementById("csv_data").innerHTML;
+		parsedD = $.csv.toObjects(csvData);
+	}
 }
-else {
-	csvData = document.getElementById("csv_data").innerHTML;
-	parsedD = $.csv.toObjects(csvData);
-}
+
 
 function strToColour(str) {
 	var res = str.charCodeAt(0);
@@ -408,6 +415,18 @@ function generateCell(res, max_size) {
 
 }
 
+function movePtr(val) {
+    if (dbLevel + val >= 0)
+		if (val > 0 && parsedD.length >= 1000)
+        	dbLevel += val;
+		else if (val < 0)
+			dbLevel += val;
+		
+		colours = generateColours(parsedD.length);
+		loadSection();
+		filter(inputBars[0].value, inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value);
+		updatepos();
+}
 
 function filter(projectName, researchNames, piNames, copiNames, collabNames, funderName, timePeriod, keywordList) {
 
@@ -493,6 +512,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 }
 
 init();
+loadSection();
 filter("", "", "", "", "", "", "", "");
 updatepos();
 

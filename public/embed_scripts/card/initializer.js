@@ -27,7 +27,10 @@ function init_main() {
                     <input type="text" class="filter_input" id="filter_fun_time" placeholder="Period" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;" />
                 </div>
                 <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;" hidden />
-            </div>
+				<div class="navigator" style="float:right; padding: 6px;">
+        			<button onclick="movePtr(-1)">Previous</button><index id="counter_id" style="padding: 6px;">0 - 10 / 65</index><button onclick="movePtr(1)">Next</button>
+    			</div>
+			</div>
         </div>
 
         <section class="Map_interface">
@@ -71,6 +74,9 @@ function init_main() {
                                             <input type="text" class="filter_input" id="filter_fun_time" placeholder="Period" />
                                         </div>
                                         <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" hidden />
+										<div class="navigator" style="float:right; padding: 6px;">
+        									<button onclick="movePtr(-1)">Previous</button><index id="counter_id" style="padding: 6px;">0 - 10 / 65</index><button onclick="movePtr(1)">Next</button>
+    									</div>
                                     </div>
                                 </div>
                             </div>
