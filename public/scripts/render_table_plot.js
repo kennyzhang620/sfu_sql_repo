@@ -358,7 +358,7 @@ function consoleSQL() {
 		database: 'SFU_Plot'
 	}
 	
-	sendPacket('/sfu-research-db/command_db/', commands, true)
+	sendPacket('/sfu-research-db/command_db/', commands, true, alert)
 	
 	//top.location.reload()
 }
@@ -373,7 +373,7 @@ function HideOverlay() {
     uoverlay.style.display = "none";
 }
 
-function sendPacket(url, data_main, async = false) {
+function sendPacket(url, data_main, async = false, callback = null) {
     var txtFile = new XMLHttpRequest();
     txtFile.open("POST", url, async);
 
@@ -386,6 +386,10 @@ function sendPacket(url, data_main, async = false) {
                 var csvData = txtFile.responseText;
                 console.log(csvData, "<<<<");
                 console.log(csvData)
+				
+				if (callback !- null) {
+					callback(csvData)
+				}
 
             }
             else {
