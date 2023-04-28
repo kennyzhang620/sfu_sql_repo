@@ -444,7 +444,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 
 	markers.length = 0;
 	var count = 0;
-    console.log("-->", parsedD.length)
+    console.log("-->", parsedD)
 	for (var i = 0; i < parsedD.length; i++) {
 
 		var Project = parsedD[i].project?.trim() ?? "";
