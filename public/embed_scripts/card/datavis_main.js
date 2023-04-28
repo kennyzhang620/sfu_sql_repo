@@ -533,9 +533,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 
 loadSection();
 init();
-
-filter("", "", "", "", "", "", "", "");
-updatepos();
+newSection();
 
 function changeTileType(tileURL) {
 	tiles = L.tileLayer(tileURL, {}).addTo(map);
