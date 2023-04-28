@@ -864,7 +864,7 @@ app.post('/sfu-research-db/delete_entry_2_bulk/', async (req, res) => {
 });
 
 function sanitizer(commands, db) {
-    const notallowed = ['drop', 'alter', 'create']
+    const notallowed = ['drop', 'alter', 'create'] // selection is allowed due to some operations needing it
     const length = 450;
 
     if (commands == null || db == null)
