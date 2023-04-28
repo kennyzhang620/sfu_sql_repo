@@ -425,7 +425,7 @@ function movePtr(val) {
 			dbLevel += val;
 		
 		loadSection();
-		colours = generateColours(parsedD.length);
+		init();
 		filter(inputBars[0].value, inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value);
 		updatepos();
 	}
