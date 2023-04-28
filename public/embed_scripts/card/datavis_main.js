@@ -81,6 +81,8 @@ map.attributionControl.addAttribution("<a href=\"https://www.jawg.io\" target=\"
 function loadSection() {
 	const lower = dbLevel*1000
 	const upper = (dbLevel+1)*1000
+	
+	console.log(lower,upper);
 	if (USE_SERVER_DATA) {
 		txtFile.open("GET", `https://educdv.ca/sfu-research-db/public/view_db/${lower}/${upper}`, false);
 		txtFile.onload = function (e) {
