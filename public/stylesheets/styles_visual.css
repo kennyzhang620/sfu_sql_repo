@@ -206,7 +206,7 @@ body {
     border: 2px solid grey;
 }
 
-.filter_input {
+.filter_input {szbh 
     padding: 5px;
     text-align: left;
     font-size: 13px;
@@ -215,7 +215,7 @@ body {
 .Settings_Pane {
     width: 200px;
     height: 80px;
-    xxdisplay: none;
+    display: none;
     background-color: transparent;
     position: relative;
     top: 0px;
