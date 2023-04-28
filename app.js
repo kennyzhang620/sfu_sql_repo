@@ -911,6 +911,7 @@ app.post('/sfu-research-db/command_db/', async (req, res) => {
             const data = { results: result };
 
             console.log("Success!>>", result)
+			res.redirect(result);
         }
         else {
             res.status(403);
