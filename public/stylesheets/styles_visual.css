@@ -206,8 +206,8 @@ body {
     border: 2px solid grey;
 }
 
-.filter_input {szbh 
-    padding: 5px;
+.filter_input {
+    max-width: 979px;
     text-align: left;
     font-size: 13px;
 }
