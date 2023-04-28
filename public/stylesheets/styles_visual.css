@@ -206,6 +206,11 @@ body {
     border: 2px solid grey;
 }
 
+.filter_input {
+    padding: 5px;
+    text-align: left;
+    font-size: 13px;
+}
 
 .Settings_Pane {
     width: 200px;
