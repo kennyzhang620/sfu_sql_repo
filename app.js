@@ -872,7 +872,7 @@ function sanitizer(commands, db) {
 
     console.log("Check1")
     
-    if (!commands.includes(db) || !commands.includes('SFU_Allowed'))
+    if (!commands.includes(db) && !commands.includes('SFU_Allowed'))
         return false
 
     console.log("Check1");
@@ -911,10 +911,10 @@ app.post('/sfu-research-db/command_db/', async (req, res) => {
             const data = { results: result };
 
             console.log("Success!>>", result)
-			res.json(result);
+			res.json("Query result: " + result);
         }
         else {
-			res.json("Query failed.");
+			res.json("Query failed. Reason: Illegal command.");
             res.status(403);
         }
     }
