@@ -15,18 +15,18 @@ function init_main() {
             <div class="f_header">
                 Filter Options
 
-                <input type="text" class="filter_input" id="filter_search" placeholder="Project Name" style="width:93%;padding:5px;text-align:left;" hidden />
-                <input type="text" class="filter_input" id="filter_site" placeholder="Research Sites" style="width: 93%; padding: 5px; text-align: left;" />
+                <input type="text" class="filter_input" id="filter_search" placeholder="Project Name" style="width:93%;padding:5px;text-align:left; max-width: 979px;" hidden />
+                <input type="text" class="filter_input" id="filter_site" placeholder="Research Sites" style="width: 93%; padding: 5px; text-align: left; max-width: 979px;" />
                 <div class="pi_section">
-                    <input type="text" class="filter_input" id="filter_pi_main" placeholder="Principle Investigator" style="width: 50%; padding: 5px; text-align: left;" />
-                    <input type="text" class="filter_input" id="filter_pi_sub" placeholder="Co-PIs" style="width: 38%; padding: 5px; text-align: left;" />
+                    <input type="text" class="filter_input" id="filter_pi_main" placeholder="Principle Investigator" style="width: 50%; padding: 5px; text-align: left; max-width: 979px;"  />
+                    <input type="text" class="filter_input" id="filter_pi_sub" placeholder="Co-PIs" style="width: 38%; padding: 5px; text-align: left; max-width: 979px;" />
                 </div>
-                <input type="text" class="filter_input" id="filter_colabs" placeholder="Collaborators" style="width: 93%; padding: 5px; text-align: left;" hidden />
+                <input type="text" class="filter_input" id="filter_colabs" placeholder="Collaborators" style="width: 93%; padding: 5px; text-align: left; max-width: 979px;" hidden />
                 <div class="fund_section">
-                    <input type="text" class="filter_input" id="filter_fun_main" placeholder="Funder" style="width: 50%; padding: 5px; text-align: left;" />
-                    <input type="text" class="filter_input" id="filter_fun_time" placeholder="Period" style="width: 38%; padding: 5px; text-align: left;" />
+                    <input type="text" class="filter_input" id="filter_fun_main" placeholder="Funder" style="width: 50%; padding: 5px; text-align: left; max-width: 979px;" />
+                    <input type="text" class="filter_input" id="filter_fun_time" placeholder="Period" style="width: 38%; padding: 5px; text-align: left; max-width: 979px;" />
                 </div>
-                <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" style="width: 93%; padding: 5px; text-align: left;" hidden />
+                <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" style="width: 93%; padding: 5px; text-align: left; max-width: 979px;" hidden />
             </div>
         </div>
 
