@@ -75,7 +75,7 @@ function init_main() {
                                         </div>
                                         <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" hidden />
 										<div class="navigator" style="padding: 6px;">
-        									<button onclick="movePtr(-1)">Previous</button><index id="counter_id" class="counters" style="padding: 6px; font-size:18px;">0 - 10 / 65</index><button onclick="movePtr(1)">Next</button>
+        									<button id="prev_btn" onclick="movePtr(-1)">Previous</button><index id="counter_id" class="counters" style="padding: 6px; font-size:18px;">0 - 10 / 65</index><button id="next_btn" onclick="movePtr(1)">Next</button>
     									</div>
                                     </div>
                                 </div>
