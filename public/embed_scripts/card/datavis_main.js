@@ -488,6 +488,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 		var coordsLat = parsedD[i].latitude;
 		var coordsLong = parsedD[i].longitude;
 
+		console.log("INP: ", PIs)
 
 		if (Project.toLowerCase().includes(projectName?.toLowerCase()) &&
 			site.toLowerCase().includes(researchNames?.toLowerCase()) &&
