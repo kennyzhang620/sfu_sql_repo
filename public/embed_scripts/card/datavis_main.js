@@ -466,6 +466,7 @@ function movePtr(val) {
 function filter(projectName, researchNames, piNames, copiNames, collabNames, funderName, timePeriod, keywordList) {
 
 	console.log("checkerL -> ", projectName, researchNames, piNames, collabNames, funderName, timePeriod, keywordList);
+	console.log(inputBars)
 	clearCells();
 	results.length = 0;
 	for (var x = 0; x < markers.length; x++) {
