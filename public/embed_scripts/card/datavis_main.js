@@ -186,13 +186,13 @@ function init() {
 				for (var i = 0; i < inputBars.length; i++) {
 
 					if (filtersPC.style.display != 'block') {
-						if (i + 8 < inputBars.length) {
-							inputBars[i + 8].value = inputBars[i].value ? inputBars[i].value.trim() : "";
+						if (i + 9 < inputBars.length) {
+							inputBars[i + 9].value = inputBars[i].value ? inputBars[i].value.trim() : "";
 						}
 					}
 					else {
-						if (i - 8 >= 0) {
-							inputBars[i - 8].value = inputBars[i].value ? inputBars[i].value.trim() : "";
+						if (i - 9 >= 0) {
+							inputBars[i - 9].value = inputBars[i].value ? inputBars[i].value.trim() : "";
 						}
 					}
 				}
