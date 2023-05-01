@@ -87,7 +87,7 @@ function loadSection() {
 	
 	console.log(lower,upper);
 	if (USE_SERVER_DATA) {
-		txtFile.open("GET", `https://educdv.ca/sfu-research-db/public/view_db/${lower}/${upper}`, false);
+		txtFile.open("GET", `https://educdv.ca/sfu-research-db/public/view_db/${lower}/${upper}`, true);
 		txtFile.onload = function (e) {
 			if (txtFile.readyState === 4) {
 				if (txtFile.status === 200) {
@@ -98,7 +98,11 @@ function loadSection() {
 					//parsedD = rawRarsedD.sort((a,b) => 0.5 - Math.random);
 					parsedD = shuffle(rawParsedD);
 
-					console.log("CSV Obtained successfully.");
+					console.log("CSV Obtained successfully. Loading the rest...");
+					
+					init();
+					newSection();
+					
 				} else {
 					console.error(txtFile.statusText);
 				}
@@ -555,8 +559,6 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 }
 
 loadSection();
-init();
-newSection();
 
 function changeTileType(tileURL) {
 	tiles = L.tileLayer(tileURL, {}).addTo(map);
