@@ -79,8 +79,8 @@ var mapSize = document.getElementById("map");
 var tiles = L.tileLayer(lightStyle, {}).addTo(map);
 map.attributionControl.addAttribution("<a href=\"https://www.jawg.io\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org\" target=\"_blank\">&copy; OpenStreetMap</a>&nbsp;contributors");
 
-var prevB = document.getElementsByClassName('prev_btn')
-var nextB = document.getElementsByClassName('next_btn')
+var prevB = document.getElementsByClassName('prev_btn_c')
+var nextB = document.getElementsByClassName('next_btn_c')
 
 function loadSection() {
 	const lower = dbLevel*1000
