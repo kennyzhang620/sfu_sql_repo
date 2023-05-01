@@ -49,14 +49,14 @@ $(function () {
             $("#filters_norm #filter_pi_main").autocomplete({
                 source: pi_availableTags,
                 select: function (event, ui) {
-                    filter(inputBars[0].value,
-                        inputBars[1].value,
+                    filter(inputBars[1].value,
+                        inputBars[2].value,
                         ui.item.value,
-                        inputBars[3].value,
                         inputBars[4].value,
                         inputBars[5].value,
                         inputBars[6].value,
-                        inputBars[7].value);
+                        inputBars[7].value,
+                        inputBars[8].value);
                 }
             });
 
@@ -67,14 +67,14 @@ $(function () {
             $("#filters_pc #filter_pi_main").autocomplete({
                 source: pi_availableTags,
                 select: function (event, ui) {
-                    filter(inputBars[8].value,
-                        inputBars[9].value,
-                        ui.item.value,
+                    filter(inputBars[10].value,
                         inputBars[11].value,
-                        inputBars[12].value,
+                        ui.item.value,
                         inputBars[13].value,
                         inputBars[14].value,
-                        inputBars[15].value);
+                        inputBars[15].value,
+                        inputBars[16].value,
+                        inputBars[17].value);
 
                     console.log($(this).val());
                 }
@@ -88,14 +88,14 @@ $(function () {
             $("#filters_norm #filter_pi_sub").autocomplete({
                 source: coPIs_availableTags,
                 select: function (event, ui) {
-                    filter(inputBars[0].value,
-                        inputBars[1].value,
+                    filter(inputBars[1].value,
                         inputBars[2].value,
+                        inputBars[3].value,
                         ui.item.value,
-                        inputBars[4].value,
                         inputBars[5].value,
                         inputBars[6].value,
-                        inputBars[7].value);
+                        inputBars[7].value,
+                        inputBars[8].value);
 
                     console.log($(this).val());
                     console.log(inputBars);
@@ -109,14 +109,14 @@ $(function () {
             $("#filters_pc #filter_pi_sub").autocomplete({
                 source: coPIs_availableTags,
                 select: function (event, ui) {
-                    filter(inputBars[8].value,
-                        inputBars[9].value,
-                        inputBars[10].value,
-                        ui.item.value,
+                    filter(inputBars[10].value,
+                        inputBars[11].value,
                         inputBars[12].value,
-                        inputBars[13].value,
+                        ui.item.value,
                         inputBars[14].value,
-                        inputBars[15].value);
+                        inputBars[15].value,
+                        inputBars[16].value,
+                        inputBars[17].value);
                 }
             });
 
@@ -128,14 +128,14 @@ $(function () {
             $("#filters_norm #filter_fun_time").autocomplete({
                 source: period_availableTags,
                 select: function (event, ui) {
-                    filter(inputBars[0].value,
-                        inputBars[1].value,
+                    filter(inputBars[1].value,
                         inputBars[2].value,
                         inputBars[3].value,
                         inputBars[4].value,
                         inputBars[5].value,
+                        inputBars[6].value,
                         ui.item.value,
-                        inputBars[7].value);
+                        inputBars[8].value);
 
                     console.log($(this).val());
                     console.log(inputBars);
@@ -149,14 +149,14 @@ $(function () {
             $("#filters_pc #filter_fun_time").autocomplete({
                 source: period_availableTags,
                 select: function (event, ui) {
-                    filter(inputBars[8].value,
-                        inputBars[9].value,
-                        inputBars[10].value,
+                    filter(inputBars[10].value,
                         inputBars[11].value,
                         inputBars[12].value,
                         inputBars[13].value,
+                        inputBars[14].value,
+                        inputBars[15].value,
                         ui.item.value,
-                        inputBars[15].value);
+                        inputBars[17].value);
                 }
             });
 
@@ -168,14 +168,14 @@ $(function () {
             $("#filters_norm #filter_site").autocomplete({
                 source: site_availableTags,
                 select: function (event, ui) {
-                    filter(inputBars[0].value,
+                    filter(inputBars[1].value,
                         ui.item.value,
-                        inputBars[2].value,
                         inputBars[3].value,
                         inputBars[4].value,
                         inputBars[5].value,
                         inputBars[6].value,
-                        inputBars[7].value);
+                        inputBars[7].value,
+                        inputBars[8].value);
 
                     console.log($(this).val());
                     console.log(inputBars);
@@ -189,14 +189,14 @@ $(function () {
             $("#filters_pc #filter_site").autocomplete({
                 source: site_availableTags,
                 select: function (event, ui) {
-                    filter(inputBars[8].value,
+                    filter(inputBars[10].value,
                         ui.item.value,
-                        inputBars[10].value,
-                        inputBars[11].value,
                         inputBars[12].value,
                         inputBars[13].value,
                         inputBars[14].value,
-                        inputBars[15].value);
+                        inputBars[15].value,
+                        inputBars[16].value,
+                        inputBars[17].value);
                 }
             });
 
@@ -208,14 +208,14 @@ $(function () {
             $("#filters_norm #filter_fun_main").autocomplete({
                 source: funder_availableTags,
                 select: function (event, ui) {
-                    filter(inputBars[0].value,
-                        inputBars[1].value,
+                    filter(inputBars[1].value,
                         inputBars[2].value,
                         inputBars[3].value,
                         inputBars[4].value,
+                        inputBars[5].value,
                         ui.item.value,
-                        inputBars[6].value,
-                        inputBars[7].value);
+                        inputBars[7].value,
+                        inputBars[8].value);
 
                     console.log($(this).val());
                     console.log(inputBars);
@@ -229,14 +229,14 @@ $(function () {
             $("#filters_pc #filter_fun_main").autocomplete({
                 source: funder_availableTags,
                 select: function (event, ui) {
-                    filter(inputBars[8].value,
-                        inputBars[9].value,
-                        inputBars[10].value,
+                    filter(inputBars[10].value,
                         inputBars[11].value,
                         inputBars[12].value,
-                        ui.item.value,
+                        inputBars[13].value,
                         inputBars[14].value,
-                        inputBars[15].value);
+                        ui.item.value,
+                        inputBars[16].value,
+                        inputBars[17].value);
                 }
             });
 
