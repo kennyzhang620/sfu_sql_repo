@@ -78,8 +78,8 @@ var mapSize = document.getElementById("map");
 var tiles = L.tileLayer(lightStyle, {}).addTo(map);
 map.attributionControl.addAttribution("<a href=\"https://www.jawg.io\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org\" target=\"_blank\">&copy; OpenStreetMap</a>&nbsp;contributors");
 
-var prevB = document.getElementById('prev_btn')
-var nextB = document.getElementById('next_btn')
+var prevB = document.getElementsByClassName('prev_btn')
+var nextB = document.getElementsByClassName('next_btn')
 
 function loadSection() {
 	const lower = dbLevel*1000
@@ -428,21 +428,29 @@ function newSection() {
 	updatepos();
 	
 	if (dbLevel <= 0) {
-		prevB.disabled = true;
+		for (var i = 0; i < prevB.length; i++) {
+			prevB[i].disabled = true;
+		}
 	}
 	else {
-		prevB.disabled = false;
+		for (var i = 0; i < prevB.length; i++) {
+			prevB[i].disabled = false;
+		}
 	}
 	
 	for (var i=0;i<indexCounter.length;i++) {
 		if (parsedD.length >= 1000) {
 			indexCounter[i].innerHTML = `${dbLevel*1000} - ${(dbLevel + 1) * 1000}`
-			nextB.disabled = false;
+			for (var i = 0; i < nextB.length; i++) {
+				nextB[i].disabled = false;
+			}
 			
 		}
 		else {
 			indexCounter[i].innerHTML = `${dbLevel*1000} - ${parsedD.length}`
-			nextB.disabled = true;
+			for (var i = 0; i < nextB.length; i++) {
+				nextB[i].disabled = true;
+			}
 		}
 	}
 }
