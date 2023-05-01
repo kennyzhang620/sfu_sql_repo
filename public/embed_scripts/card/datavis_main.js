@@ -11,6 +11,7 @@ var homeCoords = [49.2787096,-122.918803];
 
 var txtFile = new XMLHttpRequest();
 var parsedD = {};
+var initialize = false;
 var results = [];
 var colours = [];
 
@@ -178,6 +179,7 @@ function clearFields() {
 }
 
 function init() {
+	if (!initialize) {
 	console.log(inputBars)
 	for (var i = 0; i < inputBars.length; i++) {
 		console.log("aaa_>", i, inputBars[i].placeholder, "  ", inputBars[i].value);
@@ -212,6 +214,9 @@ function init() {
 
 	colours = generateColours(parsedD.length);
 	clearFields();
+	
+	initialize = true;
+	}
 }
 
 
@@ -426,7 +431,6 @@ function generateCell(res, max_size) {
 }
 
 function newSection() {
-	loadSection();
 	colours = generateColours(parsedD.length);
 	filter(inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value, inputBars[8].value);
 	updatepos();
@@ -467,12 +471,12 @@ function movePtr(val) {
 		if (val > 0 && parsedD.length >= 1000) {
         	dbLevel += val;
 			
-			newSection();
+			loadSection()
 		}
 		else if (val < 0) {
 			dbLevel += val;
 			
-			newSection();
+			loadSection()
 		}
 	}
 }
