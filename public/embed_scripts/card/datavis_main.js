@@ -182,7 +182,7 @@ function init() {
 			if (keyin.key == "Enter") {
 				// Inefficient code ahead!
 
-				for (var i = 0; i < inputBars.length; i++) {
+				for (var i = 0; i <= inputBars.length; i++) {
 
 					if (filtersPC.style.display != 'block') {
 						if (i + 8 < inputBars.length) {
