@@ -432,28 +432,29 @@ function newSection() {
 	updatepos();
 	
 	if (dbLevel <= 0) {
-		for (var i = 0; i < prevB.length; i++) {
-			prevB[i].disabled = true;
+		for (var x = 0; x < prevB.length; x++) {
+			prevB[x].disabled = true;
 		}
 	}
 	else {
-		for (var i = 0; i < prevB.length; i++) {
-			prevB[i].disabled = false;
+		for (var x = 0; x < prevB.length; x++) {
+			prevB[x].disabled = false;
 		}
 	}
 	
+	console.log(nextB)
 	for (var i=0;i<indexCounter.length;i++) {
 		if (parsedD.length >= 1000) {
 			indexCounter[i].innerHTML = `${dbLevel*1000} - ${(dbLevel + 1) * 1000}`
-			for (var i = 0; i < nextB.length; i++) {
-				nextB[i].disabled = false;
+			for (var x = 0; x < nextB.length; x++) {
+				nextB[x].disabled = false;
 			}
 			
 		}
 		else {
 			indexCounter[i].innerHTML = `${dbLevel*1000} - ${parsedD.length}`
-			for (var i = 0; i < nextB.length; i++) {
-				nextB[i].disabled = true;
+			for (var x = 0; x < nextB.length; x++) {
+				nextB[x].disabled = true;
 			}
 		}
 	}
