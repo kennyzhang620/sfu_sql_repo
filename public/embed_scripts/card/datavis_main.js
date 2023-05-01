@@ -174,6 +174,7 @@ function clearFields() {
 }
 
 function init() {
+	console.log(inputBars)
 	for (var i = 0; i < inputBars.length; i++) {
 		console.log("aaa_>", i, inputBars[i].placeholder, "  ", inputBars[i].value);
 
@@ -182,7 +183,7 @@ function init() {
 			if (keyin.key == "Enter") {
 				// Inefficient code ahead!
 
-				for (var i = 0; i <= inputBars.length; i++) {
+				for (var i = 0; i < inputBars.length; i++) {
 
 					if (filtersPC.style.display != 'block') {
 						if (i + 8 < inputBars.length) {
