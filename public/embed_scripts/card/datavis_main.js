@@ -197,6 +197,7 @@ function init() {
 				}
 
 				//   console.log("DXXXX: ", inputBars[0].value, inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value);
+				filter(inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value, inputBars[8].value);
 			}
 		});
 
@@ -465,7 +466,6 @@ function movePtr(val) {
 function filter(projectName, researchNames, piNames, copiNames, collabNames, funderName, timePeriod, keywordList) {
 
 	console.log("checkerL -> ", projectName, researchNames, piNames, collabNames, funderName, timePeriod, keywordList);
-	console.log(inputBars)
 	clearCells();
 	results.length = 0;
 	for (var x = 0; x < markers.length; x++) {
@@ -487,8 +487,6 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 		var site = parsedD[i].research_site?.trim() ?? "";
 		var coordsLat = parsedD[i].latitude;
 		var coordsLong = parsedD[i].longitude;
-
-		console.log("INP: ", PIs.toLowerCase(), piNames,  PIs.toLowerCase().includes(piNames.toLowerCase()))
 
 		if (Project.toLowerCase().includes(projectName?.toLowerCase()) &&
 			site.toLowerCase().includes(researchNames?.toLowerCase()) &&
