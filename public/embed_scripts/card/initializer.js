@@ -52,8 +52,8 @@ function init_main() {
 
                 <div class="map" id="map">
                     <div class="Settings_Pane">
-                        <input type="image" src="https://educdv.ca/sfu-research-db/icons/home-icon.png" style="right: 50px;" id="homebtn">
-                        <input type="image" src="https://educdv.ca/sfu-research-db/icons/search-icon.png" style="right: 50px;" id="settingsbtn">
+                        <input type="image" src="https://educdv.ca/sfu-research-db/icons/home-icon.png" style="right: 45px;" id="homebtn">
+                        <input type="image" src="https://educdv.ca/sfu-research-db/icons/search-icon.png" style="right: 45px;" id="settingsbtn">
 
                         <section id="options_meta" style="width:106%; display:flex; z-index:1000;">
 
