@@ -55,7 +55,7 @@ var map = L.map('map', {
 	zoomControl: false
 }).setView(homeCoords, minZoomV+7);
 L.control.zoom({
-	position: 'topright'
+	position: 'middleright'
 }).addTo(map);
 
 map.setZoom(minZoomV+7);
