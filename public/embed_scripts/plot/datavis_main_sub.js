@@ -74,6 +74,7 @@ map.on('drag', function () {
 var mapSize = document.getElementById("map");
 var prevB = document.getElementById('prev_btn')
 var nextB = document.getElementById('next_btn')
+var indexCounter = document.getElementById('counter_id')
 
 function adjustWin0() {
 
@@ -485,11 +486,11 @@ function newSection() {
 	
 	console.log(nextB)
 		if (parsedD.length >= 1000) {
-			indexCounter[i].innerHTML = `${dbLevel*1000} - ${(dbLevel + 1) * 1000}`
+			indexCounter.innerHTML = `${dbLevel*1000} - ${(dbLevel + 1) * 1000}`
 			nextB.disabled = false;
 		}
 		else {
-			indexCounter[i].innerHTML = `${dbLevel*1000} - ${parsedD.length}`
+			indexCounter.innerHTML = `${dbLevel*1000} - ${parsedD.length}`
 			nextB.disabled = true;
 		}
 }
