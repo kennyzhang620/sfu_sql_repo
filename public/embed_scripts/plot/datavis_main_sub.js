@@ -9,6 +9,7 @@ var homeCoords = [49.2787096,-60.918803];
 
 var txtFile = new XMLHttpRequest();
 var parsedD = {};
+var initialize = false;
 var results = [];
 var colours = [];
 
@@ -17,6 +18,8 @@ var max_res_size = 12;
 var curr_limit = max_res_size;
 
 var prevMarker = 0;
+var currLabel = null;
+var dbLevel = 0;
 
 //var searchbar = document.getElementById("search");
 var homebutton = document.getElementById("homebtn");
@@ -115,30 +118,38 @@ var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 var tiles = L.tileLayer(lightStyle, {}).addTo(map);
 map.attributionControl.addAttribution("<a href=\"https://www.jawg.io\" target=\"_blank\">&copy; Jawg</a> - <a href=\"https://www.openstreetmap.org\" target=\"_blank\">&copy; OpenStreetMap</a>&nbsp;contributors")
 
-if (USE_SERVER_DATA) {
-    txtFile.open("GET", "https://educdv.ca/sfu-research-db/public/view_db_2/0/1000", false);
-    txtFile.onload = function (e) {
-        if (txtFile.readyState === 4) {
-            if (txtFile.status === 200) {
-                var csvData = txtFile.responseText;
+function loadSection() {
+	const lower = dbLevel*1000
+	const upper = (dbLevel+1)*1000
+	
+	console.log(lower,upper);
 
-                parsedD = JSON.parse(csvData)
+	if (USE_SERVER_DATA) {
+	    txtFile.open("GET", "https://educdv.ca/sfu-research-db/public/view_db_2/0/1000", false);
+	    txtFile.onload = function (e) {
+	        if (txtFile.readyState === 4) {
+	            if (txtFile.status === 200) {
+	                var csvData = txtFile.responseText;
 
-                console.log("CSV Obtained successfully.")
-            } else {
-                console.error(txtFile.statusText);
-            }
-        }
-    };
-    txtFile.onerror = function (e) {
-        console.error(txtFile.statusText);
-    };
+	                parsedD = JSON.parse(csvData)
+					
+					init();
+	                console.log("CSV Obtained successfully.")
+	            } else {
+	                console.error(txtFile.statusText);
+	            }
+	        }
+	    };
+	    txtFile.onerror = function (e) {
+	        console.error(txtFile.statusText);
+	    };
 
-    txtFile.send();
-}
-else {
-    csvData = document.getElementById("csv_data").innerHTML;
-    parsedD = $.csv.toObjects(csvData);
+	    txtFile.send();
+	}
+	else {
+	    csvData = document.getElementById("csv_data").innerHTML;
+	    parsedD = $.csv.toObjects(csvData);
+	}
 }
 
 Region_Sel = "ALL";
@@ -225,7 +236,6 @@ function generateColours(maxList) {
 function init() {
     colours = generateColours(parsedD.length);
     filter_v2("ALL", minM, maxM)
-
 }
 
 
@@ -460,7 +470,24 @@ function searchLocalDB(query) {
     return null;
 }
 
-init();
+loadSection();
+
+function movePtr(val) {
+	console.log("DB: ", dbLevel, val)
+    if (dbLevel + val >= 0) {
+		console.log("wtf", parsedD.length );
+		if (val > 0 && parsedD.length >= 1000) {
+        	dbLevel += val;
+			
+			loadSection()
+		}
+		else if (val < 0) {
+			dbLevel += val;
+			
+			loadSection()
+		}
+	}
+}
 
 map.on('zoomend', zoomChange)
 
