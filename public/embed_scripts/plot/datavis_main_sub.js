@@ -72,6 +72,8 @@ map.on('drag', function () {
 });
 
 var mapSize = document.getElementById("map");
+var prevB = document.getElementById('prev_btn')
+var nextB = document.getElementById('next_btn')
 
 function adjustWin0() {
 
@@ -134,6 +136,7 @@ function loadSection() {
 	                parsedD = JSON.parse(csvData)
 					
 					init();
+					newSection();
 	                console.log("CSV Obtained successfully.")
 	            } else {
 	                console.error(txtFile.statusText);
@@ -471,6 +474,25 @@ function searchLocalDB(query) {
 }
 
 loadSection();
+
+function newSection() {
+	if (dbLevel <= 0) {
+			prevB.disabled = true;
+	}
+	else {
+			prevB.disabled = false;
+	}
+	
+	console.log(nextB)
+		if (parsedD.length >= 1000) {
+			indexCounter[i].innerHTML = `${dbLevel*1000} - ${(dbLevel + 1) * 1000}`
+			nextB.disabled = false;
+		}
+		else {
+			indexCounter[i].innerHTML = `${dbLevel*1000} - ${parsedD.length}`
+			nextB.disabled = true;
+		}
+}
 
 function movePtr(val) {
 	console.log("DB: ", dbLevel, val)
