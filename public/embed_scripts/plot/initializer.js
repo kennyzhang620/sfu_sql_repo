@@ -30,7 +30,9 @@ function init_main() {
                         <option value="ME">Middle East</option>
                         <option value="AFR">Africa</option>
                         <option value="OCEANIA">Oceania</option>
-			 </div>
+
+                    </select>
+                </div>
                 <div id="section_year" style="padding: 1px;">YEAR</div>
                 <div id="selector_slider" style="padding:8px;">
                     <div id="slider" style="height: 20px;">
@@ -41,7 +43,7 @@ function init_main() {
                 </div>
                 <div id="section_entries" style="padding: 1px;">PLOT ENTRIES</div>
                 <div id="selector_entry" style="padding:8px;">
-        			<button id="prev_btn" onclick="movePtr(-1)"><</button><index id="counter_id" class="counters" style="padding: 6px; font-size:12px;">0 - 1000</index><button id="next_btn" onclick="movePtr(1)">></button>
+        			<button id="prev_btn" onclick="movePtr(-1)"><</button><index id="counter_id" class="counters" style="padding: 6px; font-size:12px;">0 - 1000</index><button id="n_btn" onclick="movePtr(1)">></button>
                 </div>
             </div>
         </div>
