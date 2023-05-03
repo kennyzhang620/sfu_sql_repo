@@ -43,7 +43,7 @@ function init_main() {
                 </div>
                 <div id="section_entries" style="padding: 1px;">PLOT ENTRIES</div>
                 <div id="selector_entry" style="padding:8px;">
-        			<button onclick="movePtr(-1)">Previous</button><index id="counter_id" class="counters" style="padding: 6px; font-size:18px;">0 - 1000</index><button onclick="movePtr(1)">Next</button>
+        			<button onclick="movePtr(-1)"><</button><index id="counter_id" class="counters" style="padding: 6px; font-size:12px;">0 - 1000</index><button onclick="movePtr(1)">></button>
                 </div>
             </div>
         </div>

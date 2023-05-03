@@ -883,6 +883,9 @@ function sanitizer(commands, db) {
 
     if (check.includes('delete') && !check.includes('where'))
         return false;
+	
+    if (check.includes('update') && !check.includes('where'))
+        return false;
 
     console.log("Check1");
 
