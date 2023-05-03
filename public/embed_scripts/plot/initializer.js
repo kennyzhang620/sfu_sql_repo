@@ -30,7 +30,7 @@ function init_main() {
                         <option value="ME">Middle East</option>
                         <option value="AFR">Africa</option>
                         <option value="OCEANIA">Oceania</option>
-				</div>
+			 </div>
                 <div id="section_year" style="padding: 1px;">YEAR</div>
                 <div id="selector_slider" style="padding:8px;">
                     <div id="slider" style="height: 20px;">
