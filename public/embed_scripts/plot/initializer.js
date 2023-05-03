@@ -30,9 +30,7 @@ function init_main() {
                         <option value="ME">Middle East</option>
                         <option value="AFR">Africa</option>
                         <option value="OCEANIA">Oceania</option>
-
-                    </select><input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" style="width: 93%; padding: 8px; text-align: left;" hidden />
-                </div>
+				</div>
                 <div id="section_year" style="padding: 1px;">YEAR</div>
                 <div id="selector_slider" style="padding:8px;">
                     <div id="slider" style="height: 20px;">
