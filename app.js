@@ -746,7 +746,7 @@ app.post('/sfu-research-db/update_entry_2/', async (req, res) => {
 
 app.post('/sfu-research-db/update_entry/', async (req, res) => {
 
-    console.log('Reading...');
+    console.log('Update...');
     let uid = req.body.uid;
     let lat = req.body.latitude;
     let long = req.body.longitude;
@@ -758,8 +758,8 @@ app.post('/sfu-research-db/update_entry/', async (req, res) => {
     let funders = req.body.funders.replace(/'/g, "''")
     let keywords = req.body.keywords.replace(/'/g, "''")
     let fundyear = req.body.year;
+	let url = req.body.url.replace(/'/g, "''")
     let hC = hashCode(JSON.stringify(Proj+PI+coPIs+collab+funders+fundyear+keywords+Research_S+lat+long+url));
-    let url = req.body.url.replace(/'/g, "''")
 
     session = req.session;
     if (session.userid && session.permission_level >= 3) {
