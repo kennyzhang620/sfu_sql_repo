@@ -300,9 +300,9 @@ function getDB(searchparams, ind) {
 
     var inURL = ""
     if (searchparams != "")
-        inURL = `/sfu-research-db/view_db_2/${searchparams}/${ind}`
+        inURL = `/sfu-research-db/view_db/${searchparams}/${ind}`
     else {
-        inURL = `/sfu-research-db/view_db_2/${ind}`
+        inURL = `/sfu-research-db/view_db/${ind}`
     }
     
     sendPacket(inURL, 'GET', true, loadDBAsync, null);
