@@ -192,6 +192,8 @@ function runUpdates() {
         }
 
     }
+
+    top.location.reload();
 }
 
 function insertAsStr(dataEntry, ind, security_level) {
