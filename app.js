@@ -929,6 +929,17 @@ app.post('/sfu-research-db/command_db/', async (req, res) => {
     res.status(200);
 });
 
+app.get('/sfu-research-db/session_check', (req, res) => {
+	// Check if session is valid and return 403 if invalid.
+    session = req.session;
+    if (session.userid && session.permission_level >= 0) {
+    	res.status(200);
+    }
+	else {
+		res.status(403);
+	}
+
+})
 
 app.get('/sfu-research-db/logout', (req, res) => {
     req.session.destroy();

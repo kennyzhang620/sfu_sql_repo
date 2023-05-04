@@ -80,7 +80,7 @@ function deleteDB(uid, lat, long) {
         "auth_key": "93y7y33"
     }
 
-    sendPacket('/sfu-research-db/delete_entry', newEntry);
+    sendPacket('/sfu-research-db/delete_entry', 'POST',  newEntry);
 }
 
 function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, fund, url) {
@@ -99,7 +99,7 @@ function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, 
         "url": url
     }
 
-    sendPacket('/sfu-research-db/update_entry/', newEntry);
+    sendPacket('/sfu-research-db/update_entry/', 'POST',  newEntry);
 }
 
 function runUpdates() {
@@ -269,6 +269,22 @@ function generateCell(tb, dataEntries, start, end, security_level) { // in packs
     
 }
 
+function loadDBAsync(csvData) {
+    if (csvData != null) {
+        parsedD = JSON.parse(csvData);
+        storedData = parsedD;
+        console.log("--->", parsedD);
+
+        if (parsedD != null && parsedD.results != null && parsedD.results.length > 0) {
+            clearCells();
+
+            console.log("rest: ", parsedD.results);
+            generateCell(tableView, parsedD.results, 0, parsedD.results.length, parsedD.p_level)
+
+        }
+    }
+}
+
 function getDB(searchparams, ind) {
 
     var inURL = ""
@@ -277,42 +293,8 @@ function getDB(searchparams, ind) {
     else {
         inURL = `/sfu-research-db/view_db/${ind}`
     }
-    
-    var txtFile = new XMLHttpRequest();
-    txtFile.open("GET", inURL);
 
-    txtFile.onload = function (e) {
-        if (txtFile.readyState === 4) {
-            if (txtFile.status === 200) {
-                var csvData = txtFile.responseText;
-
-                if (csvData != null) {
-                    parsedD = JSON.parse(csvData);
-                    storedData = parsedD;
-                    console.log("--->", parsedD);
-
-                    if (parsedD != null && parsedD.results != null && parsedD.results.length > 0) {
-                        clearCells();
-
-                        console.log("rest: ", parsedD.results);
-                        generateCell(tableView, parsedD.results, 0,parsedD.results.length, parsedD.p_level)
- 
-                    }
-                }
-                 
-
-            }
-            else {
-                console.error(txtFile.statusText);
-            }
-        }
-    };
-
-    txtFile.onerror = function (e) {
-        console.error(txtFile.statusText);
-    };
-
-    txtFile.send();
+    sendPacket(iNURL, 'GET', '', true, loadDBAsync, null);
 
 }
 
@@ -369,7 +351,7 @@ function deleteAll() {
             ids: idsDelete
         }
 
-        sendPacket('/sfu-research-db/delete_entry_1_bulk/', deletePacket, true)
+        sendPacket('/sfu-research-db/delete_entry_1_bulk/', 'POST',  deletePacket, true)
 
         top.location.reload()
     }
@@ -384,15 +366,15 @@ function consoleSQL() {
             database: 'SFU_Research'
         }
 
-        sendPacket('/sfu-research-db/command_db/', commands, true, alert)
+        sendPacket('/sfu-research-db/command_db/', 'POST',  commands, true, alert)
 
        // top.location.reload()
     }
 }
 
-function sendPacket(url, data_main, async = false, callback = null) {
+function sendPacket(url, type, data_main, asyncV = false, callback = null, failure = null) {
     var txtFile = new XMLHttpRequest();
-    txtFile.open("POST", url, async);
+    txtFile.open(type, url, asyncV);
 
     txtFile.setRequestHeader("Accept", "application/json");
     txtFile.setRequestHeader("Content-Type", "application/json");
@@ -411,6 +393,9 @@ function sendPacket(url, data_main, async = false, callback = null) {
             }
             else {
                 console.log("--->>>", txtFile.statusText);
+				if (failure != null) {
+					failure(txtFile.statusText)
+				}
             }
         }
     };
@@ -468,7 +453,7 @@ function pushNewEntry() {
     }
 
     if (enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year))
-        sendPacket('/sfu-research-db/add_entry', newEntry);
+        sendPacket('/sfu-research-db/add_entry', 'POST',  newEntry);
 }
 
 function sendUpdates() {
@@ -538,6 +523,15 @@ input.onchange = e => {
     sendFile(file, '/sfu-research-db/append_all/db1')
     top.location.reload()
 }
+
+function printFAlert(failtxt) {
+    alert("Your session timed out. Please refresh the page.");
+}
+
+const interval = setInterval(function() {
+   // method to be executed;
+   sendPacket('/sfu-research-db/session_check', 'GET', '', true, null, printFAlert)
+ }, 1000*60*5);
 
 window.addEventListener("beforeunload", function (e) {
     if (updateDetected) {
