@@ -352,7 +352,7 @@ function deleteAll() {
             ids: idsDelete
         }
 
-        sendPacket('/sfu-research-db/delete_entry_1_bulk/', 'POST', deletePacket)
+        sendPacket('/sfu-research-db/delete_entry_1_bulk/', 'POST', deletePacket, false, top.location.reload)
 
     }
 }
