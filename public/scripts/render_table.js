@@ -382,8 +382,8 @@ function sendPacket(url, type, data_main, asyncV = false, callback = null, failu
         if (txtFile.readyState === 4) {
             if (txtFile.status === 200) {
                 var csvData = txtFile.responseText;
-                console.log(csvData, "<<<<");
-                console.log(csvData)
+               // console.log(csvData, "<<<<");
+             //   console.log(csvData)
 				
 				if (callback != null) {
 					callback(csvData)
