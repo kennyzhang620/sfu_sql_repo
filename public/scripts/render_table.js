@@ -407,8 +407,8 @@ function sendPacket(url, type, data_main, asyncV = false, callback = null, failu
 }
 
 function sendFile(filePtr, addr) {
-    let sender = new XMLHttpRequest();
-    let fdata = new FormData();
+    var sender = new XMLHttpRequest();
+    var fdata = new FormData();
     fdata.append("csv_data", filePtr);
     sender.open("POST", addr)
 
