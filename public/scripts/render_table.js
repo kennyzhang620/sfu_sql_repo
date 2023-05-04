@@ -419,12 +419,9 @@ function sendFile(filePtr, addr) {
                 var csvData = txtFile.responseText;
                 console.log(csvData, "<<<<");
                 console.log(csvData)
-
-                top.location.reload()
             }
             else {
                 console.log("--->>>", sender.statusText);
-                top.location.reload()
             }
         }
     };
@@ -522,6 +519,7 @@ input.onchange = e => {
 
     console.log("Sending...")
     sendFile(file, '/sfu-research-db/append_all/db1')
+    top.location.reload()
 }
 
 function printFAlert(failtxt) {
