@@ -42,7 +42,7 @@ function deleteDB(uid, lat, long) {
         "auth_key": "93y7y33"
     }
 
-    sendPacket('/sfu-research-db/delete_entry_2', newEntry);
+    sendPacket('/sfu-research-db/delete_entry_2', 'POST', newEntry);
 }
 
 function updateDBEntry(uid, lat, long, proj, authors, coauth, inst, region, year, ref) {
@@ -59,7 +59,7 @@ function updateDBEntry(uid, lat, long, proj, authors, coauth, inst, region, year
         "ref": ref,
     }
 	
-    sendPacket('/sfu-research-db/update_entry_2/', newEntry);
+    sendPacket('/sfu-research-db/update_entry_2/', 'POST', newEntry);
 }
 
 function runUpdates() {
@@ -280,6 +280,22 @@ function generateCell(tb, dataEntries, start, end, security_level) { // in packs
     
 }
 
+function loadDBAsync(csvData) {
+    if (csvData != null) {
+        parsedD = JSON.parse(csvData);
+        storedData = parsedD;
+        console.log("--->", parsedD);
+
+        if (parsedD != null && parsedD.results != null && parsedD.results.length > 0) {
+            clearCells();
+
+            console.log("rest: ", parsedD.results);
+            generateCell(tableView, parsedD.results, 0,parsedD.results.length, parsedD.p_level)
+
+        }
+    }
+}
+
 function getDB(searchparams, ind) {
 
     var inURL = ""
@@ -289,42 +305,7 @@ function getDB(searchparams, ind) {
         inURL = `/sfu-research-db/view_db_2/${ind}`
     }
     
-    var txtFile = new XMLHttpRequest();
-    txtFile.open("GET", inURL);
-
-    txtFile.onload = function (e) {
-        if (txtFile.readyState === 4) {
-            if (txtFile.status === 200) {
-                var csvData = txtFile.responseText;
-
-                if (csvData != null) {
-                    parsedD = JSON.parse(csvData);
-                    storedData = parsedD;
-                    console.log("--->", parsedD);
-
-                    if (parsedD != null && parsedD.results != null && parsedD.results.length > 0) {
-                        clearCells();
-
-                        console.log("rest: ", parsedD.results);
-                        generateCell(tableView, parsedD.results, 0,parsedD.results.length, parsedD.p_level)
- 
-                    }
-                }
-                 
-
-            }
-            else {
-                console.error(txtFile.statusText);
-            }
-        }
-    };
-
-    txtFile.onerror = function (e) {
-        console.error(txtFile.statusText);
-    };
-
-    txtFile.send();
-
+    sendPacket(inURL, 'GET', true, loadDBAsync, null);
 }
 
 function deleteAll() {
@@ -343,7 +324,7 @@ function deleteAll() {
 		ids: idsDelete
 	}
 	
-	sendPacket('/sfu-research-db/delete_entry_2_bulk/', deletePacket, true)
+	sendPacket('/sfu-research-db/delete_entry_2_bulk/', 'POST', deletePacket)
 	
 	top.location.reload()
 	}
@@ -358,7 +339,7 @@ function consoleSQL() {
 		database: 'SFU_Plot'
 	}
 	
-	sendPacket('/sfu-research-db/command_db/', commands, true, alert)
+	sendPacket('/sfu-research-db/command_db/', 'POST', commands, true, alert)
 	
 	//top.location.reload()
 }
@@ -373,9 +354,9 @@ function HideOverlay() {
     uoverlay.style.display = "none";
 }
 
-function sendPacket(url, data_main, async = false, callback = null) {
+function sendPacket(url, type, data_main, asyncV = false, callback = null, failure = null) {
     var txtFile = new XMLHttpRequest();
-    txtFile.open("POST", url, async);
+    txtFile.open(type, url, asyncV);
 
     txtFile.setRequestHeader("Accept", "application/json");
     txtFile.setRequestHeader("Content-Type", "application/json");
@@ -384,8 +365,8 @@ function sendPacket(url, data_main, async = false, callback = null) {
         if (txtFile.readyState === 4) {
             if (txtFile.status === 200) {
                 var csvData = txtFile.responseText;
-                console.log(csvData, "<<<<");
-                console.log(csvData)
+               // console.log(csvData, "<<<<");
+             //   console.log(csvData)
 				
 				if (callback != null) {
 					callback(csvData)
@@ -394,6 +375,9 @@ function sendPacket(url, data_main, async = false, callback = null) {
             }
             else {
                 console.log("--->>>", txtFile.statusText);
+				if (failure != null) {
+					failure(txtFile.statusText)
+				}
             }
         }
     };
@@ -406,30 +390,29 @@ function sendPacket(url, data_main, async = false, callback = null) {
 }
 
 function sendFile(filePtr, addr) {
-	let sender = new XMLHttpRequest();
-	let fdata = new FormData();
-	fdata.append("csv_data", filePtr);
-	sender.open("POST", addr)
-	
-	console.log("FD: ", fdata)
+    var sender = new XMLHttpRequest();
+    var fdata = new FormData();
+    fdata.append("csv_data", filePtr);
+    sender.open("POST", addr, false)
+
+    console.log("FD: ", fdata)
     sender.onload = function (e) {
         if (sender.readyState === 4) {
             if (sender.status === 200) {
                 var csvData = txtFile.responseText;
                 console.log(csvData, "<<<<");
                 console.log(csvData)
-
             }
             else {
                 console.log("--->>>", sender.statusText);
             }
         }
     };
-	
+
     sender.onerror = function (e) {
         console.error(txtFile.statusText);
     };
-	sender.send(fdata);
+    sender.send(fdata);
 }
 
 function enforceEntry(lat, long, proj, fundperiod) {
@@ -449,7 +432,7 @@ function pushNewEntry() {
     }
 
     if (enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year))
-        sendPacket('/sfu-research-db/add_entry_2', newEntry);
+        sendPacket('/sfu-research-db/add_entry_2', 'POST', newEntry);
 }
 
 function sendUpdates() {
@@ -530,42 +513,24 @@ window.addEventListener("beforeunload", function (e) {
     }
 });
 
+function sizeCB(csvData) {
+    if (csvData != null) {
+        currSize = JSON.parse(csvData).results;
+
+        if (currSize.length)
+            currSize = currSize[0]['COUNT(*)']
+
+        console.log("+++++>", currSize)
+
+        searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
+
+    }
+}
+
 function getSize() {
 
     var inURL = `/sfu-research-db/view_db_2/count/-101`
-    var txtFile = new XMLHttpRequest();
-    txtFile.open("GET", inURL, true);
-
-    txtFile.onload = function (e) {
-        if (txtFile.readyState === 4) {
-            if (txtFile.status === 200) {
-                var csvData = txtFile.responseText;
-
-                if (csvData != null) {
-                    currSize = JSON.parse(csvData).results;
-					
-					if (currSize.length)
-						currSize = currSize[0]['COUNT(*)']
-						
-					console.log("+++++>", currSize)
-						
-				    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
-						
-                }
-                 
-
-            }
-            else {
-                console.error(txtFile.statusText);
-            }
-        }
-    };
-
-    txtFile.onerror = function (e) {
-        console.error(txtFile.statusText);
-    };
-
-    txtFile.send();
+    sendPacket(inURL, 'GET', '', true, sizeCB);
 
 }
 
