@@ -191,7 +191,6 @@ function runUpdates() {
             }
         }
 
-        top.location.reload()
     }
 }
 
@@ -353,7 +352,6 @@ function deleteAll() {
 
         sendPacket('/sfu-research-db/delete_entry_1_bulk/', 'POST', deletePacket, true, searchDB)
 
-        top.location.reload()
     }
 }
 
@@ -367,8 +365,6 @@ function consoleSQL() {
         }
 
         sendPacket('/sfu-research-db/command_db/', 'POST',  commands, true, alert)
-
-       // top.location.reload()
     }
 }
 
