@@ -659,6 +659,7 @@ app.post('/sfu-research-db/add_entry/', async (req, res) => {
 
         console.log(data)
         res.json('Success!');
+		res.status(200);
     }
     else {
         res.status(403);
@@ -692,6 +693,7 @@ app.post('/sfu-research-db/add_entry_2/', async (req, res) => {
 
         console.log(data)
         res.json('Success!');
+		res.status(200);
     }
     else {
         res.status(403);
@@ -726,6 +728,7 @@ app.post('/sfu-research-db/update_entry_2/', async (req, res) => {
         console.log(data)
 
         res.json('Success!');
+		res.status(200);
     }
     else {
         res.status(403);
@@ -761,6 +764,7 @@ app.post('/sfu-research-db/update_entry/', async (req, res) => {
         console.log(data)
 
         res.json('Success!');
+		res.status(200);
     } 
     else {
         res.status(403);
@@ -784,6 +788,7 @@ app.post('/sfu-research-db/delete_entry/', async (req, res) => {
         const data = { results: result };
     
         res.json('Success!');
+		res.status(200);
     }
     else {
         res.status(403);
@@ -806,6 +811,7 @@ app.post('/sfu-research-db/delete_entry_2/', async (req, res) => {
         const data = { results: result };
 
         res.json('Success!');
+		res.status(200);
         console.log("Deleted: ", uid, lat, long, data.results)
     }
     else {
@@ -829,13 +835,13 @@ app.post('/sfu-research-db/delete_entry_1_bulk/', async (req, res) => {
             const result = await querySQL(sqlStatement);
             const data = { results: result };
             console.log("Deleted: ", uid)
+			res.json('Success!');
+			res.status(200);
         }
     }
     else {
         res.status(403);
     }
-
-    res.json('Success!');
 });
 
 app.post('/sfu-research-db/delete_entry_2_bulk/', async (req, res) => {
@@ -854,13 +860,14 @@ app.post('/sfu-research-db/delete_entry_2_bulk/', async (req, res) => {
             const result = await querySQL(sqlStatement);
             const data = { results: result };
             console.log("Deleted: ", uid)
+		    res.json('Success!');
+			res.status(200);
         }
     }
     else {
         res.status(403);
     }
 
-    res.json('Success!');
 });
 
 function sanitizer(commands, db) {
