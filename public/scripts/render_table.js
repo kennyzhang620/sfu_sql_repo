@@ -11,7 +11,8 @@ var storedInd = -1;
 var input = document.createElement('input');
 input.type = 'file';
 input.accept = ".csv";
-
+const TIMEOUT = 7800;
+const SESSION_TO = 1000*60*30;
 
 var updateDetected = false;
 function print(objectD) {
@@ -377,7 +378,7 @@ function sendPacket(url, type, data_main, asyncV = false, callback = null, failu
 
     txtFile.setRequestHeader("Accept", "application/json");
     txtFile.setRequestHeader("Content-Type", "application/json");
-
+	txtFile.timeout = TIMEOUT;
     txtFile.onload = function (e) {
         if (txtFile.readyState === 4) {
             if (txtFile.status === 200) {
@@ -399,6 +400,9 @@ function sendPacket(url, type, data_main, asyncV = false, callback = null, failu
         }
     };
 
+	txtFile.timeout = function(e) {
+		
+	}
     txtFile.onerror = function (e) {
         console.error(txtFile.statusText);
     };
@@ -411,7 +415,7 @@ function sendFile(filePtr, addr) {
     var fdata = new FormData();
     fdata.append("csv_data", filePtr);
     sender.open("POST", addr, false)
-
+	sender.timeout = TIMEOUT; // definition of slowness
     console.log("FD: ", fdata)
     sender.onload = function (e) {
         if (sender.readyState === 4) {
@@ -529,7 +533,7 @@ function printFAlert(failtxt) {
 const interval = setInterval(function() {
    // method to be executed;
    sendPacket('/sfu-research-db/session_check', 'GET', '', true, null, printFAlert)
- }, 1000*60*5);
+ }, SESSION_TO/4);
 
 window.addEventListener("beforeunload", function (e) {
     if (updateDetected) {
