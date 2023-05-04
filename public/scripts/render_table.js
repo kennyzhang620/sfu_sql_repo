@@ -400,9 +400,10 @@ function sendPacket(url, type, data_main, asyncV = false, callback = null, failu
         }
     };
 
-	txtFile.timeout = function(e) {
-		
+	txtFile.ontimeout = function(e) {
+		alert("Connection timed out. Please refresh the page and try again.");
 	}
+	
     txtFile.onerror = function (e) {
         console.error(txtFile.statusText);
     };
@@ -429,6 +430,10 @@ function sendFile(filePtr, addr) {
             }
         }
     };
+	
+	sender.ontimeout = function(e) {
+		alert("Connection timed out. Please refresh the page and try again.");
+	}; 
 
     sender.onerror = function (e) {
         console.error(txtFile.statusText);
