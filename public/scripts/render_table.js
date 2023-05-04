@@ -410,7 +410,7 @@ function sendFile(filePtr, addr) {
     var sender = new XMLHttpRequest();
     var fdata = new FormData();
     fdata.append("csv_data", filePtr);
-    sender.open("POST", addr)
+    sender.open("POST", addr, false)
 
     console.log("FD: ", fdata)
     sender.onload = function (e) {
