@@ -835,9 +835,10 @@ app.post('/sfu-research-db/delete_entry_1_bulk/', async (req, res) => {
             const result = await querySQL(sqlStatement);
             const data = { results: result };
             console.log("Deleted: ", uid)
-			res.json('Success!');
-			res.status(200);
         }
+		
+		res.json('Success!');
+		res.status(200);
     }
     else {
         res.status(403);
@@ -860,9 +861,10 @@ app.post('/sfu-research-db/delete_entry_2_bulk/', async (req, res) => {
             const result = await querySQL(sqlStatement);
             const data = { results: result };
             console.log("Deleted: ", uid)
-		    res.json('Success!');
-			res.status(200);
         }
+		
+	    res.json('Success!');
+		res.status(200);
     }
     else {
         res.status(403);
