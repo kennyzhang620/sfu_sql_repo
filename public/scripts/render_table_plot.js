@@ -503,6 +503,15 @@ input.onchange = e => {
 	top.location.reload()
 }
 
+function printFAlert(failtxt) {
+    alert("Your session timed out. Please refresh the page.");
+}
+
+const interval = setInterval(function() {
+   // method to be executed;
+   sendPacket('/sfu-research-db/session_check', 'GET', '', true, null, printFAlert)
+ }, 1000*60*5);
+
 window.addEventListener("beforeunload", function (e) {
     if (updateDetected) {
         var confirmationMessage = 'It looks like you have been editing something. '
