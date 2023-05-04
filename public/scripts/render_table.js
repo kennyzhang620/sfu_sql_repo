@@ -522,6 +522,7 @@ input.onchange = e => {
 
     console.log("Sending...")
     sendFile(file, '/sfu-research-db/append_all/db1')
+    top.location.reload();
 }
 
 function printFAlert(failtxt) {
