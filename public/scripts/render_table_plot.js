@@ -300,12 +300,12 @@ function getDB(searchparams, ind) {
 
     var inURL = ""
     if (searchparams != "")
-        inURL = `/sfu-research-db/view_db/${searchparams}/${ind}`
+        inURL = `/sfu-research-db/view_db_2/${searchparams}/${ind}`
     else {
-        inURL = `/sfu-research-db/view_db/${ind}`
+        inURL = `/sfu-research-db/view_db_2/${ind}`
     }
     
-    sendPacket(inURL, 'GET', true, loadDBAsync, null);
+    sendPacket(inURL, 'GET', '', true, loadDBAsync, null);
 }
 
 function deleteAll() {
