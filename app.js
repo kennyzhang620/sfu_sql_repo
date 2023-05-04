@@ -589,15 +589,18 @@ app.post('/sfu-research-db/append_all/db1', upload.single('csv_data'), async fun
 
         if (cur_res > 0) {
             console.log('Successful appends: ', cur_res)
+            res.json('Success!');
             res.status(200)
         }
         else {
             console.log('Appending failed.')
+            res.json('Fail!');
             res.status(404);
         }
     }
     else {
         res.status(403);
+        res.json('Fail!');
     }
 });
 
@@ -619,16 +622,19 @@ app.post('/sfu-research-db/append_all/db2',upload.single('csv_data'), async func
 		const cur_res = await insertDatabase2_CSV(result_r)
 		
 		if (cur_res > 0) {
-			console.log('Successful appends: ', cur_res)
+            console.log('Successful appends: ', cur_res)
+            res.json('Success!');
 			res.status(200)
 		}
 		else {
-			console.log('Appending failed.')
+            console.log('Appending failed.')
+            res.json('Fail!');
 			res.status(404);
 		}
 	}		  
 	else {
-		res.status(403);
+        res.status(403);
+        res.json('Fail!');
 	}	  
 });
 
@@ -663,6 +669,7 @@ app.post('/sfu-research-db/add_entry/', async (req, res) => {
     }
     else {
         res.status(403);
+        res.json('Fail!');
     }
 });
 
@@ -697,6 +704,7 @@ app.post('/sfu-research-db/add_entry_2/', async (req, res) => {
     }
     else {
         res.status(403);
+        res.json('Fail!');
     }
 });
 
@@ -732,6 +740,7 @@ app.post('/sfu-research-db/update_entry_2/', async (req, res) => {
     }
     else {
         res.status(403);
+        res.json('Fail!');
     }
 });
 
@@ -768,6 +777,7 @@ app.post('/sfu-research-db/update_entry/', async (req, res) => {
     } 
     else {
         res.status(403);
+        res.json('Fail!');
     }
 });
 
@@ -792,6 +802,7 @@ app.post('/sfu-research-db/delete_entry/', async (req, res) => {
     }
     else {
         res.status(403);
+        res.json('Fail!');
     }
 });
 
@@ -816,6 +827,7 @@ app.post('/sfu-research-db/delete_entry_2/', async (req, res) => {
     }
     else {
         res.status(403);
+        res.json('Fail!');
     }
 });
 
@@ -842,6 +854,7 @@ app.post('/sfu-research-db/delete_entry_1_bulk/', async (req, res) => {
     }
     else {
         res.status(403);
+        res.json('Fail!');
     }
 });
 
@@ -867,6 +880,7 @@ app.post('/sfu-research-db/delete_entry_2_bulk/', async (req, res) => {
 		res.status(200);
     }
     else {
+		res.json('Fail!');
         res.status(403);
     }
 
@@ -942,10 +956,12 @@ app.get('/sfu-research-db/session_check', (req, res) => {
 	// Check if session is valid and return 403 if invalid.
     session = req.session;
     if (session.userid && session.permission_level >= 0) {
-    	res.status(200);
+        res.status(200);
+        res.json('Success!');
     }
 	else {
-		res.status(403);
+        res.status(403);
+        res.json('Fail!');
 	}
 
 })
