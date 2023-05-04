@@ -294,7 +294,7 @@ function getDB(searchparams, ind) {
         inURL = `/sfu-research-db/view_db/${ind}`
     }
 
-    sendPacket(iNURL, 'GET', '', true, loadDBAsync, null);
+    sendPacket(inURL, 'GET', '', true, loadDBAsync, null);
 
 }
 
