@@ -81,7 +81,7 @@ function deleteDB(uid, lat, long) {
         "auth_key": "93y7y33"
     }
 
-    sendPacket('/sfu-research-db/delete_entry', 'POST', newEntry);
+    sendPacket('/sfu-research-db/delete_entry', 'POST', newEntry, true, searchDB);
 }
 
 function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, fund, url) {
@@ -100,7 +100,7 @@ function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, 
         "url": url
     }
 
-    sendPacket('/sfu-research-db/update_entry/', 'POST', newEntry);
+    sendPacket('/sfu-research-db/update_entry/', 'POST', newEntry, true, searchDB);
 }
 
 function runUpdates() {
@@ -353,7 +353,7 @@ function deleteAll() {
             ids: idsDelete
         }
 
-        sendPacket('/sfu-research-db/delete_entry_1_bulk/', 'POST', deletePacket)
+        sendPacket('/sfu-research-db/delete_entry_1_bulk/', 'POST', deletePacket, true, searchDB)
         top.location.reload()
 
     }
@@ -405,6 +405,7 @@ function sendPacket(url, type, data_main, asyncV = false, callback = null, failu
 	}
 	
     txtFile.onerror = function (e) {
+        alert("An error has occurred. Please refresh the page and try again.");
         console.error(txtFile.statusText);
     };
 
@@ -436,8 +437,10 @@ function sendFile(filePtr, addr) {
 	}; 
 
     sender.onerror = function (e) {
+        alert("An error has occurred. Please refresh the page and try again.");
         console.error(txtFile.statusText);
     };
+    
     sender.send(fdata);
 }
 
@@ -460,7 +463,7 @@ function pushNewEntry() {
     }
 
     if (enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year))
-        sendPacket('/sfu-research-db/add_entry', 'POST', newEntry);
+        sendPacket('/sfu-research-db/add_entry', 'POST', newEntry, true, searchDB);
 }
 
 function sendUpdates() {
