@@ -420,7 +420,7 @@ function sendFile(filePtr, addr) {
     sender.onload = function (e) {
         if (sender.readyState === 4) {
             if (sender.status === 200) {
-                var csvData = txtFile.responseText;
+                var csvData = sender.responseText;
                 console.log(csvData, "<<<<");
                 console.log(csvData)
             }
