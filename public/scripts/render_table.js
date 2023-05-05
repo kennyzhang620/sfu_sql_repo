@@ -81,7 +81,7 @@ function deleteDB(uid, lat, long) {
         "auth_key": "93y7y33"
     }
 
-    sendPacket('/sfu-research-db/delete_entry', 'POST', newEntry, true, searchDB);
+    sendPacket('/sfu-research-db/delete_entry', 'POST', newEntry, true, searchDB, onfailure);
 }
 
 function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, fund, url) {
@@ -100,7 +100,7 @@ function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, 
         "url": url
     }
 
-    sendPacket('/sfu-research-db/update_entry/', 'POST', newEntry, true, searchDB);
+    sendPacket('/sfu-research-db/update_entry/', 'POST', newEntry, true, searchDB, onfailure);
 }
 
 function runUpdates() {
@@ -295,7 +295,7 @@ function getDB(searchparams, ind) {
         inURL = `/sfu-research-db/view_db/${ind}`
     }
 
-    sendPacket(inURL, 'GET', '', true, loadDBAsync, null);
+    sendPacket(inURL, 'GET', '', true, loadDBAsync, null, onfailure);
 
 }
 
@@ -352,7 +352,7 @@ function deleteAll() {
             ids: idsDelete
         }
 
-        sendPacket('/sfu-research-db/delete_entry_1_bulk/', 'POST', deletePacket, true, searchDB)
+        sendPacket('/sfu-research-db/delete_entry_1_bulk/', 'POST', deletePacket, true, searchDB, onfailure)
 
     }
 }
@@ -366,7 +366,7 @@ function consoleSQL() {
             database: 'SFU_Research'
         }
 
-        sendPacket('/sfu-research-db/command_db/', 'POST',  commands, true, alert)
+        sendPacket('/sfu-research-db/command_db/', 'POST', commands, true, alert, onfailure)
     }
 }
 
@@ -428,6 +428,7 @@ function sendFile(filePtr, addr) {
             }
             else {
                 console.log("--->>>", sender.statusText);
+                onfailure();
             }
         }
     };
@@ -463,7 +464,7 @@ function pushNewEntry() {
     }
 
     if (enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year))
-        sendPacket('/sfu-research-db/add_entry', 'POST', newEntry, true, searchDB);
+        sendPacket('/sfu-research-db/add_entry', 'POST', newEntry, true, searchDB, onfailure);
 }
 
 function sendUpdates() {
@@ -531,6 +532,10 @@ input.onchange = e => {
 
     console.log("Sending...")
     sendFile(file, '/sfu-research-db/append_all/db1')
+}
+
+function onfailure() {
+    alert("An error has occurred. Please refresh the page and try again.");
 }
 
 function printFAlert(failtxt) {
