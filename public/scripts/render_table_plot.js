@@ -153,7 +153,7 @@ function runUpdates() {
             }
         }
 
-        top.location.reload()
+     //   top.location.reload()
     }
 }
 
@@ -503,7 +503,7 @@ input.onchange = e => {
 
     console.log("Sending...")
     sendFile(file, '/sfu-research-db/append_all/db2')
-	top.location.reload()
+//	top.location.reload()
 }
 
 function printFAlert(failtxt) {
