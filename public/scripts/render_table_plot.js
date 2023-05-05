@@ -43,7 +43,7 @@ function deleteDB(uid, lat, long) {
         "auth_key": "93y7y33"
     }
 
-    sendPacket('/sfu-research-db/delete_entry_2', 'POST', newEntry, true, searchDB);
+    sendPacket('/sfu-research-db/delete_entry_2', 'POST', newEntry, true, searchDB, onfailure);
 }
 
 function updateDBEntry(uid, lat, long, proj, authors, coauth, inst, region, year, ref) {
@@ -59,8 +59,8 @@ function updateDBEntry(uid, lat, long, proj, authors, coauth, inst, region, year
         "year": year,
         "ref": ref,
     }
-	
-    sendPacket('/sfu-research-db/update_entry_2/', 'POST', newEntry, true, searchDB);
+
+    sendPacket('/sfu-research-db/update_entry_2/', 'POST', newEntry, true, searchDB, onfailure);
 }
 
 function runUpdates() {
@@ -305,8 +305,8 @@ function getDB(searchparams, ind) {
     else {
         inURL = `/sfu-research-db/view_db_2/${ind}`
     }
-    
-    sendPacket(inURL, 'GET', '', true, loadDBAsync, null);
+
+    sendPacket(inURL, 'GET', '', true, loadDBAsync, onfailure);
 }
 
 function deleteAll() {
@@ -325,7 +325,7 @@ function deleteAll() {
 		ids: idsDelete
 	}
 
-        sendPacket('/sfu-research-db/delete_entry_2_bulk/', 'POST', deletePacket, true, searchDB)
+        sendPacket('/sfu-research-db/delete_entry_2_bulk/', 'POST', deletePacket, true, searchDB, onfailure)
 
 	}
 }
@@ -338,8 +338,8 @@ function consoleSQL() {
 		commands: input,
 		database: 'SFU_Plot'
 	}
-	
-	sendPacket('/sfu-research-db/command_db/', 'POST', commands, true, alert)
+
+        sendPacket('/sfu-research-db/command_db/', 'POST', commands, true, alert, onfailure)
 	
 	//top.location.reload()
 }
@@ -412,6 +412,7 @@ function sendFile(filePtr, addr) {
             }
             else {
                 console.log("--->>>", sender.statusText);
+                onfailure();
             }
         }
     };
@@ -444,7 +445,7 @@ function pushNewEntry() {
     }
 
     if (enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year))
-        sendPacket('/sfu-research-db/add_entry_2', 'POST', newEntry, true, searchDB);
+        sendPacket('/sfu-research-db/add_entry_2', 'POST', newEntry, true, searchDB, onfailure);
 }
 
 function sendUpdates() {
@@ -515,6 +516,10 @@ input.onchange = e => {
 //	top.location.reload()
 }
 
+function onfailure() {
+    alert("An error has occurred. Please refresh the page and try again.");
+}
+
 function printFAlert(failtxt) {
     alert("Your session timed out. Please refresh the page.");
 }
@@ -551,7 +556,7 @@ function sizeCB(csvData) {
 function getSize() {
 
     var inURL = `/sfu-research-db/view_db_2/count/-101`
-    sendPacket(inURL, 'GET', '', true, sizeCB);
+    sendPacket(inURL, 'GET', '', true, sizeCB, onfailure);
 
 }
 

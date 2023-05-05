@@ -574,7 +574,7 @@ function sizeCB(csvData) {
 function getSize() {
 
     var inURL = `/sfu-research-db/view_db/count/-101`
-    sendPacket(inURL, 'GET', '', true, sizeCB);
+    sendPacket(inURL, 'GET', '', true, sizeCB, onfailure);
 
 }
 
