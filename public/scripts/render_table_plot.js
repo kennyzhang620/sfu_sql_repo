@@ -396,7 +396,7 @@ function sendFile(filePtr, addr) {
     var sender = new XMLHttpRequest();
     var fdata = new FormData();
     fdata.append("csv_data", filePtr);
-    sender.open("POST", addr, false)
+    sender.open("POST", addr)
 	sender.timeout = TIMEOUT; // definition of slowness
     console.log("FD: ", fdata)
     sender.onload = function (e) {
@@ -405,6 +405,8 @@ function sendFile(filePtr, addr) {
                 var csvData = txtFile.responseText;
                 console.log(csvData, "<<<<");
                 console.log(csvData)
+
+                searchDB();
             }
             else {
                 console.log("--->>>", sender.statusText);
