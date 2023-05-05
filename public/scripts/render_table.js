@@ -357,6 +357,11 @@ function deleteAll() {
     }
 }
 
+function alert_ref(strData) {
+    alert(strData)
+    top.location.reload();
+}
+
 function consoleSQL() {
     var input = prompt("Enter an SQL command. (Note: Only INSERT, DELETE, UPDATE are supported for security reasons. All must refer to SFU_Research and have WHERE. Any other command will be blocked from executing.)")
 
@@ -366,7 +371,7 @@ function consoleSQL() {
             database: 'SFU_Research'
         }
 
-        sendPacket('/sfu-research-db/command_db/', 'POST', commands, true, alert, onfailure)
+        sendPacket('/sfu-research-db/command_db/', 'POST', commands, true, alert_ref, onfailure)
     }
 }
 
