@@ -194,7 +194,6 @@ function runUpdates() {
 
     }
 
-    top.location.reload();
 }
 
 function insertAsStr(dataEntry, ind, security_level) {
@@ -354,7 +353,6 @@ function deleteAll() {
         }
 
         sendPacket('/sfu-research-db/delete_entry_1_bulk/', 'POST', deletePacket, true, searchDB)
-        top.location.reload()
 
     }
 }
@@ -416,7 +414,7 @@ function sendFile(filePtr, addr) {
     var sender = new XMLHttpRequest();
     var fdata = new FormData();
     fdata.append("csv_data", filePtr);
-    sender.open("POST", addr, false)
+    sender.open("POST", addr, true)
 	sender.timeout = TIMEOUT; // definition of slowness
     console.log("FD: ", fdata)
     sender.onload = function (e) {
@@ -531,7 +529,6 @@ input.onchange = e => {
 
     console.log("Sending...")
     sendFile(file, '/sfu-research-db/append_all/db1')
-    top.location.reload()
 }
 
 function printFAlert(failtxt) {
