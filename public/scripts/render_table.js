@@ -625,7 +625,7 @@ function reloadDB(squery) {
     for (var i = 0; i < updateList.length - 1; i++) {
         updateList[i] = false;
     }
+	getSize();
 }
 
 reloadDB('');
-getSize();
