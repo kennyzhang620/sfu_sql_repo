@@ -421,8 +421,10 @@ function sendFile(filePtr, addr) {
         if (sender.readyState === 4) {
             if (sender.status === 200) {
                 var csvData = sender.responseText;
-                console.log(csvData, "<<<<");
-                console.log(csvData)
+                // console.log(csvData, "<<<<");
+               // console.log(csvData)
+
+                searchDB();
             }
             else {
                 console.log("--->>>", sender.statusText);
