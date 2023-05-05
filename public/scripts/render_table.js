@@ -613,10 +613,8 @@ function searchDB() {
         }
     }
 
-    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
-
-
     reloadDB(searchBar.value);
+    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
 }
 
 function reloadDB(squery) {
