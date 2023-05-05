@@ -43,7 +43,7 @@ function deleteDB(uid, lat, long) {
         "auth_key": "93y7y33"
     }
 
-    sendPacket('/sfu-research-db/delete_entry_2', 'POST', newEntry);
+    sendPacket('/sfu-research-db/delete_entry_2', 'POST', newEntry, true, searchDB);
 }
 
 function updateDBEntry(uid, lat, long, proj, authors, coauth, inst, region, year, ref) {
@@ -60,7 +60,7 @@ function updateDBEntry(uid, lat, long, proj, authors, coauth, inst, region, year
         "ref": ref,
     }
 	
-    sendPacket('/sfu-research-db/update_entry_2/', 'POST', newEntry);
+    sendPacket('/sfu-research-db/update_entry_2/', 'POST', newEntry, true, searchDB);
 }
 
 function runUpdates() {
@@ -324,10 +324,9 @@ function deleteAll() {
 	const deletePacket = {
 		ids: idsDelete
 	}
-	
-	sendPacket('/sfu-research-db/delete_entry_2_bulk/', 'POST', deletePacket)
-	
-	top.location.reload()
+
+        sendPacket('/sfu-research-db/delete_entry_2_bulk/', 'POST', deletePacket, true, searchDB)
+
 	}
 }
 
@@ -436,7 +435,7 @@ function pushNewEntry() {
     }
 
     if (enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year))
-        sendPacket('/sfu-research-db/add_entry_2', 'POST', newEntry);
+        sendPacket('/sfu-research-db/add_entry_2', 'POST', newEntry, true, searchDB);
 }
 
 function sendUpdates() {
