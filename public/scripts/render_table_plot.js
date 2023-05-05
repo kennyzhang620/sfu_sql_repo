@@ -587,11 +587,10 @@ function searchDB() {
 			storedInd = -1;
 		}
 	}
-
-    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
-    
 		
     reloadDB(searchBar.value, currIndex); 
+    searchIndex.innerHTML = `${currIndex * 10} - ${(currIndex + 1) * 10} / ${currSize}`;
+    
 }
 
 function reloadDB(squery) {
