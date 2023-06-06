@@ -34,7 +34,7 @@ function init_main() {
                     </select>
                 </div>
                 <div id="section_year" style="padding: 1px;">YEAR</div>
-                <div id="selector_slider" style="padding:8px; transform:rotate(90 deg)">
+                <div id="selector_slider" style="padding:8px; transform:rotate(90deg)">
                     <div id="slider" style="height: 20px;">
                         <div id="val_left" class="sliderValue" data-index="0" value="10" style="float:left;">10</div>
                         <div id="val_right" class="sliderValue" data-index="1" value="90" style="float:right;">90</div>
