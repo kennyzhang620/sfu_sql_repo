@@ -16,6 +16,8 @@ const bodyParser = require('body-parser');
 const path = require('path')
 
 const PORT = process.env.PORT || 5010;
+const { exec } = require("child_process");
+
 app.use('/sfu-research-db/', express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 
@@ -35,6 +37,18 @@ console.log = function () {
   logStdout.write(util.format.apply(null, arguments) + '\n');
 }
 console.error = console.log;
+
+exec("git pull", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(`stdout: ${stdout}`);
+});
 
 function hashCode(str) {
     let hash = 0;
