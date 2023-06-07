@@ -179,7 +179,7 @@ $(function () {
         range: true,
         min: 2010,
         max: 2022,
-		orientation:"vertical"
+		orientation:"vertical",
         values: [2010, 2022],
         slide: function (event, ui) {
             $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
