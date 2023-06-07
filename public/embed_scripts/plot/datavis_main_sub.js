@@ -170,15 +170,16 @@ function adjustReg() {
 $(function () {
     $("#val_left").text(minM);
     $("#val_right").text(maxM);
-    $("#slider-range").append(`<div class="my-handle ui-slider-handle" style="transform:rotate(90deg); width: 13px; height: 13px; background: white url(./images/Selector_1.png) no-repeat scroll 50% 50%;
+    $("#slider-range").append(`<div class="my-handle ui-slider-handle" style="width: 13px; height: 13px; background: white url(./images/Selector_1.png) no-repeat scroll 50% 50%;
     border-radius: 24px; border: 1px solid black;"></div>`);
-    $("#slider-range").append(`<div class="my-handle_2 ui-slider-handle" style="transform:rotate(90deg); width: 13px; height: 13px;background: white url(./images/Selector_1.png) no-repeat scroll 50% 50%;
+    $("#slider-range").append(`<div class="my-handle_2 ui-slider-handle" style="width: 13px; height: 13px;background: white url(./images/Selector_1.png) no-repeat scroll 50% 50%;
     border-radius: 24px; border: 1px solid black;"></div>`);
 
     $("#slider-range").slider({
         range: true,
         min: 2010,
         max: 2022,
+		orientation:"vertical"
         values: [2010, 2022],
         slide: function (event, ui) {
             $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
