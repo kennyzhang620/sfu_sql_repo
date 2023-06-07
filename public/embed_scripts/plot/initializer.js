@@ -37,9 +37,9 @@ function init_main() {
                 <div id="selector_slider" style="padding:8px;">
                     <div id="slider" style="height: 20px;">
                         <div id="val_left" class="sliderValue" data-index="0" value="10" style="float:left;">10</div>
-                        <div id="val_right" class="sliderValue" data-index="1" value="90" style="float:right;">90</div>
+                        <div id="val_right" class="sliderValue" data-index="1" value="90" style="float:left;transform:translate(-101%,400%);">90</div>
                     </div>
-                    <div id="main_slider" style="padding:8px;"><div id="slider-range" style="transform:rotate(90deg);"></div></div>
+                    <div id="main_slider" style="padding:8px; transform: rotate(-90deg) translate(50%, 0px);"><div id="slider-range" style="transform:rotate(90deg);"></div></div>
                 </div>
                 <div id="section_entries" style="padding: 1px;">PLOT ENTRIES</div>
                 <div id="selector_entry" style="padding:8px;">
