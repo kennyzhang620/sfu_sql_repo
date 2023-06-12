@@ -5,7 +5,7 @@ $(function () {
             var site_availableTags = [];
             var funder_availableTags = [];
 			var project_availableTags = [];
-			var collab_availableTags = [];
+			var collabs_availableTags = [];
 		
 			console.log(parsedD)
             for (var i = 0; i < parsedD.length; i++) {
@@ -29,7 +29,7 @@ $(function () {
 				project_availableTags.push(Project);
 				
 				var Collabs = parsedD[i].collabs;
-				collab_availableTags.push(Collabs);
+				collabs_availableTags.push(Collabs);
 				// no keyword for now.
 
             }
