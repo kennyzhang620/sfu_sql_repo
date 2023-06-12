@@ -4,7 +4,11 @@ $(function () {
             var period_availableTags = [];
             var site_availableTags = [];
             var funder_availableTags = [];
-
+			var project_availableTags = [];
+			var collab_availableTags = [];
+			var keyword_availableTags = [];
+			
+			console.log(parsedD)
             for (var i = 0; i < parsedD.length; i++) {
 
                 var PIs = parsedD[i].pi; //.substring(0, 50);
@@ -21,6 +25,9 @@ $(function () {
 
                 var Funder = parsedD[i].funder;
                 funder_availableTags.push(Funder);
+				
+				var Project = parsedD[i].Project;
+				var Collabs = parsedD[i];
 
             }
 
