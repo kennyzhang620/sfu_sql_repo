@@ -185,7 +185,7 @@ $(function () {
             $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
             console.log("XX", $("#val_left").text())
             $("#val_left").text((2022 - ui.values[1]) + 2010); //(2022 - maxM) + 2010
-            $("#val_right").text(ui.values[0]);
+            $("#val_right").text(2022 - (ui.values[0] - 2010));
 
             minM = ui.values[0]
             maxM = ui.values[1]
