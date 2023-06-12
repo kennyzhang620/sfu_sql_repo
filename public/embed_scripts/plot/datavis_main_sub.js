@@ -184,7 +184,7 @@ $(function () {
         slide: function (event, ui) {
             $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
             console.log("XX", $("#val_left").text())
-            $("#val_left").text(ui.values[1]); //(2022 - maxM) + 2010
+            $("#val_left").text((2022 - ui.values[1]) + 2010); //(2022 - maxM) + 2010
             $("#val_right").text(ui.values[0]);
 
             minM = ui.values[0]
