@@ -26,7 +26,7 @@ function init_main() {
                     <input type="text" class="filter_input" id="filter_fun_main" placeholder="Funder" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;" />
                     <input type="text" class="filter_input" id="filter_fun_time" placeholder="Period" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;" />
                 </div>
-                <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;" hidden />
+                <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" style="display: none; width: 100%; padding: 5px; text-align: left; max-width: 979px;" hidden />
 				<div class="navigator" style="float:right; padding: 6px;">
         			<button class="prev_btn_c" onclick="movePtr(-1)">Previous</button><index id="counter_id" class="counters" style="padding: 6px; font-size:18px;">0 - 10 / 65</index><button class="next_btn_c" onclick="movePtr(1)">Next</button>
     			</div>
@@ -73,7 +73,7 @@ function init_main() {
                                             <input type="text" class="filter_input" id="filter_fun_main" placeholder="Funder" />
                                             <input type="text" class="filter_input" id="filter_fun_time" placeholder="Period" />
                                         </div>
-                                        <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" hidden />
+                                        <input type="text" style="display:none;"class="filter_input" id="filter_keywords" placeholder="Keywords" hidden />
 										<div class="navigator" style="padding: 6px;">
 											<div id="indic" style="font-size:18px;">Display Entries:</div>
         									<button id="prev_btn" class="prev_btn_c" onclick="movePtr(-1)">Previous</button><index id="counter_id" class="counters" style="padding: 6px; font-size:18px;">0 - 10 / 65</index><button id="next_btn" class="next_btn_c" onclick="movePtr(1)">Next</button>
