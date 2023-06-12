@@ -163,7 +163,7 @@ minM = 2010
 function adjustReg() {
     Region_Sel = regionIn.value;
 
-    console.log("Selected: ", Region_Sel, (2022 - maxM) + 2010, 2022 - (minM - 2010)s)
+    console.log("Selected: ", Region_Sel, (2022 - maxM) + 2010, 2022 - (minM - 2010))
     filter_v2(Region_Sel, (2022 - maxM) + 2010, 2022 - (minM - 2010))
 }
 
