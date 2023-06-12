@@ -6,8 +6,7 @@ $(function () {
             var funder_availableTags = [];
 			var project_availableTags = [];
 			var collab_availableTags = [];
-			var keyword_availableTags = [];
-			
+		
 			console.log(parsedD)
             for (var i = 0; i < parsedD.length; i++) {
 
@@ -20,14 +19,18 @@ $(function () {
                 var period = parsedD[i].fperiod.toString();
                 period_availableTags.push(period);
 
-                var site = parsedD[i].research_sites;
+                var site = parsedD[i].research_site;
                 site_availableTags.push(site);
 
                 var Funder = parsedD[i].funder;
                 funder_availableTags.push(Funder);
 				
-				var Project = parsedD[i].Project;
-				var Collabs = parsedD[i];
+				var Project = parsedD[i].project;
+				project_availableTags.push(Project);
+				
+				var Collabs = parsedD[i].collabs;
+				collab_availableTags.push(Collabs);
+				// no keyword for now.
 
             }
 
@@ -51,7 +54,74 @@ $(function () {
             funder_availableTags = funder_availableTags.filter(function (item, i, funder_availableTags) {
                 return i == funder_availableTags.indexOf(item);
             });
+			
+			project_availableTags = project_availableTags.filter(function(item, i, project_availableTags) {
+				return i == project_availableTags.indexOf(item);
+			});
+			
+			collabs_availableTags = collabs_availableTags.filter(function(item, i, collabs_availableTags) {
+				return i == collabs_availableTags.indexOf(item);
+			});
+			
+			// Collabs
+            $("#filters_norm #filter_search").autocomplete({
+                source: collabs_availableTags,
+                select: function (event, ui) {
+                    filter(inputBars[1].value,
+                        inputBars[2].value,
+                        ui.item.value,
+                        inputBars[4].value,
+                        inputBars[5].value,
+                        inputBars[6].value,
+                        inputBars[7].value,
+                        inputBars[8].value);
+                }
+            });
+			
+            $("#filters_pc #filter_search").autocomplete({
+                source: collabs_availableTags,
+                select: function (event, ui) {
+                    filter(inputBars[10].value,
+                        inputBars[11].value,
+                        inputBars[12].value,
+                        ui.item.value,
+                        inputBars[14].value,
+                        inputBars[15].value,
+                        inputBars[16].value,
+                        inputBars[17].value);
+                }
+            });
 
+
+			// Project
+            $("#filters_norm #filter_search").autocomplete({
+                source: project_availableTags,
+                select: function (event, ui) {
+                    filter(inputBars[1].value,
+                        inputBars[2].value,
+                        ui.item.value,
+                        inputBars[4].value,
+                        inputBars[5].value,
+                        inputBars[6].value,
+                        inputBars[7].value,
+                        inputBars[8].value);
+                }
+            });
+			
+            $("#filters_pc #filter_search").autocomplete({
+                source: project_availableTags,
+                select: function (event, ui) {
+                    filter(inputBars[10].value,
+                        inputBars[11].value,
+                        inputBars[12].value,
+                        ui.item.value,
+                        inputBars[14].value,
+                        inputBars[15].value,
+                        inputBars[16].value,
+                        inputBars[17].value);
+                }
+            });
+			
             // PI
             $("#filters_norm #filter_pi_main").autocomplete({
                 source: pi_availableTags,
