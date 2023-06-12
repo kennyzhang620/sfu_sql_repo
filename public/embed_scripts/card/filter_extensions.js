@@ -264,3 +264,5 @@ $(function () {
 
 
         });
+		
+console.log("Testx: ", pi_availableTags)
