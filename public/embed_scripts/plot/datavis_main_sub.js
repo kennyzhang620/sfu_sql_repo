@@ -184,11 +184,11 @@ $(function () {
         slide: function (event, ui) {
             $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
             console.log("XX", $("#val_left").text())
-            $("#val_left").text(ui.values[0]);
-            $("#val_right").text(ui.values[1]);
+            $("#val_left").text(ui.values[1]);
+            $("#val_right").text(ui.values[0]);
 
-            minM = ui.values[0]
-            maxM = ui.values[1]
+            minM = ui.values[1]
+            maxM = ui.values[0]
 
             adjustReg()
         }
