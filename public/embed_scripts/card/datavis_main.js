@@ -507,14 +507,14 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 		var coordsLat = parsedD[i].latitude;
 		var coordsLong = parsedD[i].longitude;
 
-		if (Project.toLowerCase().includes(projectName?.toLowerCase()) &&
-			site.toLowerCase().includes(researchNames?.toLowerCase()) &&
-			PIs.toLowerCase().includes(piNames?.toLowerCase()) &&
-			CoPIs.toLowerCase().includes(copiNames?.toLowerCase()) &&
-			Collabs.toLowerCase().includes(collabNames?.toLowerCase()) &&
-			Funder.toLowerCase().includes(funderName?.toLowerCase()) &&
-			TimePeriod.toString().toLowerCase().includes(timePeriod?.toLowerCase()) &&
-			keywords.toLowerCase().includes(keywordList?.toLowerCase())) {
+		if (Project.toLowerCase().includes(projectName?.toLowerCase().trim() ?? "") &&
+			site.toLowerCase().includes(researchNames?.toLowerCase().trim() ?? "") &&
+			PIs.toLowerCase().includes(piNames?.toLowerCase().trim() ?? "") &&
+			CoPIs.toLowerCase().includes(copiNames?.toLowerCase().trim() ?? "") &&
+			Collabs.toLowerCase().includes(collabNames?.toLowerCase().trim() ?? "") &&
+			Funder.toLowerCase().includes(funderName?.toLowerCase().trim() ?? "") &&
+			TimePeriod.toString().toLowerCase().includes(timePeriod?.toLowerCase().trim() ?? "") &&
+			keywords.toLowerCase().includes(keywordList?.toLowerCase().trim() ?? "")) {
 
 			var colourV = strToColour(Project);
 
