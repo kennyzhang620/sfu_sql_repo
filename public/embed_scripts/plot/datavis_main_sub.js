@@ -169,7 +169,7 @@ function adjustReg() {
 
 $(function () {
     $("#val_left").text(minM);
-    $("#val_right").text((2022 - maxM) + 2010);
+    $("#val_right").text(maxM);
     $("#slider-range").append(`<div class="my-handle ui-slider-handle" style="width: 13px; height: 13px; background: white url(./images/Selector_1.png) no-repeat scroll 50% 50%;
     border-radius: 24px; border: 1px solid black;"></div>`);
     $("#slider-range").append(`<div class="my-handle_2 ui-slider-handle" style="width: 13px; height: 13px;background: white url(./images/Selector_1.png) no-repeat scroll 50% 50%;
@@ -184,8 +184,8 @@ $(function () {
         slide: function (event, ui) {
             $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
             console.log("XX", $("#val_left").text())
-            $("#val_left").text(ui.values[0]);
-            $("#val_right").text(ui.values[1]);
+            $("#val_left").text(ui.values[1]); //(2022 - maxM) + 2010
+            $("#val_right").text(ui.values[0]);
 
             minM = ui.values[0]
             maxM = ui.values[1]
