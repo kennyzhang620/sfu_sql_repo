@@ -58,7 +58,7 @@ L.control.zoom({
 	position: 'topright'
 }).addTo(map);
 
-map.setZoom(minZoomV+7);
+map.setZoom(minZoomV);
 homebutton.click();
 
 //var southWest = L.latLng(-89.98155760646617, -179); 
