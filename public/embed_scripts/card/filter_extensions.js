@@ -6,8 +6,7 @@ $(function () {
             var funder_availableTags = [];
 			var project_availableTags = [];
 			var collabs_availableTags = [];
-		
-			console.log(parsedD)
+			
             for (var i = 0; i < parsedD.length; i++) {
 
                 var PIs = parsedD[i].pi; //.substring(0, 50);
@@ -341,5 +340,3 @@ $(function () {
 
 
         });
-		
-console.log("Testx: ", pi_availableTags)
