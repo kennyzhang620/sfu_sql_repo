@@ -68,9 +68,9 @@ $(function () {
                 select: function (event, ui) {
                     filter(inputBars[1].value,
                         inputBars[2].value,
-                        ui.item.value,
+                        inputBars[3].value,
                         inputBars[4].value,
-                        inputBars[5].value,
+                        iui.item.value,
                         inputBars[6].value,
                         inputBars[7].value,
                         inputBars[8].value);
@@ -83,9 +83,9 @@ $(function () {
                     filter(inputBars[10].value,
                         inputBars[11].value,
                         inputBars[12].value,
-                        ui.item.value,
+                        inputBars[13].value,
                         inputBars[14].value,
-                        inputBars[15].value,
+                        iui.item.value,
                         inputBars[16].value,
                         inputBars[17].value);
                 }
@@ -96,9 +96,9 @@ $(function () {
             $("#filters_norm #filter_search").autocomplete({
                 source: project_availableTags,
                 select: function (event, ui) {
-                    filter(inputBars[1].value,
+                    filter(ui.item.value,
                         inputBars[2].value,
-                        ui.item.value,
+                        inputBars[3].value,
                         inputBars[4].value,
                         inputBars[5].value,
                         inputBars[6].value,
@@ -110,10 +110,10 @@ $(function () {
             $("#filters_pc #filter_search").autocomplete({
                 source: project_availableTags,
                 select: function (event, ui) {
-                    filter(inputBars[10].value,
+                    filter( ui.item.value,
                         inputBars[11].value,
                         inputBars[12].value,
-                        ui.item.value,
+                        inputBars[13].value,
                         inputBars[14].value,
                         inputBars[15].value,
                         inputBars[16].value,
