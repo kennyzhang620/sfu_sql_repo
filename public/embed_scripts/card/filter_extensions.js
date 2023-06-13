@@ -75,6 +75,7 @@ $(function () {
                         inputBars[7].value,
                         inputBars[8].value);
 						
+						inputBars[5].value = ui.item.value
 						updateBars();
                 }
             });
@@ -91,6 +92,7 @@ $(function () {
                         inputBars[16].value,
                         inputBars[17].value);
 						
+						inputBars[15].value = ui.item.value
 						updateBars();
                 }
             });
@@ -109,6 +111,7 @@ $(function () {
                         inputBars[7].value,
                         inputBars[8].value);
 						
+						inputBars[1].value = ui.item.value
 						updateBars();
                 }
             });
@@ -125,6 +128,7 @@ $(function () {
                         inputBars[16].value,
                         inputBars[17].value);
 						
+						inputBars[10].value = ui.item.value
 						updateBars();
                 }
             });
@@ -142,6 +146,7 @@ $(function () {
                         inputBars[7].value,
                         inputBars[8].value);
 						
+						inputBars[3].value = ui.item.value
 						updateBars();
                 }
             });
@@ -164,6 +169,7 @@ $(function () {
 
                     console.log($(this).val());
 					
+					inputBars[12].value = ui.item.value
 					updateBars();
                 }
             });
@@ -188,6 +194,7 @@ $(function () {
                     console.log($(this).val());
                     console.log(inputBars);
 					
+					inputBars[4].value = ui.item.value
 					updateBars();
                 }
             });
@@ -208,6 +215,7 @@ $(function () {
                         inputBars[16].value,
                         inputBars[17].value);
 						
+						inputBars[13].value = ui.item.value
 						updateBars();
                 }
             });
@@ -231,6 +239,8 @@ $(function () {
 
                     console.log($(this).val());
                     console.log(inputBars);
+					
+					inputBars[7].value = ui.item.value
 					updateBars();
                 }
             });
@@ -250,6 +260,8 @@ $(function () {
                         inputBars[15].value,
                         ui.item.value,
                         inputBars[17].value);
+						
+						inputBars[16].value = ui.item.value
 						updateBars();
                 }
             });
@@ -273,6 +285,8 @@ $(function () {
 
                     console.log($(this).val());
                     console.log(inputBars);
+					
+					inputBars[2].value = ui.item.value
 					updateBars();
                 }
             });
@@ -292,6 +306,8 @@ $(function () {
                         inputBars[15].value,
                         inputBars[16].value,
                         inputBars[17].value);
+						
+						inputBars[11].value = ui.item.value
 						updateBars();
                 }
             });
@@ -315,6 +331,8 @@ $(function () {
 
                     console.log($(this).val());
                     console.log(inputBars);
+					
+					inputBars[6].value = ui.item.value
 					updateBars();
                 }
             });
@@ -334,6 +352,8 @@ $(function () {
                         ui.item.value,
                         inputBars[16].value,
                         inputBars[17].value);
+
+						inputBars[15].value = ui.item.value
 						updateBars();
                 }
             });
