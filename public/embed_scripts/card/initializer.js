@@ -14,7 +14,7 @@ function init_main() {
         <div class="Filters_Pane" id="filters_norm">
             <div class="f_header">
                 <div id="header_ft">Filter Options</div> 
-				<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Clear Fields</div></a>
+				<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Reset All</div></a>
                 <input type="text" class="filter_input" id="filter_search" placeholder="Project Name" style="width:100%;padding:5px;text-align:left; max-width: 979px;" hidden />
                 <input type="text" class="filter_input" id="filter_site" placeholder="Research Sites" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;" />
                 <div class="pi_section">
@@ -61,7 +61,7 @@ function init_main() {
                                 <div class="Filters_Pane" style="width:160%;">
                                     <div class="f_header">
                                         <div id="header_ft">Filter Options</div> 
-										<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Clear Fields</div></a>
+										<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Reset All</div></a>
                                         <input type="text" class="filter_input" id="filter_search" placeholder="Project Name" hidden />
                                         <input type="text" class="filter_input" id="filter_site" placeholder="Research Sites" />
                                         <div class="pi_section">
