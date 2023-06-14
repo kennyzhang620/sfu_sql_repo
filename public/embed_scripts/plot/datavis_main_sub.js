@@ -386,7 +386,7 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
             var labelTxt = L.divIcon({ className: 'my-div-icon', html: `<div id="label_${count}" style="text-align:center;color:white; opacity: 0.8; background-color: rgba(${colours[colourV][0]},${colours[colourV][1]},${colours[colourV][2]},0.4);width: 10px;height: 10px; border:1px solid black; border-radius: 30px; font-size: 14px;"></div>` });
 
             const markerT = L.marker([coordsLat, coordsLong], {
-                icon: labelTxt, id: count
+                icon: labelTxt, id: count, branches: PIs
             }).addTo(map);
 
             //	console.log("===>", Project, PIs, CoPIs, Collabs);
@@ -430,6 +430,8 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 				}
 				
 				console.log("State of e:", e)
+				
+				console.log(getLinks(e.sourceTarget.options.branches))
 				
 			});
             markers.push(markerT);
