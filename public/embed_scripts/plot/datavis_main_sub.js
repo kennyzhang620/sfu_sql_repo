@@ -412,7 +412,15 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
             markerT.bindTooltip(metadata2, { className: 'tooltip' , permanent: false, functionDef: null, offset: [10,0]});
 			markerT.on("click", function (e) {
 				console.log("PState: ", e.sourceTarget._events.mouseout, e.sourceTarget.options.bcolor)
-				if (e.sourceTarget.options.functionDef == null)
+				
+				if (e.sourceTarget._events.remove[0].fn == null) {
+					e.sourceTarget._events.remove[0].fn = function(args) {
+						for (var x=0;x<e.sourceTarget.options.d_links.length;x++) {
+							map.removeLayer(e.sourceTarget.options.d_links[x])
+						}
+					}
+				}
+ 				if (e.sourceTarget.options.functionDef == null)
 					e.sourceTarget.options.functionDef = e.sourceTarget._events.mouseout[0].fn
 					
 				if (e.sourceTarget.options.permanent != true) {
