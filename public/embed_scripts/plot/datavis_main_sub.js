@@ -332,6 +332,18 @@ function fold(s, n, useSpaces, a) {
     }
 }
 
+function getLinks(coAuth) {
+	var linksList = []
+    for (var i = 0; i < parsedD.length; i++) {
+        var CoPIs = parsedD[i].co_author?.trim() ?? "";
+		
+		if (CoPIs.includes(coAuth)) {
+			linksList.push([parsedD[i].latitude, parsedD[i].longitude])
+		}
+	}
+	
+	return linksList
+}
 
 function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 
@@ -416,6 +428,8 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 					
 					document.getElementById(`label_${e.sourceTarget.options.id}`).style.border = "2px solid black";
 				}
+				
+				console.log("State of e:", e)
 				
 			});
             markers.push(markerT);
