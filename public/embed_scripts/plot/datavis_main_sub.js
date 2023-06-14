@@ -442,7 +442,7 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 				}
 				
 				
-				console.log("State of e:", e)
+				console.log("State of e:", markerT)
 
 				
 			});
