@@ -334,6 +334,7 @@ function fold(s, n, useSpaces, a) {
 
 function getLinks(coAuth) {
 	var linksList = []
+	console.log("Getting pointers to", coAuth)
     for (var i = 0; i < parsedD.length; i++) {
         var CoPIs = parsedD[i].co_author?.trim() ?? "";
 		
