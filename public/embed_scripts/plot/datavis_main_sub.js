@@ -418,7 +418,7 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 				if (e.sourceTarget.options.permanent != true) {
 					e.sourceTarget._events.mouseout[0].fn = null
 					e.sourceTarget.options.permanent = true;
-					e.sourceTarget._tooltip.options.permanent = true;
+				//	e.sourceTarget._tooltip.options.permanent = true;
 					
 
 					for (var x=0;x<e.sourceTarget.options.links.length;x++) {
@@ -430,7 +430,7 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 				else {
 					e.sourceTarget._events.mouseout[0].fn = e.sourceTarget.options.functionDef
 					e.sourceTarget.options.permanent = false;
-					e.sourceTarget._tooltip.options.permanent = false;
+				//	e.sourceTarget._tooltip.options.permanent = false;
 
 					for (var x=0;x<e.sourceTarget.options.d_links.length;x++) {
 						map.removeLayer(e.sourceTarget.options.d_links[x])
