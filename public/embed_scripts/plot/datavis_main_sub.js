@@ -387,7 +387,7 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
             var labelTxt = L.divIcon({ className: 'my-div-icon', html: `<div id="label_${count}" style="text-align:center;color:white; opacity: 0.8; background-color: rgba(${colours[colourV][0]},${colours[colourV][1]},${colours[colourV][2]},0.4);width: 10px;height: 10px; border:1px solid black; border-radius: 30px; font-size: 14px;"></div>` });
 
             const markerT = L.marker([coordsLat, coordsLong], {
-                icon: labelTxt, id: count, branches: PIs, links: getLinks(PIs), d_links:[]
+                icon: labelTxt, id: count, branches: PIs, links: getLinks(PIs), d_links:[], exactcoords: [coordsLat, coordsLong]
             }).addTo(map);
 
             //	console.log("===>", Project, PIs, CoPIs, Collabs);
@@ -422,7 +422,7 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 					
 
 					for (var x=0;x<e.sourceTarget.options.links.length;x++) {
-						e.sourceTarget.options.d_links.push( L.Polyline.Arc([e.latlng.lat, e.latlng.lng], e.sourceTarget.options.links[x]).addTo(map))
+						e.sourceTarget.options.d_links.push( L.Polyline.Arc(e.sourceTarget.options.exactcoords, e.sourceTarget.options.links[x]).addTo(map))
 					}
 					
 					document.getElementById(`label_${e.sourceTarget.options.id}`).style.border = "8px solid black";
