@@ -387,7 +387,7 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
             var labelTxt = L.divIcon({ className: 'my-div-icon', html: `<div id="label_${count}" style="text-align:center;color:white; opacity: 0.8; background-color: rgba(${colours[colourV][0]},${colours[colourV][1]},${colours[colourV][2]},0.4);width: 10px;height: 10px; border:1px solid black; border-radius: 30px; font-size: 14px;"></div>` });
 
             const markerT = L.marker([coordsLat, coordsLong], {
-                icon: labelTxt, id: count, branches: PIs
+                icon: labelTxt, id: count, branches: PIs, links: getLinks(PIs), d_links:[]
             }).addTo(map);
 
             //	console.log("===>", Project, PIs, CoPIs, Collabs);
@@ -420,19 +420,30 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 					e.sourceTarget.options.permanent = true;
 					e.sourceTarget._tooltip.options.permanent = true;
 					
+
+					for (var x=0;x<e.sourceTarget.options.links.length;x++) {
+						e.sourceTarget.options.d_links.push( L.Polyline.Arc([e.latlng.lat, e.latlng.lng], e.sourceTarget.options.links[x]).addTo(map))
+					}
+					
 					document.getElementById(`label_${e.sourceTarget.options.id}`).style.border = "8px solid black";
 				}
 				else {
 					e.sourceTarget._events.mouseout[0].fn = e.sourceTarget.options.functionDef
 					e.sourceTarget.options.permanent = false;
 					e.sourceTarget._tooltip.options.permanent = false;
+
+					for (var x=0;x<e.sourceTarget.options.d_links.length;x++) {
+						map.removeLayer(e.sourceTarget.options.d_links[x])
+					}
 					
+					e.sourceTarget.options.d_links = []
+				
 					document.getElementById(`label_${e.sourceTarget.options.id}`).style.border = "2px solid black";
 				}
 				
-				console.log("State of e:", e)
 				
-				console.log(getLinks(e.sourceTarget.options.branches))
+				console.log("State of e:", e)
+
 				
 			});
             markers.push(markerT);
