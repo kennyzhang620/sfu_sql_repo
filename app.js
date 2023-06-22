@@ -985,39 +985,6 @@ app.get('/sfu-research-db/logout', (req, res) => {
     res.redirect('https://cas.sfu.ca/cas/logout');
 })
 
-app.get(`/sfu-research-db/reboot/:index`, (req, res)=>{
-	let ind = req.params.index
-	
-	if (ind == process.env.reboot_key) {
-	res.json("Restarting")
-    setTimeout(function () {
-        // Listen for the 'exit' event.
-        // This is emitted when our app exits.
-        process.on("exit", function () {
-​
-          //  Resolve the `child_process` module, and `spawn`
-          //  a new process.
-          //  The `child_process` module lets us
-          //  access OS functionalities by running any bash command.`.
-          require("child_process")
-            .spawn(
-              process.argv.shift(),
-              process.argv,
-              {
-                cwd: process.cwd(),
-                detached: true,
-                stdio: "inherit"
-              }
-            );
-​
-        });
-        process.exit();
-    }, 1000);
-	}
-	else {
-		res.json("HTTP ERROR 404");
-	}
-})
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
