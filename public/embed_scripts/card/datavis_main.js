@@ -504,6 +504,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	var count = 0;
 	
 	var calculatedSqDistance = [0,0];
+	var averageLatLong = [0,0,0]
 
 	for (var i = 0; i < parsedD.length; i++) {
 
@@ -535,6 +536,8 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 			//	console.log("CLR: ", colours[colourV]);
 
 			var labelTxt = L.divIcon({ className: 'my-div-icon', html: `<div id="label_${count}" style="text-align:center;color:white; opacity: 0.8; background-color: rgba(${colours[colourV][0]},${colours[colourV][1]},${colours[colourV][2]},0.8);width: 20px;height: 20px;border-radius: 30px; font-size: 14px;">${++count}</div>` });
+			averageLatLong[0] += coordsLat; averageLatLong[1] += coordsLong;
+			averageLatLong[2]++;
 			calculatedSqDistance[0] += Math.sqrt(Math.pow(parsedD[i].latitude,2) + Math.pow(parsedD[i].longitude,2))
 			calculatedSqDistance[1]++
 			
@@ -575,7 +578,8 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	}
 	
 	calculatedSqDistance = calculatedSqDistance[0]/calculatedSqDistance[1]
-	console.log("Norm:", calculatedSqDistance)
+	averageLatLong = [averageLatLong[0]/averageLatLong[2], averageLatLong[1]/averageLatLong[2]]
+	console.log("Norm:", calculatedSqDistance, averageLatLong)
 	generateCell(results, max_res_size);
 	console.log("added #markers:", count);
 }
