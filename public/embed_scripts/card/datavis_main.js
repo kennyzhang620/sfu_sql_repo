@@ -535,8 +535,8 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 			//	console.log("CLR: ", colours[colourV]);
 
 			var labelTxt = L.divIcon({ className: 'my-div-icon', html: `<div id="label_${count}" style="text-align:center;color:white; opacity: 0.8; background-color: rgba(${colours[colourV][0]},${colours[colourV][1]},${colours[colourV][2]},0.8);width: 20px;height: 20px;border-radius: 30px; font-size: 14px;">${++count}</div>` });
-			calculatedSqDistance[0] -= parsedD[i].latitude
-			calculatedSqDistance[1] -= parsedD[i].longitude
+			calculatedSqDistance[0] += Math.sqrt(Math.pow(parsedD[i].latitude,2) + Math.pow(parsedD[i].longitude,2))
+			calculatedSqDistance[1]++
 			
 			const markerT = L.marker([parsedD[i].latitude, parsedD[i].longitude], {
 				icon: labelTxt, id: count - 1
@@ -574,7 +574,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 		}
 	}
 	
-	calculatedSqDistance = Math.sqrt(Math.pow(calculatedSqDistance[0],2) + Math.pow(calculatedSqDistance[1],2))
+	calculatedSqDistance = calculatedSqDistance[0]/calculatedSqDistance[1]
 	console.log("Norm:", calculatedSqDistance)
 	generateCell(results, max_res_size);
 	console.log("added #markers:", count);
