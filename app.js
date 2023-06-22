@@ -986,6 +986,7 @@ app.get('/sfu-research-db/logout', (req, res) => {
 })
 
 app.get(`/sfu-research-db/reboot/{process.env.reboot_key}` + , (req, res)=>{
+	res.json("Restarting")
     setTimeout(function () {
         // Listen for the 'exit' event.
         // This is emitted when our app exits.
