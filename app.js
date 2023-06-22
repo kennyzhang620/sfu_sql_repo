@@ -985,7 +985,7 @@ app.get('/sfu-research-db/logout', (req, res) => {
     res.redirect('https://cas.sfu.ca/cas/logout');
 })
 
-app.get(`/sfu-research-db/reboot/:index` + , (req, res)=>{
+app.get(`/sfu-research-db/reboot/:index`, (req, res)=>{
 	let ind = req.params.index
 	
 	if (ind == process.env.reboot_key) {
