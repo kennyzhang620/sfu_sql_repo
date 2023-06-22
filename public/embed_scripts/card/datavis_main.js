@@ -396,7 +396,7 @@ function loadDefault(element_id) {
 
 	image_n.src = "https://educdv.ca/sfu-research-db/icons/placeholder.png";
 
-	console.log("ERRO!");
+	//console.log("ERRO!");
 }
 
 function generateCell(res, max_size) {
