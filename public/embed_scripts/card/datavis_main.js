@@ -394,7 +394,7 @@ function checkIfImageExists(url, callback) {
 function loadDefault(element_id) {
 	var image_n = document.getElementById(element_id);
 
-	image_n.src = "icons/placeholder.png";
+	image_n.src = "https://educdv.ca/sfu-research-db/icons/placeholder.png";
 
 	console.log("ERRO!");
 }
