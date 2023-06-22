@@ -503,7 +503,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	markers.length = 0;
 	var count = 0;
 	
-	var calculatedSqrDistance = [0,0];
+	var calculatedSqDistance = [0,0];
 
 	for (var i = 0; i < parsedD.length; i++) {
 
