@@ -33,6 +33,7 @@ var base = document.getElementsByClassName('main_map')
         $("#filters_norm #filter_fun_main").autocomplete('destroy');
 
         $("#filters_pc #filter_fun_main").autocomplete('destroy')
+		}
 		catch{}
 	}
 	
