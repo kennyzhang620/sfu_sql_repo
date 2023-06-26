@@ -17,8 +17,11 @@ var base = document.getElementsByClassName('main_map')
 		project_availableTags = [];
 		collabs_availableTags = [];
 		
+		try {
         $("#filters_norm #filter_search").autocomplete('destroy');
 		$("#filters_pc #filter_search").autocomplete('destroy');
+		}
+		catch{}
 	}
 	
 	function loadtags() {
