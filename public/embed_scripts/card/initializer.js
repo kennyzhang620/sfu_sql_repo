@@ -20,7 +20,19 @@ var base = document.getElementsByClassName('main_map')
 		try {
         $("#filters_norm #filter_search").autocomplete('destroy');
 		$("#filters_pc #filter_search").autocomplete('destroy');
-		}
+        $("#filters_norm #filter_pi_main").autocomplete('destroy');
+        $("#filters_pc #filter_pi_main").autocomplete('destroy');
+        $("#filters_norm #filter_pi_sub").autocomplete('destroy');
+        $("#filters_pc #filter_pi_sub").autocomplete('destroy');
+        $("#filters_norm #filter_fun_time").autocomplete('destroy');
+
+        $("#filters_pc #filter_fun_time").autocomplete('destroy');
+        $("#filters_norm #filter_site").autocomplete('destroy');
+
+        $("#filters_pc #filter_site").autocomplete('destroy');
+        $("#filters_norm #filter_fun_main").autocomplete('destroy');
+
+        $("#filters_pc #filter_fun_main").autocomplete('destroy')
 		catch{}
 	}
 	
