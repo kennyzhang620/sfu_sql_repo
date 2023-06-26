@@ -20,6 +20,7 @@ var base = document.getElementsByClassName('main_map')
 	
 	function loadtags() {
 
+		
 		// Collabs
         $("#filters_norm #filter_search").autocomplete({
             source: collabs_availableTags,
@@ -183,6 +184,9 @@ var base = document.getElementsByClassName('main_map')
         });
 
         // Funding period
+		
+        $("#filters_norm #filter_fun_time").autocomplete("destroy");
+		
         $("#filters_norm #filter_fun_time").autocomplete({
             source: period_availableTags,
             select: function (event, ui) {
@@ -207,6 +211,8 @@ var base = document.getElementsByClassName('main_map')
             console.log($(this).val());
         });
 
+        $("#filters_pc #filter_fun_time").autocomplete("destroy");
+		
         $("#filters_pc #filter_fun_time").autocomplete({
             source: period_availableTags,
             select: function (event, ui) {
@@ -229,6 +235,9 @@ var base = document.getElementsByClassName('main_map')
         });
 
         // Site
+		
+        $("#filters_norm #filter_site").autocomplete("destroy");
+		
         $("#filters_norm #filter_site").autocomplete({
             source: site_availableTags,
             select: function (event, ui) {
@@ -253,6 +262,8 @@ var base = document.getElementsByClassName('main_map')
             console.log($(this).val());
         });
 
+        $("#filters_pc #filter_site").autocomplete("destroy");
+		
         $("#filters_pc #filter_site").autocomplete({
             source: site_availableTags,
             select: function (event, ui) {
@@ -275,6 +286,9 @@ var base = document.getElementsByClassName('main_map')
         });
 
         // Funder
+		
+        $("#filters_norm #filter_fun_main").autocomplete("destroy");
+		
         $("#filters_norm #filter_fun_main").autocomplete({
             source: funder_availableTags,
             select: function (event, ui) {
@@ -299,6 +313,8 @@ var base = document.getElementsByClassName('main_map')
             console.log($(this).val());
         });
 
+        $("#filters_pc #filter_fun_main").autocomplete("destroy");
+		
         $("#filters_pc #filter_fun_main").autocomplete({
             source: funder_availableTags,
             select: function (event, ui) {
@@ -316,28 +332,6 @@ var base = document.getElementsByClassName('main_map')
             }
         });
 
-        $("#filters_pc #filter_fun_main").on('input', function () {
-            console.log($(this).val());
-        });
-
-        // Disapble dragging when filtering
-
-        $('#filters_norm').mousedown(function () {
-            map.dragging.disable();
-            map.touchZoom.disable();
-        });
-
-        $('#filters_pc').mousedown(function () {
-            map.dragging.disable();
-            map.touchZoom.disable();
-
-        });
-
-        $('html').mouseup(function () {
-            map.dragging.enable();
-            map.touchZoom.enable();
-        });
-		
 	}
 function updatetags(i) {
 	
