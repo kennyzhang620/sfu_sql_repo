@@ -499,6 +499,8 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	for (var x = 0; x < markers.length; x++) {
 		map.removeLayer(markers[x]);
 	}
+	
+	cleartags()
 
 	markers.length = 0;
 	var count = 0;

@@ -8,7 +8,18 @@ var base = document.getElementsByClassName('main_map')
 	var project_availableTags = [];
 	var collabs_availableTags = [];
 	
+	function cleartags() {
+	    pi_availableTags = [];
+	    coPIs_availableTags = [];
+	    period_availableTags = [];
+	    site_availableTags = [];
+	    funder_availableTags = [];
+		project_availableTags = [];
+		collabs_availableTags = [];
+	}
 function updatetags(i) {
+	
+
 
         var PIs = parsedD[i].pi; //.substring(0, 50);
         pi_availableTags.push(PIs);
