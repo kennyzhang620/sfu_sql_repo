@@ -10,7 +10,7 @@ $(function () {
                         inputBars[2].value,
                         inputBars[3].value,
                         inputBars[4].value,
-                        iui.item.value,
+                        ui.item.value,
                         inputBars[6].value,
                         inputBars[7].value,
                         inputBars[8].value);
@@ -28,7 +28,7 @@ $(function () {
                         inputBars[12].value,
                         inputBars[13].value,
                         inputBars[14].value,
-                        iui.item.value,
+                        ui.item.value,
                         inputBars[16].value,
                         inputBars[17].value);
 						
