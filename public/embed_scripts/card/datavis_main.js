@@ -586,6 +586,8 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	generateCell(results, max_res_size);
 	console.log("added #markers:", count);
 	console.log("tester", collabs_availableTags)
+	
+	loadtags()
 }
 
 loadSection();
