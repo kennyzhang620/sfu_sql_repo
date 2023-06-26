@@ -580,8 +580,10 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	calculatedSqDistance = calculatedSqDistance[0]/calculatedSqDistance[1]
 	averageLatLong = [averageLatLong[0]/averageLatLong[2], averageLatLong[1]/averageLatLong[2]]
 	console.log("Norm:", calculatedSqDistance, averageLatLong)
+	
 	generateCell(results, max_res_size);
 	console.log("added #markers:", count);
+	updatetags();	
 }
 
 loadSection();

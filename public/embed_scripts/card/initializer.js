@@ -1,5 +1,70 @@
 var base = document.getElementsByClassName('main_map')
 
+    var pi_availableTags = [];
+    var coPIs_availableTags = [];
+    var period_availableTags = [];
+    var site_availableTags = [];
+    var funder_availableTags = [];
+	var project_availableTags = [];
+	var collabs_availableTags = [];
+	
+function updatetags() {
+    for (var i = 0; i < parsedD.length; i++) {
+
+        var PIs = parsedD[i].pi; //.substring(0, 50);
+        pi_availableTags.push(PIs);
+
+        var CoPIs = parsedD[i].co_pi;
+        coPIs_availableTags.push(CoPIs);
+
+        var period = parsedD[i].fperiod.toString();
+        period_availableTags.push(period);
+
+        var site = parsedD[i].research_site;
+        site_availableTags.push(site);
+
+        var Funder = parsedD[i].funder;
+        funder_availableTags.push(Funder);
+		
+		var Project = parsedD[i].project;
+		project_availableTags.push(Project);
+		
+		var Collabs = parsedD[i].collabs;
+		collabs_availableTags.push(Collabs);
+		// no keyword for now.
+
+    }
+	
+    pi_availableTags = pi_availableTags.filter(function (item, i, pi_availableTags) {
+        return i == pi_availableTags.indexOf(item);
+    });
+
+    coPIs_availableTags = coPIs_availableTags.filter(function (item, i, coPIs_availableTags) {
+        return i == coPIs_availableTags.indexOf(item);
+    });
+
+    period_availableTags = period_availableTags.filter(function (item, i, period_availableTags) {
+        return i == period_availableTags.indexOf(item);
+    });
+
+
+    site_availableTags = site_availableTags.filter(function (item, i, site_availableTags) {
+        return i == site_availableTags.indexOf(item);
+    });
+
+    funder_availableTags = funder_availableTags.filter(function (item, i, funder_availableTags) {
+        return i == funder_availableTags.indexOf(item);
+    });
+	
+	project_availableTags = project_availableTags.filter(function(item, i, project_availableTags) {
+		return i == project_availableTags.indexOf(item);
+	});
+	
+	collabs_availableTags = collabs_availableTags.filter(function(item, i, collabs_availableTags) {
+		return i == collabs_availableTags.indexOf(item);
+	});
+}
+
 function init_main() {
 
 	var inner = base
