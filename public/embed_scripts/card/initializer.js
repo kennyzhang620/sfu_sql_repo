@@ -8,8 +8,7 @@ var base = document.getElementsByClassName('main_map')
 	var project_availableTags = [];
 	var collabs_availableTags = [];
 	
-function updatetags() {
-    for (var i = 0; i < parsedD.length; i++) {
+function updatetags(i) {
 
         var PIs = parsedD[i].pi; //.substring(0, 50);
         pi_availableTags.push(PIs);
@@ -33,7 +32,6 @@ function updatetags() {
 		collabs_availableTags.push(Collabs);
 		// no keyword for now.
 
-    }
 	
     pi_availableTags = pi_availableTags.filter(function (item, i, pi_availableTags) {
         return i == pi_availableTags.indexOf(item);

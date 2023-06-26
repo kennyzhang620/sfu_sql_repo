@@ -1,7 +1,5 @@
 $(function () {
 
-		updatetags();
-			
 			// Collabs
             $("#filters_norm #filter_search").autocomplete({
                 source: collabs_availableTags,

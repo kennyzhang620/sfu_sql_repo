@@ -573,7 +573,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 			markers.push(markerT);
 
 			results.push(parsedD[i]);
-			
+			updatetags(i);	
 		}
 	}
 	
@@ -583,7 +583,6 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	
 	generateCell(results, max_res_size);
 	console.log("added #markers:", count);
-	updatetags();	
 }
 
 loadSection();
