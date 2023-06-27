@@ -61,6 +61,7 @@ map.setZoom(minZoomV);
 //var southWest = L.latLng(-89.98155760646617, -179); 
 //var northEast = L.latLng(89.99346179538875, 180);
 
+const SFU = [49.2780937,-123.0640789]
 var southWest = L.latLng(-90, -220);
 var northEast = L.latLng(90, 200);
 
@@ -429,8 +430,8 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 				//	e.sourceTarget._tooltip.options.permanent = true;
 					
 
-					for (var x=0;x<e.sourceTarget.options.links.length;x++) {
-						e.sourceTarget.options.d_links.push( L.Polyline.Arc(e.sourceTarget.options.exactcoords, e.sourceTarget.options.links[x]).addTo(map))
+					if (e.sourceTarget.options.links.length > 0) {
+						e.sourceTarget.options.d_links.push( L.Polyline.Arc(e.sourceTarget.options.exactcoords, SFU).addTo(map))
 					}
 					
 					document.getElementById(`label_${e.sourceTarget.options.id}`).style.border = "8px solid black";
