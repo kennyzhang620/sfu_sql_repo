@@ -253,7 +253,7 @@ function generateCell(tb, dataEntries, start, end, security_level) { // in packs
                 <td>Latitude (Required)</td>
                     <td>Longitude (Required)</td>
                     <td>Publication Title (Required)</td>
-                    <td>Author</td>
+                    <td>Faculty of Education Author</td>
                     <td>Co-Author</td>
                     <td>Institution</td>
                     <td>Region</td>
