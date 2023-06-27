@@ -94,10 +94,6 @@
     <div class="options">
         <!--<div id="selector"><input type="image" style="width: 60px; height: 60px;" src="icons/add_plant.png"></div>-->
         <div id="selector">
-            <div class="tooltip">
-                <input type="image" style="width: 20px; height: 20px;" src="/sfu-research-db/icons/logout.png" onclick="window.location.replace('/sfu-research-db/logout')">
-                <span class="tooltiptext">Log out of the database management system.</span>
-            </div>
             <% if(db_type == "Administrator"){ %>
             <div class="tooltip">
                 <input type="image" style="width: 25px; height: 25px;" src="/sfu-research-db/icons/console.png" id="submit_updates" onclick="consoleSQL()">
@@ -118,7 +114,10 @@
                 <input type="image" style="width: 60px; height: 60px;" src="/sfu-research-db/icons/upload_file.png" id="submit_updates" onclick="sendUpdates()">
                 <span class="tooltiptext">Update the database.</span>
             </div>
-
+            <div class="tooltip">
+                <input type="image" style="width: 20px; height: 20px;" src="/sfu-research-db/icons/logout.png" onclick="window.location.replace('/sfu-research-db/logout')">
+                <span class="tooltiptext">Log out of the database management system.</span>
+            </div>
         </div>
     </div>
     <script src="/sfu-research-db/scripts/render_table_plot.js"></script>
