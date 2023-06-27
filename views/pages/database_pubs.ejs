@@ -94,30 +94,31 @@
     <div class="options">
         <!--<div id="selector"><input type="image" style="width: 60px; height: 60px;" src="icons/add_plant.png"></div>-->
         <div id="selector">
+            <div class="tooltip">
+                <input type="image" style="width: 20px; height: 20px;" src="/sfu-research-db/icons/logout.png" onclick="window.location.replace('/sfu-research-db/logout')">
+                <span class="tooltiptext">Log out of the database management system.</span>
+            </div>
             <% if(db_type == "Administrator"){ %>
             <div class="tooltip">
-                <input type="image" style="width: 60px; height: 60px;" src="/sfu-research-db/icons/console.png" id="submit_updates" onclick="consoleSQL()">
+                <input type="image" style="width: 25px; height: 25px;" src="/sfu-research-db/icons/console.png" id="submit_updates" onclick="consoleSQL()">
                 <span class="tooltiptext">Run a limited set of SQL commands directly from the app.</span>
             </div>
             <% } %>
             <% if(db_type == "Manager" || db_type == "Administrator"){ %>
             <div class="tooltip">
-                <input type="image" style="width: 60px; height: 60px;" src="/sfu-research-db/icons/delete_all.png" id="submit_updates" onclick="deleteAll()">
+                <input type="image" style="width: 30px; height: 30px;" src="/sfu-research-db/icons/delete_all.png" id="submit_updates" onclick="deleteAll()">
                 <span class="tooltiptext">Delete all visible data entries.</span>
             </div>
             <div class="tooltip">
-                <input type="image" style="width: 60px; height: 60px;" src="/sfu-research-db/icons/add_csv.png" id="csv_upload" onclick="manualHandler(event)">
+                <input type="image" style="width: 40px; height: 40px;" src="/sfu-research-db/icons/add_csv.png" id="csv_upload" onclick="manualHandler(event)">
                 <span class="tooltiptext">Bulk add entries directly from a csv file.</span>
             </div>
             <% } %>
             <div class="tooltip">
                 <input type="image" style="width: 60px; height: 60px;" src="/sfu-research-db/icons/upload_file.png" id="submit_updates" onclick="sendUpdates()">
-                <span class="tooltiptext">Upload changes to the database.</span>
+                <span class="tooltiptext">Update the database.</span>
             </div>
-            <div class="tooltip">
-                <input type="image" style="width: 60px; height: 60px;" src="/sfu-research-db/icons/logout.png" onclick="window.location.replace('/sfu-research-db/logout')">
-                <span class="tooltiptext">Log out of the database management system.</span>
-            </div>
+
         </div>
     </div>
     <script src="/sfu-research-db/scripts/render_table_plot.js"></script>
