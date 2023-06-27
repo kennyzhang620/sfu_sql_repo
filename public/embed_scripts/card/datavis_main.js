@@ -699,17 +699,6 @@ filtersBtn.addEventListener('click', function (clicked) {
 
 		FiltersActive = true;
 
-		var container1 = document.getElementById("filters_norm");
-		var inputs = container1.getElementsByTagName('input');
-		for (var index = 0; index < inputs.length; ++index) {
-			inputs[index].value = '';
-		}
-
-		var container2 = document.getElementById("filters_pc");
-		inputs = container2.getElementsByTagName('input');
-		for (var i = 0; i < inputs.length; ++i) {
-			inputs[i].value = '';
-		}
 	}
 	else {
 		filtersPC.style.display = "none";
