@@ -355,8 +355,8 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
     var avgLong = 0
     
 	for (var x = 0; x < markers.length; x++) {
-		for (var j=0;j<markers[x].sourceTarget.options.d_links.length;j++) {
-			map.removeLayer(markers[x].sourceTarget.options.d_links[j])
+		for (var j=0;j<markers[x].options.d_links.length;j++) {
+			map.removeLayer(markers[x].options.d_links[j])
 		}
 		
         map.removeLayer(markers[x]);
