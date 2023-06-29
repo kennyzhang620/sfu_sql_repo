@@ -586,11 +586,23 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	generateCell(results, max_res_size);
 	console.log("added #markers:", count);
 	console.log("tester", collabs_availableTags)
-	map.setView([averageLatLong[0], averageLatLong[1]], minZoomV)
+	map.setView([averageLatLong[0], averageLatLong[1]], getZoom(calculatedSqDistance))
 	loadtags()
 }
 
 loadSection();
+
+function getZoom(sqDist) {
+	if (sqDist == 0) {
+		return miniZoom+7;
+	}
+	else if (sqDist >= 1 && sqDist <= 10) {
+		return miniZoom+7*(1/sqDist)
+	}
+	else {
+		return miniZoom+8;
+	}
+}
 
 function changeTileType(tileURL) {
 	tiles = L.tileLayer(tileURL, {}).addTo(map);
