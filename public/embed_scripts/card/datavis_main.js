@@ -594,13 +594,13 @@ loadSection();
 
 function getZoom(sqDist) {
 	if (sqDist == 0) {
-		return miniZoom+7;
+		return minZoomV+7;
 	}
 	else if (sqDist >= 1 && sqDist <= 10) {
-		return miniZoom+7*(1/sqDist)
+		return minZoomV+7*(1/sqDist)
 	}
 	else {
-		return miniZoom+8;
+		return minZoomV+8;
 	}
 }
 
