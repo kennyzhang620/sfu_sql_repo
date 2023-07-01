@@ -349,8 +349,7 @@ function getLinks(coAuth) {
 
 function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 
-    // Clear the board.
-    results.length = 0;
+    // Clear the board. Intelligently.
     var avgLat = 0
     var avgLong = 0
 
@@ -371,11 +370,12 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 
         if (Year >= startY && Year <= endY && (Region == RegionS || RegionS == "ALL")) {
 			
-			if (markers[i] == null) {
 			avgLat += parseInt(coordsLat)
 			avgLong += parseInt(coordsLong)
 			
             console.log(Year, startY, endY, Region)
+			
+			if (markers[i] == null) {
             // plot points here, same code as P1.
             var colourV = strToColour(Project);
 
@@ -454,8 +454,6 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 				console.log('a:', markerT)
             	markers[i] = markerT;
 			}
-
-            results.push(parsedD[count++]);
         }
 		else {
 			if (markers[i] != null) {
@@ -471,8 +469,8 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
     }
 	
 	console.log("mks:",markers)
-	avgLat /= results.length
-	avgLong /= results.length
+	avgLat /= count
+	avgLong /= count
 	
 	map.setView([avgLat, avgLong])
 }
