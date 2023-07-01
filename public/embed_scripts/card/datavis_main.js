@@ -585,7 +585,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	
 	generateCell(results, max_res_size);
 	console.log("added #markers:", count);
-	console.log("tester", collabs_availableTags)
+	console.log("tester", collabs_availableTags, Math.floor(getZoom(calculatedSqDistance))
 	map.setView([averageLatLong[0], averageLatLong[1]], Math.floor(getZoom(calculatedSqDistance)))
 	loadtags()
 }
