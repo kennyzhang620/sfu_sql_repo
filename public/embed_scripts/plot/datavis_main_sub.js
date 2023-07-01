@@ -466,6 +466,7 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 		}
     }
 	
+	console.log("mks:",markers)
 	avgLat /= results.length
 	avgLong /= results.length
 	
