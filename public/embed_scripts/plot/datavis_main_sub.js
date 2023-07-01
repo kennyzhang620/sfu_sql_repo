@@ -371,6 +371,7 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 
         if (Year >= startY && Year <= endY && (Region == RegionS || RegionS == "ALL")) {
 			
+			if (markers[i] == null) {
 			avgLat += parseInt(coordsLat)
 			avgLong += parseInt(coordsLong)
 			
@@ -450,9 +451,9 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 
 				
 			});
-			console.log('a:', markerT)
-			if (markers[i] == null)
+				console.log('a:', markerT)
             	markers[i] = markerT;
+			}
 
             results.push(parsedD[count++]);
         }
