@@ -453,8 +453,8 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 			});
 				console.log('a:', markerT)
             	markers[i] = markerT;
-				count++;
 			}
+			count++;
         }
 		else {
 			if (markers[i] != null) {
