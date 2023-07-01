@@ -594,7 +594,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 loadSection();
 
 function getZoom(sqDist) {
-	console.log("vtr", minZoomV+Math.floor(7*(1/sqDist)))
+	console.log("vtr", sqDist, minZoomV+Math.floor(7*(1/sqDist)))
 	if (sqDist == 0) {
 		return minZoomV+7;
 	}
