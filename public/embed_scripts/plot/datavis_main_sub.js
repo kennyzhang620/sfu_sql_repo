@@ -452,7 +452,7 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 			});
 			console.log('a:', markerT)
 			if (markers[i] == null)
-            	markers[i] = (markerT);
+            	markers[i] = markerT;
 
             results.push(parsedD[count++]);
         }
