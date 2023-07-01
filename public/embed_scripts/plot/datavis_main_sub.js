@@ -13,7 +13,7 @@ var initialize = false;
 var results = [];
 var colours = [];
 
-var markers = [];
+var markers = {}
 var max_res_size = 12;
 var curr_limit = max_res_size;
 
@@ -353,17 +353,7 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
     results.length = 0;
     var avgLat = 0
     var avgLong = 0
-    
-	for (var x = 0; x < markers.length; x++) {
-		for (var j=0;j<markers[x].options.d_links.length;j++) {
-			map.removeLayer(markers[x].options.d_links[j])
-		}
-		
-        map.removeLayer(markers[x]);
 
-    }
-
-    markers.length = 0;
     var count = 0;
 
     console.log("-->", parsedD)
@@ -461,10 +451,19 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 				
 			});
 			console.log('a:', markerT)
-            markers.push(markerT);
+            markers[i] = (markerT);
 
             results.push(parsedD[count++]);
         }
+		else {
+			if (markers[i] != null) {
+				for (var j=0;j<markers[i].options.d_links.length;j++) {
+					map.removeLayer(markers[i].options.d_links[j])
+				}
+		
+		        map.removeLayer(markers[i]);
+			}
+		}
     }
 	
 	avgLat /= results.length
