@@ -470,8 +470,11 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
     }
 	
 	console.log("mks:",markers)
+	
+	if (count != 0) {
 	avgLat /= count
 	avgLong /= count
+	}
 	
 	map.setView([avgLat, avgLong])
 }
