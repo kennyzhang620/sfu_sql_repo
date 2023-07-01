@@ -602,7 +602,7 @@ function getZoom(sqDist) {
 		return minZoomV+7*(1/sqDist)
 	}
 	else {
-		return minZoomV+8;
+		return minZoomV-1
 	}
 }
 
