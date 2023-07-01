@@ -462,6 +462,7 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 					map.removeLayer(markers[i].options.d_links[j])
 				}
 		
+				console.log('mk:', markers[i])
 		        map.removeLayer(markers[i]);
 				markers[i] = null
 			}
