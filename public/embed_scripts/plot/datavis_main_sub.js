@@ -451,7 +451,8 @@ function filter_v2(RegionS, startY, endY, YCHANGE = false) {
 				
 			});
 			console.log('a:', markerT)
-            markers[i] = (markerT);
+			if (markers[i] == null)
+            	markers[i] = (markerT);
 
             results.push(parsedD[count++]);
         }
