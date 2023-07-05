@@ -397,9 +397,10 @@ function updatetags(i) {
 function autoUpdateDropDown(dd_id, tags) {
     if (selector != null && tags.length != selector.length) {
     	selector.length = 0;
-        
+        console.log('test1')
         for (var i=0;i<tags.length;i++) {    				                       
 			selector.add(document.createElement(tags[i]), selector[selector.length])
+			console.log('test2');
     	}
     }
 
