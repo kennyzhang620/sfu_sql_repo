@@ -394,6 +394,21 @@ function updatetags(i) {
 	});
 }
 
+function autoUpdateDropDown(dd_id, tags) {
+    if (selector != null && tags.length != selector.length) {
+    	selector.length = 0;
+        
+        for (var i=0;i<tags.length;i++) {    				                       
+			selector.add(document.createElement(tags[i]), selector[selector.length])
+    	}
+    }
+
+}
+
+function dropfilter_tags(el) {
+	
+}
+
 function init_main() {
 
 	var inner = base
