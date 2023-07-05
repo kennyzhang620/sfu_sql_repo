@@ -401,7 +401,7 @@ function autoUpdateDropDown(dd_id, tags) {
     	selector.length = 0;
         console.log('test1')
         for (var i=0;i<tags.length;i++) {    				                       
-			selector.add(document.createElement(tags[i]), selector[selector.length])
+			selector.add(document.createElement(`${tags[i]}`), selector[selector.length])
 			console.log('test2');
     	}
     }
