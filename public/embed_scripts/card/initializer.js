@@ -394,14 +394,13 @@ function updatetags(i) {
 	});
 }
 
-function autoUpdateDropDown(dd_id, tags) {
+function autoUpdateDropDown(dd_id, name_t, tags) {
 	console.log('test1')
 	var selector = dd_id
-    if (selector != null && tags.length != selector.length) {
+    if (selector != null && tags.length + 1 != selector.length) { // + 1 to account for empty tags (where only one option exists)
     	selector.length = 0;
 		var elementF = document.createElement(`option`) 
-		elementF.text = selector.placeholder
-		console.log('test3', selector.placeholderx)
+		elementF.text = name_t
 		selector.add(elementF, selector[selector.length])
 		console.log('test2')
         for (var i=0;i<tags.length;i++) {   
