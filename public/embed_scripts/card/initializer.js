@@ -435,17 +435,23 @@ function init_main() {
             <div class="f_header">
                 <div id="header_ft">Filter Options</div> 
 				<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Reset All</div></a>
-                <input type="text" class="filter_input" id="filter_search" placeholder="Project Name" style="width:100%;padding:5px;text-align:left; max-width: 979px;" hidden />
-                <input type="text" class="filter_input" id="filter_site" placeholder="Research Sites" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;" />
+<select id="filter_search" class="filter_input" size="1">
+  </select>
+<select id="filter_site" class="filter_input" size="1">
+  </select>
                 <div class="pi_section">
-                    <input type="text" class="filter_input" id="filter_pi_main" placeholder="Principle Investigator" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;"  />
-                    <input type="text" class="filter_input" id="filter_pi_sub" placeholder="Co-PIs" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;" />
-                </div>
+<select id="filter_pi_main" class="filter_input" size="1">
+  </select>
+<select id="filter_pi_sub" class="filter_input" size="1">
+  </select>
+			    </div>
                 <input type="text" class="filter_input" id="filter_colabs" placeholder="Collaborators" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;" hidden />
                 <div class="fund_section">
-                    <input type="text" class="filter_input" id="filter_fun_main" placeholder="Funder" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;" />
-                    <input type="text" class="filter_input" id="filter_fun_time" placeholder="Period" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;" />
-                </div>
+<select id="filter_fun_main" class="filter_input" size="1">
+  </select>
+<select id="filter_fun_time" class="filter_input" size="1">
+  </select>
+				</div>
                 <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" style="display: none; width: 100%; padding: 5px; text-align: left; max-width: 979px;" hidden />
 				<div class="navigator" style="float:right; padding: 6px;">
         			<button class="prev_btn_c" onclick="movePtr(-1)">Previous</button><index id="counter_id" class="counters" style="padding: 6px; font-size:18px;">0 - 10 / 65</index><button class="next_btn_c" onclick="movePtr(1)">Next</button>
@@ -482,19 +488,23 @@ function init_main() {
                                     <div class="f_header">
                                         <div id="header_ft">Filter Options</div> 
 										<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Reset All</div></a>
-<select id="filter_search_2" class="filter_input" placeholder="tester" size="1">
-<option>test</option>
+<select id="filter_search" class="filter_input" size="1">
   </select>
-                                        <input type="text" class="filter_input" id="filter_search" placeholder="Project Name" hidden />
-                                        <input type="text" class="filter_input" id="filter_site" placeholder="Research Sites" />
+<select id="filter_site" class="filter_input" size="1">
+  </select>
+
                                         <div class="pi_section">
-                                            <input type="text" class="filter_input" id="filter_pi_main" maxlength="140" placeholder="Principle Investigator" />
-                                            <input type="text" class="filter_input" id="filter_pi_sub" placeholder="Co-PIs" />
+<select id="filter_pi_main" class="filter_input" size="1">
+  </select>
+<select id="filter_pi_sub" class="filter_input" size="1">
+  </select>
                                         </div>
                                         <input type="text" class="filter_input" id="filter_colabs" placeholder="Collaborators" hidden />
                                         <div class="fund_section">
-                                            <input type="text" class="filter_input" id="filter_fun_main" placeholder="Funder" />
-                                            <input type="text" class="filter_input" id="filter_fun_time" placeholder="Period" />
+<select id="filter_fun_main" class="filter_input" size="1">
+  </select>
+<select id="filter_fun_time" class="filter_input" size="1">
+  </select>
                                         </div>
                                         <input type="text" style="display:none;"class="filter_input" id="filter_keywords" placeholder="Keywords" hidden />
 										<div class="navigator" style="padding: 6px;">
