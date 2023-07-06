@@ -482,6 +482,7 @@ function init_main() {
                                         <div id="header_ft">Filter Options</div> 
 										<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Reset All</div></a>
 <select id="filter_search" class="filter_input" placeholder="All Projects" size="1">
+<option>test</option>
   </select>
                                         <input type="text" class="filter_input" id="filter_search" placeholder="Project Name" hidden />
                                         <input type="text" class="filter_input" id="filter_site" placeholder="Research Sites" />
