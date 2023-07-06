@@ -402,7 +402,7 @@ function autoUpdateDropDown(dd_id, name_t, tags) {
     	selector.length = 0;
 		console.log('test2')
 		var elementF = document.createElement(`option`) 
-		elementF.text = selector.placeholder
+		elementF.text = name_t
 		selector.add(elementF, selector[selector.length])
 		console.log('test2')
         for (var i=0;i<tags.length;i++) {   
