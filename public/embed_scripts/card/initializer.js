@@ -397,6 +397,7 @@ function updatetags(i) {
 function autoUpdateDropDown(dd_id, name_t, tags) {
 	console.log('test1')
 	var selector = dd_id
+	console.log('test1.', selector)
     if (selector != null && tags.length != selector.length - 1) { // + 1 to account for empty tags (where only one option exists)
     	selector.length = 0;
 		console.log('test2')
