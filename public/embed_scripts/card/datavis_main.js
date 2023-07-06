@@ -359,7 +359,7 @@ function updatepos() {
 
 }
 
-autoUpdateDropDown(document.getElementById('filter_search'), 'tester', ['1', '2', '3'])
+autoUpdateDropDown(document.getElementById('filter_search_2'), 'tester', ['1', '2', '3'])
 
 function clearCells() {
 	var inner = document.getElementsByClassName("img_collection");
