@@ -399,7 +399,10 @@ function autoUpdateDropDown(dd_id, tags) {
 	var selector = dd_id
     if (selector != null && tags.length != selector.length) {
     	selector.length = 0;
-        console.log('test1')
+		var elementF = document.createElement(`option`) 
+		elementF.text = selector.placeholder
+		selector.add(elementF, selector[selector.length])
+		
         for (var i=0;i<tags.length;i++) {   
 			var element = document.createElement(`option`) 
 			element.text = tags[i]				                       
@@ -476,11 +479,7 @@ function init_main() {
                                     <div class="f_header">
                                         <div id="header_ft">Filter Options</div> 
 										<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Reset All</div></a>
-<select id="filter_test" size="1">
-    <option>Apple</option>
-    <option>Pear</option>
-    <option>Banana</option>
-    <option>Orange</option>
+<select id="filter_search" class="filter_input" placeholder="All Projects" size="1">
   </select>
                                         <input type="text" class="filter_input" id="filter_search" placeholder="Project Name" hidden />
                                         <input type="text" class="filter_input" id="filter_site" placeholder="Research Sites" />
