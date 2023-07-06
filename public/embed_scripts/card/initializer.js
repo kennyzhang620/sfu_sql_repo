@@ -411,6 +411,8 @@ function autoUpdateDropDown(dd_id, name_t, tags) {
 			selector.add(element, selector[selector.length])
 			console.log('test2');
     	}
+		
+		selector.value = selector[selector.length]
     }
 
 }
