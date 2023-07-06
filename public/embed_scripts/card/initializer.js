@@ -401,6 +401,7 @@ function autoUpdateDropDown(dd_id, tags) {
     	selector.length = 0;
 		var elementF = document.createElement(`option`) 
 		elementF.text = selector.placeholder
+		console.log('test3', selector.placeholderx)
 		selector.add(elementF, selector[selector.length])
 		console.log('test2')
         for (var i=0;i<tags.length;i++) {   
