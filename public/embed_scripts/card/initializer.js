@@ -400,6 +400,14 @@ function updatetags(i) {
 	collabs_availableTags = collabs_availableTags.filter(function(item, i, collabs_availableTags) {
 		return i == collabs_availableTags.indexOf(item);
 	});
+	
+	tagcollect = [null, pi_availableTags,
+		    coPIs_availableTags,
+		    period_availableTags,
+		    site_availableTags,
+		    funder_availableTags,
+			project_availableTags,
+			collabs_availableTags, null]
 }
 
 function autoUpdateDropDown(dd_id, name_t, tags) {
