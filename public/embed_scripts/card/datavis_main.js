@@ -208,18 +208,12 @@ function init() {
 	for (var i = 0; i < inputBars.length; i++) {
 		console.log("aaa_>", i, inputBars[i].placeholder, "  ", inputBars[i].value);
 
-		inputBars[i].addEventListener('keypress', function (keyin) {
+		inputBars[i].onclick = function (keyin) {
 
-			if (keyin.key == "Enter") {
-				// Inefficient code ahead!
-
-				
-
-				//   console.log("DXXXX: ", inputBars[0].value, inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value);
-				updateBars();
-				filter(inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value, inputBars[8].value);
-			}
-		});
+			updateBars();
+			filter(inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value, inputBars[8].value);
+		
+		};
 
 
 
@@ -361,8 +355,6 @@ function updatepos() {
 	}
 
 }
-
-autoUpdateDropDown(document.getElementById('filter_search_2'), 'tester', ['1', '2', '3'])
 
 function clearCells() {
 	var inner = document.getElementsByClassName("img_collection");
