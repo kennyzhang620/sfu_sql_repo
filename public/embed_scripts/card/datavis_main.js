@@ -210,7 +210,6 @@ function init() {
 
 		inputBars[i].onchange = function (keyin) {
 
-			updateBars();
 			filter(inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value, inputBars[8].value);
 		
 		};
@@ -586,6 +585,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	console.log('pams:', Math.floor(getZoom(calculatedSqDistance)))
 	map.setView([averageLatLong[0], averageLatLong[1]], Math.floor(getZoom(calculatedSqDistance)))
 	loadtags()
+	updateBars()
 }
 
 loadSection();
