@@ -185,7 +185,7 @@ function clearFields() {
 }
 
 function updateBars() {
-	console.log('ib', inputBars)
+	console.log('ib', inputBars, tagcollect)
 	for (var i = 0; i < inputBars.length; i++) {
 
 		if (filtersPC.style.display != 'block') {
