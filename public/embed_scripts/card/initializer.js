@@ -443,21 +443,22 @@ function init_main() {
             <div class="f_header">
                 <div id="header_ft">Filter Options</div> 
 				<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Clear All</div></a>
-<select id="filter_search" class="filter_input" size="1">
+<select id="filter_search" class="filter_input" name="All Projects"size="1">
   </select>
-<select id="filter_site" class="filter_input" size="1">
+<select id="filter_site" class="filter_input" name="All Research Sites" size="1">
   </select>
                 <div class="pi_section">
-<select id="filter_pi_main" class="filter_input" size="1">
+<select id="filter_pi_main" class="filter_input" name="All Principle Investigators" size="1">
   </select>
-<select id="filter_pi_sub" class="filter_input" size="1">
+<select id="filter_pi_sub" class="filter_input" name="All Co-PIs"size="1">
   </select>
 			    </div>
-                <input type="text" class="filter_input" id="filter_colabs" placeholder="Collaborators" style="width: 100%; padding: 5px; text-align: left; max-width: 979px;" hidden />
-                <div class="fund_section">
-<select id="filter_fun_main" class="filter_input" size="1">
+<select id="filter_colabs" class="filter_input" name="All Collaborators" size="1">
   </select>
-<select id="filter_fun_time" class="filter_input" size="1">
+                <div class="fund_section">
+<select id="filter_fun_main" class="filter_input" name="All Funders" size="1">
+  </select>
+<select id="filter_fun_time" class="filter_input" name="All Years"size="1">
   </select>
 				</div>
                 <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" style="display: none; width: 100%; padding: 5px; text-align: left; max-width: 979px;" hidden />
