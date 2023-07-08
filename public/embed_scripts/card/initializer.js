@@ -8,13 +8,15 @@ var base = document.getElementsByClassName('main_map')
 	var project_availableTags = [];
 	var collabs_availableTags = [];
 	
-	var tagcollect = [null, pi_availableTags,
+	var tagcollect = [null, 
+		project_availableTags, 
+		site_availableTags,
+		pi_availableTags,
 	    coPIs_availableTags,
+		collabs_availableTags,
+		funder_availableTags,
 	    period_availableTags,
-	    site_availableTags,
-	    funder_availableTags,
-		project_availableTags,
-		collabs_availableTags, null]
+		 null]
 	
 	function cleartags() {
 	    pi_availableTags = [];
@@ -401,13 +403,15 @@ function updatetags(i) {
 		return i == collabs_availableTags.indexOf(item);
 	});
 	
-	tagcollect = [null, pi_availableTags,
+	tagcollect = [null, 
+			project_availableTags, 
+			site_availableTags,
+			pi_availableTags,
 		    coPIs_availableTags,
+			collabs_availableTags,
+			funder_availableTags,
 		    period_availableTags,
-		    site_availableTags,
-		    funder_availableTags,
-			project_availableTags,
-			collabs_availableTags, null]
+			 null]
 }
 
 function autoUpdateDropDown(dd_id, name_t, tags) {
