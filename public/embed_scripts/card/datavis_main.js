@@ -191,12 +191,13 @@ function updateBars() {
 		if (filtersPC.style.display != 'block') {
 			if (i + 9 < inputBars.length) {
 				inputBars[i + 9].value = inputBars[i].value ? inputBars[i].value.trim() : "";
-				autoUpdateDropDown(inputBars[i+9], 'abc', tags)
+				autoUpdatesDropDown(inputBars[i+9], inputBars[i+9].name, tagcollect[i])
 			}
 		}
 		else {
 			if (i - 9 >= 0) {
 				inputBars[i - 9].value = inputBars[i].value ? inputBars[i].value.trim() : "";
+				autoUpdatesDropDown(inputBars[i-9], inputBars[i-9].name, tagcollect[i-9])
 			}
 		}
 	}

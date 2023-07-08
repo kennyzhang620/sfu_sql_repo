@@ -8,13 +8,13 @@ var base = document.getElementsByClassName('main_map')
 	var project_availableTags = [];
 	var collabs_availableTags = [];
 	
-	var tagcollect = [pi_availableTags,
+	var tagcollect = [null, pi_availableTags,
 	    coPIs_availableTags,
 	    period_availableTags,
 	    site_availableTags,
 	    funder_availableTags,
 		project_availableTags,
-		collabs_availableTags]
+		collabs_availableTags, null]
 	
 	function cleartags() {
 	    pi_availableTags = [];
@@ -406,7 +406,7 @@ function autoUpdateDropDown(dd_id, name_t, tags) {
 	console.log('test1')
 	var selector = dd_id
 	console.log('test1.', selector)
-    if (selector != null && tags.length != selector.length - 1) { // + 1 to account for empty tags (where only one option exists)
+    if (selector != null && tags != null && tags.length != selector.length - 1) { // + 1 to account for empty tags (where only one option exists)
     	selector.length = 0;
 		console.log('test2')
 		var elementF = document.createElement(`option`) 
@@ -496,22 +496,23 @@ function init_main() {
                                     <div class="f_header">
                                         <div id="header_ft">Filter Options</div> 
 										<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Reset All</div></a>
-<select id="filter_search" class="filter_input" size="1">
+<select id="filter_search" class="filter_input" name="All Projects"size="1">
   </select>
-<select id="filter_site" class="filter_input" size="1">
+<select id="filter_site" class="filter_input" name="All Research Sites" size="1">
   </select>
 
                                         <div class="pi_section">
-<select id="filter_pi_main" class="filter_input" size="1">
+<select id="filter_pi_main" class="filter_input" name="All Principle Investigators" size="1">
   </select>
-<select id="filter_pi_sub" class="filter_input" size="1">
+<select id="filter_pi_sub" class="filter_input" name="All Co-PIs"size="1">
   </select>
                                         </div>
-                                        <input type="text" class="filter_input" id="filter_colabs" placeholder="Collaborators" hidden />
-                                        <div class="fund_section">
-<select id="filter_fun_main" class="filter_input" size="1">
+<select id="filter_colabs" class="filter_input" name="All Collaborators" size="1">
   </select>
-<select id="filter_fun_time" class="filter_input" size="1">
+                                        <div class="fund_section">
+<select id="filter_fun_main" class="filter_input" name="All Funders" size="1">
+  </select>
+<select id="filter_fun_time" class="filter_input" name="All Years"size="1">
   </select>
                                         </div>
                                         <input type="text" style="display:none;"class="filter_input" id="filter_keywords" placeholder="Keywords" hidden />
