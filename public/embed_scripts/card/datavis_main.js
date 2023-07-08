@@ -185,11 +185,13 @@ function clearFields() {
 }
 
 function updateBars() {
+	console.log('ib', inputBars)
 	for (var i = 0; i < inputBars.length; i++) {
 
 		if (filtersPC.style.display != 'block') {
 			if (i + 9 < inputBars.length) {
 				inputBars[i + 9].value = inputBars[i].value ? inputBars[i].value.trim() : "";
+				autoUpdateDropDown(inputBars[i+9], 'abc', tags)
 			}
 		}
 		else {

@@ -8,6 +8,14 @@ var base = document.getElementsByClassName('main_map')
 	var project_availableTags = [];
 	var collabs_availableTags = [];
 	
+	var tagcollect = [pi_availableTags,
+	    coPIs_availableTags,
+	    period_availableTags,
+	    site_availableTags,
+	    funder_availableTags,
+		project_availableTags,
+		collabs_availableTags]
+	
 	function cleartags() {
 	    pi_availableTags = [];
 	    coPIs_availableTags = [];
@@ -434,7 +442,7 @@ function init_main() {
         <div class="Filters_Pane" id="filters_norm">
             <div class="f_header">
                 <div id="header_ft">Filter Options</div> 
-				<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Reset All</div></a>
+				<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Clear All</div></a>
 <select id="filter_search" class="filter_input" size="1">
   </select>
 <select id="filter_site" class="filter_input" size="1">
