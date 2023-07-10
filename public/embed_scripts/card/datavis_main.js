@@ -495,8 +495,6 @@ function movePtr(val) {
 
 function filter(projectName, researchNames, piNames, copiNames, collabNames, funderName, timePeriod, keywordList) {
 
-	console.log("checkerL -> ", projectName, researchNames, piNames, collabNames, funderName, timePeriod, keywordList);
-	
 	if (projectName == "All Projects"){
 		projectName = ""
 	}
@@ -524,6 +522,9 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	if (TimePeriod == "All Years"){
 		timePeriod = ""
 	}
+	
+
+	console.log("checkerL -> ", projectName, researchNames, piNames, collabNames, funderName, timePeriod, keywordList);
 	
 	clearCells();
 	results.length = 0;
