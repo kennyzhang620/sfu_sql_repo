@@ -496,6 +496,35 @@ function movePtr(val) {
 function filter(projectName, researchNames, piNames, copiNames, collabNames, funderName, timePeriod, keywordList) {
 
 	console.log("checkerL -> ", projectName, researchNames, piNames, collabNames, funderName, timePeriod, keywordList);
+	
+	if (projectName == "All Projects"){
+		projectName = ""
+	}
+	
+	if (researchNames == "All Research Sites"){
+		researchNames= ""
+	}
+	
+	if (piNames == "All Principle Investigators"){
+		piNames = ""
+	}
+		
+	if (copiNames == "All Co-PIs"){
+		copiNames = ""
+	}
+	
+	if (collabNames == "All Collaborators"){
+		collabNames = ""
+	}
+	
+	if (funderName == "All Funders"){
+		funderName = ""
+	}
+	
+	if (TimePeriod == "All Years"){
+		timePeriod = ""
+	}
+	
 	clearCells();
 	results.length = 0;
 	for (var x = 0; x < markers.length; x++) {
@@ -522,35 +551,6 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 		var site = parsedD[i].research_site?.trim() ?? "";
 		var coordsLat = parsedD[i].latitude;
 		var coordsLong = parsedD[i].longitude;
-		
-		if (projectName == "All Projects"){
-			projectName = ""
-		}
-		
-		if (researchNames == "All Research Sites"){
-			researchNames= ""
-		}
-		
-		if (piNames == "All Principle Investigators"){
-			piNames = ""
-		}
-			
-		if (copiNames == "All Co-PIs"){
-			copiNames = ""
-		}
-		
-		if (collabNames == "All Collaborators"){
-			collabNames = ""
-		}
-		
-		if (funderName == "All Funders"){
-			funderName = ""
-		}
-		
-		if (TimePeriod == "All Years"){
-			timePeriod = ""
-		}
-		
 		
 			
 		console.log("maint: ", Project.toLowerCase(),'<->', (projectName?.toLowerCase().trim() ?? ""))
