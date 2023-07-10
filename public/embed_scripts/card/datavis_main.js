@@ -201,7 +201,6 @@ function updateBars(newT = false) {
 				inputBars[i - 9].value = inputBars[i].value ? inputBars[i].value.trim() : "";
 			}
 		}
-		}
 	}
 }
 function init() {
