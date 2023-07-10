@@ -519,7 +519,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 		funderName = ""
 	}
 	
-	if (TimePeriod == "All Years"){
+	if (timePeriod == "All Years"){
 		timePeriod = ""
 	}
 	
