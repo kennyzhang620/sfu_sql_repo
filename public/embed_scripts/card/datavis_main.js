@@ -188,20 +188,18 @@ function updateBars(newT = false) {
 	console.log('ib', inputBars, tagcollect)
 	for (var i = 0; i < inputBars.length; i++) {
 
-		if (newT == true) {
-			autoUpdateDropDown(inputBars[i], inputBars[i].name, tagcollect[i % 9])
-		}
+
+		autoUpdateDropDown(inputBars[i], inputBars[i].name, tagcollect[i % 9])
+		
 		else {
 		if (filtersPC.style.display != 'block') {
 			if (i + 9 < inputBars.length) {
 				inputBars[i + 9].value = inputBars[i].value ? inputBars[i].value.trim() : "";
-				autoUpdateDropDown(inputBars[i+9], inputBars[i+9].name, tagcollect[i])
 			}
 		}
 		else {
 			if (i - 9 >= 0) {
 				inputBars[i - 9].value = inputBars[i].value ? inputBars[i].value.trim() : "";
-				autoUpdateDropDown(inputBars[i-9], inputBars[i-9].name, tagcollect[i-9])
 			}
 		}
 		}
@@ -444,7 +442,6 @@ function generateCell(res, max_size) {
 function newSection() {
 	colours = generateColours(parsedD.length);
 	filter(inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value, inputBars[8].value);
-	updateBars(true)
 	updatepos();
 	
 	if (dbLevel <= 0) {
