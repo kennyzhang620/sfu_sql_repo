@@ -100,10 +100,17 @@ function autoUpdateDropDown(dd_id, name_t, tags) {
 	var selector = dd_id
 	console.log('test1.', selector)
     if (selector != null && tags != null && tags.length != selector.length - 1) { // + 1 to account for empty tags (where only one option exists)
+		const sel = selector.value
     	selector.length = 0;
 		console.log('test2')
 		var elementF = document.createElement(`option`) 
-		elementF.text = name_t
+		if (!tags.includes(sel)) {
+			elementF.text = name_t
+		}
+		else {
+			elementF.text = sel;
+		}
+		
 		elementF.selected = true;
 		selector.add(elementF, selector[selector.length])
 		console.log('test2')
@@ -121,7 +128,7 @@ function dropfilter_tags(el) {
 	
 }
 
-function init_main() {
+function 	ain() {
 
 	var inner = base
 	console.log("testing!", inner)
