@@ -614,11 +614,11 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	console.log("tester", collabs_availableTags)
 	console.log('pams:', Math.floor(getZoom(calculatedSqDistance)))
 	map.setView([averageLatLong[0], averageLatLong[1]], Math.floor(getZoom(calculatedSqDistance)))
+	updateBars(initialize)
 	
 	if (!initialize)
 		initialize = true;
 	
-	updateBars(initialize)
 }
 
 loadSection();
