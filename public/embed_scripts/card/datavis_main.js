@@ -177,7 +177,7 @@ function generateColours(maxList) {
 
 function clearFields() {
 	for (var i = 0; i < inputBars.length; i++) {
-		inputBars[i].value = "";	
+		inputBars[i].value = inputBars[i].name
 	}
 	
 	filter(inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value, inputBars[8].value);
