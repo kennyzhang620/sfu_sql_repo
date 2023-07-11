@@ -104,13 +104,8 @@ function autoUpdateDropDown(dd_id, name_t, tags) {
     	selector.length = 0;
 		console.log('test2')
 		var elementF = document.createElement(`option`) 
-		if (!tags.includes(sel)) {
-			elementF.text = name_t
-		}
-		else {
-			elementF.text = sel;
-		}
-		
+		elementF.text = name_t
+
 		elementF.selected = true;
 		selector.add(elementF, selector[selector.length])
 		console.log('test2')
@@ -120,6 +115,10 @@ function autoUpdateDropDown(dd_id, name_t, tags) {
 			selector.add(element, selector[selector.length])
 			console.log('test2');
     	}
+		
+		if (tags.includes(sel)) {
+			selector.value = sel;
+		}	
     }
 
 }
