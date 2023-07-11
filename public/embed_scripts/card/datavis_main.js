@@ -188,7 +188,7 @@ function updateBars(newT = false) {
 	console.log('ib', inputBars, tagcollect)
 	for (var i = 0; i < inputBars.length; i++) {
 
-		if (newT == true || ( i != 7 && i != 16))
+		if (newT == false || ( i != 7 && i != 16))
 			autoUpdateDropDown(inputBars[i], inputBars[i].name, tagcollect[i % 9])
 
 		if (filtersPC.style.display != 'block') {
