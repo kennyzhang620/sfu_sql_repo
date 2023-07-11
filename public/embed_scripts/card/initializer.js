@@ -117,7 +117,7 @@ function autoUpdateDropDown(dd_id, name_t, tags) {
 			}
     	}
 		
-		if (tags.includes(sel)) {
+		if (sel != null && sel != "" && tags.includes(sel)) {
 			selector.value = sel;
 		}
 		else {
