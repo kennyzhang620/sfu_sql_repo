@@ -128,7 +128,7 @@ function dropfilter_tags(el) {
 	
 }
 
-function 	ain() {
+function init_main() {
 
 	var inner = base
 	console.log("testing!", inner)
