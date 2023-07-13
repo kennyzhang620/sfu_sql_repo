@@ -54,6 +54,37 @@ function updatetags(i) {
 		collabs_availableTags.push(Collabs);
 		// no keyword for now.
 
+    // Remove duplicates
+	
+    pi_availableTags = pi_availableTags.filter(function (item, i, pi_availableTags) {
+        return i == pi_availableTags.indexOf(item);
+    });
+
+    coPIs_availableTags = coPIs_availableTags.filter(function (item, i, coPIs_availableTags) {
+        return i == coPIs_availableTags.indexOf(item);
+    });
+
+    period_availableTags = period_availableTags.filter(function (item, i, period_availableTags) {
+        return i == period_availableTags.indexOf(item);
+    });
+
+
+    site_availableTags = site_availableTags.filter(function (item, i, site_availableTags) {
+        return i == site_availableTags.indexOf(item);
+    });
+
+    funder_availableTags = funder_availableTags.filter(function (item, i, funder_availableTags) {
+        return i == funder_availableTags.indexOf(item);
+    });
+	
+	project_availableTags = project_availableTags.filter(function(item, i, project_availableTags) {
+		return i == project_availableTags.indexOf(item);
+	});
+	
+	collabs_availableTags = collabs_availableTags.filter(function(item, i, collabs_availableTags) {
+		return i == collabs_availableTags.indexOf(item);
+	});
+	
 	tagcollect = [null, 
 			project_availableTags, 
 			site_availableTags,
