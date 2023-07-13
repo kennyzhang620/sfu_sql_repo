@@ -184,13 +184,18 @@ function clearFields() {
 	homebutton.click();
 }
 
-function updateBars(newT = false) {
-	console.log('ib', inputBars, tagcollect)
+
+function updateDropDown() {
 	for (var i = 0; i < inputBars.length; i++) {
 
-		if (newT == false || ( i != 7 && i != 16))
-			autoUpdateDropDown(inputBars[i], inputBars[i].name, tagcollect[i % 9])
+		autoUpdateDropDown(inputBars[i], inputBars[i].name, tagcollect[i % 9])
+	
+	}
+}
 
+function updateBars() {
+	console.log('ib', inputBars, tagcollect)
+	for (var i = 0; i < inputBars.length; i++) {
 		if (filtersPC.style.display != 'block') {
 			if (i + 9 < inputBars.length) {
 				inputBars[i + 9].value = inputBars[i].value ? inputBars[i].value.trim() : "";
@@ -210,7 +215,8 @@ function init() {
 		console.log("aaa_>", i, inputBars[i].placeholder, "  ", inputBars[i].value);
 
 		inputBars[i].onchange = function (keyin) {
-
+			
+			updateBars()
 			filter(inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value, inputBars[8].value);
 		
 		};
@@ -472,7 +478,6 @@ function newSection() {
 function movePtr(val) {
 	console.log("DB: ", dbLevel, val)
     if (dbLevel + val >= 0) {
-		console.log("wtf", parsedD.length );
 		if (val > 0 && parsedD.length >= 1000) {
         	dbLevel += val;
 			
@@ -614,7 +619,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	console.log("tester", collabs_availableTags)
 	console.log('pams:', Math.floor(getZoom(calculatedSqDistance)))
 	map.setView([averageLatLong[0], averageLatLong[1]], Math.floor(getZoom(calculatedSqDistance)))
-	updateBars(initialize)
+	updateDropDown()
 	
 	if (!initialize)
 		initialize = true;
