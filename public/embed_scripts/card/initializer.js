@@ -200,7 +200,7 @@ function init_main() {
                                 <div class="Filters_Pane" style="width:160%;">
                                     <div class="f_header">
                                         <div id="header_ft">Filter Options</div> 
-										<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Reset All</div></a>
+										<a><div id="clear_fields" class="filter_input" onclick="clearFields()">Clear All</div></a>
 <select id="filter_search" class="filter_input" name="All Projects"size="1">
   </select>
 <select id="filter_site" class="filter_input" name="All Research Sites" size="1">
