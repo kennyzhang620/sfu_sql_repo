@@ -550,7 +550,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	}
 
 
-	console.log("checkerL -> ", projectName, researchNames, piNames, collabNames, funderName, timePeriod, keywordList);
+	console.log("checkerL -> ", projectName, researchNames, piNames, collabNames, funderName, timePeriod, keywordList, activeBoxes);
 	
 	clearCells();
 	results.length = 0;
