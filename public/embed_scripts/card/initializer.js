@@ -18,40 +18,56 @@ var base = document.getElementsByClassName('main_map')
 	    period_availableTags,
 		 null]
 	
-	function cleartags() {
-	    pi_availableTags = [];
-	    coPIs_availableTags = [];
-	    period_availableTags = [];
-	    site_availableTags = [];
-	    funder_availableTags = [];
-		project_availableTags = [];
-		collabs_availableTags = [];
+	function cleartags(tags) {
+		if (!tags.includes("pi"))
+	    	pi_availableTags = [];
+		if (!tags.includes("co-pi"))
+	    	coPIs_availableTags = [];
+		if (!tags.includes("period"))
+	    	period_availableTags = [];
+		if (!tags.includes("sites"))
+	    	site_availableTags = [];
+		if (!tags.includes("funder"))
+	    	funder_availableTags = [];
+		if (!tags.includes("project"))
+			project_availableTags = [];
+		if (!tags.includes("collabs"))
+			collabs_availableTags = [];
 	}
 	
-function updatetags(i) {
+function updatetags(i, tags) {
 	
 
-
+	if (tags.includes("pi")) {
         var PIs = parsedD[i].pi; //.substring(0, 50);
         pi_availableTags.push(PIs);
-
+	}
+	if (tags.includes("co-pi")) {
         var CoPIs = parsedD[i].co_pi;
         coPIs_availableTags.push(CoPIs);
-
+	}
+	
+	if (tags.includes("period")) {
         var period = parsedD[i].fperiod.toString();
         period_availableTags.push(period);
-
+	}
+	
+	if (tags.includes("sites")) {
         var site = parsedD[i].research_site;
         site_availableTags.push(site);
-
+	}
+	if (tags.includes("funder")) {
         var Funder = parsedD[i].funder;
         funder_availableTags.push(Funder);
-		
+	}
+	if (tags.includes("project")) {
 		var Project = parsedD[i].project;
 		project_availableTags.push(Project);
-		
+	}
+	if (tags.includes("collabs")) {
 		var Collabs = parsedD[i].collabs;
 		collabs_availableTags.push(Collabs);
+	}
 		// no keyword for now.
 
     // Remove duplicates

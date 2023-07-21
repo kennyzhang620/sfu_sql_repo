@@ -493,38 +493,66 @@ function movePtr(val) {
 
 function filter(projectName, researchNames, piNames, copiNames, collabNames, funderName, timePeriod, keywordList) {
 
+	activeBoxes = []
+	
 	if (projectName == "All Projects"){
 		projectName = ""
+	}
+	else {
+		activeBoxes.append('project')
 	}
 	
 	if (researchNames == "All Research Sites"){
 		researchNames= ""
 	}
+	else {
+		activeBoxes.append('sites')
+	}
+	
 	
 	if (piNames == "All Principle Investigators"){
 		piNames = ""
 	}
-		
+	else {
+		activeBoxes.append('pi')
+	}
+	
+	
 	if (copiNames == "All Co-PIs"){
 		copiNames = ""
 	}
+	else {
+		activeBoxes.append('co-pi')
+	}
+	
 	
 	if (collabNames == "All Collaborators"){
 		collabNames = ""
 	}
+	else {
+		activeBoxes.append('collabs')
+	}
+	
 	
 	if (funderName == "All Funders"){
 		funderName = ""
 	}
+	else {
+		activeBoxes.append('funder')
+	}
+	
 	
 	if (timePeriod == "All Years"){
 		timePeriod = ""
 	}
-	
+	else {
+		activeBoxes.append('period')
+	}
+
 
 	console.log("checkerL -> ", projectName, researchNames, piNames, collabNames, funderName, timePeriod, keywordList);
 	
-	clearCells();
+	clearCells(activeBoxes);
 	results.length = 0;
 	for (var x = 0; x < markers.length; x++) {
 		map.removeLayer(markers[x]);
@@ -606,7 +634,10 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 			markers.push(markerT);
 
 			results.push(parsedD[i]);
-			updatetags(i);	
+			updatetags(i, activeBoxes);	
+		}
+		else {
+			
 		}
 	}
 	
