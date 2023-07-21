@@ -552,13 +552,13 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 
 	console.log("checkerL -> ", projectName, researchNames, piNames, collabNames, funderName, timePeriod, keywordList);
 	
-	clearCells(activeBoxes);
+	clearCells();
 	results.length = 0;
 	for (var x = 0; x < markers.length; x++) {
 		map.removeLayer(markers[x]);
 	}
 	
-	cleartags()
+	cleartags(activeBoxes)
 
 	markers.length = 0;
 	var count = 0;
