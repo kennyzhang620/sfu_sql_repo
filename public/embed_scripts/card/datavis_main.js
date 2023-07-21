@@ -499,14 +499,14 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 		projectName = ""
 	}
 	else {
-		activeBoxes.append('project')
+		activeBoxes.push('project')
 	}
 	
 	if (researchNames == "All Research Sites"){
 		researchNames= ""
 	}
 	else {
-		activeBoxes.append('sites')
+		activeBoxes.push('sites')
 	}
 	
 	
@@ -514,7 +514,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 		piNames = ""
 	}
 	else {
-		activeBoxes.append('pi')
+		activeBoxes.push('pi')
 	}
 	
 	
@@ -522,7 +522,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 		copiNames = ""
 	}
 	else {
-		activeBoxes.append('co-pi')
+		activeBoxes.push('co-pi')
 	}
 	
 	
@@ -530,7 +530,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 		collabNames = ""
 	}
 	else {
-		activeBoxes.append('collabs')
+		activeBoxes.push('collabs')
 	}
 	
 	
@@ -538,7 +538,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 		funderName = ""
 	}
 	else {
-		activeBoxes.append('funder')
+		activeBoxes.push('funder')
 	}
 	
 	
@@ -546,7 +546,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 		timePeriod = ""
 	}
 	else {
-		activeBoxes.append('period')
+		activeBoxes.push('period')
 	}
 
 
