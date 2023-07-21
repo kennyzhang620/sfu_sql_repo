@@ -38,33 +38,33 @@ var base = document.getElementsByClassName('main_map')
 function updatetags(i, tags) {
 	
 
-	if (tags.includes("pi")) {
+	if (!tags.includes("pi")) {
         var PIs = parsedD[i].pi; //.substring(0, 50);
         pi_availableTags.push(PIs);
 	}
-	if (tags.includes("co-pi")) {
+	if (!tags.includes("co-pi")) {
         var CoPIs = parsedD[i].co_pi;
         coPIs_availableTags.push(CoPIs);
 	}
 	
-	if (tags.includes("period")) {
+	if (!tags.includes("period")) {
         var period = parsedD[i].fperiod.toString();
         period_availableTags.push(period);
 	}
 	
-	if (tags.includes("sites")) {
+	if (!tags.includes("sites")) {
         var site = parsedD[i].research_site;
         site_availableTags.push(site);
 	}
-	if (tags.includes("funder")) {
+	if (!tags.includes("funder")) {
         var Funder = parsedD[i].funder;
         funder_availableTags.push(Funder);
 	}
-	if (tags.includes("project")) {
+	if (!tags.includes("project")) {
 		var Project = parsedD[i].project;
 		project_availableTags.push(Project);
 	}
-	if (tags.includes("collabs")) {
+	if (!tags.includes("collabs")) {
 		var Collabs = parsedD[i].collabs;
 		collabs_availableTags.push(Collabs);
 	}
