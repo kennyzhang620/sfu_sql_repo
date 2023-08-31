@@ -24,7 +24,7 @@ function clearInput() {
     }
     
     for (var i=0;i<updateList.length;i++) {
-        updateList[ind] = false;
+        updateList[i] = false;
     }
 }
 function print(objectD) {
