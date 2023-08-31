@@ -22,6 +22,10 @@ function clearInput() {
     for (var i=0;i<inputField.length; i++) {
         inputField[i].value = "";
     }
+    
+    for (var i=0;i<updateList.length;i++) {
+        updateList[ind] = false;
+    }
 }
 function print(objectD) {
     console.log(objectD)
