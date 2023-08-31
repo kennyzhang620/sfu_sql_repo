@@ -89,7 +89,7 @@ function deleteDB(uid, lat, long) {
         "auth_key": "93y7y33"
     }
 
-    sendPacket('/sfu-research-db/delete_entry', 'POST', newEntry, true, searchDB, onfailure);
+    sendPacket('/sfu-research-db/delete_entry', 'POST', newEntry, true, loadClear, onfailure);
 }
 
 function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, fund, url) {
@@ -108,7 +108,7 @@ function updateDBEntry(uid, lat, long, rs, proj, pi, cpi, collabs, kw, fperiod, 
         "url": url
     }
 
-    sendPacket('/sfu-research-db/update_entry/', 'POST', newEntry, true, searchDB, onfailure);
+    sendPacket('/sfu-research-db/update_entry/', 'POST', newEntry, true, loadClear, onfailure);
 }
 
 function runUpdates() {
@@ -360,7 +360,7 @@ function deleteAll() {
             ids: idsDelete
         }
 
-        sendPacket('/sfu-research-db/delete_entry_1_bulk/', 'POST', deletePacket, true, searchDB, onfailure)
+        sendPacket('/sfu-research-db/delete_entry_1_bulk/', 'POST', deletePacket, true, lo, onfailure)
 
     }
 }
@@ -477,7 +477,12 @@ function pushNewEntry() {
     }
 
     if (enforceEntry(newEntry.latitude, newEntry.longitude, newEntry.project, newEntry.year))
-        sendPacket('/sfu-research-db/add_entry', 'POST', newEntry, true, searchDB, onfailure);
+        sendPacket('/sfu-research-db/add_entry', 'POST', newEntry, true, loadClear, onfailure);
+}
+
+function loadClear() {
+    searchDB();
+    clearInput();
 }
 
 function sendUpdates() {
