@@ -102,13 +102,13 @@ function updatetags(i, tags) {
 	});
 	
 	tagcollect = [null, 
-			project_availableTags, 
-			site_availableTags,
-			pi_availableTags,
-		    coPIs_availableTags,
-			collabs_availableTags,
-			funder_availableTags,
-		    period_availableTags,
+			project_availableTags.sort(),
+			site_availableTags.sort(),
+			pi_availableTags.sort(),
+		    coPIs_availableTags.sort(),
+			collabs_availableTags.sort(),
+			funder_availableTags.sort(),
+		    period_availableTags.reverse(),
 			 null]
 }
 
