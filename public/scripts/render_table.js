@@ -9,12 +9,20 @@ var updateList = [false, false, false, false, false, false, false, false, false,
 var currIndex = 0;
 var storedInd = -1;
 var input = document.createElement('input');
+const inputField = document.getElementsByName("input_sel")
+
 input.type = 'file';
 input.accept = ".csv";
 const TIMEOUT = 7800;
 const SESSION_TO = 1000*60*30;
 
 var updateDetected = false;
+
+function clearInput() {
+    for (var i=0;i<inputField.length; i++) {
+        inputField[i].value = "";
+    }
+}
 function print(objectD) {
     console.log(objectD)
 }
@@ -638,4 +646,5 @@ function reloadDB(squery) {
 	getSize();
 }
 
+clearInput();
 reloadDB('');
