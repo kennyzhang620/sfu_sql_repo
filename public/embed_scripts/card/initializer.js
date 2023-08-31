@@ -108,7 +108,7 @@ function updatetags(i, tags) {
 		    coPIs_availableTags.sort(),
 			collabs_availableTags.sort(),
 			funder_availableTags.sort(),
-		    period_availableTags.reverse(),
+		    period_availableTags.sort().reverse(),
 			 null]
 }
 
