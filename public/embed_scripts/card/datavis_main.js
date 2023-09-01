@@ -571,14 +571,14 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 
 	for (var i = 0; i < parsedD.length; i++) {
 
-		var Project = parsedD[i].project?.trim() ?? "";
-		var PIs = parsedD[i].pi?.trim() ?? "";
-		var CoPIs = parsedD[i].co_pi?.trim() ?? "";
-		var Collabs = parsedD[i].collabs?.trim() ?? "";
-		var Funder = parsedD[i].funder?.trim() ?? "";
+		var Project = parsedD[i].project?.replace((/  |\r\n|\n|\r/gm)," ").trim() ?? "";
+		var PIs = parsedD[i].pi?.replace((/  |\r\n|\n|\r/gm)," ").trim() ?? "";
+		var CoPIs = parsedD[i].co_pi?.replace((/  |\r\n|\n|\r/gm)," ").trim() ?? "";
+		var Collabs = parsedD[i].collabs?.replace((/  |\r\n|\n|\r/gm)," ").trim() ?? "";
+		var Funder = parsedD[i].funder?.replace((/  |\r\n|\n|\r/gm)," ").trim() ?? "";
 		var TimePeriod = parsedD[i].fperiod;
-		var keywords = parsedD[i].keywords?.trim() ?? "";
-		var site = parsedD[i].research_site?.trim() ?? "";
+		var keywords = parsedD[i].keywords?.replace((/  |\r\n|\n|\r/gm)," ").trim() ?? "";
+		var site = parsedD[i].research_site?.replace((/  |\r\n|\n|\r/gm)," ").trim() ?? "";
 		var coordsLat = parsedD[i].latitude;
 		var coordsLong = parsedD[i].longitude;
 		
