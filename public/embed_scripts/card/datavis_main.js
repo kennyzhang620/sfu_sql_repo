@@ -583,7 +583,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 		var coordsLong = parsedD[i].longitude;
 		
 			
-		console.log("maint: ", Project.toLowerCase(),'<->', (projectName?.toLowerCase().trim() ?? ""))
+		console.log("maint: ", Project.toLowerCase(),'<->', (projectName?.toLowerCase().trim() ?? ""), Project.toLowerCase().includes(projectName?.toLowerCase().trim() ?? "")
 		if (Project.toLowerCase().includes(projectName?.toLowerCase().trim() ?? "") &&
 			site.toLowerCase().includes(researchNames?.toLowerCase().trim() ?? "") &&
 			PIs.toLowerCase().includes(piNames?.toLowerCase().trim() ?? "") &&

@@ -145,7 +145,7 @@ function autoUpdateDropDown(dd_id, name_t, tags) {
 }
 
 function dropfilter_tags(el) {
-	
+
 }
 
 function init_main() {
