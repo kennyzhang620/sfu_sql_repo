@@ -441,38 +441,41 @@ function generateCell(res, max_size) {
 
 }
 
+function indIndicator() {
+    
+    if (dbLevel <= 0) {
+        for (var x = 0; x < prevB.length; x++) {
+            prevB[x].disabled = true;
+        }
+    }
+    else {
+        for (var x = 0; x < prevB.length; x++) {
+            prevB[x].disabled = false;
+        }
+    }
+    
+    console.log(nextB)
+    for (var i=0;i<indexCounter.length;i++) {
+        if (results.length >= 1000) {
+            indexCounter[i].innerHTML = `${dbLevel*1000} - ${(dbLevel + 1) * 1000}`
+            for (var x = 0; x < nextB.length; x++) {
+                nextB[x].disabled = false;
+            }
+            
+        }
+        else {
+            indexCounter[i].innerHTML = `${dbLevel*1000} - ${results.length}`
+            for (var x = 0; x < nextB.length; x++) {
+                nextB[x].disabled = true;
+            }
+        }
+    }
+}
 function newSection() {
 	colours = generateColours(parsedD.length);
 	filter(inputBars[1].value, inputBars[2].value, inputBars[3].value, inputBars[4].value, inputBars[5].value, inputBars[6].value, inputBars[7].value, inputBars[8].value);
 	updatepos();
-	
-	if (dbLevel <= 0) {
-		for (var x = 0; x < prevB.length; x++) {
-			prevB[x].disabled = true;
-		}
-	}
-	else {
-		for (var x = 0; x < prevB.length; x++) {
-			prevB[x].disabled = false;
-		}
-	}
-	
-	console.log(nextB)
-	for (var i=0;i<indexCounter.length;i++) {
-		if (results.length >= 1000) {
-			indexCounter[i].innerHTML = `${dbLevel*1000} - ${(dbLevel + 1) * 1000}`
-			for (var x = 0; x < nextB.length; x++) {
-				nextB[x].disabled = false;
-			}
-			
-		}
-		else {
-			indexCounter[i].innerHTML = `${dbLevel*1000} - ${results.length}`
-			for (var x = 0; x < nextB.length; x++) {
-				nextB[x].disabled = true;
-			}
-		}
-	}
+    indIndicator();
 }
 
 function movePtr(val) {
@@ -654,6 +657,8 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	
 	if (!initialize)
 		initialize = true;
+    
+    indIndicator();
 	
 }
 
