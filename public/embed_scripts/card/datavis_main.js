@@ -459,7 +459,7 @@ function newSection() {
 	
 	console.log(nextB)
 	for (var i=0;i<indexCounter.length;i++) {
-		if (parsedD.length >= 1000) {
+		if (results.length >= 1000) {
 			indexCounter[i].innerHTML = `${dbLevel*1000} - ${(dbLevel + 1) * 1000}`
 			for (var x = 0; x < nextB.length; x++) {
 				nextB[x].disabled = false;
@@ -467,7 +467,7 @@ function newSection() {
 			
 		}
 		else {
-			indexCounter[i].innerHTML = `${dbLevel*1000} - ${parsedD.length}`
+			indexCounter[i].innerHTML = `${dbLevel*1000} - ${results.length}`
 			for (var x = 0; x < nextB.length; x++) {
 				nextB[x].disabled = true;
 			}
