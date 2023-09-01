@@ -652,6 +652,7 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	console.log("added #markers:", count);
 	console.log("tester", collabs_availableTags)
 	console.log('pams:', Math.floor(getZoom(calculatedSqDistance)))
+    console.log("cords->", [averageLatLong[0], averageLatLong[1]])
 	map.setView([averageLatLong[0], averageLatLong[1]], Math.floor(getZoom(calculatedSqDistance)))
 	updateDropDown()
 	
