@@ -182,7 +182,7 @@ function init_main() {
   </select>
 				</div>
                 <input type="text" class="filter_input" id="filter_keywords" placeholder="Keywords" style="display: none; width: 100%; padding: 5px; text-align: left; max-width: 979px;" hidden />
-				<div class="navigator" style="float:right; padding: 6px;">
+				<div class="navigator" style="padding: 6px;">
 					<div id="indic" style="font-size:18px;">Number of Research Sites:</div>
         			<button class="prev_btn_c" onclick="movePtr(-1)">Previous</button><index id="counter_id" class="counters" style="padding: 6px; font-size:18px;">0 - 10 / 65</index><button class="next_btn_c" onclick="movePtr(1)">Next</button>
     			</div>
