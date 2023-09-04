@@ -445,29 +445,35 @@ function indIndicator() {
     
     if (dbLevel <= 0) {
         for (var x = 0; x < prevB.length; x++) {
-            prevB[x].disabled = true;
+			prevB[x].style.display = 'none';
         }
     }
     else {
         for (var x = 0; x < prevB.length; x++) {
-            prevB[x].disabled = false;
+			prevB[x].style.display = 'block';
         }
     }
     
     console.log(nextB)
     for (var i=0;i<indexCounter.length;i++) {
-        if (results.length >= 1000) {
-            indexCounter[i].innerHTML = `${dbLevel*1000} - ${(dbLevel + 1) * 1000}`
-            for (var x = 0; x < nextB.length; x++) {
-                nextB[x].disabled = false;
-            }
-            
-        }
-        else {
-            indexCounter[i].innerHTML = `${dbLevel*1000} - ${results.length}`
-            for (var x = 0; x < nextB.length; x++) {
-                nextB[x].disabled = true;
-            }
+		if (results.length >= 1000) {
+			indexCounter[i].innerHTML = `${dbLevel * 1000} - ${(dbLevel + 1) * 1000}`
+			for (var x = 0; x < nextB.length; x++) {
+				nextB[x].style.display = 'block';
+			}
+
+		}
+		else if (dbLevel > 0) {
+			indexCounter[i].innerHTML = `${dbLevel * 1000} - ${results.length}`
+			for (var x = 0; x < nextB.length; x++) {
+				nextB[x].style.display = 'none';
+			}
+		}
+		else {
+			indexCounter[i].innerHTML = ` ${results.length}`
+			for (var x = 0; x < nextB.length; x++) {
+				nextB[x].style.display = 'none';
+			}
         }
     }
 }
