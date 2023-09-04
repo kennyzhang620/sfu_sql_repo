@@ -651,17 +651,20 @@ function filter(projectName, researchNames, piNames, copiNames, collabNames, fun
 	}
 	
 	calculatedSqDistance = calculatedSqDistance[0]/calculatedSqDistance[1]
-	averageLatLong = [averageLatLong[0]/averageLatLong[2], averageLatLong[1]/averageLatLong[2]]
-	console.log("Norm:", calculatedSqDistance - Math.sqrt(Math.pow(averageLatLong[0],2) + Math.pow(averageLatLong[1],2)), averageLatLong)
-	
-	generateCell(results, max_res_size);
-	console.log("added #markers:", count);
-	console.log("tester", collabs_availableTags)
-	console.log('pams:', Math.floor(getZoom(calculatedSqDistance)))
-    console.log("cords->", [averageLatLong[0], averageLatLong[1]])
-	map.setView([averageLatLong[0], averageLatLong[1]], Math.floor(getZoom(calculatedSqDistance)))
-	updateDropDown()
-	
+	averageLatLong = [averageLatLong[0] / averageLatLong[2], averageLatLong[1] / averageLatLong[2]]
+
+	if (!isNaN(averageLatLong[0])) {
+		console.log("Norm:", calculatedSqDistance - Math.sqrt(Math.pow(averageLatLong[0], 2) + Math.pow(averageLatLong[1], 2)), averageLatLong)
+
+		generateCell(results, max_res_size);
+		console.log("added #markers:", count);
+		console.log("tester", collabs_availableTags)
+		console.log('pams:', Math.floor(getZoom(calculatedSqDistance)))
+		console.log("cords->", [averageLatLong[0], averageLatLong[1]])
+		map.setView([averageLatLong[0], averageLatLong[1]], Math.floor(getZoom(calculatedSqDistance)))
+	}
+		updateDropDown()
+
 	if (!initialize)
 		initialize = true;
     
